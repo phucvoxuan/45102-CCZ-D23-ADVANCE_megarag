@@ -2,7 +2,7 @@
 
 import { useState, useCallback } from 'react';
 import Link from 'next/link';
-import { ArrowLeft, FileStack, History, PanelLeftClose, PanelLeft } from 'lucide-react';
+import { ArrowLeft, FileStack, History, PanelLeftClose, PanelLeft, Settings } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { ChatInterface, ChatHistory, ThemeToggle, Logo } from '@/components';
 
@@ -62,7 +62,13 @@ export default function ChatPage() {
               <Link href="/dashboard" className="hidden sm:block">
                 <Button variant="outline" size="sm">
                   <FileStack className="h-4 w-4 mr-2" />
-                  Manage Documents
+                  Documents
+                </Button>
+              </Link>
+              <Link href="/admin" className="hidden sm:block">
+                <Button variant="outline" size="sm">
+                  <Settings className="h-4 w-4 mr-2" />
+                  Admin
                 </Button>
               </Link>
             </div>

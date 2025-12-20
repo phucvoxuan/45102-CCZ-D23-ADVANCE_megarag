@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useCallback } from 'react';
 import Link from 'next/link';
-import { MessageSquare, RefreshCw, Microscope } from 'lucide-react';
+import { MessageSquare, RefreshCw, Microscope, Settings } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { DocumentUploader, DocumentList, ThemeToggle, DocumentListSkeleton, Logo } from '@/components';
@@ -119,6 +119,12 @@ export default function DashboardPage() {
                 <Button size="sm">
                   <MessageSquare className="h-4 w-4 mr-2" />
                   Chat
+                </Button>
+              </Link>
+              <Link href="/admin">
+                <Button variant="outline" size="sm">
+                  <Settings className="h-4 w-4 mr-2" />
+                  Admin
                 </Button>
               </Link>
             </div>

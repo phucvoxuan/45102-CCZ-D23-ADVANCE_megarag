@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { FileText, MessageSquare, Zap, Database, ArrowRight, Sparkles, FileVideo, FileAudio, FileImage } from 'lucide-react';
+import { FileText, MessageSquare, Zap, Database, ArrowRight, Sparkles, Settings } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Logo } from '@/components';
@@ -16,9 +16,15 @@ export default function Home() {
               <Button variant="ghost" size="sm">Dashboard</Button>
             </Link>
             <Link href="/dashboard/chat">
-              <Button size="sm">
+              <Button variant="ghost" size="sm">
                 <MessageSquare className="mr-2 h-4 w-4" />
                 Chat
+              </Button>
+            </Link>
+            <Link href="/admin">
+              <Button size="sm">
+                <Settings className="mr-2 h-4 w-4" />
+                Admin
               </Button>
             </Link>
           </div>

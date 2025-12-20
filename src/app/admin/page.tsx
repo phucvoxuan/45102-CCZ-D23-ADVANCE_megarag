@@ -1,35 +1,82 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { BarChart3, Zap, Database, FileText, Loader2 } from 'lucide-react';
+import Link from 'next/link';
+import {
+  BarChart3,
+  Zap,
+  Database,
+  FileText,
+  Loader2,
+  Users,
+  GitBranch,
+  MessageSquare,
+  Key,
+  ArrowRight,
+  CheckCircle,
+  Clock,
+  XCircle,
+  TrendingUp,
+} from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import type { UsageSummary } from '@/types';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { Progress } from '@/components/ui/progress';
 
-interface SessionData {
-  organization: { id: string };
+interface Stats {
+  documents: {
+    total: number;
+    completed: number;
+    processing: number;
+    pending: number;
+    failed: number;
+  };
+  chunks: number;
+  entities: number;
+  relations: number;
+  chat_sessions: number;
+  api_keys: number;
+  usage: {
+    total_api_requests: number;
+    total_llm_input_tokens: number;
+    total_llm_output_tokens: number;
+    total_embedding_requests: number;
+    total_storage_bytes: number;
+  };
+  recent_documents: Array<{
+    id: string;
+    file_name: string;
+    file_type: string;
+    status: string;
+    created_at: string;
+  }>;
+  entity_types: Array<{
+    type: string;
+    count: number;
+  }>;
 }
 
+const entityTypeColors: Record<string, string> = {
+  PERSON: 'bg-blue-500',
+  ORGANIZATION: 'bg-purple-500',
+  LOCATION: 'bg-green-500',
+  DATE: 'bg-orange-500',
+  EVENT: 'bg-pink-500',
+  CONCEPT: 'bg-yellow-500',
+  TECHNOLOGY: 'bg-cyan-500',
+  PRODUCT: 'bg-red-500',
+};
+
 export default function AdminDashboardPage() {
-  const [usage, setUsage] = useState<UsageSummary | null>(null);
+  const [stats, setStats] = useState<Stats | null>(null);
   const [isLoading, setIsLoading] = useState(true);
-  const [orgId, setOrgId] = useState<string | null>(null);
 
   useEffect(() => {
-    // Get session first
-    fetch('/api/admin/session')
-      .then((res) => res.json())
-      .then((data: { success: boolean; data: SessionData }) => {
-        if (data.success) {
-          setOrgId(data.data.organization.id);
-          // Then fetch usage
-          return fetch(`/api/admin/organizations/${data.data.organization.id}/usage`);
-        }
-        throw new Error('No session');
-      })
+    fetch('/api/admin/stats')
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
-          setUsage(data.data.usage);
+          setStats(data.data);
         }
       })
       .catch(console.error)
@@ -49,6 +96,21 @@ export default function AdminDashboardPage() {
     return bytes + ' B';
   };
 
+  const getStatusIcon = (status: string) => {
+    switch (status) {
+      case 'completed':
+        return <CheckCircle className="h-4 w-4 text-green-500" />;
+      case 'processing':
+        return <Loader2 className="h-4 w-4 text-blue-500 animate-spin" />;
+      case 'pending':
+        return <Clock className="h-4 w-4 text-yellow-500" />;
+      case 'failed':
+        return <XCircle className="h-4 w-4 text-red-500" />;
+      default:
+        return null;
+    }
+  };
+
   if (isLoading) {
     return (
       <div className="flex items-center justify-center h-64">
@@ -57,116 +119,262 @@ export default function AdminDashboardPage() {
     );
   }
 
-  const stats = [
-    {
-      title: 'API Requests',
-      value: formatNumber(usage?.total_api_requests || 0),
-      description: 'This month',
-      icon: BarChart3,
-    },
-    {
-      title: 'LLM Tokens',
-      value: formatNumber((usage?.total_llm_input_tokens || 0) + (usage?.total_llm_output_tokens || 0)),
-      description: 'Input + Output',
-      icon: Zap,
-    },
-    {
-      title: 'Embeddings',
-      value: formatNumber(usage?.total_embedding_requests || 0),
-      description: 'This month',
-      icon: FileText,
-    },
-    {
-      title: 'Storage',
-      value: formatBytes(usage?.total_storage_bytes || 0),
-      description: 'Total used',
-      icon: Database,
-    },
-  ];
+  const docCompletionRate = stats?.documents.total
+    ? Math.round((stats.documents.completed / stats.documents.total) * 100)
+    : 0;
 
   return (
     <div className="space-y-8">
       <div>
         <h1 className="text-3xl font-bold">Dashboard</h1>
         <p className="text-muted-foreground">
-          Overview of your organization&apos;s API usage
+          Overview of your knowledge base and API usage
         </p>
       </div>
 
-      {/* Stats Grid */}
+      {/* Main Stats Grid */}
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-        {stats.map((stat) => (
-          <Card key={stat.title}>
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">{stat.title}</CardTitle>
-              <stat.icon className="h-4 w-4 text-muted-foreground" />
-            </CardHeader>
-            <CardContent>
-              <div className="text-2xl font-bold">{stat.value}</div>
-              <p className="text-xs text-muted-foreground">{stat.description}</p>
-            </CardContent>
-          </Card>
-        ))}
+        <Card>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium">Documents</CardTitle>
+            <FileText className="h-4 w-4 text-muted-foreground" />
+          </CardHeader>
+          <CardContent>
+            <div className="text-2xl font-bold">{stats?.documents.total || 0}</div>
+            <div className="flex items-center gap-2 mt-1">
+              <Progress value={docCompletionRate} className="h-2 flex-1" />
+              <span className="text-xs text-muted-foreground">{docCompletionRate}%</span>
+            </div>
+            <p className="text-xs text-muted-foreground mt-1">
+              {stats?.documents.completed || 0} processed
+            </p>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium">Entities</CardTitle>
+            <Users className="h-4 w-4 text-muted-foreground" />
+          </CardHeader>
+          <CardContent>
+            <div className="text-2xl font-bold">{formatNumber(stats?.entities || 0)}</div>
+            <p className="text-xs text-muted-foreground">
+              Extracted from documents
+            </p>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium">Relations</CardTitle>
+            <GitBranch className="h-4 w-4 text-muted-foreground" />
+          </CardHeader>
+          <CardContent>
+            <div className="text-2xl font-bold">{formatNumber(stats?.relations || 0)}</div>
+            <p className="text-xs text-muted-foreground">
+              Knowledge graph connections
+            </p>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium">API Requests</CardTitle>
+            <TrendingUp className="h-4 w-4 text-muted-foreground" />
+          </CardHeader>
+          <CardContent>
+            <div className="text-2xl font-bold">
+              {formatNumber(stats?.usage?.total_api_requests || 0)}
+            </div>
+            <p className="text-xs text-muted-foreground">This month</p>
+          </CardContent>
+        </Card>
       </div>
 
-      {/* Usage Details */}
+      {/* Secondary Stats */}
+      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+        <Card>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium">Chunks</CardTitle>
+            <Database className="h-4 w-4 text-muted-foreground" />
+          </CardHeader>
+          <CardContent>
+            <div className="text-2xl font-bold">{formatNumber(stats?.chunks || 0)}</div>
+            <p className="text-xs text-muted-foreground">Indexed text segments</p>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium">LLM Tokens</CardTitle>
+            <Zap className="h-4 w-4 text-muted-foreground" />
+          </CardHeader>
+          <CardContent>
+            <div className="text-2xl font-bold">
+              {formatNumber(
+                (stats?.usage?.total_llm_input_tokens || 0) +
+                  (stats?.usage?.total_llm_output_tokens || 0)
+              )}
+            </div>
+            <p className="text-xs text-muted-foreground">Input + Output</p>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium">Chat Sessions</CardTitle>
+            <MessageSquare className="h-4 w-4 text-muted-foreground" />
+          </CardHeader>
+          <CardContent>
+            <div className="text-2xl font-bold">{stats?.chat_sessions || 0}</div>
+            <p className="text-xs text-muted-foreground">Total conversations</p>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium">Storage</CardTitle>
+            <Database className="h-4 w-4 text-muted-foreground" />
+          </CardHeader>
+          <CardContent>
+            <div className="text-2xl font-bold">
+              {formatBytes(stats?.usage?.total_storage_bytes || 0)}
+            </div>
+            <p className="text-xs text-muted-foreground">Total used</p>
+          </CardContent>
+        </Card>
+      </div>
+
+      <div className="grid gap-6 lg:grid-cols-2">
+        {/* Recent Documents */}
+        <Card>
+          <CardHeader className="flex flex-row items-center justify-between">
+            <div>
+              <CardTitle>Recent Documents</CardTitle>
+              <CardDescription>Latest uploads to your knowledge base</CardDescription>
+            </div>
+            <Button variant="ghost" size="sm" asChild>
+              <Link href="/admin/documents">
+                View all <ArrowRight className="h-4 w-4 ml-1" />
+              </Link>
+            </Button>
+          </CardHeader>
+          <CardContent>
+            {stats?.recent_documents && stats.recent_documents.length > 0 ? (
+              <div className="space-y-3">
+                {stats.recent_documents.map((doc) => (
+                  <div key={doc.id} className="flex items-center justify-between py-2 border-b last:border-0">
+                    <div className="flex items-center gap-3">
+                      {getStatusIcon(doc.status)}
+                      <div>
+                        <p className="font-medium text-sm truncate max-w-[200px]">
+                          {doc.file_name}
+                        </p>
+                        <p className="text-xs text-muted-foreground">
+                          {new Date(doc.created_at).toLocaleDateString()}
+                        </p>
+                      </div>
+                    </div>
+                    <Badge variant="outline" className="text-xs">
+                      {doc.file_type.split('/').pop()}
+                    </Badge>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="flex flex-col items-center justify-center h-32 text-muted-foreground">
+                <FileText className="h-8 w-8 mb-2" />
+                <p className="text-sm">No documents yet</p>
+              </div>
+            )}
+          </CardContent>
+        </Card>
+
+        {/* Entity Types Distribution */}
+        <Card>
+          <CardHeader className="flex flex-row items-center justify-between">
+            <div>
+              <CardTitle>Entity Distribution</CardTitle>
+              <CardDescription>Types of entities in your knowledge graph</CardDescription>
+            </div>
+            <Button variant="ghost" size="sm" asChild>
+              <Link href="/admin/entities">
+                View all <ArrowRight className="h-4 w-4 ml-1" />
+              </Link>
+            </Button>
+          </CardHeader>
+          <CardContent>
+            {stats?.entity_types && stats.entity_types.length > 0 ? (
+              <div className="space-y-3">
+                {stats.entity_types.slice(0, 6).map((et) => {
+                  const maxCount = stats.entity_types[0].count;
+                  const percentage = Math.round((et.count / maxCount) * 100);
+                  const color = entityTypeColors[et.type] || 'bg-gray-500';
+
+                  return (
+                    <div key={et.type} className="space-y-1">
+                      <div className="flex items-center justify-between text-sm">
+                        <div className="flex items-center gap-2">
+                          <div className={`w-3 h-3 rounded-full ${color}`} />
+                          <span>{et.type}</span>
+                        </div>
+                        <span className="text-muted-foreground">{formatNumber(et.count)}</span>
+                      </div>
+                      <div className="h-2 bg-muted rounded-full overflow-hidden">
+                        <div
+                          className={`h-full ${color} transition-all`}
+                          style={{ width: `${percentage}%` }}
+                        />
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            ) : (
+              <div className="flex flex-col items-center justify-center h-32 text-muted-foreground">
+                <Users className="h-8 w-8 mb-2" />
+                <p className="text-sm">No entities extracted yet</p>
+              </div>
+            )}
+          </CardContent>
+        </Card>
+      </div>
+
+      {/* Quick Actions */}
       <Card>
         <CardHeader>
-          <CardTitle>Token Breakdown</CardTitle>
-          <CardDescription>Input and output token usage this month</CardDescription>
+          <CardTitle>Quick Actions</CardTitle>
+          <CardDescription>Common tasks and navigation</CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="space-y-4">
-            <div className="flex items-center justify-between">
-              <span className="text-sm">Input Tokens</span>
-              <span className="font-medium">
-                {formatNumber(usage?.total_llm_input_tokens || 0)}
-              </span>
-            </div>
-            <div className="flex items-center justify-between">
-              <span className="text-sm">Output Tokens</span>
-              <span className="font-medium">
-                {formatNumber(usage?.total_llm_output_tokens || 0)}
-              </span>
-            </div>
-            <hr />
-            <div className="flex items-center justify-between text-lg">
-              <span className="font-medium">Total Tokens</span>
-              <span className="font-bold">
-                {formatNumber(
-                  (usage?.total_llm_input_tokens || 0) + (usage?.total_llm_output_tokens || 0)
-                )}
-              </span>
-            </div>
+          <div className="grid gap-4 md:grid-cols-4">
+            <Button variant="outline" className="h-auto py-4 flex-col gap-2" asChild>
+              <Link href="/admin/documents">
+                <FileText className="h-5 w-5" />
+                <span>Manage Documents</span>
+              </Link>
+            </Button>
+            <Button variant="outline" className="h-auto py-4 flex-col gap-2" asChild>
+              <Link href="/admin/knowledge-graph">
+                <GitBranch className="h-5 w-5" />
+                <span>View Knowledge Graph</span>
+              </Link>
+            </Button>
+            <Button variant="outline" className="h-auto py-4 flex-col gap-2" asChild>
+              <Link href="/admin/api-keys">
+                <Key className="h-5 w-5" />
+                <span>API Keys</span>
+              </Link>
+            </Button>
+            <Button variant="outline" className="h-auto py-4 flex-col gap-2" asChild>
+              <Link href="/admin/api-docs">
+                <BarChart3 className="h-5 w-5" />
+                <span>API Documentation</span>
+              </Link>
+            </Button>
           </div>
         </CardContent>
       </Card>
-
-      {/* Daily Usage */}
-      {usage?.daily_breakdown && usage.daily_breakdown.length > 0 && (
-        <Card>
-          <CardHeader>
-            <CardTitle>Daily Usage</CardTitle>
-            <CardDescription>API requests per day this month</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <div className="space-y-2">
-              {usage.daily_breakdown.slice(-7).map((day) => (
-                <div key={day.date} className="flex items-center justify-between py-2 border-b last:border-0">
-                  <span className="text-sm text-muted-foreground">
-                    {new Date(day.date).toLocaleDateString()}
-                  </span>
-                  <div className="flex gap-4 text-sm">
-                    <span>{day.api_requests} requests</span>
-                    <span className="text-muted-foreground">|</span>
-                    <span>{formatNumber(day.llm_input_tokens + day.llm_output_tokens)} tokens</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </CardContent>
-        </Card>
-      )}
     </div>
   );
 }

@@ -1,28 +1,20 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import { useRouter, usePathname } from 'next/navigation';
+import { useState } from 'react';
+import { usePathname } from 'next/navigation';
 import Link from 'next/link';
-import { Building2, Key, BarChart3, Settings, LogOut, Menu, X } from 'lucide-react';
+import { Building2, Key, BarChart3, Settings, Menu, X, FileText, Users, GitBranch, Network, BookOpen, Home } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 
-interface SessionData {
-  user: {
-    id: string;
-    email: string;
-    role: 'owner' | 'admin' | 'viewer';
-  };
-  organization: {
-    id: string;
-    name: string;
-    slug: string;
-  };
-}
-
 const navItems = [
   { href: '/admin', label: 'Dashboard', icon: BarChart3 },
+  { href: '/admin/documents', label: 'Documents', icon: FileText },
+  { href: '/admin/entities', label: 'Entities', icon: Users },
+  { href: '/admin/relations', label: 'Relations', icon: GitBranch },
+  { href: '/admin/knowledge-graph', label: 'Knowledge Graph', icon: Network },
   { href: '/admin/api-keys', label: 'API Keys', icon: Key },
+  { href: '/admin/api-docs', label: 'API Docs', icon: BookOpen },
   { href: '/admin/settings', label: 'Settings', icon: Settings },
 ];
 
@@ -31,61 +23,8 @@ export default function AdminLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const router = useRouter();
   const pathname = usePathname();
-  const [session, setSession] = useState<SessionData | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
   const [sidebarOpen, setSidebarOpen] = useState(false);
-
-  useEffect(() => {
-    // Skip session check for login page
-    if (pathname === '/admin/login') {
-      setIsLoading(false);
-      return;
-    }
-
-    // Check session
-    fetch('/api/admin/session')
-      .then((res) => {
-        if (!res.ok) throw new Error('Not authenticated');
-        return res.json();
-      })
-      .then((data) => {
-        if (data.success) {
-          setSession(data.data);
-        } else {
-          throw new Error('Invalid session');
-        }
-      })
-      .catch(() => {
-        router.push('/admin/login');
-      })
-      .finally(() => {
-        setIsLoading(false);
-      });
-  }, [pathname, router]);
-
-  const handleLogout = async () => {
-    await fetch('/api/admin/logout', { method: 'POST' });
-    router.push('/admin/login');
-  };
-
-  // Show login page without layout
-  if (pathname === '/admin/login') {
-    return <>{children}</>;
-  }
-
-  if (isLoading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
-      </div>
-    );
-  }
-
-  if (!session) {
-    return null;
-  }
 
   return (
     <div className="min-h-screen bg-background">
@@ -114,7 +53,7 @@ export default function AdminLayout({
               <Building2 className="h-6 w-6 text-primary" />
               <span className="font-bold text-lg">Admin Panel</span>
             </div>
-            <p className="text-sm text-muted-foreground mt-1">{session.organization.name}</p>
+            <p className="text-sm text-muted-foreground mt-1">MegaRAG</p>
           </div>
 
           {/* Navigation */}
@@ -140,21 +79,14 @@ export default function AdminLayout({
             })}
           </nav>
 
-          {/* User info & logout */}
+          {/* Back to app */}
           <div className="p-4 border-t">
-            <div className="mb-3">
-              <p className="text-sm font-medium truncate">{session.user.email}</p>
-              <p className="text-xs text-muted-foreground capitalize">{session.user.role}</p>
-            </div>
-            <Button
-              variant="outline"
-              size="sm"
-              className="w-full"
-              onClick={handleLogout}
-            >
-              <LogOut className="h-4 w-4 mr-2" />
-              Logout
-            </Button>
+            <Link href="/dashboard">
+              <Button variant="outline" size="sm" className="w-full">
+                <Home className="h-4 w-4 mr-2" />
+                Back to App
+              </Button>
+            </Link>
           </div>
         </div>
       </aside>

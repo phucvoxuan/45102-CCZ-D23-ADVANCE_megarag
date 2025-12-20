@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { ArrowLeft, Microscope, MessageSquare, FileStack } from 'lucide-react';
+import { ArrowLeft, Microscope, MessageSquare, FileStack, Settings } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { DataExplorer, ThemeToggle } from '@/components';
 
@@ -43,6 +43,12 @@ export default function ExplorerPage() {
                 <Button variant="outline" size="sm">
                   <FileStack className="h-4 w-4 mr-2" />
                   Documents
+                </Button>
+              </Link>
+              <Link href="/admin" className="hidden sm:block">
+                <Button variant="outline" size="sm">
+                  <Settings className="h-4 w-4 mr-2" />
+                  Admin
                 </Button>
               </Link>
             </div>
