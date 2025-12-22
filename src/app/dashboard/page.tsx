@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { MessageSquare, RefreshCw, Microscope, Settings } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { DocumentUploader, DocumentList, ThemeToggle, DocumentListSkeleton, Logo } from '@/components';
+import { DocumentUploader, DocumentList, ThemeToggle, DocumentListSkeleton, Logo, CommandPalette } from '@/components';
 import { toast } from 'sonner';
 import type { Document } from '@/types';
 
@@ -94,16 +94,20 @@ export default function DashboardPage() {
       <header className="border-b bg-background/80 backdrop-blur-sm sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
+            <button
+              onClick={() => window.location.reload()}
+              className="flex items-center gap-3 hover:opacity-80 transition-opacity"
+            >
               <Logo size="sm" showText={false} />
-              <div>
+              <div className="text-left">
                 <h1 className="text-2xl font-bold">MegaRAG</h1>
                 <p className="text-sm text-muted-foreground">
                   Multi-Modal RAG System
                 </p>
               </div>
-            </div>
+            </button>
             <div className="flex items-center gap-2">
+              <CommandPalette />
               <ThemeToggle />
               <Button variant="outline" size="sm" onClick={() => fetchDocuments(true)} disabled={isRefreshing}>
                 <RefreshCw className={`h-4 w-4 mr-2 ${isRefreshing ? 'animate-spin' : ''}`} />
