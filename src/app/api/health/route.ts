@@ -15,7 +15,6 @@ interface HealthResponse {
     api: HealthCheck;
     database: HealthCheck;
     storage: HealthCheck;
-    docling?: HealthCheck;
   };
   uptime_seconds: number;
 }
@@ -67,28 +66,6 @@ export async function GET() {
   } catch (error) {
     response.services.storage.status = 'unhealthy';
     response.services.storage.error = error instanceof Error ? error.message : 'Unknown error';
-  }
-
-  // Check Docling service (optional)
-  const doclingUrl = process.env.DOCLING_SERVICE_URL || 'http://localhost:8000';
-  try {
-    const doclingStart = Date.now();
-    const doclingResponse = await fetch(`${doclingUrl}/health`, {
-      method: 'GET',
-      signal: AbortSignal.timeout(5000),
-    });
-    response.services.docling = {
-      status: doclingResponse.ok ? 'healthy' : 'degraded',
-      latency_ms: Date.now() - doclingStart,
-    };
-    if (!doclingResponse.ok) {
-      response.services.docling.error = `HTTP ${doclingResponse.status}`;
-    }
-  } catch {
-    response.services.docling = {
-      status: 'unhealthy',
-      error: 'Service unavailable',
-    };
   }
 
   // Determine overall status
