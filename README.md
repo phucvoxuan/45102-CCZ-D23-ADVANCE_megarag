@@ -1285,6 +1285,8 @@ CREATE TABLE IF NOT EXISTS chat_sessions (
     id VARCHAR(255) PRIMARY KEY,
     workspace VARCHAR(255) DEFAULT 'default',
     title VARCHAR(512) DEFAULT 'New Chat',
+    system_prompt TEXT,                                    -- Custom system prompt for this chat
+    model VARCHAR(100) DEFAULT 'gemini-2.5-flash',         -- AI model to use
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
@@ -1294,12 +1296,15 @@ CREATE TABLE IF NOT EXISTS chat_messages (
     session_id VARCHAR(255) REFERENCES chat_sessions(id) ON DELETE CASCADE,
     role VARCHAR(50) NOT NULL,  -- 'user' or 'assistant'
     content TEXT NOT NULL,
-    sources JSONB DEFAULT '[]'::jsonb,  -- Source references for AI responses
+    sources JSONB DEFAULT '[]'::jsonb,   -- Source references for AI responses
+    entities JSONB DEFAULT '[]'::jsonb,  -- Entities found in response
+    query_mode VARCHAR(50),              -- Query mode used (naive, local, global, hybrid, mix)
     metadata JSONB DEFAULT '{}'::jsonb,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE INDEX IF NOT EXISTS idx_chat_sessions_updated ON chat_sessions(updated_at);
+CREATE INDEX IF NOT EXISTS idx_chat_sessions_workspace ON chat_sessions(workspace);
 CREATE INDEX IF NOT EXISTS idx_chat_messages_session ON chat_messages(session_id);
 ```
 
