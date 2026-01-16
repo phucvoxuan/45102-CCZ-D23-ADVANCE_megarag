@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { supabaseAdmin } from '@/lib/supabase/server';
+import { createClient } from '@/lib/supabase/auth-server';
 
 interface RelationWithNames {
   id: string;
@@ -15,11 +16,36 @@ interface RelationWithNames {
   created_at: string;
 }
 
+// Empty response for when table doesn't exist or is empty
+const EMPTY_RELATIONS_RESPONSE = {
+  success: true,
+  data: {
+    relations: [],
+    available_types: [],
+    pagination: {
+      page: 1,
+      limit: 50,
+      total: 0,
+      total_pages: 0,
+    },
+  },
+};
+
 /**
- * GET /api/admin/relations - List relations with entity names (no auth required)
+ * GET /api/admin/relations - List relations with entity names for current user
  */
 export async function GET(request: NextRequest) {
-  const workspace = 'default';
+  // Authenticate user
+  const supabase = await createClient();
+  const { data: { user }, error: authError } = await supabase.auth.getUser();
+
+  if (authError || !user) {
+    return NextResponse.json(
+      { success: false, error: 'Unauthorized' },
+      { status: 401 }
+    );
+  }
+
   const { searchParams } = new URL(request.url);
   const page = parseInt(searchParams.get('page') || '1');
   const limit = Math.min(parseInt(searchParams.get('limit') || '50'), 100);
@@ -28,11 +54,11 @@ export async function GET(request: NextRequest) {
   const offset = (page - 1) * limit;
 
   try {
-    // First get relations
+    // First get relations for current user
     let query = supabaseAdmin
       .from('relations')
       .select('*', { count: 'exact' })
-      .eq('workspace', workspace)
+      .eq('user_id', user.id)
       .order('created_at', { ascending: false });
 
     if (relationType) {
@@ -45,6 +71,13 @@ export async function GET(request: NextRequest) {
 
     if (error) {
       console.error('Error fetching relations:', error);
+      // Handle table not found or schema cache errors gracefully
+      if (error.code === 'PGRST205' || error.message?.includes('does not exist')) {
+        return NextResponse.json({
+          ...EMPTY_RELATIONS_RESPONSE,
+          warning: 'Relations table not available. Please run database migrations.',
+        });
+      }
       return NextResponse.json({ success: false, error: 'Failed to fetch relations' }, { status: 500 });
     }
 
@@ -92,7 +125,7 @@ export async function GET(request: NextRequest) {
     const { data: types } = await supabaseAdmin
       .from('relations')
       .select('relation_type')
-      .eq('workspace', workspace);
+      .eq('user_id', user.id);
 
     const uniqueTypes = [...new Set(types?.map(t => t.relation_type) || [])];
 
@@ -116,10 +149,19 @@ export async function GET(request: NextRequest) {
 }
 
 /**
- * DELETE /api/admin/relations - Bulk delete relations (no auth required)
+ * DELETE /api/admin/relations - Bulk delete relations for current user
  */
 export async function DELETE(request: NextRequest) {
-  const workspace = 'default';
+  // Authenticate user
+  const supabase = await createClient();
+  const { data: { user }, error: authError } = await supabase.auth.getUser();
+
+  if (authError || !user) {
+    return NextResponse.json(
+      { success: false, error: 'Unauthorized' },
+      { status: 401 }
+    );
+  }
 
   const body = await request.json();
   const relationIds: string[] = body.relation_ids;
@@ -129,10 +171,11 @@ export async function DELETE(request: NextRequest) {
   }
 
   try {
+    // Only delete relations belonging to the current user
     const { error } = await supabaseAdmin
       .from('relations')
       .delete()
-      .eq('workspace', workspace)
+      .eq('user_id', user.id)
       .in('id', relationIds);
 
     if (error) {

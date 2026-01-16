@@ -1,8 +1,7 @@
 import { v4 as uuidv4 } from 'uuid';
 import { generateContent } from '@/lib/gemini/client';
-import { generateEmbedding } from '@/lib/gemini/embeddings';
 import { supabaseAdmin } from '@/lib/supabase/server';
-import type { EntityInsert, RelationInsert, ExtractionResult } from '@/types';
+import type { ExtractionResult } from '@/types';
 
 /**
  * System prompt for entity and relation extraction
@@ -56,9 +55,27 @@ Return a JSON object with two arrays:
 6. Return valid JSON only, no markdown code blocks`;
 
 /**
+ * Field length limits to avoid PostgreSQL errors
+ */
+const MAX_NAME_LENGTH = 500;
+const MAX_TYPE_LENGTH = 100;
+const MAX_DESCRIPTION_LENGTH = 2000;
+
+function truncate(text: string | undefined | null, maxLength: number): string {
+  if (!text) return '';
+  const trimmed = text.trim();
+  if (trimmed.length <= maxLength) return trimmed;
+  return trimmed.substring(0, maxLength - 3) + '...';
+}
+
+/**
  * Extract entities and relations from a chunk of text using Gemini
  */
 export async function extractEntitiesFromText(content: string): Promise<ExtractionResult> {
+  const startTime = Date.now();
+  console.log('[EntityExtractor] 📤 Calling Gemini API for extraction...');
+  console.log('[EntityExtractor]    Content length:', content.length, 'chars');
+
   try {
     const prompt = `${ENTITY_EXTRACTION_SYSTEM_PROMPT}
 
@@ -70,28 +87,47 @@ ${content}
 
 Return valid JSON only.`;
 
+    console.log('[EntityExtractor]    Prompt length:', prompt.length, 'chars');
+
     const response = await generateContent(prompt);
+    const elapsed = Date.now() - startTime;
+
+    console.log('[EntityExtractor] 📥 Gemini response received in', elapsed, 'ms');
+    console.log('[EntityExtractor]    Response length:', response?.length || 0, 'chars');
+    console.log('[EntityExtractor]    Response preview:', response?.substring(0, 200) || 'EMPTY');
 
     // Parse the JSON response
     const jsonMatch = response.match(/\{[\s\S]*\}/);
     if (!jsonMatch) {
-      console.warn('No JSON found in extraction response');
+      console.warn('[EntityExtractor] ⚠️ No JSON found in extraction response');
+      console.warn('[EntityExtractor]    Full response:', response);
       return { entities: [], relations: [] };
     }
 
     const result = JSON.parse(jsonMatch[0]) as ExtractionResult;
 
+    console.log('[EntityExtractor] ✅ Parsed result:', {
+      entitiesCount: result.entities?.length || 0,
+      relationsCount: result.relations?.length || 0,
+    });
+
     // Validate structure
     if (!Array.isArray(result.entities)) {
+      console.warn('[EntityExtractor] ⚠️ entities is not an array, defaulting to []');
       result.entities = [];
     }
     if (!Array.isArray(result.relations)) {
+      console.warn('[EntityExtractor] ⚠️ relations is not an array, defaulting to []');
       result.relations = [];
     }
 
     return result;
   } catch (error) {
-    console.error('Error extracting entities:', error);
+    const elapsed = Date.now() - startTime;
+    console.error('[EntityExtractor] ❌ GEMINI API ERROR after', elapsed, 'ms');
+    console.error('[EntityExtractor]    Error type:', (error as Error)?.name);
+    console.error('[EntityExtractor]    Error message:', (error as Error)?.message);
+    console.error('[EntityExtractor]    Full error:', error);
     return { entities: [], relations: [] };
   }
 }
@@ -104,9 +140,17 @@ function normalizeEntityName(name: string): string {
 }
 
 /**
- * Deduplicate and merge entities from multiple chunks
+ * Validate entity name
  */
-export function deduplicateEntities(
+function isValidEntityName(name: string): boolean {
+  const trimmed = name?.trim() || '';
+  return trimmed.length >= 2 && !trimmed.match(/^[\d\s\W]+$/);
+}
+
+/**
+ * Deduplicate entities from multiple chunks
+ */
+function deduplicateEntities(
   allEntities: Array<{
     name: string;
     type: string;
@@ -126,17 +170,15 @@ export function deduplicateEntities(
 
     if (entityMap.has(normalizedName)) {
       const existing = entityMap.get(normalizedName)!;
-      // Add unique description
       if (!existing.descriptions.includes(entity.description)) {
         existing.descriptions.push(entity.description);
       }
-      // Add unique source chunk
       if (!existing.sourceChunkIds.includes(entity.sourceChunkId)) {
         existing.sourceChunkIds.push(entity.sourceChunkId);
       }
     } else {
       entityMap.set(normalizedName, {
-        name: entity.name, // Keep original casing
+        name: entity.name,
         type: entity.type,
         descriptions: [entity.description],
         sourceChunkIds: [entity.sourceChunkId],
@@ -151,29 +193,57 @@ export function deduplicateEntities(
  * Merge multiple descriptions into one
  */
 function mergeDescriptions(descriptions: string[]): string {
-  if (descriptions.length === 1) {
-    return descriptions[0];
-  }
-
-  // Remove duplicates and join
-  const unique = [...new Set(descriptions)];
-  if (unique.length === 1) {
-    return unique[0];
-  }
-
-  // Combine unique descriptions
-  return unique.join(' ');
+  const unique = [...new Set(descriptions.filter(d => d))];
+  return unique.join(' ').substring(0, MAX_DESCRIPTION_LENGTH);
 }
 
 /**
- * Process entities for a document - extract, deduplicate, embed, and store
+ * Process entities for a document - extract, deduplicate, and store
+ * Uses actual database schema fields
  */
 export async function processEntitiesForDocument(
   documentId: string,
   chunks: Array<{ id: string; content: string }>,
-  workspace: string = 'default'
+  workspace: string = 'default',
+  userId?: string
 ): Promise<{ entitiesCreated: number; relationsCreated: number }> {
-  // Collect all extracted entities and relations from chunks
+  const overallStartTime = Date.now();
+
+  console.log('\n========================================');
+  console.log('🔍 ENTITY EXTRACTION TRIGGERED');
+  console.log('========================================');
+  console.log('Time:', new Date().toISOString());
+  console.log('Document ID:', documentId);
+  console.log('Workspace:', workspace);
+  console.log('Input chunks:', chunks?.length || 0);
+  console.log('Provided userId:', userId || 'NOT PROVIDED');
+  console.log('========================================\n');
+
+  try {
+    // Validate input
+    if (!chunks || chunks.length === 0) {
+      console.log('[EntityExtractor] ⚠️ No chunks provided, returning early');
+      return { entitiesCreated: 0, relationsCreated: 0 };
+    }
+
+    // If userId not provided, try to get it from the document
+    let effectiveUserId = userId;
+    if (!effectiveUserId && documentId) {
+      console.log('[EntityExtractor] Fetching user_id from document...');
+      const { data: doc, error: docError } = await supabaseAdmin
+        .from('documents')
+        .select('user_id')
+        .eq('id', documentId)
+        .single();
+
+      if (docError) {
+        console.error('[EntityExtractor] Error fetching document:', docError);
+      }
+      effectiveUserId = doc?.user_id || undefined;
+      console.log('[EntityExtractor] Effective user_id:', effectiveUserId || 'NONE');
+    }
+
+    // Collect all extracted entities and relations from chunks
   const allExtractedEntities: Array<{
     name: string;
     type: string;
@@ -190,30 +260,38 @@ export async function processEntitiesForDocument(
   }> = [];
 
   // Extract from each chunk
-  for (const chunk of chunks) {
-    // Skip very short chunks
-    if (chunk.content.length < 50) continue;
+  console.log(`[EntityExtractor] Starting extraction from ${chunks.length} chunks...`);
+  let chunkIndex = 0;
 
+  for (const chunk of chunks) {
+    chunkIndex++;
+    if (chunk.content.length < 50) {
+      console.log(`[EntityExtractor] Chunk ${chunkIndex}/${chunks.length}: SKIPPED (too short: ${chunk.content.length} chars)`);
+      continue;
+    }
+
+    console.log(`[EntityExtractor] Chunk ${chunkIndex}/${chunks.length}: Processing (${chunk.content.length} chars)...`);
     const extraction = await extractEntitiesFromText(chunk.content);
+    console.log(`[EntityExtractor] Chunk ${chunkIndex}/${chunks.length}: Got ${extraction.entities?.length || 0} entities, ${extraction.relations?.length || 0} relations`);
 
     for (const entity of extraction.entities) {
-      if (entity.name && entity.type) {
+      if (isValidEntityName(entity.name)) {
         allExtractedEntities.push({
-          name: entity.name,
-          type: entity.type,
-          description: entity.description || '',
+          name: truncate(entity.name, MAX_NAME_LENGTH),
+          type: truncate(entity.type?.toUpperCase() || 'UNKNOWN', MAX_TYPE_LENGTH),
+          description: truncate(entity.description, MAX_DESCRIPTION_LENGTH),
           sourceChunkId: chunk.id,
         });
       }
     }
 
     for (const relation of extraction.relations) {
-      if (relation.source && relation.target && relation.type) {
+      if (isValidEntityName(relation.source) && isValidEntityName(relation.target)) {
         allExtractedRelations.push({
-          source: relation.source,
-          target: relation.target,
-          type: relation.type,
-          description: relation.description || '',
+          source: truncate(relation.source, MAX_NAME_LENGTH),
+          target: truncate(relation.target, MAX_NAME_LENGTH),
+          type: truncate(relation.type?.toUpperCase() || 'RELATED_TO', MAX_TYPE_LENGTH),
+          description: truncate(relation.description, MAX_DESCRIPTION_LENGTH),
           sourceChunkId: chunk.id,
         });
       }
@@ -221,115 +299,180 @@ export async function processEntitiesForDocument(
   }
 
   if (allExtractedEntities.length === 0) {
+    console.log('[EntityExtractor] No entities extracted');
     return { entitiesCreated: 0, relationsCreated: 0 };
   }
 
   // Deduplicate entities
   const deduplicatedEntities = deduplicateEntities(allExtractedEntities);
+  console.log(`[EntityExtractor] Deduplicated to ${deduplicatedEntities.size} unique entities`);
 
-  // Create entity records with embeddings
-  const entityInserts: EntityInsert[] = [];
+  // Build entity inserts matching ACTUAL database schema
   const entityNameToId = new Map<string, string>();
+  const entityInserts: Array<Record<string, unknown>> = [];
 
   for (const [normalizedName, entityData] of deduplicatedEntities) {
     const entityId = uuidv4();
     const mergedDescription = mergeDescriptions(entityData.descriptions);
 
-    // Generate embedding for entity description
-    let embedding: number[] | undefined;
-    try {
-      const textToEmbed = `${entityData.name}: ${mergedDescription}`;
-      embedding = await generateEmbedding(textToEmbed);
-    } catch (error) {
-      console.error(`Error generating embedding for entity ${entityData.name}:`, error);
-    }
-
-    entityInserts.push({
+    // ACTUAL database schema (verified via check-entities-schema.js)
+    // Schema has BOTH 'name' AND 'entity_name', BOTH 'type' AND 'entity_type'
+    // Must provide ALL to satisfy NOT NULL constraints
+    const entityInsert: Record<string, unknown> = {
       id: entityId,
-      workspace,
-      entity_name: entityData.name,
-      entity_type: entityData.type,
+      workspace: workspace,
+      name: truncate(entityData.name, MAX_NAME_LENGTH),            // Required - primary
+      type: truncate(entityData.type, MAX_TYPE_LENGTH),            // Required - primary
+      entity_name: truncate(entityData.name, MAX_NAME_LENGTH),     // Required - legacy
+      entity_type: truncate(entityData.type, MAX_TYPE_LENGTH),     // Required - legacy
       description: mergedDescription,
-      content_vector: embedding,
       source_chunk_ids: entityData.sourceChunkIds,
-    });
+      user_id: effectiveUserId || null,                            // Required for RLS
+    };
 
+    console.log('[EntityExtractor] Inserting entity:', JSON.stringify(entityInsert, null, 2));
+    entityInserts.push(entityInsert);
     entityNameToId.set(normalizedName, entityId);
   }
 
   // Store entities
+  let entitiesCreated = 0;
   if (entityInserts.length > 0) {
     const { error: entityError } = await supabaseAdmin
       .from('entities')
       .insert(entityInserts);
 
     if (entityError) {
-      console.error('Error inserting entities:', entityError);
+      console.error('[EntityExtractor] Error inserting entities:', entityError);
+    } else {
+      entitiesCreated = entityInserts.length;
+      console.log(`[EntityExtractor] Successfully inserted ${entitiesCreated} entities`);
     }
   }
 
-  // Process relations
-  const relationInserts: RelationInsert[] = [];
+  // DEBUG: Log entity map for troubleshooting
+  console.log('[EntityExtractor] Entity name -> ID map:');
+  for (const [name, id] of entityNameToId) {
+    console.log(`  "${name}" -> ${id}`);
+  }
+
+  // Build relation inserts matching ACTUAL database schema
+  const relationInserts: Array<Record<string, unknown>> = [];
   const seenRelations = new Set<string>();
+
+  console.log(`[EntityExtractor] Processing ${allExtractedRelations.length} extracted relations`);
 
   for (const relation of allExtractedRelations) {
     const sourceNormalized = normalizeEntityName(relation.source);
     const targetNormalized = normalizeEntityName(relation.target);
 
+    console.log(`[EntityExtractor] Relation: "${relation.source}" -> "${relation.target}"`);
+    console.log(`[EntityExtractor]   Normalized: "${sourceNormalized}" -> "${targetNormalized}"`);
+
     const sourceId = entityNameToId.get(sourceNormalized);
     const targetId = entityNameToId.get(targetNormalized);
 
-    // Skip if entities don't exist
-    if (!sourceId || !targetId) continue;
+    console.log(`[EntityExtractor]   sourceId: ${sourceId || 'NOT FOUND'}, targetId: ${targetId || 'NOT FOUND'}`);
 
-    // Skip duplicate relations
-    const relationKey = `${sourceId}-${relation.type}-${targetId}`;
-    if (seenRelations.has(relationKey)) continue;
-    seenRelations.add(relationKey);
-
-    // Generate embedding for relation
-    let embedding: number[] | undefined;
-    try {
-      const textToEmbed = `${relation.source} ${relation.type} ${relation.target}: ${relation.description}`;
-      embedding = await generateEmbedding(textToEmbed);
-    } catch (error) {
-      console.error('Error generating embedding for relation:', error);
+    if (!sourceId) {
+      console.log(`[EntityExtractor] SKIP relation - sourceId not found for: "${relation.source}" (normalized: "${sourceNormalized}")`);
+      continue;
+    }
+    if (!targetId) {
+      console.log(`[EntityExtractor] SKIP relation - targetId not found for: "${relation.target}" (normalized: "${targetNormalized}")`);
+      continue;
     }
 
-    relationInserts.push({
+    const relationKey = `${sourceId}-${relation.type}-${targetId}`;
+    if (seenRelations.has(relationKey)) {
+      console.log(`[EntityExtractor] SKIP duplicate relation: ${relationKey}`);
+      continue;
+    }
+    seenRelations.add(relationKey);
+
+    // ACTUAL database schema (verified via check-entities-schema.js)
+    // Schema has source_entity/target_entity (names) in addition to IDs
+    const relationInsert: Record<string, unknown> = {
       id: uuidv4(),
-      workspace,
+      workspace: workspace,
       source_entity_id: sourceId,
       target_entity_id: targetId,
-      relation_type: relation.type,
-      description: relation.description,
-      content_vector: embedding,
+      source_entity: truncate(relation.source, MAX_NAME_LENGTH),    // Entity name (required)
+      target_entity: truncate(relation.target, MAX_NAME_LENGTH),    // Entity name (required)
+      relation_type: truncate(relation.type, MAX_TYPE_LENGTH),
+      description: truncate(relation.description, MAX_DESCRIPTION_LENGTH),
       source_chunk_ids: [relation.sourceChunkId],
-    });
+      user_id: effectiveUserId || null,                             // Required for RLS
+    };
+
+    console.log('[EntityExtractor] Will insert relation:', JSON.stringify(relationInsert, null, 2));
+    relationInserts.push(relationInsert);
   }
 
   // Store relations
+  let relationsCreated = 0;
+  console.log(`[EntityExtractor] Attempting to insert ${relationInserts.length} relations`);
+
   if (relationInserts.length > 0) {
-    const { error: relationError } = await supabaseAdmin
+    const { data: insertedData, error: relationError } = await supabaseAdmin
       .from('relations')
-      .insert(relationInserts);
+      .insert(relationInserts)
+      .select();
 
     if (relationError) {
-      console.error('Error inserting relations:', relationError);
+      console.error('[EntityExtractor] Error inserting relations:', relationError);
+      console.error('[EntityExtractor] Error details:', JSON.stringify(relationError, null, 2));
+      // Try inserting one by one to find the problematic relation
+      console.log('[EntityExtractor] Trying to insert relations one by one...');
+      for (const rel of relationInserts) {
+        const { error: singleError } = await supabaseAdmin
+          .from('relations')
+          .insert(rel);
+        if (singleError) {
+          console.error('[EntityExtractor] Failed to insert relation:', JSON.stringify(rel, null, 2));
+          console.error('[EntityExtractor] Error:', singleError);
+        } else {
+          relationsCreated++;
+          console.log('[EntityExtractor] Successfully inserted single relation');
+        }
+      }
+    } else {
+      relationsCreated = insertedData?.length || relationInserts.length;
+      console.log(`[EntityExtractor] Successfully inserted ${relationsCreated} relations`);
     }
+  } else {
+    console.log('[EntityExtractor] No relations to insert (relationInserts is empty)');
   }
 
-  return {
-    entitiesCreated: entityInserts.length,
-    relationsCreated: relationInserts.length,
-  };
+    const overallElapsed = Date.now() - overallStartTime;
+    console.log(`\n========================================`);
+    console.log(`✅ ENTITY EXTRACTION COMPLETED`);
+    console.log(`========================================`);
+    console.log(`Total time: ${overallElapsed}ms`);
+    console.log(`Entities created: ${entitiesCreated}`);
+    console.log(`Relations created: ${relationsCreated}`);
+    console.log(`========================================\n`);
+
+    return { entitiesCreated, relationsCreated };
+
+  } catch (error) {
+    const overallElapsed = Date.now() - overallStartTime;
+    console.error(`\n========================================`);
+    console.error(`❌ ENTITY EXTRACTION FAILED`);
+    console.error(`========================================`);
+    console.error(`Total time: ${overallElapsed}ms`);
+    console.error(`Error type: ${(error as Error)?.name}`);
+    console.error(`Error message: ${(error as Error)?.message}`);
+    console.error(`Full error:`, error);
+    console.error(`========================================\n`);
+    return { entitiesCreated: 0, relationsCreated: 0 };
+  }
 }
 
 /**
  * Get entities for a document
  */
-export async function getEntitiesForDocument(documentId: string): Promise<EntityInsert[]> {
-  // Get chunk IDs for this document
+export async function getEntitiesForDocument(documentId: string): Promise<Array<Record<string, unknown>>> {
   const { data: chunks, error: chunksError } = await supabaseAdmin
     .from('chunks')
     .select('id')
@@ -341,7 +484,6 @@ export async function getEntitiesForDocument(documentId: string): Promise<Entity
 
   const chunkIds = chunks.map(c => c.id);
 
-  // Find entities that have any of these chunk IDs in source_chunk_ids
   const { data: entities, error: entitiesError } = await supabaseAdmin
     .from('entities')
     .select('*');
@@ -350,10 +492,9 @@ export async function getEntitiesForDocument(documentId: string): Promise<Entity
     return [];
   }
 
-  // Filter entities that have at least one matching chunk ID
   return entities.filter(entity => {
     const sourceChunkIds = entity.source_chunk_ids as string[];
-    return sourceChunkIds.some(id => chunkIds.includes(id));
+    return sourceChunkIds?.some(id => chunkIds.includes(id));
   });
 }
 
@@ -361,7 +502,6 @@ export async function getEntitiesForDocument(documentId: string): Promise<Entity
  * Delete entities and relations for a document
  */
 export async function deleteEntitiesForDocument(documentId: string): Promise<void> {
-  // Get chunk IDs for this document
   const { data: chunks, error: chunksError } = await supabaseAdmin
     .from('chunks')
     .select('id')
@@ -373,32 +513,29 @@ export async function deleteEntitiesForDocument(documentId: string): Promise<voi
 
   const chunkIds = chunks.map(c => c.id);
 
-  // Get all entities
   const { data: entities } = await supabaseAdmin
     .from('entities')
     .select('id, source_chunk_ids');
 
   if (!entities) return;
 
-  // Find entities to delete or update
   for (const entity of entities) {
     const sourceChunkIds = entity.source_chunk_ids as string[];
+    if (!sourceChunkIds) continue;
+
     const remainingChunkIds = sourceChunkIds.filter(id => !chunkIds.includes(id));
 
     if (remainingChunkIds.length === 0) {
-      // Delete entity completely
       await supabaseAdmin
         .from('entities')
         .delete()
         .eq('id', entity.id);
 
-      // Delete associated relations
       await supabaseAdmin
         .from('relations')
         .delete()
         .or(`source_entity_id.eq.${entity.id},target_entity_id.eq.${entity.id}`);
     } else if (remainingChunkIds.length < sourceChunkIds.length) {
-      // Update source_chunk_ids
       await supabaseAdmin
         .from('entities')
         .update({ source_chunk_ids: remainingChunkIds })

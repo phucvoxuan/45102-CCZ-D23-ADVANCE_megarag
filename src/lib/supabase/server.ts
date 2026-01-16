@@ -20,4 +20,66 @@ export const supabaseAdmin = createClient(supabaseUrl, supabaseServiceRoleKey, {
   },
 });
 
+// Required tables for MegaRAG
+export const REQUIRED_TABLES = [
+  'documents',
+  'chunks',
+  'entities',
+  'relations',
+  'chat_sessions',
+  'chat_messages',
+] as const;
+
+// Test connection and check if tables exist
+export async function testConnection(): Promise<{
+  connected: boolean;
+  tables: { name: string; exists: boolean }[];
+  error?: string;
+}> {
+  try {
+    const tableChecks = await Promise.all(
+      REQUIRED_TABLES.map(async (table) => {
+        try {
+          const { error } = await supabaseAdmin
+            .from(table)
+            .select('*', { count: 'exact', head: true })
+            .limit(0);
+
+          return {
+            name: table,
+            exists: !error || !error.message.includes('does not exist'),
+          };
+        } catch {
+          return { name: table, exists: false };
+        }
+      })
+    );
+
+    return {
+      connected: true,
+      tables: tableChecks,
+    };
+  } catch (error) {
+    return {
+      connected: false,
+      tables: REQUIRED_TABLES.map(name => ({ name, exists: false })),
+      error: error instanceof Error ? error.message : 'Connection failed',
+    };
+  }
+}
+
+// Helper: Execute with timeout
+export async function withTimeout<T>(
+  promise: Promise<T>,
+  timeoutMs: number = 5000,
+  errorMessage: string = 'Operation timed out'
+): Promise<T> {
+  return Promise.race([
+    promise,
+    new Promise<T>((_, reject) =>
+      setTimeout(() => reject(new Error(errorMessage)), timeoutMs)
+    ),
+  ]);
+}
+
 export default supabaseAdmin;

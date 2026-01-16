@@ -1,22 +1,34 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { v4 as uuidv4 } from 'uuid';
 import { supabaseAdmin } from '@/lib/supabase/server';
+import { createClient } from '@/lib/supabase/auth-server';
 
 /**
- * GET /api/chat - List all chat sessions
+ * GET /api/chat - List all chat sessions for current user
  */
 export async function GET(request: NextRequest) {
   try {
+    // Get current authenticated user
+    const supabase = await createClient();
+    const { data: { user } } = await supabase.auth.getUser();
+
     const { searchParams } = new URL(request.url);
     const workspace = searchParams.get('workspace') || 'default';
     const limit = Math.min(parseInt(searchParams.get('limit') || '20'), 50);
 
-    const { data, error } = await supabaseAdmin
+    let query = supabaseAdmin
       .from('chat_sessions')
       .select('*')
       .eq('workspace', workspace)
       .order('updated_at', { ascending: false })
       .limit(limit);
+
+    // Filter by user_id if authenticated
+    if (user) {
+      query = query.eq('user_id', user.id);
+    }
+
+    const { data, error } = await query;
 
     if (error) {
       console.error('Error fetching chat sessions:', error);
@@ -41,6 +53,10 @@ export async function GET(request: NextRequest) {
  */
 export async function POST(request: NextRequest) {
   try {
+    // Get current authenticated user
+    const supabase = await createClient();
+    const { data: { user } } = await supabase.auth.getUser();
+
     const body = await request.json();
     const workspace = body.workspace || 'default';
     const title = body.title || 'New Chat';
@@ -51,6 +67,7 @@ export async function POST(request: NextRequest) {
 
     const { error } = await supabaseAdmin.from('chat_sessions').insert({
       id: sessionId,
+      user_id: user?.id || null,
       workspace,
       title,
       system_prompt: systemPrompt,

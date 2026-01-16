@@ -6,6 +6,7 @@ import { Upload, FileText, FileImage, FileVideo, FileAudio, File, X, CheckCircle
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
 import { Card } from '@/components/ui/card';
+import { extractDurationClient, getMediaType } from '@/lib/media/extractDuration';
 import type { DocumentUploaderProps } from '@/types';
 
 // Supported file types and their MIME types
@@ -29,9 +30,11 @@ interface FileUpload {
   file: File;
   id: string;
   progress: number;
-  status: 'pending' | 'uploading' | 'success' | 'error';
+  status: 'pending' | 'validating' | 'uploading' | 'success' | 'error';
   error?: string;
   documentId?: string;
+  mediaType?: 'audio' | 'video' | null;
+  durationSeconds?: number | null;
 }
 
 function getFileIcon(fileType: string) {
@@ -58,14 +61,66 @@ export function DocumentUploader({
   const [uploads, setUploads] = useState<FileUpload[]>([]);
 
   const uploadFile = async (fileUpload: FileUpload) => {
-    const formData = new FormData();
-    formData.append('file', fileUpload.file);
-
     try {
-      // Update status to uploading
+      // Step 1: Update status to validating
       setUploads(prev => prev.map(u =>
-        u.id === fileUpload.id ? { ...u, status: 'uploading' as const, progress: 0 } : u
+        u.id === fileUpload.id ? { ...u, status: 'validating' as const, progress: 0 } : u
       ));
+
+      // Step 2: Detect media type and extract duration
+      const mediaType = getMediaType(fileUpload.file);
+      let durationSeconds: number | null = null;
+
+      if (mediaType) {
+        console.log('[Upload] Extracting duration for:', fileUpload.file.name);
+        durationSeconds = await extractDurationClient(fileUpload.file);
+        console.log('[Upload] Duration extracted:', durationSeconds, 'seconds');
+
+        // Update with extracted info
+        setUploads(prev => prev.map(u =>
+          u.id === fileUpload.id ? { ...u, mediaType, durationSeconds } : u
+        ));
+      }
+
+      // Step 3: Validate BEFORE upload
+      const validateResponse = await fetch('/api/upload/validate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          fileName: fileUpload.file.name,
+          fileSize: fileUpload.file.size,
+          mediaType,
+          durationSeconds,
+        }),
+      });
+
+      const validateResult = await validateResponse.json();
+
+      // Check both HTTP status and valid field
+      if (!validateResponse.ok || !validateResult.valid) {
+        // Validation failed - show error
+        const errorMessage = validateResult.error || 'Validation failed';
+        console.log('[Upload] Validation failed:', errorMessage);
+        setUploads(prev => prev.map(u =>
+          u.id === fileUpload.id ? { ...u, status: 'error' as const, error: errorMessage } : u
+        ));
+        onUploadError?.(new Error(errorMessage));
+        return;
+      }
+
+      // Step 4: Validation passed - proceed with actual upload
+      setUploads(prev => prev.map(u =>
+        u.id === fileUpload.id ? { ...u, status: 'uploading' as const, progress: 10 } : u
+      ));
+
+      const formData = new FormData();
+      formData.append('file', fileUpload.file);
+
+      // Include duration in form data for server to track
+      if (mediaType && durationSeconds) {
+        formData.append('mediaType', mediaType);
+        formData.append('durationSeconds', durationSeconds.toString());
+      }
 
       const response = await fetch('/api/upload', {
         method: 'POST',
@@ -194,6 +249,10 @@ export function DocumentUploader({
                       {formatFileSize(upload.file.size)}
                     </p>
 
+                    {upload.status === 'validating' && (
+                      <p className="text-xs text-yellow-600 mt-1">Validating file...</p>
+                    )}
+
                     {upload.status === 'uploading' && (
                       <Progress value={upload.progress} className="h-1 mt-2" />
                     )}
@@ -206,6 +265,9 @@ export function DocumentUploader({
                   <div className="flex-shrink-0">
                     {upload.status === 'pending' && (
                       <Loader2 className="h-5 w-5 text-muted-foreground animate-spin" />
+                    )}
+                    {upload.status === 'validating' && (
+                      <Loader2 className="h-5 w-5 text-yellow-500 animate-spin" />
                     )}
                     {upload.status === 'uploading' && (
                       <Loader2 className="h-5 w-5 text-primary animate-spin" />

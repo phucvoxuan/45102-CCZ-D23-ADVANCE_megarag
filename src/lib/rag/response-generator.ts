@@ -1,7 +1,10 @@
-import { generateContent, generateContentWithModel } from '@/lib/gemini/client';
+import { generateContent, generateContentWithModelAndUsage, type TokenUsage } from '@/lib/gemini/client';
 import { retrieve, getDocumentInfo } from './retriever';
 import { DEFAULT_SYSTEM_PROMPT } from './constants';
 import type { QueryMode, QueryResponse, RetrievalResult, ChunkWithScore } from '@/types';
+
+// Re-export TokenUsage for consumers
+export type { TokenUsage } from '@/lib/gemini/client';
 
 // Re-export for convenience
 export { DEFAULT_SYSTEM_PROMPT } from './constants';
@@ -92,17 +95,31 @@ async function formatSources(
 }
 
 /**
+ * Extended response with token usage tracking
+ */
+export interface QueryResponseWithUsage extends QueryResponse {
+  tokenUsage?: TokenUsage | null;
+}
+
+/**
  * Generate a response to a query using RAG
+ * @param query - The search query text
+ * @param userId - REQUIRED: User ID for data isolation
+ * @param mode - Query mode
+ * @param workspace - Workspace name
+ * @param topK - Number of results
+ * @param settings - Chat settings
  */
 export async function generateResponse(
   query: string,
+  userId: string,
   mode: QueryMode = 'mix',
   workspace: string = 'default',
   topK: number = 10,
   settings?: ChatSettings
-): Promise<QueryResponse> {
-  // Retrieve relevant context
-  const retrievalResult = await retrieve(query, mode, workspace, topK);
+): Promise<QueryResponseWithUsage> {
+  // Retrieve relevant context (filtered by user_id for data isolation)
+  const retrievalResult = await retrieve(query, userId, mode, workspace, topK);
 
   // Check if we have any context
   if (retrievalResult.chunks.length === 0 && retrievalResult.entities.length === 0) {
@@ -110,6 +127,7 @@ export async function generateResponse(
       response: "I couldn't find any relevant information in the documents to answer your question. Please make sure documents have been uploaded and processed.",
       sources: [],
       entities: [],
+      tokenUsage: null,
     };
   }
 
@@ -121,13 +139,16 @@ export async function generateResponse(
   const userPrompt = buildUserPrompt(query, retrievalResult);
   const fullPrompt = `${systemPrompt}\n\n${userPrompt}`;
 
-  // Generate response using Gemini with selected model
-  let response: string;
+  // Generate response using Gemini with selected model and get token usage
+  let responseText: string;
+  let tokenUsage: TokenUsage | null = null;
   try {
-    response = await generateContentWithModel(fullPrompt, modelId, settings?.geminiApiKey || undefined);
+    const result = await generateContentWithModelAndUsage(fullPrompt, modelId, settings?.geminiApiKey || undefined);
+    responseText = result.text;
+    tokenUsage = result.usage;
   } catch (error) {
     console.error('Error generating response:', error);
-    response = "I encountered an error while generating a response. Please try again.";
+    responseText = "I encountered an error while generating a response. Please try again.";
   }
 
   // Format sources
@@ -140,24 +161,32 @@ export async function generateResponse(
   }));
 
   return {
-    response,
+    response: responseText,
     sources,
     entities,
+    tokenUsage,
   };
 }
 
 /**
  * Stream a response to a query using RAG (for future streaming support)
+ * @param query - The search query text
+ * @param userId - REQUIRED: User ID for data isolation
+ * @param mode - Query mode
+ * @param workspace - Workspace name
+ * @param topK - Number of results
+ * @param settings - Chat settings
  */
 export async function* streamResponse(
   query: string,
+  userId: string,
   mode: QueryMode = 'mix',
   workspace: string = 'default',
   topK: number = 10,
   settings?: ChatSettings
 ): AsyncGenerator<{ type: 'context' | 'text' | 'done'; data: unknown }> {
-  // Retrieve relevant context
-  const retrievalResult = await retrieve(query, mode, workspace, topK);
+  // Retrieve relevant context (filtered by user_id for data isolation)
+  const retrievalResult = await retrieve(query, userId, mode, workspace, topK);
 
   // Yield context info first
   yield {
@@ -188,8 +217,8 @@ export async function* streamResponse(
   const fullPrompt = `${systemPrompt}\n\n${userPrompt}`;
 
   try {
-    const response = await generateContentWithModel(fullPrompt, modelId, settings?.geminiApiKey || undefined);
-    yield { type: 'text', data: response };
+    const result = await generateContentWithModelAndUsage(fullPrompt, modelId, settings?.geminiApiKey || undefined);
+    yield { type: 'text', data: result.text };
   } catch (error) {
     yield { type: 'text', data: "Error generating response. Please try again." };
   }

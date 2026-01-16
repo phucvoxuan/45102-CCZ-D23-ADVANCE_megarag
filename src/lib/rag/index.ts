@@ -14,4 +14,4 @@ export {
   DEFAULT_SYSTEM_PROMPT,
 } from './response-generator';
 
-export type { ChatSettings } from './response-generator';
+export type { ChatSettings, QueryResponseWithUsage, TokenUsage } from './response-generator';

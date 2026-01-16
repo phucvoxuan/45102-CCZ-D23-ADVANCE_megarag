@@ -1,7 +1,10 @@
 'use client';
 
-import { useState, useRef, useEffect, useCallback } from 'react';
-import { Send, Loader2, Sparkles, Plus, HelpCircle, Search, Users, GitBranch, Layers, Settings, X } from 'lucide-react';
+import { useState, useRef, useEffect, useCallback, useMemo } from 'react';
+import { Send, Loader2, Sparkles, Plus, HelpCircle, Search, Users, GitBranch, Layers, Settings, X, Lock } from 'lucide-react';
+import { useAuth } from '@/contexts/AuthContext';
+import { getAvailableQueryModes } from '@/lib/features';
+import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
@@ -67,10 +70,26 @@ export function ChatInterface({
   onNewChat,
   defaultMode = 'mix'
 }: ChatInterfaceProps) {
+  const { subscription } = useAuth();
+  const planName = subscription?.plan_name || 'FREE';
+
+  // Get available modes based on user's plan
+  const availableModes = useMemo(() => {
+    return getAvailableQueryModes(planName);
+  }, [planName]);
+
+  // Determine initial mode - use defaultMode if available, otherwise first available
+  const initialMode = useMemo(() => {
+    if (availableModes.includes(defaultMode)) {
+      return defaultMode;
+    }
+    return availableModes[0] as QueryMode || 'naive';
+  }, [availableModes, defaultMode]);
+
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const [queryMode, setQueryMode] = useState<QueryMode>(defaultMode);
+  const [queryMode, setQueryMode] = useState<QueryMode>(initialMode);
   const [selectedMessage, setSelectedMessage] = useState<Message | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [currentSessionId, setCurrentSessionId] = useState<string | null>(sessionId || null);
@@ -323,16 +342,35 @@ export function ChatInterface({
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="mix">
-                  <span className="flex items-center gap-2">
-                    <Sparkles className="h-3 w-3" />
-                    Mix
-                  </span>
-                </SelectItem>
-                <SelectItem value="hybrid">Hybrid</SelectItem>
-                <SelectItem value="local">Local</SelectItem>
-                <SelectItem value="global">Global</SelectItem>
-                <SelectItem value="naive">Naive</SelectItem>
+                {availableModes.includes('mix') && (
+                  <SelectItem value="mix">
+                    <span className="flex items-center gap-2">
+                      <Sparkles className="h-3 w-3" />
+                      Mix
+                    </span>
+                  </SelectItem>
+                )}
+                {availableModes.includes('hybrid') && (
+                  <SelectItem value="hybrid">Hybrid</SelectItem>
+                )}
+                {availableModes.includes('local') && (
+                  <SelectItem value="local">Local</SelectItem>
+                )}
+                {availableModes.includes('global') && (
+                  <SelectItem value="global">Global</SelectItem>
+                )}
+                {availableModes.includes('naive') && (
+                  <SelectItem value="naive">Naive</SelectItem>
+                )}
+                {/* Show upgrade prompt if not all modes available */}
+                {availableModes.length < 5 && (
+                  <div className="px-2 py-2 border-t mt-1">
+                    <Link href="/pricing" className="flex items-center gap-2 text-xs text-muted-foreground hover:text-primary">
+                      <Lock className="h-3 w-3" />
+                      Upgrade for more modes
+                    </Link>
+                  </div>
+                )}
               </SelectContent>
             </Select>
 

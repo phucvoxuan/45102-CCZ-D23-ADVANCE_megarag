@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { Key, Plus, Trash2, Copy, Check, Loader2 } from 'lucide-react';
+import { Key, Plus, Trash2, Copy, Check, Loader2, Lock, ArrowUpRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -16,6 +16,8 @@ import {
   DialogTrigger,
 } from '@/components/ui/dialog';
 import { Badge } from '@/components/ui/badge';
+import { useAuth } from '@/contexts/AuthContext';
+import Link from 'next/link';
 
 interface ApiKey {
   id: string;
@@ -30,32 +32,36 @@ interface ApiKey {
 }
 
 export default function ApiKeysPage() {
+  const { user, subscription, isLoading: authLoading } = useAuth();
   const [apiKeys, setApiKeys] = useState<ApiKey[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [orgId, setOrgId] = useState<string | null>(null);
   const [createDialogOpen, setCreateDialogOpen] = useState(false);
   const [newKeyName, setNewKeyName] = useState('');
   const [isCreating, setIsCreating] = useState(false);
   const [newlyCreatedKey, setNewlyCreatedKey] = useState<string | null>(null);
   const [copied, setCopied] = useState(false);
 
+  // Check if user has API access (PRO or BUSINESS plan)
+  const planName = subscription?.plan_name?.toUpperCase() || 'FREE';
+  const hasApiAccess = ['PRO', 'BUSINESS'].includes(planName);
+
   useEffect(() => {
-    loadData();
-  }, []);
+    if (!authLoading && user && hasApiAccess) {
+      loadData();
+    } else if (!authLoading) {
+      setIsLoading(false);
+    }
+  }, [authLoading, user, hasApiAccess]);
 
   const loadData = async () => {
     try {
-      const sessionRes = await fetch('/api/admin/session');
-      const sessionData = await sessionRes.json();
-      if (!sessionData.success) throw new Error('No session');
-
-      const orgId = sessionData.data.organization.id;
-      setOrgId(orgId);
-
-      const keysRes = await fetch(`/api/admin/organizations/${orgId}/api-keys`);
-      const keysData = await keysRes.json();
-      if (keysData.success) {
-        setApiKeys(keysData.data.api_keys);
+      // Fetch API keys for current user
+      const keysRes = await fetch('/api/user/api-keys');
+      if (keysRes.ok) {
+        const keysData = await keysRes.json();
+        if (keysData.success) {
+          setApiKeys(keysData.data || []);
+        }
       }
     } catch (error) {
       console.error('Failed to load API keys:', error);
@@ -65,11 +71,11 @@ export default function ApiKeysPage() {
   };
 
   const handleCreateKey = async () => {
-    if (!newKeyName.trim() || !orgId) return;
+    if (!newKeyName.trim()) return;
 
     setIsCreating(true);
     try {
-      const res = await fetch(`/api/admin/organizations/${orgId}/api-keys`, {
+      const res = await fetch('/api/user/api-keys', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name: newKeyName }),
@@ -77,8 +83,8 @@ export default function ApiKeysPage() {
 
       const data = await res.json();
       if (data.success) {
-        setNewlyCreatedKey(data.data.api_key.key);
-        setApiKeys((prev) => [{ ...data.data.api_key, is_active: true }, ...prev]);
+        setNewlyCreatedKey(data.data.key);
+        setApiKeys((prev) => [{ ...data.data, is_active: true }, ...prev]);
         setNewKeyName('');
       }
     } catch (error) {
@@ -89,10 +95,10 @@ export default function ApiKeysPage() {
   };
 
   const handleDeleteKey = async (keyId: string) => {
-    if (!orgId || !confirm('Are you sure you want to delete this API key?')) return;
+    if (!confirm('Are you sure you want to delete this API key?')) return;
 
     try {
-      const res = await fetch(`/api/admin/organizations/${orgId}/api-keys/${keyId}`, {
+      const res = await fetch(`/api/user/api-keys/${keyId}`, {
         method: 'DELETE',
       });
 
@@ -116,10 +122,88 @@ export default function ApiKeysPage() {
     setNewKeyName('');
   };
 
-  if (isLoading) {
+  if (isLoading || authLoading) {
     return (
       <div className="flex items-center justify-center h-64">
         <Loader2 className="h-8 w-8 animate-spin text-muted-foreground" />
+      </div>
+    );
+  }
+
+  // Show upgrade message for FREE/STARTER plans
+  if (!hasApiAccess) {
+    return (
+      <div className="space-y-8">
+        <div>
+          <h1 className="text-3xl font-bold">API Keys</h1>
+          <p className="text-muted-foreground">
+            Manage your API keys for programmatic access
+          </p>
+        </div>
+
+        <Card className="border-dashed">
+          <CardContent className="flex flex-col items-center justify-center py-12">
+            <div className="p-4 bg-muted rounded-full mb-4">
+              <Lock className="h-12 w-12 text-muted-foreground" />
+            </div>
+            <h2 className="text-xl font-semibold mb-2">API Access Required</h2>
+            <p className="text-muted-foreground text-center max-w-md mb-6">
+              Upgrade to Pro or Business plan to access the MegaRAG API.
+              Integrate your knowledge base with chatbots, websites, n8n, Zapier, and more.
+            </p>
+            <div className="flex gap-4">
+              <Button asChild>
+                <Link href="/pricing">
+                  Upgrade to Pro
+                  <ArrowUpRight className="h-4 w-4 ml-2" />
+                </Link>
+              </Button>
+              <Button variant="outline" asChild>
+                <Link href="/admin/api-docs">
+                  View API Docs
+                </Link>
+              </Button>
+            </div>
+            <p className="text-sm text-muted-foreground mt-6">
+              Current plan: <Badge variant="secondary">{planName}</Badge>
+            </p>
+          </CardContent>
+        </Card>
+
+        {/* API Features Preview */}
+        <Card>
+          <CardHeader>
+            <CardTitle>What you get with API Access</CardTitle>
+            <CardDescription>
+              Available in Pro and Business plans
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <ul className="space-y-3">
+              <li className="flex items-start gap-3">
+                <Key className="h-5 w-5 text-primary mt-0.5" />
+                <div>
+                  <p className="font-medium">Secure API Keys</p>
+                  <p className="text-sm text-muted-foreground">Generate and manage multiple API keys with scoped permissions</p>
+                </div>
+              </li>
+              <li className="flex items-start gap-3">
+                <Key className="h-5 w-5 text-primary mt-0.5" />
+                <div>
+                  <p className="font-medium">REST API Endpoints</p>
+                  <p className="text-sm text-muted-foreground">Query your knowledge base, upload documents, and manage chat sessions programmatically</p>
+                </div>
+              </li>
+              <li className="flex items-start gap-3">
+                <Key className="h-5 w-5 text-primary mt-0.5" />
+                <div>
+                  <p className="font-medium">Integrations</p>
+                  <p className="text-sm text-muted-foreground">Connect with n8n, Zapier, Make, custom chatbots, and any HTTP client</p>
+                </div>
+              </li>
+            </ul>
+          </CardContent>
+        </Card>
       </div>
     );
   }
@@ -183,7 +267,7 @@ export default function ApiKeysPage() {
                 <DialogHeader>
                   <DialogTitle>Create API Key</DialogTitle>
                   <DialogDescription>
-                    Create a new API key for programmatic access to your organization&apos;s data
+                    Create a new API key for programmatic access to your data
                   </DialogDescription>
                 </DialogHeader>
                 <div className="space-y-4 py-4">

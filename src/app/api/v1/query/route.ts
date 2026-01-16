@@ -57,8 +57,11 @@ export const POST = withApiAuth(
       trackEmbedding(ctx.orgId, 1);
 
       // Generate response using org's Gemini key
+      // Note: v1 API uses workspace-based isolation (orgId), not user_id
+      // Pass empty string for userId - search functions will skip user filtering
       const response = await generateResponse(
         body.query.trim(),
+        '', // No user_id filtering for v1 API (org-based access)
         mode,
         ctx.orgId, // Use org_id as workspace
         topK,

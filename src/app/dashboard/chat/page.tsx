@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { ArrowLeft, FileStack, History, PanelLeftClose, PanelLeft, Settings } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { ChatInterface, ChatHistory, ThemeToggle, Logo } from '@/components';
+import { UserNav } from '@/components/auth';
 
 export default function ChatPage() {
   const [currentSessionId, setCurrentSessionId] = useState<string | null>(null);
@@ -71,6 +72,7 @@ export default function ChatPage() {
                   Admin
                 </Button>
               </Link>
+              <UserNav showAuthButtons={false} />
             </div>
           </div>
         </div>

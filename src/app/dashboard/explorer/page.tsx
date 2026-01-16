@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { ArrowLeft, Microscope, MessageSquare, FileStack, Settings } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { DataExplorer, ThemeToggle } from '@/components';
+import { UserNav } from '@/components/auth';
 
 export default function ExplorerPage() {
   return (
@@ -51,6 +52,7 @@ export default function ExplorerPage() {
                   Admin
                 </Button>
               </Link>
+              <UserNav showAuthButtons={false} />
             </div>
           </div>
         </div>

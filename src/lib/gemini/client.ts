@@ -58,6 +58,23 @@ export function getModel(modelId: string, apiKey?: string): GenerativeModel | nu
 }
 
 /**
+ * Token usage metadata from Gemini response
+ */
+export interface TokenUsage {
+  promptTokenCount: number;
+  candidatesTokenCount: number;
+  totalTokenCount: number;
+}
+
+/**
+ * Response with token usage from Gemini
+ */
+export interface GenerateContentResponse {
+  text: string;
+  usage: TokenUsage | null;
+}
+
+/**
  * Generate content with a specific model
  * @param prompt - The prompt to send
  * @param modelId - Model ID to use
@@ -75,6 +92,39 @@ export async function generateContentWithModel(
 
   const result = await model.generateContent(prompt);
   return result.response.text();
+}
+
+/**
+ * Generate content with a specific model and return token usage
+ * @param prompt - The prompt to send
+ * @param modelId - Model ID to use
+ * @param apiKey - Optional API key (uses default if not provided)
+ */
+export async function generateContentWithModelAndUsage(
+  prompt: string,
+  modelId: string = 'gemini-2.5-flash',
+  apiKey?: string
+): Promise<GenerateContentResponse> {
+  const model = getModel(modelId, apiKey);
+  if (!model) {
+    throw new Error('Gemini model not initialized - no API key available');
+  }
+
+  const result = await model.generateContent(prompt);
+  const response = result.response;
+
+  // Extract token usage from usageMetadata
+  const usageMetadata = response.usageMetadata;
+  const usage: TokenUsage | null = usageMetadata ? {
+    promptTokenCount: usageMetadata.promptTokenCount || 0,
+    candidatesTokenCount: usageMetadata.candidatesTokenCount || 0,
+    totalTokenCount: usageMetadata.totalTokenCount || 0,
+  } : null;
+
+  return {
+    text: response.text(),
+    usage,
+  };
 }
 
 /**

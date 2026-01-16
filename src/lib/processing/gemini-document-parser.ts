@@ -97,12 +97,21 @@ function parseGeminiResponse(response: string): ContentItem[] {
   try {
     // Try to extract JSON from the response
     // Gemini might wrap it in markdown code blocks
-    let jsonStr = response;
+    let jsonStr = response.trim();
 
-    // Remove markdown code blocks if present
-    const jsonMatch = response.match(/```(?:json)?\s*([\s\S]*?)```/);
+    // Method 1: Remove markdown code blocks using regex
+    // Handles: ```json\n...\n``` or ```\n...\n```
+    const jsonMatch = jsonStr.match(/```(?:json)?\s*\n?([\s\S]*?)\n?```/);
     if (jsonMatch) {
       jsonStr = jsonMatch[1].trim();
+    } else {
+      // Method 2: Strip markdown fences at start/end if present
+      // Handles cases where regex doesn't match perfectly
+      jsonStr = jsonStr
+        .replace(/^```json\s*\n?/, '')
+        .replace(/^```\s*\n?/, '')
+        .replace(/\n?```\s*$/, '')
+        .trim();
     }
 
     // Try to find JSON array in the response

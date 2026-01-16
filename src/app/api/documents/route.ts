@@ -1,37 +1,67 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { createClient } from '@/lib/supabase/auth-server';
 import { supabaseAdmin } from '@/lib/supabase/server';
+import { usageService } from '@/services/usageService';
 import type { Document } from '@/types';
 
-// GET: List all documents with optional pagination
+// GET: List documents for the authenticated user
 export async function GET(request: NextRequest) {
   try {
+    // Get authenticated user
+    const supabase = await createClient();
+    const { data: { user }, error: authError } = await supabase.auth.getUser();
+
+    if (authError || !user) {
+      console.log('[Documents API] Unauthorized access attempt');
+      return NextResponse.json(
+        { error: 'Unauthorized' },
+        { status: 401 }
+      );
+    }
+
     const { searchParams } = new URL(request.url);
     const page = parseInt(searchParams.get('page') || '1');
     const limit = parseInt(searchParams.get('limit') || '50');
     const status = searchParams.get('status');
-    const workspace = searchParams.get('workspace') || 'default';
+    const workspace = searchParams.get('workspace');
 
     const offset = (page - 1) * limit;
 
-    // Build query
+    // Build query - ALWAYS filter by user_id for data isolation
     let query = supabaseAdmin
       .from('documents')
       .select('*', { count: 'exact' })
-      .eq('workspace', workspace)
+      .eq('user_id', user.id) // CRITICAL: Filter by authenticated user
       .order('created_at', { ascending: false })
       .range(offset, offset + limit - 1);
+
+    // Filter by workspace only if explicitly provided
+    if (workspace) {
+      query = query.eq('workspace', workspace);
+    }
 
     // Filter by status if provided
     if (status) {
       query = query.eq('status', status);
     }
 
+    console.log('[Documents API] Query params:', { page, limit, status, workspace, userId: user.id });
+
     const { data, error, count } = await query;
+    console.log('[Documents API] Result:', { count, error, dataLength: data?.length, userId: user.id });
 
     if (error) {
+      // Check if table doesn't exist or schema cache issue
+      if (error.code === 'PGRST205' || error.message?.includes('does not exist') || error.message?.includes('schema cache')) {
+        return NextResponse.json({
+          documents: [],
+          pagination: { page: 1, limit, total: 0, totalPages: 0 },
+          warning: 'Database tables not initialized. Please run migrations.',
+        });
+      }
       console.error('Database query error:', error);
       return NextResponse.json(
-        { error: 'Failed to fetch documents' },
+        { error: 'Failed to fetch documents', details: error.message },
         { status: 500 }
       );
     }
@@ -57,6 +87,14 @@ export async function GET(request: NextRequest) {
 // PATCH: Update a document (rename, update metadata)
 export async function PATCH(request: NextRequest) {
   try {
+    // Get authenticated user
+    const supabase = await createClient();
+    const { data: { user }, error: authError } = await supabase.auth.getUser();
+
+    if (authError || !user) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    }
+
     const body = await request.json();
     const { id, file_name, description, tags, category, customMetadata } = body;
 
@@ -79,11 +117,12 @@ export async function PATCH(request: NextRequest) {
       );
     }
 
-    // Get current document to merge metadata
+    // Get current document - verify ownership
     const { data: currentDoc, error: fetchError } = await supabaseAdmin
       .from('documents')
-      .select('metadata')
+      .select('metadata, user_id')
       .eq('id', id)
+      .eq('user_id', user.id) // CRITICAL: Verify ownership
       .single();
 
     if (fetchError) {
@@ -149,6 +188,7 @@ export async function PATCH(request: NextRequest) {
       .from('documents')
       .update(updateData)
       .eq('id', id)
+      .eq('user_id', user.id) // CRITICAL: Verify ownership
       .select()
       .single();
 
@@ -173,9 +213,17 @@ export async function PATCH(request: NextRequest) {
   }
 }
 
-// DELETE: Remove a document and all associated data
+// DELETE: Remove a document and all associated data (including entities & relations)
 export async function DELETE(request: NextRequest) {
   try {
+    // Get authenticated user
+    const supabase = await createClient();
+    const { data: { user }, error: authError } = await supabase.auth.getUser();
+
+    if (authError || !user) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    }
+
     const { searchParams } = new URL(request.url);
     const documentId = searchParams.get('id');
 
@@ -186,11 +234,12 @@ export async function DELETE(request: NextRequest) {
       );
     }
 
-    // First, get the document to find the file path
+    // First, get the document - verify ownership and get file_size for usage tracking
     const { data: document, error: fetchError } = await supabaseAdmin
       .from('documents')
-      .select('file_path')
+      .select('file_path, file_size, user_id')
       .eq('id', documentId)
+      .eq('user_id', user.id) // CRITICAL: Verify ownership
       .single();
 
     if (fetchError) {
@@ -210,15 +259,55 @@ export async function DELETE(request: NextRequest) {
     // Store file path before deletion
     const filePath = document?.file_path;
 
-    // Delete the document record first
+    // Get chunk IDs for this document (needed to clean up entities/relations)
+    const { data: chunks } = await supabaseAdmin
+      .from('chunks')
+      .select('id')
+      .eq('document_id', documentId);
+
+    const chunkIds = chunks?.map(c => c.id) || [];
+    console.log(`[Delete Document] Found ${chunkIds.length} chunks to clean up entities/relations for`);
+
+    // Delete entities and relations that reference these chunks
+    // Entities/Relations store source_chunk_ids as a JSONB array
+    if (chunkIds.length > 0) {
+      let entitiesDeleted = 0;
+      let relationsDeleted = 0;
+
+      // For each chunk, find and delete entities/relations that reference it
+      for (const chunkId of chunkIds) {
+        // Delete relations where source_chunk_ids contains this chunk
+        const { data: deletedRelations } = await supabaseAdmin
+          .from('relations')
+          .delete()
+          .contains('source_chunk_ids', [chunkId])
+          .eq('user_id', user.id)
+          .select('id');
+
+        relationsDeleted += deletedRelations?.length || 0;
+
+        // Delete entities where source_chunk_ids contains this chunk
+        const { data: deletedEntities } = await supabaseAdmin
+          .from('entities')
+          .delete()
+          .contains('source_chunk_ids', [chunkId])
+          .eq('user_id', user.id)
+          .select('id');
+
+        entitiesDeleted += deletedEntities?.length || 0;
+      }
+
+      console.log(`[Delete Document] Deleted ${entitiesDeleted} entities and ${relationsDeleted} relations`);
+    }
+
+    // Delete the document record
     // CASCADE constraints will automatically delete:
     // - chunks (via document_id foreign key)
-    // - entities are NOT cascaded (they may be shared across documents)
-    // - relations are NOT cascaded (they reference entities, not documents)
     const { error: deleteError } = await supabaseAdmin
       .from('documents')
       .delete()
-      .eq('id', documentId);
+      .eq('id', documentId)
+      .eq('user_id', user.id); // CRITICAL: Verify ownership
 
     if (deleteError) {
       console.error('Delete document error:', deleteError);
@@ -228,9 +317,18 @@ export async function DELETE(request: NextRequest) {
       );
     }
 
+    // Decrement usage counters after successful deletion
+    try {
+      await usageService.decrementUsage(user.id, 'documents', 1);
+      if (document?.file_size) {
+        await usageService.decrementUsage(user.id, 'storage', document.file_size);
+      }
+    } catch (usageError) {
+      console.error('Failed to decrement usage:', usageError);
+      // Don't fail the delete if usage tracking fails
+    }
+
     // Delete the file from storage after DB deletion succeeds
-    // This order ensures we don't have orphaned DB records if storage fails
-    // (An orphaned file in storage is less problematic than orphaned data)
     let storageWarning: string | undefined;
     if (filePath) {
       const { error: storageError } = await supabaseAdmin.storage

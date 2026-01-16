@@ -3,9 +3,10 @@
 import { useState } from 'react';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
-import { Building2, Key, BarChart3, Settings, Menu, X, FileText, Users, GitBranch, Network, BookOpen, Home } from 'lucide-react';
+import { Building2, Key, BarChart3, Settings, Menu, X, FileText, Users, GitBranch, Network, BookOpen, Home, CreditCard, UserCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import { UserNav } from '@/components/auth';
 
 const navItems = [
   { href: '/admin', label: 'Dashboard', icon: BarChart3 },
@@ -15,6 +16,8 @@ const navItems = [
   { href: '/admin/knowledge-graph', label: 'Knowledge Graph', icon: Network },
   { href: '/admin/api-keys', label: 'API Keys', icon: Key },
   { href: '/admin/api-docs', label: 'API Docs', icon: BookOpen },
+  { href: '/admin/billing', label: 'Billing & Usage', icon: CreditCard },
+  { href: '/admin/profile', label: 'Profile', icon: UserCircle },
   { href: '/admin/settings', label: 'Settings', icon: Settings },
 ];
 
@@ -79,12 +82,18 @@ export default function AdminLayout({
             })}
           </nav>
 
-          {/* Back to app */}
-          <div className="p-4 border-t">
-            <Link href="/dashboard">
-              <Button variant="outline" size="sm" className="w-full">
+          {/* Navigation to Home and Dashboard */}
+          <div className="p-4 border-t space-y-2">
+            <Link href="/">
+              <Button variant="outline" size="sm" className="w-full justify-start">
                 <Home className="h-4 w-4 mr-2" />
-                Back to App
+                Back to Home
+              </Button>
+            </Link>
+            <Link href="/dashboard">
+              <Button variant="ghost" size="sm" className="w-full justify-start">
+                <FileText className="h-4 w-4 mr-2" />
+                Dashboard
               </Button>
             </Link>
           </div>
@@ -101,6 +110,10 @@ export default function AdminLayout({
 
       {/* Main content */}
       <main className="lg:ml-64 min-h-screen">
+        {/* Top header bar with UserNav for better visibility */}
+        <div className="sticky top-0 z-30 bg-background/80 backdrop-blur-sm border-b px-6 lg:px-8 py-3 flex justify-end items-center">
+          <UserNav showAuthButtons={false} />
+        </div>
         <div className="p-6 lg:p-8">{children}</div>
       </main>
     </div>

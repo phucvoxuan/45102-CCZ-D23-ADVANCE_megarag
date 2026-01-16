@@ -2,17 +2,25 @@
 
 import { useEffect, useState, useCallback } from 'react';
 import Link from 'next/link';
-import { MessageSquare, RefreshCw, Microscope, Settings } from 'lucide-react';
+import { MessageSquare, RefreshCw, Microscope, Settings, Home } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { DocumentUploader, DocumentList, ThemeToggle, DocumentListSkeleton, Logo, CommandPalette } from '@/components';
+import { DocumentUploader, DocumentList, ThemeToggle, DocumentListSkeleton, Logo } from '@/components';
+import { UserNav } from '@/components/auth';
+import { useAuth } from '@/contexts/AuthContext';
+import { getPlanLimits } from '@/lib/plans';
 import { toast } from 'sonner';
 import type { Document } from '@/types';
 
 export default function DashboardPage() {
+  const { subscription } = useAuth();
   const [documents, setDocuments] = useState<Document[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isRefreshing, setIsRefreshing] = useState(false);
+
+  // Get max upload size from user's plan
+  const planLimits = getPlanLimits(subscription?.plan_name || 'FREE');
+  const maxFileSizeMB = Math.round(planLimits.maxUploadBytes / (1024 * 1024));
 
   const fetchDocuments = useCallback(async (showToast = false) => {
     if (showToast) setIsRefreshing(true);
@@ -94,8 +102,8 @@ export default function DashboardPage() {
       <header className="border-b bg-background/80 backdrop-blur-sm sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
-            <button
-              onClick={() => window.location.reload()}
+            <Link
+              href="/"
               className="flex items-center gap-3 hover:opacity-80 transition-opacity"
             >
               <Logo size="sm" showText={false} />
@@ -105,10 +113,15 @@ export default function DashboardPage() {
                   Multi-Modal RAG System
                 </p>
               </div>
-            </button>
+            </Link>
             <div className="flex items-center gap-2">
-              <CommandPalette />
               <ThemeToggle />
+              <Link href="/">
+                <Button variant="ghost" size="sm">
+                  <Home className="h-4 w-4 mr-2" />
+                  Home
+                </Button>
+              </Link>
               <Button variant="outline" size="sm" onClick={() => fetchDocuments(true)} disabled={isRefreshing}>
                 <RefreshCw className={`h-4 w-4 mr-2 ${isRefreshing ? 'animate-spin' : ''}`} />
                 {isRefreshing ? 'Refreshing...' : 'Refresh'}
@@ -131,6 +144,7 @@ export default function DashboardPage() {
                   Admin
                 </Button>
               </Link>
+              <UserNav showAuthButtons={false} />
             </div>
           </div>
         </div>
@@ -152,6 +166,7 @@ export default function DashboardPage() {
                 <DocumentUploader
                   onUploadComplete={handleUploadComplete}
                   onUploadError={handleUploadError}
+                  maxFileSizeMB={maxFileSizeMB}
                 />
               </CardContent>
             </Card>

@@ -5,7 +5,13 @@ import {
   generateContentWithFile,
 } from '@/lib/gemini/client';
 import { estimateTokenCount } from './text-processor';
+import { checkVideoDuration } from '@/lib/media/durationChecker';
 import type { ChunkInsert } from '@/types';
+
+export interface VideoProcessingOptions {
+  planName?: string;      // User's subscription plan for duration limits
+  userId?: string;        // User ID for tracking
+}
 
 const VIDEO_SEGMENT_SECONDS = parseInt(process.env.VIDEO_SEGMENT_SECONDS || '30');
 
@@ -111,7 +117,8 @@ export async function processVideoFile(
   videoBuffer: ArrayBuffer,
   mimeType: string,
   documentId: string,
-  workspace: string = 'default'
+  workspace: string = 'default',
+  options?: VideoProcessingOptions
 ): Promise<ChunkInsert[]> {
   const chunks: ChunkInsert[] = [];
   let geminiFileName: string | null = null;
@@ -133,6 +140,37 @@ export async function processVideoFile(
       mimeType
     );
 
+    // Extract duration and check against plan limits
+    const duration = extractDuration(overview);
+
+    if (options?.planName && duration > 0) {
+      const durationCheck = checkVideoDuration(duration, options.planName);
+
+      if (!durationCheck.allowed) {
+        console.log('[VideoProcessor] Duration exceeds plan limit:', durationCheck);
+        // Clean up uploaded file
+        if (geminiFileName) {
+          try {
+            await deleteGeminiFile(geminiFileName);
+          } catch (cleanupError) {
+            console.error('[VideoProcessor] Cleanup error:', cleanupError);
+          }
+        }
+        throw new Error(JSON.stringify({
+          code: 'VIDEO_DURATION_EXCEEDED',
+          message: durationCheck.error,
+          duration: durationCheck.durationFormatted,
+          limit: durationCheck.limitFormatted,
+          upgradeHint: durationCheck.upgradeHint,
+        }));
+      }
+
+      console.log('[VideoProcessor] Duration check passed:', {
+        duration: durationCheck.durationFormatted,
+        limit: durationCheck.limitFormatted,
+      });
+    }
+
     // Create overview chunk
     chunks.push({
       id: uuidv4(),
@@ -150,8 +188,6 @@ export async function processVideoFile(
       },
     });
 
-    // Extract duration and timestamps
-    const duration = extractDuration(overview);
     const keyMoments = parseTimestamps(overview);
 
     // If we have key moments from the overview, create chunks for those
@@ -267,9 +303,33 @@ Format as a single paragraph.`;
       }
     }
 
+    // ===== DETAILED LOGGING FOR DEBUG =====
+    console.log('[VideoProcessor] ===== PROCESSING COMPLETE =====');
+    console.log('[VideoProcessor] Document ID:', documentId);
+    console.log('[VideoProcessor] Duration:', duration, 'seconds');
+    console.log('[VideoProcessor] Total chunks created:', chunks.length);
+    console.log('[VideoProcessor] Key moments found:', keyMoments.length);
+
+    // Log each chunk details
+    chunks.forEach((chunk, index) => {
+      console.log(`[VideoProcessor] Chunk ${index}:`, {
+        id: chunk.id,
+        order: chunk.chunk_order_index,
+        type: chunk.chunk_type,
+        timestampStart: chunk.timestamp_start,
+        timestampEnd: chunk.timestamp_end,
+        contentLength: chunk.content.length,
+        contentPreview: chunk.content.substring(0, 100) + '...',
+        tokens: chunk.tokens,
+        metadata: chunk.metadata,
+      });
+    });
+
+    console.log('[VideoProcessor] ===== END PROCESSING =====');
+
     return chunks;
   } catch (error) {
-    console.error('Error processing video:', error);
+    console.error('[VideoProcessor] Error processing video:', error);
 
     // Return error chunk
     return [{

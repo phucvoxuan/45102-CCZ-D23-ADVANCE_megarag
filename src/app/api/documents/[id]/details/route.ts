@@ -25,9 +25,9 @@ export async function GET(
       );
     }
 
-    // Get chunks for this document (column is chunk_order_index, not chunk_index)
+    // Get chunks for this document (use document_chunks table, not chunks VIEW)
     const { data: chunks, error: chunksError } = await supabaseAdmin
-      .from('chunks')
+      .from('document_chunks')
       .select('id, document_id, chunk_order_index, content, chunk_type, tokens, page_idx, timestamp_start, timestamp_end, metadata, created_at')
       .eq('document_id', id)
       .order('chunk_order_index', { ascending: true });

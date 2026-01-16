@@ -75,8 +75,10 @@ export const POST = withApiAuth<RouteParams>(
       trackEmbedding(ctx.orgId, 1);
 
       // Generate AI response
+      // Note: v1 API uses workspace-based isolation (orgId), not user_id
       const response = await generateResponse(
         userContent,
+        '', // No user_id filtering for v1 API (org-based access)
         mode,
         ctx.orgId, // workspace = org_id
         10,

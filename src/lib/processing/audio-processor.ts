@@ -5,7 +5,13 @@ import {
   generateContentWithFile,
 } from '@/lib/gemini/client';
 import { estimateTokenCount } from './text-processor';
+import { checkAudioDuration, extractDurationFromText } from '@/lib/media/durationChecker';
 import type { ChunkInsert } from '@/types';
+
+export interface AudioProcessingOptions {
+  planName?: string;      // User's subscription plan for duration limits
+  userId?: string;        // User ID for tracking
+}
 
 const AUDIO_SEGMENT_SECONDS = parseInt(process.env.AUDIO_SEGMENT_SECONDS || '60');
 
@@ -153,7 +159,8 @@ export async function processAudioFile(
   audioBuffer: ArrayBuffer,
   mimeType: string,
   documentId: string,
-  workspace: string = 'default'
+  workspace: string = 'default',
+  options?: AudioProcessingOptions
 ): Promise<ChunkInsert[]> {
   const chunks: ChunkInsert[] = [];
   let geminiFileName: string | null = null;
@@ -174,6 +181,37 @@ export async function processAudioFile(
       uri,
       mimeType
     );
+
+    // Extract duration and check against plan limits
+    const durationSeconds = extractDuration(fullAnalysis);
+
+    if (options?.planName && durationSeconds > 0) {
+      const durationCheck = checkAudioDuration(durationSeconds, options.planName);
+
+      if (!durationCheck.allowed) {
+        console.log('[AudioProcessor] Duration exceeds plan limit:', durationCheck);
+        // Clean up uploaded file
+        if (geminiFileName) {
+          try {
+            await deleteGeminiFile(geminiFileName);
+          } catch (cleanupError) {
+            console.error('[AudioProcessor] Cleanup error:', cleanupError);
+          }
+        }
+        throw new Error(JSON.stringify({
+          code: 'AUDIO_DURATION_EXCEEDED',
+          message: durationCheck.error,
+          duration: durationCheck.durationFormatted,
+          limit: durationCheck.limitFormatted,
+          upgradeHint: durationCheck.upgradeHint,
+        }));
+      }
+
+      console.log('[AudioProcessor] Duration check passed:', {
+        duration: durationCheck.durationFormatted,
+        limit: durationCheck.limitFormatted,
+      });
+    }
 
     // Extract transcription from analysis
     // The transcription usually follows "Full Transcription:" or similar header
@@ -290,9 +328,33 @@ Format as clean text suitable for search.`;
       }
     }
 
+    // ===== DETAILED LOGGING FOR DEBUG =====
+    console.log('[AudioProcessor] ===== PROCESSING COMPLETE =====');
+    console.log('[AudioProcessor] Document ID:', documentId);
+    console.log('[AudioProcessor] Duration:', durationSeconds, 'seconds');
+    console.log('[AudioProcessor] Total chunks created:', chunks.length);
+    console.log('[AudioProcessor] Timestamps found:', timestamps.length);
+
+    // Log each chunk details
+    chunks.forEach((chunk, index) => {
+      console.log(`[AudioProcessor] Chunk ${index}:`, {
+        id: chunk.id,
+        order: chunk.chunk_order_index,
+        type: chunk.chunk_type,
+        timestampStart: chunk.timestamp_start,
+        timestampEnd: chunk.timestamp_end,
+        contentLength: chunk.content.length,
+        contentPreview: chunk.content.substring(0, 100) + '...',
+        tokens: chunk.tokens,
+        metadata: chunk.metadata,
+      });
+    });
+
+    console.log('[AudioProcessor] ===== END PROCESSING =====');
+
     return chunks;
   } catch (error) {
-    console.error('Error processing audio:', error);
+    console.error('[AudioProcessor] Error processing audio:', error);
 
     // Return error chunk
     return [{

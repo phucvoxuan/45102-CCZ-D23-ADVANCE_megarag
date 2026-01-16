@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { MessageSquare, Trash2, Clock } from 'lucide-react';
+import { MessageSquare, Trash2, Clock, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { cn } from '@/lib/utils';
@@ -17,6 +17,7 @@ interface ChatHistoryProps {
   currentSessionId: string | null;
   onSelectSession: (sessionId: string) => void;
   onDeleteSession?: (sessionId: string) => void;
+  onClearAll?: () => void;
   refreshTrigger?: number;
 }
 
@@ -24,10 +25,12 @@ export function ChatHistory({
   currentSessionId,
   onSelectSession,
   onDeleteSession,
+  onClearAll,
   refreshTrigger,
 }: ChatHistoryProps) {
   const [sessions, setSessions] = useState<ChatSession[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [isClearing, setIsClearing] = useState(false);
 
   const fetchSessions = async () => {
     try {
@@ -61,6 +64,28 @@ export function ChatHistory({
       }
     } catch (err) {
       console.error('Error deleting session:', err);
+    }
+  };
+
+  const handleClearAll = async () => {
+    if (!confirm('Are you sure you want to delete ALL chat history? This cannot be undone.')) {
+      return;
+    }
+
+    setIsClearing(true);
+    try {
+      const response = await fetch('/api/chat/clear-all', {
+        method: 'DELETE',
+      });
+
+      if (response.ok) {
+        setSessions([]);
+        onClearAll?.();
+      }
+    } catch (err) {
+      console.error('Error clearing chat history:', err);
+    } finally {
+      setIsClearing(false);
     }
   };
 
@@ -104,6 +129,29 @@ export function ChatHistory({
   return (
     <ScrollArea className="h-full">
       <div className="p-2 space-y-1">
+        {sessions.length > 0 && (
+          <div className="pb-2 mb-2 border-b">
+            <Button
+              variant="outline"
+              size="sm"
+              className="w-full text-destructive hover:text-destructive hover:bg-destructive/10"
+              onClick={handleClearAll}
+              disabled={isClearing}
+            >
+              {isClearing ? (
+                <>
+                  <Loader2 className="h-3 w-3 mr-2 animate-spin" />
+                  Clearing...
+                </>
+              ) : (
+                <>
+                  <Trash2 className="h-3 w-3 mr-2" />
+                  Clear All History
+                </>
+              )}
+            </Button>
+          </div>
+        )}
         {sessions.map((session) => (
           <div
             key={session.id}

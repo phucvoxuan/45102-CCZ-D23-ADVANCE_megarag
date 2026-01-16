@@ -32,10 +32,10 @@ export const GET = withAdminAuth<RouteParams>(
 
       if (docError) throw docError;
 
-      // Count by status
+      // Count by status (include both 'completed' and 'processed' as successful)
       const docStats = {
         total: documents?.length || 0,
-        completed: documents?.filter(d => d.status === 'completed').length || 0,
+        completed: documents?.filter(d => d.status === 'completed' || d.status === 'processed').length || 0,
         processing: documents?.filter(d => d.status === 'processing').length || 0,
         pending: documents?.filter(d => d.status === 'pending').length || 0,
         failed: documents?.filter(d => d.status === 'failed').length || 0,

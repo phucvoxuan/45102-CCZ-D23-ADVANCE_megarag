@@ -17,11 +17,16 @@ import {
   Clock,
   XCircle,
   TrendingUp,
+  AlertTriangle,
+  RefreshCw,
+  Lock,
 } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
+import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
+import { useAuth } from '@/contexts/AuthContext';
 
 interface Stats {
   documents: {
@@ -68,19 +73,59 @@ const entityTypeColors: Record<string, string> = {
 };
 
 export default function AdminDashboardPage() {
+  const { subscription } = useAuth();
   const [stats, setStats] = useState<Stats | null>(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const [warning, setWarning] = useState<string | null>(null);
+
+  // Check if user has API access (PRO or BUSINESS plan)
+  const planName = subscription?.plan_name?.toUpperCase() || 'FREE';
+  const hasApiAccess = ['PRO', 'BUSINESS'].includes(planName);
+
+  const fetchStats = async () => {
+    setIsLoading(true);
+    setError(null);
+
+    // Create abort controller for timeout
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 8000);
+
+    try {
+      const res = await fetch('/api/admin/stats', { signal: controller.signal });
+      clearTimeout(timeoutId);
+
+      if (!res.ok) {
+        throw new Error(`HTTP ${res.status}: ${res.statusText}`);
+      }
+
+      const data = await res.json();
+
+      if (data.success) {
+        setStats(data.data);
+        if (data.warning) {
+          setWarning(data.warning);
+        }
+      } else {
+        setError(data.error || 'Failed to load statistics');
+      }
+    } catch (err) {
+      if (err instanceof Error) {
+        if (err.name === 'AbortError') {
+          setError('Request timed out. Please check your database connection.');
+        } else {
+          setError(err.message);
+        }
+      } else {
+        setError('An unexpected error occurred');
+      }
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   useEffect(() => {
-    fetch('/api/admin/stats')
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.success) {
-          setStats(data.data);
-        }
-      })
-      .catch(console.error)
-      .finally(() => setIsLoading(false));
+    fetchStats();
   }, []);
 
   const formatNumber = (num: number) => {
@@ -115,6 +160,57 @@ export default function AdminDashboardPage() {
     return (
       <div className="flex items-center justify-center h-64">
         <Loader2 className="h-8 w-8 animate-spin text-muted-foreground" />
+        <span className="ml-2 text-muted-foreground">Loading statistics...</span>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="space-y-8">
+        <div>
+          <h1 className="text-3xl font-bold">Dashboard</h1>
+          <p className="text-muted-foreground">
+            Overview of your knowledge base and API usage
+          </p>
+        </div>
+
+        <Alert variant="destructive">
+          <AlertTriangle className="h-4 w-4" />
+          <AlertTitle>Error Loading Dashboard</AlertTitle>
+          <AlertDescription className="mt-2">
+            <p>{error}</p>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={fetchStats}
+              className="mt-4"
+            >
+              <RefreshCw className="h-4 w-4 mr-2" />
+              Try Again
+            </Button>
+          </AlertDescription>
+        </Alert>
+
+        <Card>
+          <CardHeader>
+            <CardTitle>Database Setup Required</CardTitle>
+            <CardDescription>
+              If this is a new installation, you need to run the database migrations.
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <p className="text-sm text-muted-foreground">
+              Run the following SQL files in your Supabase SQL Editor (in order):
+            </p>
+            <ol className="list-decimal list-inside space-y-2 text-sm">
+              <li><code className="bg-muted px-1 rounded">supabase/core_schema.sql</code></li>
+              <li><code className="bg-muted px-1 rounded">supabase/white_label_schema.sql</code></li>
+              <li><code className="bg-muted px-1 rounded">supabase/chat_tables.sql</code></li>
+              <li><code className="bg-muted px-1 rounded">supabase/add_chat_settings.sql</code></li>
+            </ol>
+          </CardContent>
+        </Card>
       </div>
     );
   }
@@ -131,6 +227,17 @@ export default function AdminDashboardPage() {
           Overview of your knowledge base and API usage
         </p>
       </div>
+
+      {/* Warning Alert */}
+      {warning && (
+        <Alert>
+          <AlertTriangle className="h-4 w-4" />
+          <AlertTitle>Setup Required</AlertTitle>
+          <AlertDescription>
+            {warning}
+          </AlertDescription>
+        </Alert>
+      )}
 
       {/* Main Stats Grid */}
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
@@ -177,18 +284,35 @@ export default function AdminDashboardPage() {
           </CardContent>
         </Card>
 
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">API Requests</CardTitle>
-            <TrendingUp className="h-4 w-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">
-              {formatNumber(stats?.usage?.total_api_requests || 0)}
-            </div>
-            <p className="text-xs text-muted-foreground">This month</p>
-          </CardContent>
-        </Card>
+        {hasApiAccess ? (
+          <Card>
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+              <CardTitle className="text-sm font-medium">API Requests</CardTitle>
+              <TrendingUp className="h-4 w-4 text-muted-foreground" />
+            </CardHeader>
+            <CardContent>
+              <div className="text-2xl font-bold">
+                {formatNumber(stats?.usage?.total_api_requests || 0)}
+              </div>
+              <p className="text-xs text-muted-foreground">This month</p>
+            </CardContent>
+          </Card>
+        ) : (
+          <Card className="opacity-75">
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+              <CardTitle className="text-sm font-medium">API Requests</CardTitle>
+              <Lock className="h-4 w-4 text-muted-foreground" />
+            </CardHeader>
+            <CardContent>
+              <div className="text-2xl font-bold text-muted-foreground">--</div>
+              <p className="text-xs text-muted-foreground">
+                <Link href="/pricing" className="text-primary hover:underline">
+                  Upgrade to Pro
+                </Link>
+              </p>
+            </CardContent>
+          </Card>
+        )}
       </div>
 
       {/* Secondary Stats */}
