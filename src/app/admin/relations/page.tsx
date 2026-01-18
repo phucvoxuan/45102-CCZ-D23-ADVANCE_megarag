@@ -41,6 +41,7 @@ import {
 } from '@/components/ui/alert-dialog';
 import { Badge } from '@/components/ui/badge';
 import { Checkbox } from '@/components/ui/checkbox';
+import { useTranslation } from '@/i18n';
 
 interface Relation {
   id: string;
@@ -90,6 +91,7 @@ const relationTypeColors: Record<string, { bg: string; text: string }> = {
 };
 
 export default function AdminRelationsPage() {
+  const { t } = useTranslation();
   const [relations, setRelations] = useState<Relation[]>([]);
   const [availableTypes, setAvailableTypes] = useState<string[]>([]);
   const [pagination, setPagination] = useState<Pagination | null>(null);
@@ -198,9 +200,9 @@ export default function AdminRelationsPage() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold">Relations</h1>
+          <h1 className="text-3xl font-bold">{String(t('admin.relationsPage.title'))}</h1>
           <p className="text-muted-foreground">
-            View and manage relationships between entities
+            {String(t('admin.relationsPage.subtitle'))}
           </p>
         </div>
         <div className="flex gap-2">
@@ -213,24 +215,23 @@ export default function AdminRelationsPage() {
                   ) : (
                     <Trash2 className="h-4 w-4 mr-2" />
                   )}
-                  Delete ({selectedIds.size})
+                  {String(t('common.delete'))} ({selectedIds.size})
                 </Button>
               </AlertDialogTrigger>
               <AlertDialogContent>
                 <AlertDialogHeader>
-                  <AlertDialogTitle>Delete Relations</AlertDialogTitle>
+                  <AlertDialogTitle>{String(t('admin.relationsPage.deleteRelations'))}</AlertDialogTitle>
                   <AlertDialogDescription>
-                    Are you sure you want to delete {selectedIds.size} relations? This action
-                    cannot be undone.
+                    {String(t('admin.relationsPage.deleteConfirm'))} {selectedIds.size} {String(t('admin.relationsPage.relationsSelected'))}
                   </AlertDialogDescription>
                 </AlertDialogHeader>
                 <AlertDialogFooter>
-                  <AlertDialogCancel>Cancel</AlertDialogCancel>
+                  <AlertDialogCancel>{String(t('common.cancel'))}</AlertDialogCancel>
                   <AlertDialogAction
                     onClick={handleBulkDelete}
                     className="bg-destructive text-destructive-foreground"
                   >
-                    Delete
+                    {String(t('common.delete'))}
                   </AlertDialogAction>
                 </AlertDialogFooter>
               </AlertDialogContent>
@@ -238,7 +239,7 @@ export default function AdminRelationsPage() {
           )}
           <Button onClick={fetchRelations} variant="outline" size="sm">
             <RefreshCw className="h-4 w-4 mr-2" />
-            Refresh
+            {String(t('admin.relationsPage.refresh'))}
           </Button>
         </div>
       </div>
@@ -251,7 +252,7 @@ export default function AdminRelationsPage() {
               <div className="relative">
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                 <Input
-                  placeholder="Search entities or descriptions..."
+                  placeholder={String(t('admin.relationsPage.searchPlaceholder'))}
                   value={search}
                   onChange={(e) => {
                     setSearch(e.target.value);
@@ -270,10 +271,10 @@ export default function AdminRelationsPage() {
             >
               <SelectTrigger className="w-[200px]">
                 <Filter className="h-4 w-4 mr-2" />
-                <SelectValue placeholder="Filter by type" />
+                <SelectValue placeholder={String(t('admin.relationsPage.filterByType'))} />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="all">All Types</SelectItem>
+                <SelectItem value="all">{String(t('admin.relationsPage.allTypes'))}</SelectItem>
                 {availableTypes.map((type) => (
                   <SelectItem key={type} value={type}>
                     {type.replace(/_/g, ' ')}
@@ -290,8 +291,8 @@ export default function AdminRelationsPage() {
         <CardHeader>
           <div className="flex items-center justify-between">
             <div>
-              <CardTitle>All Relations</CardTitle>
-              <CardDescription>{pagination?.total || 0} relations total</CardDescription>
+              <CardTitle>{String(t('admin.relationsPage.allRelations'))}</CardTitle>
+              <CardDescription>{pagination?.total || 0} {String(t('admin.relationsPage.relationsTotal'))}</CardDescription>
             </div>
             {relations.length > 0 && (
               <div className="flex items-center gap-2">
@@ -299,7 +300,7 @@ export default function AdminRelationsPage() {
                   checked={selectedIds.size === relations.length && relations.length > 0}
                   onCheckedChange={handleSelectAll}
                 />
-                <span className="text-sm text-muted-foreground">Select all</span>
+                <span className="text-sm text-muted-foreground">{String(t('admin.relationsPage.selectAll'))}</span>
               </div>
             )}
           </div>
@@ -312,7 +313,7 @@ export default function AdminRelationsPage() {
           ) : relations.length === 0 ? (
             <div className="flex flex-col items-center justify-center h-32 text-muted-foreground">
               <GitBranch className="h-12 w-12 mb-2" />
-              <p>No relations found</p>
+              <p>{String(t('admin.relationsPage.noRelations'))}</p>
             </div>
           ) : (
             <div className="space-y-3">
@@ -355,11 +356,11 @@ export default function AdminRelationsPage() {
                       {expandedId === relation.id && (
                         <div className="mt-3 pt-3 border-t space-y-2 text-sm">
                           <div className="flex gap-2">
-                            <span className="text-muted-foreground">Created:</span>
+                            <span className="text-muted-foreground">{String(t('admin.relationsPage.created'))}:</span>
                             <span>{new Date(relation.created_at).toLocaleString()}</span>
                           </div>
                           <div className="flex gap-2">
-                            <span className="text-muted-foreground">Source chunks:</span>
+                            <span className="text-muted-foreground">{String(t('admin.relationsPage.sourceChunks'))}:</span>
                             <span>{relation.source_chunk_ids?.length || 0}</span>
                           </div>
                         </div>
@@ -386,7 +387,7 @@ export default function AdminRelationsPage() {
           {pagination && pagination.total_pages > 1 && (
             <div className="flex items-center justify-between mt-4 pt-4 border-t">
               <p className="text-sm text-muted-foreground">
-                Page {pagination.page} of {pagination.total_pages}
+                {String(t('admin.relationsPage.page'))} {pagination.page} {String(t('admin.relationsPage.of'))} {pagination.total_pages}
               </p>
               <div className="flex gap-2">
                 <Button
@@ -395,7 +396,7 @@ export default function AdminRelationsPage() {
                   onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
                   disabled={currentPage === 1}
                 >
-                  Previous
+                  {String(t('admin.relationsPage.previous'))}
                 </Button>
                 <Button
                   variant="outline"
@@ -403,7 +404,7 @@ export default function AdminRelationsPage() {
                   onClick={() => setCurrentPage((p) => Math.min(pagination.total_pages, p + 1))}
                   disabled={currentPage === pagination.total_pages}
                 >
-                  Next
+                  {String(t('admin.relationsPage.next'))}
                 </Button>
               </div>
             </div>

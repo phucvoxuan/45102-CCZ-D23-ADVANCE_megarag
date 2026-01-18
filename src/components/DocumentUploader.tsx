@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
 import { Card } from '@/components/ui/card';
 import { extractDurationClient, getMediaType } from '@/lib/media/extractDuration';
+import { useTranslation } from '@/i18n';
 import type { DocumentUploaderProps } from '@/types';
 
 // Supported file types and their MIME types
@@ -58,6 +59,7 @@ export function DocumentUploader({
   onUploadError,
   maxFileSizeMB = 100
 }: DocumentUploaderProps) {
+  const { t } = useTranslation();
   const [uploads, setUploads] = useState<FileUpload[]>([]);
 
   const uploadFile = async (fileUpload: FileUpload) => {
@@ -210,15 +212,15 @@ export function DocumentUploader({
         <input {...getInputProps()} />
         <Upload className="mx-auto h-12 w-12 text-muted-foreground mb-4" />
         {isDragActive ? (
-          <p className="text-lg font-medium">Drop files here...</p>
+          <p className="text-lg font-medium">{String(t('upload.dropFilesHere'))}</p>
         ) : (
           <>
-            <p className="text-lg font-medium mb-1">Drag & drop files here</p>
-            <p className="text-sm text-muted-foreground mb-2">or click to browse</p>
+            <p className="text-lg font-medium mb-1">{String(t('upload.dragDropHere'))}</p>
+            <p className="text-sm text-muted-foreground mb-2">{String(t('upload.orClickToBrowse'))}</p>
             <p className="text-xs text-muted-foreground">
-              Supports: PDF, DOCX, PPTX, XLSX, TXT, MD, MP4, MP3, WAV, JPG, PNG, GIF, WebP
+              {String(t('upload.supports'))}
             </p>
-            <p className="text-xs text-muted-foreground">Max file size: {maxFileSizeMB}MB</p>
+            <p className="text-xs text-muted-foreground">{String(t('upload.maxSize'))}: {maxFileSizeMB}MB</p>
           </>
         )}
       </div>
@@ -227,10 +229,10 @@ export function DocumentUploader({
       {uploads.length > 0 && (
         <div className="space-y-2">
           <div className="flex justify-between items-center">
-            <h3 className="text-sm font-medium">Uploads</h3>
+            <h3 className="text-sm font-medium">{String(t('upload.uploads'))}</h3>
             {uploads.some(u => u.status === 'success') && (
               <Button variant="ghost" size="sm" onClick={clearCompleted}>
-                Clear completed
+                {String(t('upload.clearCompleted'))}
               </Button>
             )}
           </div>
@@ -250,7 +252,7 @@ export function DocumentUploader({
                     </p>
 
                     {upload.status === 'validating' && (
-                      <p className="text-xs text-yellow-600 mt-1">Validating file...</p>
+                      <p className="text-xs text-yellow-600 mt-1">{String(t('upload.validating'))}</p>
                     )}
 
                     {upload.status === 'uploading' && (

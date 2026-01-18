@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Script from "next/script";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { AuthProvider } from "@/contexts/AuthContext";
 import { LimitModalProvider } from "@/hooks/useLimitModal";
 import { Toaster } from "@/components/ui/sonner";
+import { I18nProvider } from "@/i18n";
+import { FeedbackButton } from "@/components/FeedbackButton";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -17,8 +20,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "MegaRAG - Intelligent Document Assistant",
-  description: "Upload documents and chat with AI to get answers from your knowledge base",
+  title: "AIDORag - AI-Powered Document Intelligence",
+  description: "Transform your documents into intelligent conversations with AI-powered RAG technology",
 };
 
 export default function RootLayout({
@@ -37,13 +40,23 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <AuthProvider>
-            <LimitModalProvider>
-              {children}
-            </LimitModalProvider>
-          </AuthProvider>
+          <I18nProvider>
+            <AuthProvider>
+              <LimitModalProvider>
+                {children}
+                <FeedbackButton />
+              </LimitModalProvider>
+            </AuthProvider>
+          </I18nProvider>
           <Toaster />
         </ThemeProvider>
+
+        {/* AIDORag Chat Widget */}
+        <Script
+          src="/widget/aidorag-widget.js"
+          data-widget-key="wgt_6f6c81f1bdf1acd6f61e0e7eeef114206d67147f3432f720"
+          strategy="lazyOnload"
+        />
       </body>
     </html>
   );

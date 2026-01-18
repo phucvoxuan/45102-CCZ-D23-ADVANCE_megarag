@@ -2,18 +2,20 @@
 
 import { useEffect, useState, useCallback } from 'react';
 import Link from 'next/link';
-import { MessageSquare, RefreshCw, Microscope, Settings, Home } from 'lucide-react';
+import { MessageSquare, RefreshCw, Microscope, Settings, Home, Bot } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { DocumentUploader, DocumentList, ThemeToggle, DocumentListSkeleton, Logo } from '@/components';
+import { DocumentUploader, DocumentList, ThemeToggle, DocumentListSkeleton, Logo, LanguageSwitcher } from '@/components';
 import { UserNav } from '@/components/auth';
 import { useAuth } from '@/contexts/AuthContext';
 import { getPlanLimits } from '@/lib/plans';
 import { toast } from 'sonner';
+import { useTranslation } from '@/i18n';
 import type { Document } from '@/types';
 
 export default function DashboardPage() {
   const { subscription } = useAuth();
+  const { t } = useTranslation();
   const [documents, setDocuments] = useState<Document[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isRefreshing, setIsRefreshing] = useState(false);
@@ -21,6 +23,10 @@ export default function DashboardPage() {
   // Get max upload size from user's plan
   const planLimits = getPlanLimits(subscription?.plan_name || 'FREE');
   const maxFileSizeMB = Math.round(planLimits.maxUploadBytes / (1024 * 1024));
+
+  // Check if user has chatbot access (STARTER, PRO, or BUSINESS plan)
+  const planName = subscription?.plan_name?.toUpperCase() || 'FREE';
+  const hasChatbotAccess = ['STARTER', 'PRO', 'BUSINESS'].includes(planName);
 
   const fetchDocuments = useCallback(async (showToast = false) => {
     if (showToast) setIsRefreshing(true);
@@ -31,7 +37,7 @@ export default function DashboardPage() {
       }
       const data = await response.json();
       setDocuments(data.documents);
-      if (showToast) toast.success('Refreshed');
+      if (showToast) toast.success(String(t('common.refresh')));
     } catch (error) {
       console.error('Error fetching documents:', error);
       toast.error('Failed to load documents');
@@ -39,7 +45,7 @@ export default function DashboardPage() {
       setIsLoading(false);
       setIsRefreshing(false);
     }
-  }, []);
+  }, [t]);
 
   useEffect(() => {
     fetchDocuments();
@@ -61,31 +67,31 @@ export default function DashboardPage() {
   }, [documents, fetchDocuments]);
 
   const handleUploadComplete = useCallback((documentId: string) => {
-    toast.success('File uploaded successfully');
+    toast.success(String(t('upload.success')));
     // Refresh the document list
     fetchDocuments();
-  }, [fetchDocuments]);
+  }, [fetchDocuments, t]);
 
   const handleUploadError = useCallback((error: Error) => {
-    toast.error(error.message || 'Upload failed');
-  }, []);
+    toast.error(error.message || String(t('upload.error')));
+  }, [t]);
 
   const handleDocumentDelete = useCallback((documentId: string) => {
     setDocuments(prev => prev.filter(doc => doc.id !== documentId));
-    toast.success('Document deleted');
-  }, []);
+    toast.success(String(t('common.success')));
+  }, [t]);
 
   const handleDocumentDeleteMultiple = useCallback((documentIds: string[]) => {
     setDocuments(prev => prev.filter(doc => !documentIds.includes(doc.id)));
-    toast.success(`${documentIds.length} documents deleted`);
-  }, []);
+    toast.success(`${documentIds.length} ${String(t('dashboard.documents')).toLowerCase()}`);
+  }, [t]);
 
   const handleDocumentRename = useCallback((documentId: string, newName: string) => {
     setDocuments(prev => prev.map(doc =>
       doc.id === documentId ? { ...doc, file_name: newName } : doc
     ));
-    toast.success('Document renamed');
-  }, []);
+    toast.success(String(t('common.success')));
+  }, [t]);
 
   // Calculate stats
   const stats = {
@@ -108,7 +114,7 @@ export default function DashboardPage() {
             >
               <Logo size="sm" showText={false} />
               <div className="text-left">
-                <h1 className="text-2xl font-bold">MegaRAG</h1>
+                <h1 className="text-2xl font-bold">AIDORag</h1>
                 <p className="text-sm text-muted-foreground">
                   Multi-Modal RAG System
                 </p>
@@ -116,32 +122,41 @@ export default function DashboardPage() {
             </Link>
             <div className="flex items-center gap-2">
               <ThemeToggle />
+              <LanguageSwitcher />
               <Link href="/">
                 <Button variant="ghost" size="sm">
                   <Home className="h-4 w-4 mr-2" />
-                  Home
+                  {String(t('common.home'))}
                 </Button>
               </Link>
               <Button variant="outline" size="sm" onClick={() => fetchDocuments(true)} disabled={isRefreshing}>
                 <RefreshCw className={`h-4 w-4 mr-2 ${isRefreshing ? 'animate-spin' : ''}`} />
-                {isRefreshing ? 'Refreshing...' : 'Refresh'}
+                {isRefreshing ? String(t('common.refreshing')) : String(t('common.refresh'))}
               </Button>
-              <Link href="/dashboard/explorer">
-                <Button variant="outline" size="sm">
-                  <Microscope className="h-4 w-4 mr-2" />
-                  Explorer
-                </Button>
-              </Link>
               <Link href="/dashboard/chat">
                 <Button size="sm">
                   <MessageSquare className="h-4 w-4 mr-2" />
-                  Chat
+                  {String(t('common.chat'))}
+                </Button>
+              </Link>
+              {hasChatbotAccess && (
+                <Link href="/chatbots">
+                  <Button variant="outline" size="sm">
+                    <Bot className="h-4 w-4 mr-2" />
+                    {String(t('common.chatbots'))}
+                  </Button>
+                </Link>
+              )}
+              <Link href="/dashboard/explorer">
+                <Button variant="outline" size="sm">
+                  <Microscope className="h-4 w-4 mr-2" />
+                  {String(t('common.explorer'))}
                 </Button>
               </Link>
               <Link href="/admin">
                 <Button variant="outline" size="sm">
                   <Settings className="h-4 w-4 mr-2" />
-                  Admin
+                  {String(t('common.admin'))}
                 </Button>
               </Link>
               <UserNav showAuthButtons={false} />
@@ -157,9 +172,9 @@ export default function DashboardPage() {
           <div className="lg:col-span-1 space-y-4">
             <Card className="hover-lift animate-fade-in">
               <CardHeader>
-                <CardTitle>Upload Documents</CardTitle>
+                <CardTitle>{String(t('dashboard.uploadDocuments'))}</CardTitle>
                 <CardDescription>
-                  Drag and drop files or click to browse
+                  {String(t('dashboard.dragAndDrop'))}
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -174,25 +189,25 @@ export default function DashboardPage() {
             {/* Stats Card */}
             <Card className="hover-lift animate-fade-in" style={{ animationDelay: '0.1s' }}>
               <CardHeader>
-                <CardTitle>Statistics</CardTitle>
+                <CardTitle>{String(t('dashboard.statistics'))}</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="grid grid-cols-2 gap-4">
                   <div className="text-center p-3 bg-muted rounded-lg">
                     <div className="text-2xl font-bold">{stats.total}</div>
-                    <div className="text-xs text-muted-foreground">Total</div>
+                    <div className="text-xs text-muted-foreground">{String(t('dashboard.total'))}</div>
                   </div>
                   <div className="text-center p-3 bg-green-500/10 rounded-lg">
                     <div className="text-2xl font-bold text-green-600">{stats.processed}</div>
-                    <div className="text-xs text-muted-foreground">Ready</div>
+                    <div className="text-xs text-muted-foreground">{String(t('dashboard.ready'))}</div>
                   </div>
                   <div className="text-center p-3 bg-blue-500/10 rounded-lg">
                     <div className="text-2xl font-bold text-blue-600">{stats.processing + stats.pending}</div>
-                    <div className="text-xs text-muted-foreground">Processing</div>
+                    <div className="text-xs text-muted-foreground">{String(t('dashboard.processing'))}</div>
                   </div>
                   <div className="text-center p-3 bg-red-500/10 rounded-lg">
                     <div className="text-2xl font-bold text-red-600">{stats.failed}</div>
-                    <div className="text-xs text-muted-foreground">Failed</div>
+                    <div className="text-xs text-muted-foreground">{String(t('dashboard.failed'))}</div>
                   </div>
                 </div>
               </CardContent>
@@ -203,11 +218,11 @@ export default function DashboardPage() {
           <div className="lg:col-span-2">
             <Card className="animate-fade-in" style={{ animationDelay: '0.15s' }}>
               <CardHeader>
-                <CardTitle>Documents</CardTitle>
+                <CardTitle>{String(t('dashboard.documents'))}</CardTitle>
                 <CardDescription>
                   {stats.total === 0
-                    ? 'No documents uploaded yet'
-                    : `${stats.total} document${stats.total === 1 ? '' : 's'} in your library`
+                    ? String(t('dashboard.noDocumentsYet'))
+                    : `${stats.total} ${String(t('dashboard.inYourLibrary'))}`
                   }
                 </CardDescription>
               </CardHeader>

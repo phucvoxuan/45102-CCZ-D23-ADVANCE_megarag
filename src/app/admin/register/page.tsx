@@ -71,7 +71,7 @@ export default function RegisterPage() {
           </div>
           <CardTitle className="text-2xl">Create Organization</CardTitle>
           <CardDescription>
-            Set up your MegaRAG organization to get started
+            Set up your AIDORag organization to get started
           </CardDescription>
         </CardHeader>
         <form onSubmit={handleSubmit}>

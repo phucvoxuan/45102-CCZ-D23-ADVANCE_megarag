@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@import "../styles/landing-theme.css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -44,6 +45,33 @@
   --radius-2xl: calc(var(--radius) + 8px);
   --radius-3xl: calc(var(--radius) + 12px);
   --radius-4xl: calc(var(--radius) + 16px);
+
+  /* Landing Page Colors - AIDORag Theme */
+  --color-landing-bg-primary: #0D1117;
+  --color-landing-bg-secondary: #1A1F2E;
+  --color-landing-bg-surface: rgba(26, 31, 46, 0.8);
+  --color-landing-bg-card: rgba(26, 31, 46, 0.6);
+  --color-landing-primary: #0066FF;
+  --color-landing-primary-hover: #0052CC;
+  --color-landing-cyan: #00D4FF;
+  --color-landing-purple: #7B61FF;
+  --color-landing-deep-blue: #0A1628;
+  --color-landing-text-primary: #FFFFFF;
+  --color-landing-text-secondary: #8B95A5;
+  --color-landing-text-muted: #6B7280;
+  --color-landing-border: rgba(255, 255, 255, 0.1);
+  --color-landing-border-hover: rgba(255, 255, 255, 0.2);
+  --color-landing-success: #00D9A5;
+  --color-landing-warning: #FFB800;
+  --color-landing-error: #FF4757;
+
+  /* Landing Page Animations */
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-twinkle: twinkle 3s ease-in-out infinite;
+  --animate-glow-pulse: glow-pulse 2s ease-in-out infinite;
+  --animate-gradient-shift: gradient-shift 4s ease infinite;
+  --animate-fade-in-up: fade-in-up 0.6s ease-out forwards;
+  --animate-scale-in: scale-in 0.4s ease-out forwards;
 }
 
 :root {

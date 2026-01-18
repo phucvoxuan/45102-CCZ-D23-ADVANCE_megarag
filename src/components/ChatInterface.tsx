@@ -4,6 +4,7 @@ import { useState, useRef, useEffect, useCallback, useMemo } from 'react';
 import { Send, Loader2, Sparkles, Plus, HelpCircle, Search, Users, GitBranch, Layers, Settings, X, Lock } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
 import { getAvailableQueryModes } from '@/lib/features';
+import { useTranslation } from '@/i18n';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
@@ -51,17 +52,6 @@ interface ChatInterfaceProps {
 }
 
 /**
- * Query mode descriptions
- */
-const MODE_DESCRIPTIONS: Record<QueryMode, string> = {
-  naive: 'Vector search on chunks only - best for simple fact lookup',
-  local: 'Search entities, get related chunks - best for entity-focused queries',
-  global: 'Search relations, traverse graph - best for relationship queries',
-  hybrid: 'Combine local + global modes - balanced retrieval',
-  mix: 'Full hybrid: chunks + entities + relations - recommended for complex queries',
-};
-
-/**
  * ChatInterface component - main chat UI with query mode selector
  */
 export function ChatInterface({
@@ -71,6 +61,7 @@ export function ChatInterface({
   defaultMode = 'mix'
 }: ChatInterfaceProps) {
   const { subscription } = useAuth();
+  const { t } = useTranslation();
   const planName = subscription?.plan_name || 'FREE';
 
   // Get available modes based on user's plan
@@ -346,28 +337,28 @@ export function ChatInterface({
                   <SelectItem value="mix">
                     <span className="flex items-center gap-2">
                       <Sparkles className="h-3 w-3" />
-                      Mix
+                      {String(t('chat.searchModes.mix.name'))}
                     </span>
                   </SelectItem>
                 )}
                 {availableModes.includes('hybrid') && (
-                  <SelectItem value="hybrid">Hybrid</SelectItem>
+                  <SelectItem value="hybrid">{String(t('chat.searchModes.hybrid.name'))}</SelectItem>
                 )}
                 {availableModes.includes('local') && (
-                  <SelectItem value="local">Local</SelectItem>
+                  <SelectItem value="local">{String(t('chat.searchModes.local.name'))}</SelectItem>
                 )}
                 {availableModes.includes('global') && (
-                  <SelectItem value="global">Global</SelectItem>
+                  <SelectItem value="global">{String(t('chat.searchModes.global.name'))}</SelectItem>
                 )}
                 {availableModes.includes('naive') && (
-                  <SelectItem value="naive">Naive</SelectItem>
+                  <SelectItem value="naive">{String(t('chat.searchModes.naive.name'))}</SelectItem>
                 )}
                 {/* Show upgrade prompt if not all modes available */}
                 {availableModes.length < 5 && (
                   <div className="px-2 py-2 border-t mt-1">
                     <Link href="/pricing" className="flex items-center gap-2 text-xs text-muted-foreground hover:text-primary">
                       <Lock className="h-3 w-3" />
-                      Upgrade for more modes
+                      {String(t('chat.upgradeForMoreModes'))}
                     </Link>
                   </div>
                 )}
@@ -383,20 +374,21 @@ export function ChatInterface({
               </DialogTrigger>
               <DialogContent className="max-w-lg">
                 <DialogHeader>
-                  <DialogTitle>Search Modes Explained</DialogTitle>
+                  <DialogTitle>{String(t('chat.searchModes.title'))}</DialogTitle>
+                  <DialogDescription>
+                    {String(t('chat.searchModes.description'))}
+                  </DialogDescription>
                 </DialogHeader>
                 <div className="space-y-4 mt-4">
                   <div className="flex gap-3 p-3 rounded-lg bg-primary/5 border border-primary/20">
                     <Sparkles className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
                     <div>
                       <div className="font-semibold flex items-center gap-2">
-                        Mix
-                        <Badge variant="secondary" className="text-[10px]">Recommended</Badge>
+                        {String(t('chat.searchModes.mix.name'))}
+                        <Badge variant="secondary" className="text-[10px]">{String(t('chat.searchModes.mix.badge'))}</Badge>
                       </div>
                       <p className="text-sm text-muted-foreground mt-1">
-                        The most comprehensive search. Looks through your document text,
-                        finds relevant people/places/things, and traces their connections.
-                        Best for complex questions where you need the full picture.
+                        {String(t('chat.searchModes.mix.description'))}
                       </p>
                     </div>
                   </div>
@@ -404,10 +396,9 @@ export function ChatInterface({
                   <div className="flex gap-3 p-3 rounded-lg border">
                     <Layers className="h-5 w-5 text-muted-foreground flex-shrink-0 mt-0.5" />
                     <div>
-                      <div className="font-semibold">Hybrid</div>
+                      <div className="font-semibold">{String(t('chat.searchModes.hybrid.name'))}</div>
                       <p className="text-sm text-muted-foreground mt-1">
-                        Combines entity search with relationship search. Good balance
-                        between speed and thoroughness for most questions.
+                        {String(t('chat.searchModes.hybrid.description'))}
                       </p>
                     </div>
                   </div>
@@ -415,11 +406,9 @@ export function ChatInterface({
                   <div className="flex gap-3 p-3 rounded-lg border">
                     <Users className="h-5 w-5 text-muted-foreground flex-shrink-0 mt-0.5" />
                     <div>
-                      <div className="font-semibold">Local</div>
+                      <div className="font-semibold">{String(t('chat.searchModes.local.name'))}</div>
                       <p className="text-sm text-muted-foreground mt-1">
-                        Focuses on finding specific entities (people, companies, places).
-                        Best for questions like "Tell me about John Smith" or
-                        "What do you know about Acme Corp?"
+                        {String(t('chat.searchModes.local.description'))}
                       </p>
                     </div>
                   </div>
@@ -427,11 +416,9 @@ export function ChatInterface({
                   <div className="flex gap-3 p-3 rounded-lg border">
                     <GitBranch className="h-5 w-5 text-muted-foreground flex-shrink-0 mt-0.5" />
                     <div>
-                      <div className="font-semibold">Global</div>
+                      <div className="font-semibold">{String(t('chat.searchModes.global.name'))}</div>
                       <p className="text-sm text-muted-foreground mt-1">
-                        Explores connections and relationships between things.
-                        Best for questions like "How is X related to Y?" or
-                        "What's the connection between these events?"
+                        {String(t('chat.searchModes.global.description'))}
                       </p>
                     </div>
                   </div>
@@ -439,11 +426,9 @@ export function ChatInterface({
                   <div className="flex gap-3 p-3 rounded-lg border">
                     <Search className="h-5 w-5 text-muted-foreground flex-shrink-0 mt-0.5" />
                     <div>
-                      <div className="font-semibold">Naive</div>
+                      <div className="font-semibold">{String(t('chat.searchModes.naive.name'))}</div>
                       <p className="text-sm text-muted-foreground mt-1">
-                        Simple text search through your documents. Fast but less
-                        intelligent. Good for quick fact lookups like
-                        "What date did X happen?"
+                        {String(t('chat.searchModes.naive.description'))}
                       </p>
                     </div>
                   </div>
@@ -464,21 +449,21 @@ export function ChatInterface({
               <DialogTrigger asChild>
                 <Button variant="outline" size="sm">
                   <Settings className="h-4 w-4 mr-1" />
-                  Settings
+                  {String(t('chat.settings'))}
                 </Button>
               </DialogTrigger>
               <DialogContent className="max-w-2xl max-h-[80vh] overflow-y-auto">
                 <DialogHeader>
-                  <DialogTitle>Chat Settings</DialogTitle>
+                  <DialogTitle>{String(t('chat.settingsTitle'))}</DialogTitle>
                   <DialogDescription>
-                    Customize how the AI responds. These settings are saved per chat session.
+                    {String(t('chat.settingsDescription'))}
                   </DialogDescription>
                 </DialogHeader>
 
                 <div className="space-y-6 py-4">
                   {/* Model Selection */}
                   <div className="space-y-2">
-                    <Label htmlFor="model">AI Model</Label>
+                    <Label htmlFor="model">{String(t('chat.aiModel'))}</Label>
                     <Select value={tempModel} onValueChange={(v) => setTempModel(v as GeminiModelId)}>
                       <SelectTrigger>
                         <SelectValue />
@@ -495,49 +480,48 @@ export function ChatInterface({
                       </SelectContent>
                     </Select>
                     <p className="text-xs text-muted-foreground">
-                      Choose the model for generating responses. Pro models are more capable but slower.
+                      {String(t('chat.modelDescription'))}
                     </p>
                   </div>
 
                   {/* System Prompt */}
                   <div className="space-y-2">
                     <div className="flex items-center justify-between">
-                      <Label htmlFor="system-prompt">System Prompt</Label>
+                      <Label htmlFor="system-prompt">{String(t('chat.systemPrompt'))}</Label>
                       <Button
                         variant="ghost"
                         size="sm"
                         onClick={resetToDefaults}
                         className="text-xs"
                       >
-                        Reset to Default
+                        {String(t('chat.resetToDefault'))}
                       </Button>
                     </div>
                     <Textarea
                       id="system-prompt"
                       value={tempSystemPrompt}
                       onChange={(e) => setTempSystemPrompt(e.target.value)}
-                      placeholder="Enter custom instructions for the AI..."
+                      placeholder={String(t('chat.systemPromptPlaceholder'))}
                       className="min-h-[200px] font-mono text-sm"
                     />
                     <p className="text-xs text-muted-foreground">
-                      The system prompt controls how the AI behaves and responds. Customize to change
-                      tone, format, or add specific instructions.
+                      {String(t('chat.systemPromptDescription'))}
                     </p>
                   </div>
                 </div>
 
                 <DialogFooter>
                   <Button variant="outline" onClick={() => setSettingsOpen(false)}>
-                    Cancel
+                    {String(t('common.cancel'))}
                   </Button>
                   <Button onClick={saveSettings} disabled={isSavingSettings}>
                     {isSavingSettings ? (
                       <>
                         <Loader2 className="h-4 w-4 mr-2 animate-spin" />
-                        Saving...
+                        {String(t('chat.saving'))}
                       </>
                     ) : (
-                      'Save Settings'
+                      String(t('chat.saveSettings'))
                     )}
                   </Button>
                 </DialogFooter>
@@ -546,7 +530,7 @@ export function ChatInterface({
 
             <Button variant="outline" size="sm" onClick={handleNewChat}>
               <Plus className="h-4 w-4 mr-1" />
-              New Chat
+              {String(t('chat.newChat'))}
             </Button>
           </div>
         </div>
@@ -559,15 +543,14 @@ export function ChatInterface({
             <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4">
               <Sparkles className="h-8 w-8 text-primary" />
             </div>
-            <h3 className="text-lg font-semibold mb-2">Ask about your documents</h3>
+            <h3 className="text-lg font-semibold mb-2">{String(t('chat.askAboutDocuments'))}</h3>
             <p className="text-muted-foreground max-w-md">
-              I can answer questions about your uploaded documents using RAG (Retrieval-Augmented Generation).
-              Try asking about specific topics, entities, or relationships.
+              {String(t('chat.askAboutDocumentsDescription'))}
             </p>
             <div className="flex flex-wrap justify-center gap-2 mt-4">
-              <Badge variant="outline">Entities</Badge>
-              <Badge variant="outline">Relationships</Badge>
-              <Badge variant="outline">Source Citations</Badge>
+              <Badge variant="outline">{String(t('chat.entities'))}</Badge>
+              <Badge variant="outline">{String(t('chat.relationships'))}</Badge>
+              <Badge variant="outline">{String(t('chat.sourceCitations'))}</Badge>
             </div>
           </div>
         ) : (
@@ -592,7 +575,7 @@ export function ChatInterface({
               <div className="p-4 flex items-center gap-3 bg-muted/30">
                 <Loader2 className="h-5 w-5 animate-spin text-muted-foreground" />
                 <span className="text-sm text-muted-foreground">
-                  Searching documents and generating response...
+                  {String(t('chat.searchingDocuments'))}
                 </span>
               </div>
             )}
@@ -607,9 +590,9 @@ export function ChatInterface({
         <div className="flex-shrink-0 border-t max-h-[300px] overflow-y-auto">
           <div className="p-4">
             <div className="flex items-center justify-between mb-2">
-              <span className="text-sm font-medium">Detailed Sources</span>
+              <span className="text-sm font-medium">{String(t('chat.detailedSources'))}</span>
               <Button variant="ghost" size="sm" onClick={() => setSelectedMessage(null)}>
-                Close
+                {String(t('chat.close'))}
               </Button>
             </div>
             <SourceReferences sources={selectedMessage.sources} />
@@ -631,7 +614,7 @@ export function ChatInterface({
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={handleKeyDown}
-            placeholder="Ask a question about your documents..."
+            placeholder={String(t('chat.askPlaceholder'))}
             className="min-h-[44px] max-h-[200px] resize-none"
             disabled={isLoading}
             rows={1}
@@ -651,7 +634,7 @@ export function ChatInterface({
         </div>
 
         <p className="text-xs text-muted-foreground mt-2">
-          Press Enter to send, Shift+Enter for new line
+          {String(t('chat.enterToSend'))}
         </p>
       </div>
     </div>

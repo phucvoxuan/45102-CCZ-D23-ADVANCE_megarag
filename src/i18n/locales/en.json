@@ -1,0 +1,2865 @@
+{
+  "announcement": {
+    "message": "Now in Public Beta - Try AIDORag free today!",
+    "cta": "Get Started"
+  },
+  "nav": {
+    "product": "Product",
+    "product_items": {
+      "ragEngine": { "title": "RAG Engine", "desc": "Powerful document intelligence" },
+      "knowledgeGraph": { "title": "Knowledge Graph", "desc": "Visualize document relationships" },
+      "api": { "title": "API Access", "desc": "Integrate with your apps" },
+      "integrations": { "title": "Integrations", "desc": "Connect your tools" }
+    },
+    "resources": "Resources",
+    "resources_items": {
+      "docs": { "title": "Documentation", "desc": "Learn how to use AIDORag" },
+      "tutorials": { "title": "Tutorials", "desc": "Step-by-step guides" },
+      "blog": { "title": "Blog", "desc": "News and updates" },
+      "changelog": { "title": "Changelog", "desc": "What's new" }
+    },
+    "useCases": "Use Cases",
+    "useCases_items": {
+      "research": { "title": "Research", "desc": "Academic and scientific research" },
+      "legal": { "title": "Legal", "desc": "Contract analysis and review" },
+      "support": { "title": "Support", "desc": "Customer support automation" },
+      "enterprise": { "title": "Enterprise", "desc": "Large-scale document management" }
+    },
+    "developers": "Developers",
+    "developers_items": {
+      "apiDocs": { "title": "API Documentation", "desc": "Complete API reference" },
+      "quickstart": { "title": "Quickstart", "desc": "Get started in minutes" },
+      "sdks": { "title": "SDKs", "desc": "Client libraries" },
+      "community": { "title": "Community", "desc": "Join the discussion" }
+    },
+    "pricing": "Pricing",
+    "signIn": "Sign In",
+    "startFree": "Start Free"
+  },
+  "hero": {
+    "badge": "AI-Powered Document Intelligence",
+    "titleStart": "Transform Your Documents with",
+    "titleHighlight": "AI Intelligence",
+    "subtitle": "Upload documents, ask questions, get instant answers with source citations. Powered by advanced RAG technology.",
+    "cta": {
+      "primary": "Get Started Free",
+      "secondary": "Watch Demo"
+    },
+    "demo": {
+      "userMessage": "What are the key findings from the research paper?",
+      "aiResponse": "Based on the documents, the key findings are:",
+      "finding1": "1. AI adoption increased by 45% in enterprise settings",
+      "finding2": "2. Cost savings of 30% on average for document processing",
+      "finding3": "3. User satisfaction rates improved by 60%",
+      "source": "Source: Research Report 2024, Page 15"
+    },
+    "features": {
+      "noCard": "No credit card required",
+      "instantSetup": "Instant setup",
+      "freePlan": "Free plan available"
+    },
+    "stats": {
+      "label": "Documents Processed",
+      "value": "1M+"
+    }
+  },
+  "features": {
+    "badge": "Features",
+    "title": "Everything You Need for Document Intelligence",
+    "subtitle": "Powerful features to transform how you work with documents"
+  },
+  "howItWorks": {
+    "badge": "How It Works",
+    "title": "Simple 3-Step Process",
+    "subtitle": "Get started in minutes with our intuitive workflow",
+    "supportedTypes": "PDF, DOCX, TXT, and more"
+  },
+  "testimonials": {
+    "badge": "Testimonials",
+    "title": "Loved by Teams Worldwide",
+    "subtitle": "See what our users have to say",
+    "stats": {
+      "users": { "value": "10K+", "label": "Active Users" },
+      "documents": { "value": "1M+", "label": "Documents Processed" },
+      "rating": { "value": "4.9", "label": "Average Rating" },
+      "uptime": { "value": "99.9%", "label": "Uptime" }
+    }
+  },
+  "pricing": {
+    "badge": "Pricing",
+    "title": "Simple, Transparent Pricing",
+    "subtitle": "Choose the plan that fits your needs",
+    "monthly": "Monthly",
+    "yearly": "Yearly",
+    "forever": "One-time",
+    "popular": "Most Popular",
+    "getStarted": "Get Started",
+    "subscribe": "Subscribe",
+    "contactSales": "Contact Sales",
+    "comparePlans": "Compare Plans",
+    "comparison": {
+      "title": "Feature Comparison"
+    },
+    "faq": {
+      "title": "Frequently Asked Questions"
+    },
+    "rateLimits": {
+      "free": "Free Plan",
+      "pro": "Pro Plan",
+      "business": "Business Plan"
+    }
+  },
+  "faq": {
+    "badge": "FAQ",
+    "title": "Frequently Asked Questions",
+    "subtitle": "Find answers to common questions",
+    "stillHaveQuestions": "Still have questions?",
+    "contactSupport": "Contact Support",
+    "items": [
+      { "question": "What is AIDORag?", "answer": "AIDORag is an AI-powered document intelligence platform that lets you upload documents, ask questions, and get instant answers with source citations." },
+      { "question": "What file formats are supported?", "answer": "We support PDF, DOCX, TXT, Excel, PowerPoint, and many more document formats." },
+      { "question": "Is my data secure?", "answer": "Yes, we use enterprise-grade encryption and never share your data with third parties." },
+      { "question": "Can I use AIDORag for free?", "answer": "Yes, we offer a free plan with limited features. You can upgrade anytime." },
+      { "question": "How accurate are the answers?", "answer": "Our RAG technology provides highly accurate answers by citing specific sources from your documents." },
+      { "question": "Do you offer team plans?", "answer": "Yes, our Pro and Business plans include team collaboration features." },
+      { "question": "Can I integrate with other tools?", "answer": "Yes, we offer API access and integrations with popular tools." },
+      { "question": "What support options are available?", "answer": "We offer email support for all plans, priority support for Pro, and dedicated support for Business." }
+    ]
+  },
+  "cta": {
+    "badge": "Get Started",
+    "title": "Ready to Transform Your Documents?",
+    "subtitle": "Join thousands of users who trust AIDORag for document intelligence",
+    "footer": "No credit card required",
+    "primaryButton": "Start Free Trial",
+    "secondaryButton": "Contact Sales"
+  },
+  "footer": {
+    "description": "AI-powered document intelligence platform that helps you extract insights from your documents.",
+    "tagline": "Made with AI for humans",
+    "sections": {
+      "product": "Product",
+      "company": "Company",
+      "resources": "Resources",
+      "legal": "Legal"
+    },
+    "product": {
+      "features": "Features",
+      "pricing": "Pricing",
+      "apiDocs": "API Docs",
+      "dashboard": "Dashboard"
+    },
+    "company": {
+      "about": "About",
+      "blog": "Blog",
+      "careers": "Careers",
+      "contact": "Contact"
+    },
+    "resources": {
+      "documentation": "Documentation",
+      "helpCenter": "Help Center",
+      "community": "Community",
+      "status": "Status"
+    },
+    "legal": {
+      "privacy": "Privacy",
+      "terms": "Terms",
+      "cookies": "Cookies"
+    },
+    "copyright": "© {year} AIDORag. All rights reserved."
+  },
+  "common": {
+    "admin": "Admin",
+    "chat": "Chat",
+    "chatbots": "Chatbots",
+    "dashboard": "Dashboard",
+    "explorer": "Explorer",
+    "home": "Home",
+    "refresh": "Refresh",
+    "viewAll": "View All",
+    "delete": "Delete",
+    "rename": "Rename",
+    "save": "Save",
+    "cancel": "Cancel",
+    "getStarted": "Get Started",
+    "getStartedFree": "Get Started Free",
+    "tryFree": "Try Free",
+    "subscribe": "Subscribe",
+    "contactUs": "Contact Us",
+    "contactSupport": "Contact Support",
+    "contactSales": "Contact Sales",
+    "viewDocs": "View Docs",
+    "viewPricing": "View Pricing",
+    "joinCommunity": "Join Community",
+    "learnMore": "Learn More",
+    "requestDemo": "Request Demo",
+    "signIn": "Sign In",
+    "signUp": "Sign Up",
+    "signOut": "Sign Out",
+    "settings": "Settings",
+    "profile": "Profile",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "uploadDocuments": "Upload Documents",
+    "dragAndDrop": "Drag and drop files or click to browse",
+    "documents": "Documents",
+    "inYourLibrary": "in your library",
+    "searchDocuments": "Search documents...",
+    "all": "All",
+    "noDocuments": "No documents yet",
+    "uploadFirstDocument": "Upload your first document to get started",
+    "pending": "Pending",
+    "processing": "Processing",
+    "ready": "Ready",
+    "failed": "Failed",
+    "selectAll": "Select All",
+    "deleteDocument": "Delete Document",
+    "deleteDocuments": "Delete Documents",
+    "undo": "Undo",
+    "statistics": "Statistics",
+    "total": "Total",
+    "chunks": "chunks",
+    "recentActivity": "Recent Activity",
+    "quickActions": "Quick Actions",
+    "startChat": "Start Chat",
+    "viewExplorer": "View Explorer"
+  },
+  "upload": {
+    "dropFilesHere": "Drop files here",
+    "dragDropHere": "Drag and drop files here",
+    "orClickToBrowse": "or click to browse",
+    "supports": "Supports",
+    "maxSize": "Max size",
+    "validating": "Validating...",
+    "success": "Upload successful",
+    "error": "Upload failed",
+    "clearCompleted": "Clear Completed",
+    "uploads": "Uploads"
+  },
+  "chat": {
+    "title": "Chat",
+    "subtitle": "Ask questions about your documents",
+    "searchMode": "Search Mode",
+    "askAboutDocuments": "Ask About Documents",
+    "askAboutDocumentsDescription": "Get AI-powered answers from your knowledge base",
+    "aiModel": "AI Model",
+    "systemPrompt": "System Prompt",
+    "settings": "Settings",
+    "settingsTitle": "Chat Settings",
+    "settingsDescription": "Configure your chat experience",
+    "searchModes": {
+      "title": "Search Modes",
+      "description": "Choose the search mode that best fits your query",
+      "mix": { "title": "Mix", "name": "Mix", "desc": "Balanced search combining all methods", "description": "Balanced search combining all methods", "badge": "Recommended" },
+      "hybrid": { "title": "Hybrid", "name": "Hybrid", "desc": "Combines local and global search", "description": "Combines local and global search" },
+      "local": { "title": "Local", "name": "Local", "desc": "Entity-focused search", "description": "Entity-focused search" },
+      "global": { "title": "Global", "name": "Global", "desc": "Relationship-focused search", "description": "Relationship-focused search" },
+      "naive": { "title": "Naive", "name": "Naive", "desc": "Simple vector search", "description": "Simple vector search" }
+    },
+    "upgradeForMoreModes": "Upgrade for more search modes",
+    "askPlaceholder": "Ask a question about your documents...",
+    "enterToSend": "Press Enter to send",
+    "history": "History",
+    "newChat": "New Chat",
+    "detailedSources": "Detailed Sources",
+    "sourceCitations": "Source Citations",
+    "entities": "Entities",
+    "relationships": "Relationships",
+    "search": "Search",
+    "clearAllHistory": "Clear All History",
+    "clearAllConfirm": "Are you sure you want to delete all chat history? This cannot be undone.",
+    "clearing": "Clearing...",
+    "loadingChats": "Loading chats...",
+    "noChatHistory": "No chat history",
+    "startConversation": "Start a conversation to see it here",
+    "yesterday": "Yesterday"
+  },
+  "explorer": {
+    "title": "Explorer",
+    "subtitle": "Browse and explore your documents",
+    "indexedDocuments": "Indexed Documents",
+    "noIndexedDocuments": "No indexed documents",
+    "selectDocument": "Select a document to view details",
+    "viewChunks": "View chunks and entities extracted from your documents",
+    "overview": "Overview",
+    "chunks": "Chunks",
+    "entities": "Entities",
+    "relations": "Relations",
+    "avgChars": "Avg. Characters",
+    "fileInfo": "File Info",
+    "documentMetadata": "Document Metadata",
+    "weight": "Weight"
+  },
+  "admin": {
+    "title": "Admin Dashboard",
+    "overview": "System overview and statistics",
+    "recentDocuments": "Recent Documents",
+    "latestUploads": "Latest uploaded documents",
+    "llmTokens": "LLM Tokens",
+    "inputOutput": "Input/Output tokens used",
+    "totalConversations": "Total conversations",
+    "totalUsed": "Total storage used",
+    "processed": "processed",
+    "upgradeToPro": "Upgrade to Pro",
+    "topEntityTypes": "Top entity types",
+    "knowledgeGraphConnections": "Knowledge graph connections",
+    "apiDocs": "API Docs",
+    "apiDocumentation": "API Documentation",
+    "apiKeys": "API Keys",
+    "apiRequests": "API Requests",
+    "thisMonth": "This Month",
+    "thisMonthBilling": "This billing period",
+    "billingUsage": "Billing & Usage",
+    "chatSessions": "Chat Sessions",
+    "chunks": "Chunks",
+    "documentChunks": "Document Chunks",
+    "faqEmbeddings": "FAQ Embeddings",
+    "fromChatbotFaqs": "From chatbot FAQs",
+    "dashboard": "Dashboard",
+    "documents": "Documents",
+    "entities": "Entities",
+    "relations": "Relations",
+    "knowledgeGraph": "Knowledge Graph",
+    "settings": "Settings",
+    "profile": "Profile",
+    "entityDistribution": "Entity Distribution",
+    "extractedFromDocuments": "Extracted from documents",
+    "indexedTextSegments": "Indexed text segments",
+    "quickActions": "Quick Actions",
+    "uploadAndOrganize": "Upload and organize your documents",
+    "manageDocuments": "Manage Documents",
+    "viewKnowledgeGraph": "View Knowledge Graph",
+    "manageApiKeys": "Manage API Keys",
+    "loadingDashboard": "Loading dashboard...",
+    "requestTimedOut": "Request timed out",
+    "errorLoadingDashboard": "Error loading dashboard",
+    "setupRequired": "Setup Required",
+    "databaseSetupDescription": "Database tables need to be initialized",
+    "runSqlFiles": "Please run the following SQL files in order:",
+    "noEntitiesYet": "No entities extracted yet",
+    "documentsPage": {
+      "title": "Documents",
+      "subtitle": "Manage your uploaded documents",
+      "searchPlaceholder": "Search documents...",
+      "filterByStatus": "Filter by status",
+      "allStatuses": "All Statuses",
+      "refresh": "Refresh",
+      "allDocuments": "All Documents",
+      "documentsTotal": "documents total",
+      "noDocuments": "No documents found",
+      "selectAll": "Select all",
+      "deleteDocuments": "Delete Documents",
+      "deleteConfirm": "Are you sure you want to delete",
+      "documentsSelected": "selected documents?",
+      "page": "Page",
+      "of": "of",
+      "previous": "Previous",
+      "next": "Next",
+      "document": "Document",
+      "type": "Type",
+      "size": "Size",
+      "status": "Status",
+      "completed": "Completed",
+      "allStatus": "All Status",
+      "processing": "Processing",
+      "pending": "Pending",
+      "failed": "Failed",
+      "created": "Created",
+      "actions": "Actions"
+    },
+    "entitiesPage": {
+      "title": "Entities",
+      "subtitle": "View and manage extracted entities",
+      "searchPlaceholder": "Search entities...",
+      "filterByType": "Filter by type",
+      "allTypes": "All Types",
+      "refresh": "Refresh",
+      "allEntities": "All Entities",
+      "entitiesTotal": "entities total",
+      "noEntities": "No entities found",
+      "name": "Name",
+      "type": "Type",
+      "description": "Description",
+      "sources": "Sources",
+      "chunks": "chunks",
+      "created": "Created",
+      "deleteEntities": "Delete Entities",
+      "deleteConfirm": "Are you sure you want to delete",
+      "entitiesSelected": "selected entities?",
+      "page": "Page",
+      "of": "of",
+      "previous": "Previous",
+      "next": "Next"
+    },
+    "relationsPage": {
+      "title": "Relations",
+      "subtitle": "View and manage entity relationships",
+      "searchPlaceholder": "Search relations...",
+      "filterByType": "Filter by type",
+      "allTypes": "All Types",
+      "refresh": "Refresh",
+      "allRelations": "All Relations",
+      "relationsTotal": "relations total",
+      "noRelations": "No relations found",
+      "selectAll": "Select all",
+      "deleteRelations": "Delete Relations",
+      "deleteConfirm": "Are you sure you want to delete",
+      "relationsSelected": "selected relations?",
+      "created": "Created",
+      "sourceChunks": "Source Chunks",
+      "page": "Page",
+      "of": "of",
+      "previous": "Previous",
+      "next": "Next"
+    },
+    "knowledgeGraphPage": {
+      "title": "Knowledge Graph",
+      "subtitle": "Visualize your document knowledge",
+      "searchPlaceholder": "Search nodes...",
+      "filterByType": "Filter by type",
+      "allTypes": "All Types",
+      "depth": "Depth",
+      "depthLevel": "Level",
+      "refresh": "Refresh",
+      "noData": "No knowledge graph data",
+      "loading": "Loading graph...",
+      "nodes": "Nodes",
+      "edges": "Edges",
+      "entities": "Entities",
+      "relations": "Relations",
+      "zoomIn": "Zoom In",
+      "zoomOut": "Zoom Out",
+      "resetView": "Reset View",
+      "fullscreen": "Fullscreen"
+    }
+  },
+  "billing": {
+    "title": "Billing & Usage",
+    "subtitle": "Manage your subscription and usage",
+    "subscriptionInfo": "Your current subscription details",
+    "nextBillingDate": "Next billing date",
+    "usageThisPeriod": "Usage This Period",
+    "resetsOn": "Resets on",
+    "mediaProcessing": "Media Processing",
+    "syncUsage": "Sync Usage",
+    "daysRemaining": "days remaining",
+    "changePlan": "Change Plan",
+    "currentPlan": "Current Plan",
+    "upgradeNow": "Upgrade Now",
+    "upgradePlan": "Upgrade Plan",
+    "audio": "Audio",
+    "video": "Video",
+    "documents": "Documents",
+    "pages": "Pages",
+    "queries": "Queries",
+    "storage": "Storage",
+    "audioLimitReached": "Audio limit reached",
+    "videoLimitReached": "Video limit reached",
+    "runningLowOnResources": "Running low on resources",
+    "upgradeNowToContinue": "Upgrade now to continue using all features without interruption.",
+    "month": "month",
+    "year": "year",
+    "thisMonth": "This Month",
+    "endOfMonth": "End of Month",
+    "availableQueryModes": "Available Query Modes",
+    "ragQueryModesAvailable": "RAG query modes available for",
+    "upgradeToUnlockAdvancedModes": "Upgrade to unlock advanced query modes like Local, Global, Hybrid, and Mix.",
+    "planFeatures": "Plan Features",
+    "whatsIncluded": "What's included in",
+    "upgradeToUnlock": "Upgrade to Unlock More Features",
+    "getMoreFeatures": "Get more documents, pages, queries, and advanced features.",
+    "pleaseSignIn": "Please sign in to view billing information",
+    "syncing": "Syncing...",
+    "ofAudioLimitUsed": "of audio limit used",
+    "ofVideoLimitUsed": "of video limit used"
+  },
+  "profile": {
+    "title": "Profile",
+    "profileInformation": "Profile Information",
+    "fullName": "Full Name",
+    "organization": "Organization",
+    "enterOrganization": "Enter your organization",
+    "jobTitle": "Job Title",
+    "enterJobTitle": "Enter your job title",
+    "phone": "Phone",
+    "enterPhone": "Enter your phone number",
+    "billing": "Billing",
+    "subscription": "Subscription",
+    "subscriptionDescription": "Your current subscription plan",
+    "nextBillingDate": "Next billing date",
+    "manageBilling": "Manage Billing",
+    "changePassword": "Change Password",
+    "saveChanges": "Save Changes",
+    "updatePersonalInfo": "Update Personal Info"
+  },
+  "settings": {
+    "title": "Settings",
+    "subtitle": "Manage your account settings",
+    "accountDetails": "Account Details",
+    "currentPlanDetails": "Your current plan details",
+    "viewDetailedUsage": "View detailed usage",
+    "active": "Active",
+    "accountInfo": "Account Info",
+    "subscription": "Subscription",
+    "apiConfiguration": "API Configuration",
+    "apiIntegrationStatus": "API integration status",
+    "apiDocumentation": "API Documentation",
+    "availableEndpoints": "Available Endpoints",
+    "createChatSession": "Create Chat Session",
+    "listDocuments": "List Documents",
+    "sendMessage": "Send Message",
+    "executeQuery": "Execute Query",
+    "geminiConfigured": "Gemini API Configured",
+    "geminiServerSide": "Server-side Gemini",
+    "geminiStatusUnknown": "Status Unknown"
+  },
+  "pages": {
+    "community": {
+      "badge": "Community",
+      "titlePrefix": "Join Our",
+      "title": "Community",
+      "subtitle": "Connect with developers, share ideas, and get help from the AIDORag community",
+      "joinDiscord": "Join Discord",
+      "channels": {
+        "discord": {
+          "name": "Discord",
+          "description": "Real-time chat with the community and team",
+          "members": "5,000+",
+          "cta": "Join"
+        },
+        "github": {
+          "name": "GitHub",
+          "description": "Contribute to open-source projects and report issues",
+          "members": "2,000+",
+          "cta": "View"
+        },
+        "forum": {
+          "name": "Forum",
+          "description": "In-depth discussions and knowledge sharing",
+          "members": "10,000+",
+          "cta": "Visit"
+        }
+      },
+      "stats": {
+        "users": { "value": "10K+", "label": "Users" },
+        "countries": { "value": "50+", "label": "Countries" },
+        "contributors": { "value": "500+", "label": "Contributors" },
+        "active": { "value": "24/7", "label": "Active Support" }
+      },
+      "topContributors": "Top Contributors",
+      "contributions": "contributions",
+      "members": "members",
+      "cta": {
+        "title": "Ready to Join?",
+        "subtitle": "Become part of our growing community today"
+      },
+      "starGithub": "Star on GitHub"
+    },
+    "about": {
+      "badge": "About Us",
+      "titlePrefix": "About",
+      "title": "AIDORag",
+      "subtitle": "We're on a mission to make document intelligence accessible to everyone",
+      "mission": {
+        "title": "Our Mission",
+        "description": "To transform how people work with documents using AI, making knowledge accessible and actionable for everyone."
+      },
+      "story": {
+        "title": "Our Story",
+        "paragraphs": [
+          "AIDORag was founded in 2024 with a simple vision: make document intelligence accessible to everyone.",
+          "We saw how organizations struggled to extract insights from their documents and knew AI could help.",
+          "Today, we serve thousands of users worldwide, from individual researchers to Fortune 500 companies."
+        ]
+      },
+      "values": {
+        "title": "Our Values",
+        "items": {
+          "userFirst": "Collaboration",
+          "userFirstDesc": "We believe in the power of collaboration and teamwork, both within our organization and with partners and customers.",
+          "innovation": "Accountability",
+          "innovationDesc": "We consistently adhere to the highest standards of ethics and integrity, taking responsibility for our actions and decisions.",
+          "transparency": "Reliability",
+          "transparencyDesc": "Quality and excellence in products and services are our top priorities. Reliability reflects our commitment to consistent, high-quality results.",
+          "community": "Excellence",
+          "communityDesc": "We always strive for excellence in everything we do, continually improving and innovating to exceed expectations."
+        }
+      },
+      "team": {
+        "title": "Our Team",
+        "desc": "Meet the founders behind AIDORag",
+        "members": [
+          {
+            "name": "Nico Nguyen",
+            "role": "CTO",
+            "title": "MBA – AI & Fin-Sec Consultant",
+            "avatar": "NN",
+            "quote": "We don't build AI to impress. We build AI that works - AI that's practical, understandable, and fully owned by our clients. At AIDORag, real-world impact always comes before hype."
+          },
+          {
+            "name": "Martha Nguyen",
+            "role": "COO",
+            "title": "Chemical Engineering",
+            "avatar": "MN",
+            "quote": "Every solution at AIDO is crafted with care - not just as a product, but as a complete journey. We build living systems that adapt and grow with our clients, because true partnership means walking the path together."
+          },
+          {
+            "name": "Peter Vo",
+            "role": "CEO & CLXD",
+            "title": "Bachelor of Linguistics",
+            "avatar": "PV",
+            "quote": "At AIDORag, we don't just build tools - We design transformative learning experiences where people, technology, and strategic thinking evolve together. Our mission is to unlock human potential through sustainable digital innovation."
+          }
+        ]
+      },
+      "cta": {
+        "title": "Join Our Journey",
+        "subtitle": "Help us shape the future of document intelligence",
+        "viewPositions": "View Open Positions"
+      }
+    },
+    "api": {
+      "badge": "API",
+      "title": "API Access",
+      "titleStart": "Powerful",
+      "titleHighlight": "API Access",
+      "subtitle": "Integrate AIDORag into your applications with our comprehensive REST API",
+      "getApiKey": "Get API Key",
+      "example": "Example Code",
+      "copy": "Copy",
+      "features": {
+        "title": "API Features",
+        "rest": "RESTful API",
+        "restDesc": "Standard REST endpoints for all operations",
+        "keys": "API Keys",
+        "keysDesc": "Secure authentication with API keys",
+        "webhooks": "Webhooks",
+        "webhooksDesc": "Real-time event notifications"
+      },
+      "endpoints": {
+        "title": "Available Endpoints",
+        "upload": "Upload document",
+        "list": "List documents",
+        "get": "Get document",
+        "delete": "Delete document",
+        "query": "Query documents",
+        "stream": "Stream query",
+        "chat": "Start chat",
+        "history": "Chat history",
+        "entities": "List entities",
+        "relations": "List relations",
+        "graph": "Get knowledge graph"
+      },
+      "cta": {
+        "title": "Ready to Integrate?",
+        "subtitle": "Get your API key and start building"
+      }
+    },
+    "apiReference": {
+      "badge": "API Reference",
+      "title": "API Reference",
+      "subtitle": "Complete API documentation for developers",
+      "auth": {
+        "title": "Authentication",
+        "desc": "All API requests require authentication using your API key"
+      },
+      "endpoints": "Endpoints",
+      "categories": {
+        "documents": "Documents",
+        "query": "Query",
+        "chat": "Chat",
+        "knowledgeGraph": "Knowledge Graph"
+      },
+      "rateLimits": {
+        "title": "Rate Limits",
+        "free": "Free Plan",
+        "pro": "Pro Plan",
+        "business": "Business Plan"
+      },
+      "needHelp": {
+        "title": "Need Help?",
+        "subtitle": "Our team is here to help you integrate"
+      }
+    },
+    "ragEngine": {
+      "badge": "RAG Engine",
+      "titleStart": "Advanced Document",
+      "titleHighlight": "Intelligence",
+      "subtitle": "Transform your documents into intelligent, queryable knowledge bases with our state-of-the-art RAG technology",
+      "howItWorks": "How It Works",
+      "steps": {
+        "upload": "Upload",
+        "uploadDesc": "Upload your documents in any format",
+        "process": "Process",
+        "processDesc": "AI extracts and indexes content",
+        "index": "Index",
+        "indexDesc": "Build searchable knowledge base",
+        "query": "Query",
+        "queryDesc": "Ask questions, get cited answers"
+      },
+      "features": {
+        "title": "Key Features",
+        "chunking": "Smart Chunking",
+        "chunkingDesc": "Intelligently splits documents into optimal chunks for better retrieval accuracy",
+        "embeddings": "Vector Embeddings",
+        "embeddingsDesc": "Advanced embeddings capture semantic meaning for precise search results",
+        "search": "Hybrid Search",
+        "searchDesc": "Combines keyword and semantic search for best-of-both-worlds accuracy",
+        "retrieval": "Fast Retrieval",
+        "retrievalDesc": "Lightning-fast queries with sub-second response times at any scale"
+      },
+      "benefits": {
+        "title": "Why Choose Our RAG Engine?",
+        "items": {
+          "0": "99.5% accuracy in answer retrieval",
+          "1": "Support for 50+ file formats",
+          "2": "Multi-language document support",
+          "3": "Source citations for every answer",
+          "4": "Real-time document updates",
+          "5": "Enterprise-grade security"
+        }
+      },
+      "cta": {
+        "title": "Ready to Get Started?",
+        "subtitle": "Start building intelligent document solutions today"
+      }
+    },
+    "knowledgeGraph": {
+      "badge": "Knowledge Graph",
+      "titleStart": "Visual Knowledge",
+      "titleHighlight": "Mapping",
+      "subtitle": "Automatically extract entities and relationships to build comprehensive knowledge graphs from your documents",
+      "demo": "Interactive Knowledge Graph Demo",
+      "demoSubtitle": "See how entities and relationships are visualized",
+      "features": {
+        "title": "Key Features",
+        "detection": "Entity Detection",
+        "detectionDesc": "AI automatically identifies people, organizations, concepts, and more from your documents",
+        "mapping": "Relationship Mapping",
+        "mappingDesc": "Discovers and maps connections between entities across all your documents",
+        "visual": "Visual Exploration",
+        "visualDesc": "Interactive graph visualization to explore your knowledge base intuitively",
+        "queries": "Graph Queries",
+        "queriesDesc": "Ask complex questions about relationships and connections in your data"
+      },
+      "useCases": {
+        "title": "Use Cases",
+        "research": "Research",
+        "researchDesc": "Map research papers, citations, and discover hidden connections",
+        "legal": "Legal",
+        "legalDesc": "Analyze contracts, identify parties, and track obligations",
+        "enterprise": "Enterprise",
+        "enterpriseDesc": "Build organizational knowledge bases and expertise maps"
+      },
+      "cta": {
+        "title": "Ready to Explore?",
+        "subtitle": "Start building your knowledge graph today"
+      }
+    },
+    "integrations": {
+      "badge": "Integrations",
+      "titleStart": "Connect Your",
+      "titleHighlight": "Favorite Tools",
+      "subtitle": "Seamlessly integrate AIDORag with your existing workflow and tools",
+      "comingSoon": "Coming Soon",
+      "setupGuide": "Setup Guide",
+      "notifyMe": "Notify Me",
+      "items": {
+        "slack": "Slack",
+        "slackDesc": "Query your documents directly from Slack channels",
+        "notion": "Notion",
+        "notionDesc": "Sync and search your Notion workspace documents",
+        "gdrive": "Google Drive",
+        "gdriveDesc": "Connect and index your Google Drive files",
+        "zapier": "Zapier",
+        "zapierDesc": "Automate workflows with 5000+ apps"
+      },
+      "request": {
+        "title": "Need a Different Integration?",
+        "subtitle": "Let us know which tools you'd like to connect with AIDORag",
+        "cta": "Request Integration"
+      },
+      "cta": {
+        "title": "Ready to Connect?",
+        "subtitle": "Start integrating AIDORag with your tools today"
+      }
+    },
+    "contact": {
+      "badge": "Contact",
+      "titlePrefix": "Get in",
+      "title": "Touch",
+      "subtitle": "We'd love to hear from you",
+      "form": {
+        "title": "Send us a message",
+        "firstName": "First Name",
+        "lastName": "Last Name",
+        "email": "Email",
+        "subject": "Subject",
+        "subjects": {
+          "general": "General Inquiry",
+          "salesEnterprise": "Enterprise Sales",
+          "technical": "Technical Support",
+          "partnership": "Partnership",
+          "press": "Press"
+        },
+        "message": "Message",
+        "messagePlaceholder": "How can we help you?",
+        "send": "Send Message"
+      },
+      "otherWays": "Other ways to reach us",
+      "methods": {
+        "email": {
+          "title": "Email",
+          "description": "Send us an email anytime",
+          "value": "info@aidorag.ai"
+        },
+        "discord": {
+          "title": "Discord",
+          "description": "Join our community",
+          "value": "Join Discord"
+        },
+        "sales": {
+          "title": "Sales",
+          "description": "Talk to our sales team",
+          "value": "sales@aidorag.ai"
+        }
+      },
+      "office": {
+        "title": "Our Office",
+        "address": "9011 Mira Mesa BLVD # 246\nSan Diego, CA. 92126\nUnited States"
+      },
+      "responseTime": {
+        "title": "Response Time",
+        "description": "We typically respond within 24 hours"
+      }
+    },
+    "docs": {
+      "badge": "Documentation",
+      "title": "AIDORag ",
+      "subtitle": "Everything you need to know about AIDORag",
+      "search": "Search documentation...",
+      "sections": {
+        "quickstart": "Quickstart",
+        "quickstartDesc": "Get started in minutes",
+        "apiRef": "API Reference",
+        "apiRefDesc": "Complete API documentation",
+        "guides": "Guides",
+        "guidesDesc": "Step-by-step tutorials",
+        "changelog": "Changelog",
+        "changelogDesc": "What's new in AIDORag"
+      },
+      "popularTopics": "Popular Topics",
+      "topics": ["Document Upload", "Query Modes", "Knowledge Graph", "API Authentication", "Webhooks", "Rate Limits"],
+      "needHelp": {
+        "title": "Need Help?",
+        "subtitle": "Can't find what you're looking for?"
+      }
+    },
+    "support": {
+      "badge": "Customer Support",
+      "title": "Support",
+      "subtitle": "AI-powered support automation for your team",
+      "benefits": {
+        "knowledge": "Knowledge Base",
+        "knowledgeDesc": "Centralized knowledge management",
+        "faster": "Faster Resolution",
+        "fasterDesc": "Resolve issues in seconds",
+        "selfService": "Self-Service",
+        "selfServiceDesc": "Empower customers to help themselves"
+      },
+      "stats": {
+        "resolution": { "value": "80%", "label": "Faster Resolution" },
+        "deflected": { "value": "60%", "label": "Tickets Deflected" },
+        "accuracy": { "value": "95%", "label": "Answer Accuracy" }
+      },
+      "featuresTitle": "Key Features",
+      "features": ["Instant answers from your knowledge base", "Multi-language support", "Integration with helpdesk tools", "Custom chatbot widget", "Analytics and insights", "Team collaboration"],
+      "testimonial": {
+        "quote": "AIDORag reduced our support tickets by 60% and improved customer satisfaction.",
+        "author": "Lisa Thompson",
+        "role": "Head of Support, TechCorp"
+      },
+      "cta": {
+        "title": "Ready to Transform Your Support?",
+        "subtitle": "Start your free trial today"
+      }
+    },
+    "supportPage": {
+      "badge": "Help Center",
+      "titlePrefix": "Get",
+      "title": "Help",
+      "subtitle": "We're here to help you succeed",
+      "options": {
+        "docs": {
+          "title": "Documentation",
+          "description": "Browse our comprehensive guides",
+          "cta": "View Docs"
+        },
+        "community": {
+          "title": "Community",
+          "description": "Get help from other users",
+          "cta": "Join Community"
+        },
+        "email": {
+          "title": "Email Support",
+          "description": "Contact our support team",
+          "cta": "Send Email"
+        }
+      },
+      "responseTimes": {
+        "title": "Response Times",
+        "community": { "name": "Community", "time": "24-48 hours" },
+        "emailFree": { "name": "Email (Free)", "time": "48-72 hours" },
+        "priority": { "name": "Priority (Pro)", "time": "24 hours" },
+        "dedicated": { "name": "Dedicated (Business)", "time": "4 hours" }
+      },
+      "faq": {
+        "title": "Common Questions",
+        "items": {
+          "password": { "question": "How do I reset my password?", "answer": "Click 'Forgot Password' on the login page." },
+          "processing": { "question": "Why is my document stuck processing?", "answer": "Large documents may take longer. Try refreshing the page." },
+          "upgrade": { "question": "How do I upgrade my plan?", "answer": "Go to Settings > Billing to change your plan." },
+          "export": { "question": "Can I export my data?", "answer": "Yes, you can export your data from the dashboard." }
+        },
+        "viewAll": "View All FAQs"
+      },
+      "systemStatus": {
+        "title": "System Status",
+        "operational": "All Systems Operational",
+        "description": "All services are running normally",
+        "viewStatus": "View Status Page"
+      },
+      "cta": {
+        "title": "Still Need Help?",
+        "subtitle": "Our team is ready to assist you"
+      }
+    },
+    "enterprise": {
+      "badge": "Enterprise",
+      "title": "Enterprise",
+      "subtitle": "Document intelligence at scale for your organization",
+      "benefits": {
+        "scale": "Scale",
+        "scaleDesc": "Handle millions of documents",
+        "security": "Security",
+        "securityDesc": "Enterprise-grade security",
+        "team": "Team",
+        "teamDesc": "Collaborate with your team"
+      },
+      "securityTitle": "Enterprise Security",
+      "securityFeatures": {
+        "encryption": "End-to-end Encryption",
+        "soc2": "SOC 2 Compliant",
+        "residency": "Data Residency Options",
+        "rbac": "Role-based Access Control"
+      },
+      "featuresTitle": "Enterprise Features",
+      "features": ["Unlimited documents", "Dedicated support", "Custom integrations", "SLA guarantee", "Advanced analytics", "Single sign-on (SSO)"],
+      "trustedByTitle": "Trusted by Leading Organizations",
+      "trustedBy": ["Fortune 500 Company", "Global Bank", "Top University", "Healthcare Provider"],
+      "cta": {
+        "title": "Ready to Get Started?",
+        "subtitle": "Contact our sales team for a custom solution"
+      }
+    },
+    "research": {
+      "badge": "Research",
+      "title": "Research",
+      "subtitle": "Accelerate your research with AI-powered document analysis",
+      "benefits": {
+        "literature": "Literature Review",
+        "literatureDesc": "Analyze papers in seconds",
+        "analysis": "Data Analysis",
+        "analysisDesc": "Extract insights from documents",
+        "citation": "Citation Management",
+        "citationDesc": "Track sources automatically"
+      },
+      "whatYouCanDo": "What You Can Do",
+      "features": ["Search across thousands of papers", "Extract key findings automatically", "Generate literature summaries", "Track citations and references", "Collaborate with your team", "Export to your preferred format"],
+      "testimonial": {
+        "quote": "AIDORag cut my literature review time by 70%. It's a game-changer for research.",
+        "author": "Dr. Sarah Chen",
+        "role": "Research Lead, MIT"
+      },
+      "cta": {
+        "title": "Accelerate Your Research",
+        "subtitle": "Start your free trial today"
+      }
+    },
+    "legal": {
+      "badge": "Legal",
+      "title": "Legal",
+      "subtitle": "Streamline contract analysis and legal document review",
+      "benefits": {
+        "contract": "Contract Analysis",
+        "contractDesc": "Review contracts in minutes",
+        "diligence": "Due Diligence",
+        "diligenceDesc": "Thorough document review",
+        "time": "Time Savings",
+        "timeDesc": "Reduce review time by 80%"
+      },
+      "capabilities": "Key Capabilities",
+      "features": ["Contract clause extraction", "Risk identification", "Compliance checking", "Document comparison", "Audit trail", "Secure collaboration"],
+      "testimonial": {
+        "quote": "We reduced contract review time from days to hours with AIDORag.",
+        "author": "James Miller",
+        "role": "General Counsel, LegalTech Inc"
+      },
+      "security": {
+        "title": "Enterprise Security",
+        "desc": "Your documents are protected with bank-level encryption"
+      },
+      "cta": {
+        "title": "Transform Your Legal Workflow",
+        "subtitle": "Start your free trial today"
+      }
+    },
+    "blog": {
+      "badge": "Blog",
+      "titlePrefix": "AIDORag",
+      "title": "Blog",
+      "subtitle": "Insights, tutorials, and updates from the AIDORag team",
+      "categories": {
+        "all": "All",
+        "product": "Product",
+        "engineering": "Engineering",
+        "useCases": "Use Cases"
+      },
+      "featured": "Featured",
+      "readMore": "Read More",
+      "minRead": "min read",
+      "posts": {
+        "mixMode": {
+          "title": "Introducing Mix Mode: The Ultimate Query Experience",
+          "excerpt": "Learn how Mix Mode combines all query modes for optimal results.",
+          "date": "January 15, 2026",
+          "readTime": "5",
+          "category": "Product"
+        },
+        "knowledgeGraphs": {
+          "title": "Building Better Knowledge Graphs",
+          "excerpt": "Deep dive into how we extract and connect entities from your documents.",
+          "date": "January 10, 2026",
+          "readTime": "8",
+          "category": "Research"
+        },
+        "legalCase": {
+          "title": "Case Study: Legal Document Analysis",
+          "excerpt": "How a law firm reduced contract review time by 80% with AIDORag.",
+          "date": "January 5, 2026",
+          "readTime": "6",
+          "category": "Case Study"
+        },
+        "chunking": {
+          "title": "The Art of Document Chunking",
+          "excerpt": "Understanding how document chunking affects RAG performance.",
+          "date": "December 28, 2025",
+          "readTime": "10",
+          "category": "Tutorials"
+        }
+      },
+      "newsletter": {
+        "title": "Subscribe to Our Newsletter",
+        "subtitle": "Get the latest updates and insights delivered to your inbox.",
+        "placeholder": "Enter your email",
+        "button": "Subscribe"
+      }
+    },
+    "blogPost": {
+      "backToBlog": "Back to Blog",
+      "author": "AIDORag Team",
+      "shareOn": "Share on",
+      "share": "Share",
+      "shareArticle": "Share Article",
+      "relatedPosts": "Related Posts",
+      "tableOfContents": "Table of Contents",
+      "posts": {
+        "mixMode": {
+          "author": "AIDORag Team",
+          "sections": {
+            "intro": {
+              "title": "Introduction",
+              "content": "Mix Mode is our most advanced query mode, intelligently combining the strengths of all other modes to deliver the best possible results. It represents the culmination of our research into optimal document retrieval strategies."
+            },
+            "section1": {
+              "title": "How Mix Mode Works",
+              "content": "Mix Mode analyzes your query and dynamically selects the optimal combination of Naive, Local, Global, and Hybrid modes based on the nature of your question. Our AI evaluates the query complexity, scope, and intent to determine the best approach for each specific question."
+            },
+            "section2": {
+              "title": "Key Benefits",
+              "content": "Mix Mode delivers best-of-all-worlds accuracy by automatically selecting the right mode for each query. It optimizes for any query type, from simple keyword searches to complex relationship questions, resulting in faster average response times and more relevant results."
+            },
+            "conclusion": {
+              "title": "Conclusion",
+              "content": "Start using Mix Mode today and experience the difference in your document queries. It's our recommended default for most users who want the best results without having to think about which mode to use."
+            }
+          }
+        },
+        "knowledgeGraphs": {
+          "author": "AIDORag Team",
+          "sections": {
+            "intro": {
+              "title": "Introduction",
+              "content": "Knowledge graphs are at the heart of understanding relationships in your documents. Here's how AIDORag builds comprehensive knowledge graphs automatically, connecting information across all your documents."
+            },
+            "section1": {
+              "title": "Entity Extraction",
+              "content": "Our AI identifies key entities including people, organizations, locations, concepts, and more from your documents using state-of-the-art NLP models. Each entity is categorized and linked to its source documents."
+            },
+            "section2": {
+              "title": "Relationship Mapping",
+              "content": "Once entities are identified, we map the relationships between them, creating a rich network of connections. This allows you to discover insights that span multiple documents and understand how different concepts relate to each other."
+            },
+            "conclusion": {
+              "title": "Conclusion",
+              "content": "Knowledge graphs transform how you understand your documents, revealing hidden connections and insights. Explore your knowledge graph through our interactive visualization tool and discover connections you might have missed."
+            }
+          }
+        },
+        "legalCase": {
+          "author": "AIDORag Team",
+          "sections": {
+            "intro": {
+              "title": "Introduction",
+              "content": "Learn how Thompson & Associates, a mid-sized law firm, transformed their contract review process using AIDORag. This case study demonstrates the real-world impact of AI-powered document intelligence."
+            },
+            "section1": {
+              "title": "The Challenge",
+              "content": "The firm was spending an average of 4 hours per contract for due diligence review, creating bottlenecks in their workflow. With increasing client demands and document volumes, they needed a solution that could scale."
+            },
+            "section2": {
+              "title": "The Solution",
+              "content": "By implementing AIDORag, the firm automated entity extraction, clause identification, and risk flagging. The system learned from their existing contracts and adapted to their specific legal terminology and requirements."
+            },
+            "conclusion": {
+              "title": "Results",
+              "content": "The firm achieved an 80% reduction in review time, 95% accuracy in clause identification, and 50% cost savings on due diligence. AIDORag has become an essential tool for modern legal practice."
+            }
+          }
+        },
+        "chunking": {
+          "author": "AIDORag Team",
+          "sections": {
+            "intro": {
+              "title": "Introduction",
+              "content": "Document chunking is a critical step in the RAG pipeline. The way you split documents directly impacts search quality and response accuracy. Understanding chunking helps you get the most out of your RAG implementation."
+            },
+            "section1": {
+              "title": "What is Chunking?",
+              "content": "Chunking is the process of splitting documents into smaller, meaningful segments that can be individually indexed and retrieved. The goal is to create chunks that are small enough to be relevant but large enough to contain meaningful context."
+            },
+            "section2": {
+              "title": "Chunking Strategies",
+              "content": "There are several approaches: fixed-size chunks are simple but may break context; semantic chunks preserve meaning but are computationally intensive; our hybrid approach provides the best of both worlds and is our recommended default."
+            },
+            "conclusion": {
+              "title": "Best Practices",
+              "content": "For optimal results, ensure your documents have clear structure, use consistent formatting, and let AIDORag's smart chunking do the rest. Trust our intelligent chunking algorithms for the best retrieval performance."
+            }
+          }
+        }
+      }
+    },
+    "changelog": {
+      "badge": "Changelog",
+      "title": "Changelog",
+      "subtitle": "Stay up to date with the latest improvements and features",
+      "latest": "Latest",
+      "beta": "Beta",
+      "entries": [
+        {
+          "version": "v2.5.0",
+          "date": "January 15, 2026",
+          "title": "Mix Mode & Performance Improvements",
+          "changes": ["Introduced Mix Mode for optimal query results", "50% faster document processing", "Improved knowledge graph visualization", "Bug fixes and stability improvements"]
+        },
+        {
+          "version": "v2.4.0",
+          "date": "January 1, 2026",
+          "title": "Enhanced API & Webhooks",
+          "changes": ["New webhook events for document processing", "Improved API rate limiting", "Added batch processing endpoints", "Enhanced error messages"]
+        },
+        {
+          "version": "v2.3.0",
+          "date": "December 15, 2025",
+          "title": "Knowledge Graph Enhancements",
+          "changes": ["Advanced entity detection", "Relationship strength scoring", "Export knowledge graph to JSON", "Improved graph visualization performance"]
+        }
+      ],
+      "subscribe": {
+        "title": "Stay Updated",
+        "subtitle": "Get notified about new features and updates",
+        "placeholder": "Enter your email",
+        "button": "Subscribe"
+      }
+    },
+    "careers": {
+      "badge": "Careers",
+      "titlePrefix": "Join",
+      "title": "Our Team",
+      "subtitle": "Help us build the future of document intelligence",
+      "culture": {
+        "title": "Our Culture",
+        "description": "We're a remote-first team passionate about AI and building great products. We value ownership, curiosity, and collaboration."
+      },
+      "perks": {
+        "title": "Why Join Us?",
+        "items": {
+          "remote": "Remote First",
+          "remoteDesc": "Work from anywhere in the world",
+          "health": "Health Benefits",
+          "healthDesc": "Comprehensive health, dental, and vision",
+          "flexible": "Flexible Hours",
+          "flexibleDesc": "Work when you're most productive",
+          "equity": "Equity",
+          "equityDesc": "Be an owner, not just an employee"
+        }
+      },
+      "openings": {
+        "title": "Open Positions",
+        "jobs": {
+          "fullstack": {
+            "department": "Engineering",
+            "title": "Senior Full-Stack Engineer",
+            "location": "Remote",
+            "type": "Full-time"
+          },
+          "ml": {
+            "department": "AI/ML",
+            "title": "Machine Learning Engineer",
+            "location": "Remote",
+            "type": "Full-time"
+          },
+          "designer": {
+            "department": "Design",
+            "title": "Product Designer",
+            "location": "Remote",
+            "type": "Full-time"
+          },
+          "advocate": {
+            "department": "Developer Relations",
+            "title": "Developer Advocate",
+            "location": "Remote",
+            "type": "Full-time"
+          }
+        }
+      },
+      "noFit": {
+        "title": "Don't See a Fit?",
+        "subtitle": "We're always looking for talented people. Send us your resume and we'll keep you in mind for future opportunities.",
+        "cta": "Send Resume"
+      }
+    },
+    "jobDetail": {
+      "backToCareers": "Back to Careers",
+      "applyNow": "Apply Now",
+      "aboutRole": "About the Role",
+      "responsibilities": "Responsibilities",
+      "requirements": "Requirements",
+      "niceToHave": "Nice to Have",
+      "benefits": "Benefits",
+      "readyToApply": "Ready to Apply?",
+      "applySubtitle": "We'd love to hear from you. Send us your resume and we'll be in touch.",
+      "viewAllJobs": "View All Jobs",
+      "jobs": {
+        "fullstack": {
+          "experience": "3-5 years",
+          "description": "We're looking for a Senior Full-Stack Engineer to help build and scale our document intelligence platform. You'll work on everything from our React frontend to our Node.js backend and PostgreSQL database.",
+          "responsibilities": {
+            "item1": "Design and implement new features across the full stack",
+            "item2": "Optimize application performance and scalability",
+            "item3": "Write clean, maintainable, and well-tested code",
+            "item4": "Collaborate with product and design teams",
+            "item5": "Mentor junior developers and contribute to technical decisions"
+          },
+          "requirements": {
+            "item1": "3-5 years of experience in full-stack development",
+            "item2": "Proficiency in React, TypeScript, and Node.js",
+            "item3": "Experience with PostgreSQL or similar databases",
+            "item4": "Understanding of RESTful APIs and microservices",
+            "item5": "Strong problem-solving and communication skills"
+          },
+          "niceToHave": {
+            "item1": "Experience with AI/ML applications",
+            "item2": "Knowledge of vector databases and embeddings",
+            "item3": "Contributions to open-source projects"
+          }
+        },
+        "ml": {
+          "experience": "3-5 years",
+          "description": "Join our AI/ML team to build cutting-edge document understanding systems. You'll work on RAG pipelines, knowledge graphs, and entity extraction using the latest NLP techniques.",
+          "responsibilities": {
+            "item1": "Develop and improve our RAG and knowledge graph systems",
+            "item2": "Train and fine-tune NLP models for document understanding",
+            "item3": "Design efficient embedding and retrieval systems",
+            "item4": "Collaborate with engineering to productionize ML models",
+            "item5": "Stay current with the latest research in NLP and LLMs"
+          },
+          "requirements": {
+            "item1": "3-5 years of experience in machine learning",
+            "item2": "Strong background in NLP and deep learning",
+            "item3": "Experience with PyTorch or TensorFlow",
+            "item4": "Familiarity with LLMs, embeddings, and vector search",
+            "item5": "MS or PhD in Computer Science, ML, or related field"
+          },
+          "niceToHave": {
+            "item1": "Publications in top NLP/ML conferences",
+            "item2": "Experience with RAG systems and knowledge graphs",
+            "item3": "Experience with production ML systems at scale"
+          }
+        },
+        "designer": {
+          "experience": "3-5 years",
+          "description": "We're looking for a Product Designer to create intuitive, beautiful experiences for our document intelligence platform. You'll own the design process from research to final implementation.",
+          "responsibilities": {
+            "item1": "Lead design for new features from concept to launch",
+            "item2": "Conduct user research and usability testing",
+            "item3": "Create wireframes, prototypes, and high-fidelity designs",
+            "item4": "Maintain and evolve our design system",
+            "item5": "Collaborate closely with engineering and product teams"
+          },
+          "requirements": {
+            "item1": "3-5 years of product design experience",
+            "item2": "Strong portfolio demonstrating UX/UI skills",
+            "item3": "Proficiency in Figma and prototyping tools",
+            "item4": "Experience with design systems",
+            "item5": "Understanding of accessibility standards"
+          },
+          "niceToHave": {
+            "item1": "Experience designing AI/ML products",
+            "item2": "Basic understanding of frontend development",
+            "item3": "Experience with data visualization"
+          }
+        },
+        "advocate": {
+          "experience": "2-4 years",
+          "description": "Join us as a Developer Advocate to help developers build amazing things with AIDORag. You'll create content, build demos, and engage with our developer community.",
+          "responsibilities": {
+            "item1": "Create technical content, tutorials, and documentation",
+            "item2": "Build sample applications and demos",
+            "item3": "Speak at conferences and host webinars",
+            "item4": "Engage with developers on social media and forums",
+            "item5": "Gather feedback to improve our developer experience"
+          },
+          "requirements": {
+            "item1": "2-4 years of software development experience",
+            "item2": "Excellent written and verbal communication skills",
+            "item3": "Experience creating technical content",
+            "item4": "Active presence in developer communities",
+            "item5": "Passion for teaching and helping developers"
+          },
+          "niceToHave": {
+            "item1": "Experience with RAG or AI/ML technologies",
+            "item2": "Public speaking experience",
+            "item3": "YouTube or technical blog with following"
+          }
+        }
+      }
+    },
+    "quickstart": {
+      "badge": "Quickstart",
+      "title": "Get Started with AIDORag",
+      "subtitle": "Follow these steps to start using AIDORag in minutes",
+      "createAccount": "Create your free account to get started",
+      "steps": {
+        "signup": {
+          "title": "1. Create Account",
+          "desc": "Sign up for a free AIDORag account",
+          "details": "No credit card required. Get instant access."
+        },
+        "upload": {
+          "title": "2. Upload Documents",
+          "desc": "Upload your documents in any supported format",
+          "details": "We support PDF, DOCX, TXT, XLSX, and more."
+        },
+        "query": {
+          "title": "3. Start Querying",
+          "desc": "Ask questions about your documents",
+          "details": "Get instant answers with source citations."
+        }
+      },
+      "queryModes": {
+        "title": "Query Modes",
+        "naive": "Naive",
+        "naiveDesc": "Simple keyword-based search",
+        "local": "Local",
+        "localDesc": "Entity-focused search",
+        "global": "Global",
+        "globalDesc": "Relationship-focused search",
+        "hybrid": "Hybrid",
+        "hybridDesc": "Combined local and global",
+        "mix": "Mix",
+        "mixDesc": "AI-selected optimal mode"
+      },
+      "next": {
+        "title": "What's Next?",
+        "subtitle": "Explore more features and capabilities",
+        "dashboard": "Go to Dashboard"
+      }
+    },
+    "docTopic": {
+      "backToDocs": "Back to Docs",
+      "documentation": "Documentation",
+      "overview": "Overview",
+      "keyFeatures": "Key Features",
+      "example": "Example",
+      "bestPractices": "Best Practices",
+      "relatedTopics": "Related Topics",
+      "needMoreHelp": "Need More Help?",
+      "needMoreHelpSubtitle": "Check out our API reference or contact support",
+      "viewApiRef": "View API Reference",
+      "topics": {
+        "upload": {
+          "title": "Document Upload",
+          "subtitle": "Learn how to upload and manage documents in AIDORag",
+          "overview": "AIDORag supports a wide variety of document formats. Upload documents through the dashboard or API to start building your knowledge base.",
+          "features": {
+            "item1": "Support for PDF, DOCX, TXT, XLSX, PPTX, and more",
+            "item2": "Automatic text extraction and processing",
+            "item3": "Drag-and-drop upload interface",
+            "item4": "Batch upload via API"
+          },
+          "codeExample": "curl -X POST https://api.aidorag.ai/v1/documents \\\n  -H \"Authorization: Bearer YOUR_API_KEY\" \\\n  -F \"file=@document.pdf\"",
+          "bestPractices": {
+            "item1": "Use clear, descriptive file names",
+            "item2": "Ensure documents are text-based (not scanned images)",
+            "item3": "Split very large documents into logical sections"
+          }
+        },
+        "queryModes": {
+          "title": "Query Modes",
+          "subtitle": "Understand the 5 different query modes in AIDORag",
+          "overview": "AIDORag offers 5 query modes, each optimized for different types of questions. Choose the right mode for your use case.",
+          "features": {
+            "item1": "Naive: Simple keyword-based search",
+            "item2": "Local: Entity-focused, detailed search",
+            "item3": "Global: Relationship-focused, broad search",
+            "item4": "Hybrid: Combines Local and Global",
+            "item5": "Mix: AI-selected optimal mode"
+          },
+          "codeExample": "const response = await fetch('/api/query', {\n  method: 'POST',\n  body: JSON.stringify({\n    query: 'What are the key findings?',\n    mode: 'mix'\n  })\n});",
+          "bestPractices": {
+            "item1": "Start with Mix mode for general queries",
+            "item2": "Use Naive for exact phrase matching",
+            "item3": "Use Global for questions spanning multiple documents"
+          }
+        },
+        "knowledgeGraph": {
+          "title": "Knowledge Graph",
+          "subtitle": "Visualize and explore entity relationships",
+          "overview": "The Knowledge Graph automatically extracts entities and relationships from your documents, creating a visual map of your knowledge base.",
+          "features": {
+            "item1": "Automatic entity extraction (people, orgs, concepts)",
+            "item2": "Relationship mapping across documents",
+            "item3": "Interactive visualization",
+            "item4": "Export to JSON format"
+          },
+          "codeExample": "const graph = await fetch('/api/knowledge-graph');\nconst { nodes, edges } = await graph.json();",
+          "bestPractices": {
+            "item1": "Upload related documents together for better connections",
+            "item2": "Use graph queries for complex relationship questions",
+            "item3": "Export and analyze graphs for deeper insights"
+          }
+        },
+        "apiAuth": {
+          "title": "API Authentication",
+          "subtitle": "Secure your API requests with authentication",
+          "overview": "All API requests require authentication using an API key. Generate keys from your dashboard and include them in the Authorization header.",
+          "features": {
+            "item1": "Bearer token authentication",
+            "item2": "Multiple API keys per account",
+            "item3": "Key rotation support",
+            "item4": "Granular permissions (coming soon)"
+          },
+          "codeExample": "fetch('https://api.aidorag.ai/v1/query', {\n  headers: {\n    'Authorization': 'Bearer YOUR_API_KEY',\n    'Content-Type': 'application/json'\n  }\n});",
+          "bestPractices": {
+            "item1": "Never expose API keys in client-side code",
+            "item2": "Use environment variables for key storage",
+            "item3": "Rotate keys regularly for security"
+          }
+        },
+        "webhooks": {
+          "title": "Webhooks",
+          "subtitle": "Receive real-time notifications about events",
+          "overview": "Webhooks allow you to receive real-time notifications when events occur in your AIDORag account, such as document processing completion.",
+          "features": {
+            "item1": "Document processing events",
+            "item2": "Entity extraction completion",
+            "item3": "Error notifications",
+            "item4": "Custom webhook endpoints"
+          },
+          "codeExample": "// Webhook payload example\n{\n  \"event\": \"document.processed\",\n  \"document_id\": \"doc_123\",\n  \"status\": \"success\",\n  \"timestamp\": \"2026-01-15T10:30:00Z\"\n}",
+          "bestPractices": {
+            "item1": "Use HTTPS endpoints for security",
+            "item2": "Verify webhook signatures",
+            "item3": "Handle retries gracefully"
+          }
+        },
+        "rateLimits": {
+          "title": "Rate Limits",
+          "subtitle": "Understand API rate limiting and quotas",
+          "overview": "API rate limits help ensure fair usage and system stability. Limits vary by plan and can be monitored in your dashboard.",
+          "features": {
+            "item1": "Per-minute request limits",
+            "item2": "Monthly query quotas",
+            "item3": "Document upload limits",
+            "item4": "Real-time usage monitoring"
+          },
+          "codeExample": "// Rate limit headers in response\nX-RateLimit-Limit: 100\nX-RateLimit-Remaining: 95\nX-RateLimit-Reset: 1642000000",
+          "bestPractices": {
+            "item1": "Implement exponential backoff for retries",
+            "item2": "Cache responses when possible",
+            "item3": "Monitor usage to avoid hitting limits"
+          }
+        }
+      }
+    },
+    "sdks": {
+      "badge": "SDKs",
+      "title": "Client Libraries",
+      "subtitle": "Official SDKs for your favorite programming languages. Get started in minutes with our type-safe, well-documented libraries.",
+      "installation": "Installation",
+      "quickStart": "Quick Start",
+      "viewDocs": "View Docs",
+      "getStarted": "Get Started",
+      "officialLibraries": "Official Libraries",
+      "communityLibraries": "Community Libraries",
+      "communityDesc": "These SDKs are built and maintained by the community. They follow the same API patterns as our official libraries.",
+      "viewOnGithub": "View on GitHub",
+      "joinCommunity": "Join Community",
+      "features": {
+        "title": "All SDKs Include",
+        "typeSafe": "Full type safety and autocompletion",
+        "autoRetry": "Automatic retries with exponential backoff",
+        "streaming": "Streaming support for real-time responses",
+        "errorHandling": "Comprehensive error handling"
+      },
+      "libraries": {
+        "javascript": {
+          "name": "JavaScript / TypeScript",
+          "description": "Official SDK for Node.js and browser environments",
+          "install": "npm install @aidorag/sdk",
+          "example": "import { AIDORag } from '@aidorag/sdk';\n\nconst client = new AIDORag('YOUR_API_KEY');\nconst result = await client.query('What are the key findings?');"
+        },
+        "python": {
+          "name": "Python",
+          "description": "Official Python SDK with async support",
+          "install": "pip install aidorag",
+          "example": "from aidorag import AIDORag\n\nclient = AIDORag('YOUR_API_KEY')\nresult = client.query('What are the key findings?')"
+        },
+        "curl": {
+          "name": "REST API",
+          "description": "Direct API access via HTTP requests",
+          "install": "No installation required",
+          "example": "curl -X POST https://api.aidorag.ai/v1/query \\\n  -H 'Authorization: Bearer YOUR_API_KEY' \\\n  -d '{\"query\": \"What are the key findings?\"}'"
+        }
+      },
+      "community": {
+        "title": "Community SDKs",
+        "subtitle": "SDKs built by the community",
+        "items": ["Go SDK (community)", "Ruby SDK (community)", "PHP SDK (community)"]
+      },
+      "cta": {
+        "title": "Build Something Amazing",
+        "subtitle": "Explore our open source SDKs and contribute to the community"
+      }
+    },
+    "sdkDetail": {
+      "backToSdks": "Back to SDKs",
+      "packageDocs": "Package Docs",
+      "installation": "Installation",
+      "packageName": "Package",
+      "quickStart": "Quick Start",
+      "initializeClient": "Initialize the Client",
+      "uploadDocument": "Upload a Document",
+      "queryDocuments": "Query Your Documents",
+      "python": {
+        "description": "The official Python SDK for AIDORag. Supports Python 3.8+ with full type hints and async/await support."
+      },
+      "javascript": {
+        "description": "The official JavaScript/TypeScript SDK for AIDORag. Works with Node.js 16+ and modern browsers with full TypeScript support."
+      },
+      "go": {
+        "description": "The official Go SDK for AIDORag. Built for performance with idiomatic Go patterns and full context support."
+      },
+      "ruby": {
+        "description": "The official Ruby SDK for AIDORag. Supports Ruby 3.0+ with a clean, idiomatic API design."
+      },
+      "features": {
+        "title": "SDK Features",
+        "typeSafe": {
+          "title": "Type Safe",
+          "description": "Full type definitions and autocompletion for a better developer experience."
+        },
+        "autoRetry": {
+          "title": "Auto Retry",
+          "description": "Automatic retries with exponential backoff for transient failures."
+        },
+        "streaming": {
+          "title": "Streaming Support",
+          "description": "Stream responses in real-time for long-running queries."
+        },
+        "errorHandling": {
+          "title": "Error Handling",
+          "description": "Comprehensive error types with detailed messages for easy debugging."
+        }
+      },
+      "queryModes": {
+        "title": "Supported Query Modes",
+        "naive": "Simple vector similarity search",
+        "local": "Entity-focused local context",
+        "global": "Document-wide global context",
+        "hybrid": "Combined vector + graph search",
+        "mix": "Adaptive mode selection"
+      },
+      "cta": {
+        "title": "Ready to Build?",
+        "subtitle": "Check out our API documentation or join our developer community for help."
+      }
+    },
+    "privacy": {
+      "badge": "Privacy",
+      "title": "Privacy Policy",
+      "lastUpdated": "Last updated: January 2026",
+      "toc": {
+        "title": "Table of Contents"
+      },
+      "office": {
+        "title": "Our Office"
+      },
+      "sections": {
+        "introduction": {
+          "title": "Introduction",
+          "content": "This Privacy Policy describes how AIDORag, Inc. (\"AIDORag,\" \"we,\" \"us,\" or \"our\") collects, uses, and shares personal information about individuals who use our website at www.aidorag.ai (the \"Site\") and the AIDORag platform and related services (collectively, the \"Services\"). This Policy applies to personal information processed by us, including on our Site and Services.\n\nBy using our Services, you agree to the practices described in this Privacy Policy. If you do not agree with this policy, please do not use our Services."
+        },
+        "summaryKeyPoints": {
+          "title": "Summary of Key Points",
+          "content": "This summary provides key points from our Privacy Policy. You can find more details about each of these topics in the full policy below.",
+          "items": [
+            "We collect personal information you provide directly to us, such as account and profile information.",
+            "We automatically collect certain technical information when you use our Services.",
+            "We process your data to provide, improve, and administer our Services, for security and fraud prevention, and to comply with law.",
+            "We share personal information only in specific situations and with specific third parties.",
+            "We use cookies and similar tracking technologies.",
+            "You have rights regarding your personal information, depending on your location.",
+            "We implement industry-standard security measures to protect your data."
+          ]
+        },
+        "infoCollect": {
+          "title": "What Information Do We Collect?",
+          "content": "We collect personal information that you voluntarily provide to us when registering for our Services, expressing interest in obtaining information, or otherwise contacting us.\n\nPersonal Information Provided by You: The personal information we collect depends on the context of your interactions with us and the choices you make. This may include:",
+          "items": [
+            "Contact information (name, email address, phone number)",
+            "Account credentials (username, password)",
+            "Billing information (payment card details, billing address)",
+            "Profile information (profile picture, preferences)",
+            "Communications (messages, feedback, support requests)",
+            "Documents and files you upload to our platform",
+            "Any other information you choose to provide"
+          ],
+          "subSections": {
+            "automaticData": {
+              "title": "Information Automatically Collected",
+              "content": "We automatically collect certain information when you visit, use, or navigate our Services. This information does not reveal your specific identity but may include:",
+              "items": [
+                "Device and browser information (IP address, browser type, operating system)",
+                "Usage data (pages viewed, time spent, clicks, referring URLs)",
+                "Location data (country, city based on IP address)",
+                "Cookie and tracking technology data"
+              ]
+            }
+          }
+        },
+        "howWeProcess": {
+          "title": "How Do We Process Your Information?",
+          "content": "We process your personal information for a variety of purposes, depending on how you interact with our Services:",
+          "items": [
+            "To provide and maintain our Services, including document processing and AI-powered analysis",
+            "To create and manage your account and authenticate your identity",
+            "To process your payments and manage billing",
+            "To respond to your inquiries and provide customer support",
+            "To send administrative information, such as updates, security alerts, and support messages",
+            "To improve and develop our Services through analytics and research",
+            "To protect our Services, detect fraud, and ensure security",
+            "To comply with legal obligations and enforce our terms",
+            "To send marketing communications (with your consent where required)"
+          ]
+        },
+        "whenWeShare": {
+          "title": "When and With Whom Do We Share Your Personal Information?",
+          "content": "We may share your personal information in the following situations:",
+          "items": [
+            "Service Providers: We share data with third-party vendors who perform services on our behalf (hosting, payment processing, analytics, customer support)",
+            "Business Transfers: In connection with a merger, acquisition, or sale of assets, your information may be transferred",
+            "Legal Requirements: We may disclose information if required by law or in response to valid legal requests",
+            "Protection of Rights: To protect our rights, privacy, safety, or property, and that of our users or others",
+            "With Your Consent: We may share your information with your explicit consent for other purposes"
+          ]
+        },
+        "cookies": {
+          "title": "Do We Use Cookies and Other Tracking Technologies?",
+          "content": "Yes, we use cookies and similar tracking technologies to collect and store information. Cookies are small data files placed on your device that help us improve your experience and our Services.\n\nTypes of cookies we use:",
+          "items": [
+            "Essential Cookies: Required for basic functionality and security",
+            "Performance Cookies: Help us understand how visitors interact with our Services",
+            "Functional Cookies: Remember your preferences and settings",
+            "Targeting Cookies: May be used for marketing purposes"
+          ],
+          "subSections": {
+            "manage": {
+              "title": "Managing Cookies",
+              "content": "Most web browsers are set to accept cookies by default. You can usually modify your browser settings to remove or reject cookies. Please note that removing or rejecting cookies may affect the availability and functionality of our Services."
+            }
+          }
+        },
+        "socialLogins": {
+          "title": "How Do We Handle Your Social Logins?",
+          "content": "We offer the ability to register and log in using your third-party social media accounts (such as Google). If you choose to do this, we will receive certain profile information from your social media provider.\n\nThe profile information we receive may vary but often includes your name, email address, profile picture, and other information you choose to make public. We will use the information we receive only for the purposes described in this Privacy Policy."
+        },
+        "dataRetention": {
+          "title": "How Long Do We Keep Your Information?",
+          "content": "We will keep your personal information for as long as it is necessary for the purposes set out in this Privacy Policy, unless a longer retention period is required by law.\n\nWhen we have no ongoing legitimate business need to process your personal information, we will either delete or anonymize it. If deletion is not possible (for example, because your information is stored in backup archives), we will securely store your information and isolate it from further processing until deletion is possible.\n\nYou can request deletion of your data at any time through your account settings or by contacting us."
+        },
+        "dataSecurity": {
+          "title": "How Do We Keep Your Information Safe?",
+          "content": "We have implemented appropriate technical and organizational security measures designed to protect your personal information. These measures include:",
+          "items": [
+            "Encryption of data in transit using TLS/SSL",
+            "Encryption of data at rest",
+            "Regular security assessments and penetration testing",
+            "Access controls and authentication requirements",
+            "Secure data storage infrastructure",
+            "Employee training on data protection"
+          ],
+          "subSections": {
+            "limitations": {
+              "title": "Security Limitations",
+              "content": "Despite our safeguards and efforts to secure your information, no electronic transmission over the Internet or information storage technology can be guaranteed to be 100% secure. We cannot promise or guarantee that hackers, cybercriminals, or other unauthorized parties will not be able to defeat our security and improperly collect, access, steal, or modify your information."
+            }
+          }
+        },
+        "minors": {
+          "title": "Do We Collect Information from Minors?",
+          "content": "We do not knowingly collect personal information from children under 18 years of age. Our Services are not directed to individuals under the age of 18. If we learn that we have collected personal information from a child under 18, we will take steps to delete the information as soon as possible.\n\nIf you are a parent or guardian and believe we have collected information from your child, please contact us at info@aidorag.ai."
+        },
+        "yourRights": {
+          "title": "What Are Your Privacy Rights?",
+          "content": "Depending on your location, you may have certain rights regarding your personal information under applicable data protection laws. These rights may include:",
+          "items": [
+            "Right to Access: Request access to and obtain a copy of your personal information",
+            "Right to Rectification: Request correction of inaccurate or incomplete personal information",
+            "Right to Erasure: Request deletion of your personal information",
+            "Right to Restrict Processing: Request restriction of processing of your personal information",
+            "Right to Data Portability: Request transfer of your personal information to another service",
+            "Right to Object: Object to processing of your personal information",
+            "Right to Withdraw Consent: Withdraw consent where processing is based on consent"
+          ],
+          "subSections": {
+            "exercise": {
+              "title": "Exercising Your Rights",
+              "content": "To exercise any of these rights, please contact us at info@aidorag.ai or through your account settings. We will respond to your request in accordance with applicable law."
+            }
+          }
+        },
+        "doNotTrack": {
+          "title": "Controls for Do-Not-Track Features",
+          "content": "Most web browsers and some mobile operating systems include a Do-Not-Track (\"DNT\") feature or setting you can activate to signal your privacy preference not to have data about your online browsing activities monitored and collected.\n\nAt this stage, no uniform technology standard for recognizing and implementing DNT signals has been finalized. As such, we do not currently respond to DNT browser signals or any other mechanism that automatically communicates your choice not to be tracked online. If a standard for online tracking is adopted that we must follow in the future, we will inform you about that practice in a revised version of this Privacy Policy."
+        },
+        "googleWorkspace": {
+          "title": "Google Workspace APIs",
+          "content": "If you connect your Google Workspace account to our Services, we will access and process data from your Google Workspace in accordance with Google's API Services User Data Policy.\n\nOur use of information received from Google APIs will adhere to the Google API Services User Data Policy, including the Limited Use requirements. Specifically:",
+          "items": [
+            "We only access the data necessary to provide and improve our Services",
+            "We do not use Google Workspace data for advertising purposes",
+            "We do not sell Google Workspace data to third parties",
+            "We do not use Google Workspace data to build user profiles for advertising",
+            "Data access is limited to features explicitly requested by users"
+          ]
+        },
+        "usResidents": {
+          "title": "Privacy Information for US Residents",
+          "content": "If you are a resident of California, Colorado, Connecticut, Delaware, Florida, Indiana, Iowa, Montana, New Hampshire, New Jersey, Oregon, Tennessee, Texas, Utah, or Virginia, you have specific privacy rights under applicable state laws.\n\nThese rights may include:",
+          "items": [
+            "Right to know what personal information is being collected",
+            "Right to know whether personal information is sold or disclosed and to whom",
+            "Right to say no to the sale or sharing of personal information",
+            "Right to access, correct, and delete personal information",
+            "Right to non-discrimination for exercising privacy rights"
+          ],
+          "subSections": {
+            "california": {
+              "title": "California Residents",
+              "content": "Under the California Consumer Privacy Act (CCPA) as amended by the California Privacy Rights Act (CPRA), California residents have additional rights including the right to limit the use of sensitive personal information and the right to opt out of automated decision-making."
+            }
+          }
+        },
+        "hipaa": {
+          "title": "HIPAA Compliance",
+          "content": "AIDORag may process Protected Health Information (PHI) on behalf of certain customers who are HIPAA-covered entities or their business associates. In such cases, our handling of PHI is governed by a Business Associate Agreement (BAA) with the applicable customer.\n\nIf you are a healthcare provider or other HIPAA-covered entity interested in using our Services, please contact us at info@aidorag.ai to discuss our HIPAA compliance program and execute a BAA."
+        },
+        "euUkResidents": {
+          "title": "Privacy Information for EU/UK Residents",
+          "content": "If you are located in the European Union, European Economic Area, United Kingdom, or Switzerland, you have certain rights under the General Data Protection Regulation (GDPR) and UK GDPR.\n\nLegal Bases for Processing: We process your personal information based on the following legal bases:",
+          "items": [
+            "Performance of Contract: When processing is necessary to provide our Services to you",
+            "Legitimate Interests: For our legitimate business interests, such as fraud prevention and security",
+            "Consent: Where you have provided consent for specific processing activities",
+            "Legal Obligation: When we are required to process your data by law"
+          ],
+          "subSections": {
+            "transfers": {
+              "title": "International Transfers",
+              "content": "Your information may be transferred to and processed in countries other than your country of residence. When we transfer personal information outside the EU/UK, we ensure appropriate safeguards are in place, such as Standard Contractual Clauses approved by the European Commission."
+            },
+            "dpo": {
+              "title": "Data Protection Officer",
+              "content": "If you have questions or concerns about our data practices, you may contact us at info@aidorag.ai. You also have the right to lodge a complaint with your local data protection authority."
+            }
+          }
+        },
+        "updates": {
+          "title": "Do We Make Updates to This Policy?",
+          "content": "We may update this Privacy Policy from time to time. The updated version will be indicated by an updated \"Last updated\" date at the top of this page.\n\nWe encourage you to review this Privacy Policy periodically to stay informed about how we are protecting your information. Your continued use of our Services after any changes indicates your acceptance of the updated Privacy Policy.\n\nIf we make material changes to this Privacy Policy, we may notify you by email or through a prominent notice on our Services prior to the change becoming effective."
+        },
+        "contactUs": {
+          "title": "How Can You Contact Us About This Policy?",
+          "content": "If you have questions or comments about this Privacy Policy, or if you would like to exercise your privacy rights, you can contact us:\n\nBy email: info@aidorag.ai\n\nBy mail:\nAIDORag, Inc.\n9011 Mira Mesa BLVD # 246\nSan Diego, CA 92126\nUnited States"
+        },
+        "reviewData": {
+          "title": "How Can You Review, Update, or Delete Your Data?",
+          "content": "Based on applicable laws in your country or state of residence, you may have the right to request access to, correction of, or deletion of the personal information we collect from you.\n\nTo request to review, update, or delete your personal information, you can:\n\n• Access your account settings to update your profile information\n• Submit a request through our support portal\n• Contact us at info@aidorag.ai\n\nWe will respond to your request within a reasonable timeframe and in accordance with applicable law."
+        }
+      }
+    },
+    "terms": {
+      "badge": "Terms",
+      "title": "Terms of Service",
+      "lastUpdated": "Last updated: January 2026",
+      "sections": {
+        "acceptance": {
+          "title": "Acceptance of Terms",
+          "content": "By accessing or using AIDORag, you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our service."
+        },
+        "description": {
+          "title": "Description of Service",
+          "content": "AIDORag is an AI-powered document intelligence platform that allows you to upload documents, ask questions, and receive answers with source citations. Our service includes document processing, knowledge graph generation, and AI-powered search capabilities."
+        },
+        "accounts": {
+          "title": "User Accounts",
+          "content": "To use certain features of our service, you must create an account. You are responsible for:",
+          "items": ["Maintaining the confidentiality of your account credentials", "All activities that occur under your account", "Notifying us immediately of any unauthorized use"]
+        },
+        "acceptableUse": {
+          "title": "Acceptable Use",
+          "content": "You agree not to use our service to:",
+          "items": ["Upload illegal, harmful, or offensive content", "Violate any applicable laws or regulations", "Infringe on intellectual property rights", "Attempt to gain unauthorized access to our systems", "Interfere with or disrupt the service"]
+        },
+        "ip": {
+          "title": "Intellectual Property",
+          "content": "You retain ownership of all documents you upload. By using our service, you grant us a limited license to process your documents solely for the purpose of providing our services. We do not use your documents to train our AI models without explicit consent."
+        },
+        "payment": {
+          "title": "Payment Terms",
+          "content": "Paid features are billed in advance on a monthly or annual basis. Refunds are available within 14 days of initial purchase for annual plans. We reserve the right to change our pricing with 30 days notice."
+        },
+        "liability": {
+          "title": "Limitation of Liability",
+          "content": "To the maximum extent permitted by law, AIDORag shall not be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use of or inability to use the service."
+        },
+        "termination": {
+          "title": "Termination",
+          "content": "We may terminate or suspend your account at any time for violation of these terms. Upon termination, your right to use the service will immediately cease. You may export your data before account closure."
+        },
+        "changes": {
+          "title": "Changes to Terms",
+          "content": "We reserve the right to modify these terms at any time. We will notify users of significant changes via email or through the service. Continued use of the service after changes constitutes acceptance of the new terms."
+        },
+        "contact": {
+          "title": "Contact Information",
+          "content": "For questions about these Terms of Service, please contact us at info@aidorag.ai."
+        }
+      }
+    },
+    "cookies": {
+      "badge": "Cookies",
+      "title": "Cookie Policy",
+      "lastUpdated": "Last updated: January 2026",
+      "sections": {
+        "whatAre": {
+          "title": "What Are Cookies?",
+          "content": "Cookies are small text files that are stored on your device when you visit our website. They help us provide you with a better experience by remembering your preferences and understanding how you use our service."
+        },
+        "howWeUse": {
+          "title": "How We Use Cookies",
+          "intro": "We use different types of cookies for various purposes:",
+          "types": {
+            "essential": {
+              "title": "Essential Cookies",
+              "description": "Required for the website to function properly. These cookies enable core functionality such as security, authentication, and session management."
+            },
+            "preference": {
+              "title": "Preference Cookies",
+              "description": "Allow us to remember your preferences such as language, theme, and display settings to provide a personalized experience."
+            },
+            "analytics": {
+              "title": "Analytics Cookies",
+              "description": "Help us understand how visitors interact with our website by collecting anonymous information about page visits and user behavior."
+            },
+            "marketing": {
+              "title": "Marketing Cookies",
+              "description": "Used to track visitors across websites to display relevant advertisements. We do not sell your data to third parties."
+            }
+          }
+        },
+        "table": {
+          "title": "Cookies We Use",
+          "headers": {
+            "cookie": "Cookie Name",
+            "type": "Type",
+            "purpose": "Purpose"
+          },
+          "purposes": {
+            "auth": "User authentication and session management",
+            "theme": "Remember your theme preference (light/dark)",
+            "language": "Remember your language preference"
+          }
+        },
+        "managing": {
+          "title": "Managing Cookies",
+          "content": "You can control cookies through your browser settings. Most browsers allow you to:",
+          "items": ["View and delete existing cookies", "Block all cookies or only third-party cookies", "Set preferences for specific websites"],
+          "note": "Please note that disabling certain cookies may affect the functionality of our service."
+        },
+        "thirdParty": {
+          "title": "Third-Party Cookies",
+          "content": "Some of our pages may contain content from third-party services that set their own cookies. These include:",
+          "items": ["Google Analytics for usage statistics", "Stripe for payment processing", "Intercom for customer support"]
+        },
+        "updates": {
+          "title": "Updates to This Policy",
+          "content": "We may update this Cookie Policy from time to time. We will notify you of any changes by posting the new policy on this page and updating the 'Last updated' date."
+        },
+        "contact": {
+          "title": "Contact Us",
+          "content": "If you have any questions about our use of cookies, please contact us at info@aidorag.ai."
+        }
+      }
+    },
+    "status": {
+      "badge": "System Status",
+      "title": "System Status",
+      "subtitle": "Real-time status of all AIDORag services",
+      "allOperational": "All Systems Operational",
+      "lastUpdated": "Last updated",
+      "services": "Current Services",
+      "operational": "Operational",
+      "uptime": "uptime",
+      "serviceList": {
+        "webApp": { "name": "Web Application", "uptime": "99.99%" },
+        "api": { "name": "API Services", "uptime": "99.98%" },
+        "docProcessing": { "name": "Document Processing", "uptime": "99.95%" },
+        "knowledgeGraph": { "name": "Knowledge Graph", "uptime": "99.97%" },
+        "database": { "name": "Database", "uptime": "99.99%" },
+        "storage": { "name": "File Storage", "uptime": "99.99%" }
+      },
+      "uptimeChart": {
+        "title": "90-Day Uptime History",
+        "daysAgo": "90 days ago",
+        "today": "Today"
+      },
+      "incidents": {
+        "title": "Past Incidents",
+        "resolved": "Resolved",
+        "items": {
+          "apiLatency": {
+            "title": "Increased API Latency",
+            "description": "Some users experienced slower response times on API endpoints. Issue was identified and resolved within 30 minutes.",
+            "date": "January 10, 2026 - 14:30 UTC"
+          },
+          "docDelays": {
+            "title": "Document Processing Delays",
+            "description": "Large document uploads were experiencing processing delays due to high traffic. Additional capacity was added to resolve the issue.",
+            "date": "January 5, 2026 - 09:15 UTC"
+          }
+        }
+      },
+      "subscribe": {
+        "title": "Stay Updated",
+        "subtitle": "Subscribe to receive real-time notifications about system status and maintenance.",
+        "placeholder": "Enter your email"
+      }
+    },
+    "press": {
+      "badge": "Press",
+      "titlePrefix": "Press &",
+      "title": "Media",
+      "subtitle": "News, resources, and media information about AIDORag",
+      "contact": {
+        "title": "Media Contact",
+        "description": "For press inquiries, interviews, and media requests",
+        "email": "info@aidorag.ai"
+      },
+      "releases": {
+        "title": "Press Releases",
+        "items": {
+          "launch": {
+            "date": "January 2026",
+            "title": "AIDORag Launches Revolutionary Document Intelligence Platform",
+            "excerpt": "AIDORag announces the launch of its AI-powered document intelligence platform, featuring advanced RAG technology and knowledge graph capabilities."
+          },
+          "funding": {
+            "date": "December 2025",
+            "title": "AIDORag Secures Seed Funding to Accelerate Growth",
+            "excerpt": "AIDORag raises seed funding to expand its team and accelerate product development for enterprise customers."
+          },
+          "enterprise": {
+            "date": "November 2025",
+            "title": "AIDORag Introduces Enterprise Plan with Advanced Security",
+            "excerpt": "New enterprise offering includes SOC2 compliance, SSO integration, and dedicated support for large organizations."
+          }
+        }
+      },
+      "videos": {
+        "title": "Video Showcase",
+        "subtitle": "Watch our product demos, startup pitch, and event highlights",
+        "items": {
+          "demo": {
+            "title": "Product Demo",
+            "description": "See AIDORag in action with a full walkthrough of our AI-powered document intelligence platform.",
+            "date": "January 2026",
+            "duration": "5:30"
+          },
+          "pitch": {
+            "title": "Startup Pitch",
+            "description": "Our founding story and vision for the future of enterprise document management.",
+            "date": "December 2025",
+            "duration": "3:45"
+          },
+          "event": {
+            "title": "Tech Conference 2025",
+            "description": "Highlights from our keynote presentation at the annual AI & Enterprise Tech Summit.",
+            "date": "November 2025",
+            "duration": "12:20"
+          }
+        }
+      },
+      "mediaKit": {
+        "title": "Media Kit",
+        "download": "Download",
+        "items": {
+          "logos": {
+            "title": "Logo Pack",
+            "description": "High-resolution logos in various formats"
+          },
+          "screenshots": {
+            "title": "Screenshots",
+            "description": "Product screenshots and UI images"
+          },
+          "factSheet": {
+            "title": "Fact Sheet",
+            "description": "Company information and key facts"
+          }
+        }
+      },
+      "facts": {
+        "title": "Company Facts",
+        "founded": "Founded",
+        "users": "Active Users",
+        "documents": "Documents Processed",
+        "countries": "Countries"
+      },
+      "cta": {
+        "title": "Need More Information?",
+        "subtitle": "Contact our press team for additional resources and interview requests"
+      }
+    },
+    "gdpr": {
+      "badge": "GDPR",
+      "titlePrefix": "GDPR",
+      "title": "Compliance",
+      "subtitle": "How AIDORag protects your data under the General Data Protection Regulation",
+      "lastUpdated": "Last updated: January 2026",
+      "commitment": {
+        "title": "Our Commitment to Data Protection",
+        "description": "AIDORag is committed to protecting your personal data and respecting your privacy rights under the General Data Protection Regulation (GDPR). We process your data lawfully, fairly, and transparently."
+      },
+      "rights": {
+        "title": "Your Rights Under GDPR",
+        "items": {
+          "access": {
+            "title": "Right to Access",
+            "description": "You can request a copy of all personal data we hold about you at any time."
+          },
+          "rectification": {
+            "title": "Right to Rectification",
+            "description": "You can request correction of any inaccurate or incomplete personal data."
+          },
+          "erasure": {
+            "title": "Right to Erasure",
+            "description": "You can request deletion of your personal data under certain circumstances."
+          },
+          "restriction": {
+            "title": "Right to Restriction",
+            "description": "You can request that we limit the processing of your personal data."
+          },
+          "portability": {
+            "title": "Right to Portability",
+            "description": "You can request your data in a structured, machine-readable format."
+          },
+          "objection": {
+            "title": "Right to Object",
+            "description": "You can object to processing of your personal data for certain purposes."
+          }
+        }
+      },
+      "principles": {
+        "title": "Data Processing Principles",
+        "items": {
+          "lawfulness": {
+            "title": "Lawfulness, Fairness & Transparency",
+            "description": "We process data lawfully, fairly, and in a transparent manner."
+          },
+          "limitation": {
+            "title": "Purpose Limitation",
+            "description": "We collect data for specified, explicit, and legitimate purposes only."
+          },
+          "minimization": {
+            "title": "Data Minimization",
+            "description": "We only collect data that is adequate, relevant, and limited to what is necessary."
+          },
+          "accuracy": {
+            "title": "Accuracy",
+            "description": "We keep personal data accurate and up to date."
+          },
+          "storage": {
+            "title": "Storage Limitation",
+            "description": "We retain data only for as long as necessary for the intended purpose."
+          },
+          "security": {
+            "title": "Integrity & Confidentiality",
+            "description": "We ensure appropriate security of personal data through technical measures."
+          }
+        }
+      },
+      "transfer": {
+        "title": "International Data Transfers",
+        "description": "When we transfer your data outside the EEA, we ensure adequate protection through:",
+        "items": {
+          "scc": "Standard Contractual Clauses (SCCs)",
+          "adequacy": "Adequacy decisions by the European Commission",
+          "encryption": "State-of-the-art encryption and security measures"
+        }
+      },
+      "contact": {
+        "title": "Data Protection Officer",
+        "description": "For any GDPR-related inquiries or to exercise your rights, please contact our Data Protection Officer.",
+        "emailDpo": "Contact DPO",
+        "viewPrivacy": "View Privacy Policy"
+      }
+    },
+    "security": {
+      "badge": "Security",
+      "titlePrefix": "Enterprise-Grade",
+      "title": "Security",
+      "subtitle": "Your data security is our top priority. Learn about our comprehensive security measures.",
+      "trust": {
+        "title": "Your Trust is Our Priority",
+        "description": "AIDORag implements industry-leading security measures to protect your data. We are committed to maintaining the highest standards of data protection and privacy with enterprise-grade security at every layer."
+      },
+      "features": {
+        "title": "Security Features",
+        "items": {
+          "encryption": {
+            "title": "End-to-End Encryption",
+            "description": "All data is encrypted at rest using AES-256 and in transit using TLS 1.3."
+          },
+          "authentication": {
+            "title": "Multi-Factor Authentication",
+            "description": "Secure your account with MFA using authenticator apps or hardware keys."
+          },
+          "infrastructure": {
+            "title": "Secure Infrastructure",
+            "description": "Hosted on enterprise-grade cloud infrastructure with 99.99% uptime SLA."
+          },
+          "monitoring": {
+            "title": "24/7 Monitoring",
+            "description": "Continuous security monitoring and threat detection across all systems."
+          },
+          "access": {
+            "title": "Access Control",
+            "description": "Role-based access control (RBAC) with granular permissions management."
+          },
+          "compliance": {
+            "title": "Compliance Standards",
+            "description": "SOC2 Type II certified with regular third-party security audits."
+          }
+        }
+      },
+      "certifications": {
+        "title": "Certifications & Compliance",
+        "items": {
+          "soc2": {
+            "title": "SOC2 Type II",
+            "status": "Certified"
+          },
+          "gdpr": {
+            "title": "GDPR",
+            "status": "Compliant"
+          },
+          "iso27001": {
+            "title": "ISO 27001",
+            "status": "Certified"
+          },
+          "hipaa": {
+            "title": "HIPAA",
+            "status": "Ready"
+          }
+        }
+      },
+      "dataProtection": {
+        "title": "Data Protection",
+        "items": {
+          "atRest": {
+            "title": "Encryption at Rest",
+            "description": "All stored data is encrypted using AES-256 encryption with secure key management."
+          },
+          "inTransit": {
+            "title": "Encryption in Transit",
+            "description": "All data transfers use TLS 1.3 to ensure secure communication between systems."
+          },
+          "backup": {
+            "title": "Secure Backups",
+            "description": "Automated encrypted backups with point-in-time recovery and geo-redundancy."
+          }
+        }
+      },
+      "vulnerability": {
+        "title": "Vulnerability Disclosure",
+        "description": "We take security vulnerabilities seriously. If you discover a security issue, please report it responsibly to our security team.",
+        "report": "Report Vulnerability"
+      },
+      "cta": {
+        "title": "Have Security Questions?",
+        "subtitle": "Our security team is available to answer your questions and provide additional documentation.",
+        "viewPrivacy": "View Privacy Policy"
+      }
+    },
+    "tutorials": {
+      "badge": "Tutorials",
+      "titleStart": "Learn",
+      "titleHighlight": "AIDORag",
+      "subtitle": "Step-by-step tutorials to help you get the most out of AIDORag",
+      "categories": {
+        "all": "All",
+        "gettingStarted": "Getting Started",
+        "advanced": "Advanced",
+        "integrations": "Integrations"
+      },
+      "items": {
+        "gettingStarted": {
+          "category": "Getting Started",
+          "level": "Beginner",
+          "levelKey": "beginner",
+          "title": "Getting Started with AIDORag",
+          "description": "Learn how to set up your account and upload your first document.",
+          "duration": "5 min"
+        },
+        "queryModes": {
+          "category": "Query Modes",
+          "level": "Intermediate",
+          "levelKey": "intermediate",
+          "title": "Understanding Query Modes",
+          "description": "Deep dive into the 5 query modes: Naive, Local, Global, Hybrid, and Mix.",
+          "duration": "10 min"
+        },
+        "knowledgeGraph": {
+          "category": "Knowledge Graph",
+          "level": "Intermediate",
+          "levelKey": "intermediate",
+          "title": "Building Knowledge Graphs",
+          "description": "Learn how to use the knowledge graph feature to visualize entity relationships.",
+          "duration": "15 min"
+        },
+        "apiIntegration": {
+          "category": "API",
+          "level": "Advanced",
+          "levelKey": "advanced",
+          "title": "API Integration Guide",
+          "description": "Integrate AIDORag into your applications using our REST API.",
+          "duration": "20 min"
+        },
+        "optimization": {
+          "category": "Performance",
+          "level": "Advanced",
+          "levelKey": "advanced",
+          "title": "Optimization Tips",
+          "description": "Best practices for optimizing document processing and query performance.",
+          "duration": "12 min"
+        },
+        "slackSetup": {
+          "category": "Integrations",
+          "level": "Beginner",
+          "levelKey": "beginner",
+          "title": "Slack Integration Setup",
+          "description": "Connect AIDORag with Slack for seamless team collaboration.",
+          "duration": "8 min"
+        }
+      },
+      "needHelp": {
+        "title": "Need More Help?",
+        "subtitle": "Can't find what you're looking for? Check our documentation or join our community."
+      }
+    },
+    "tutorialDetail": {
+      "backToTutorials": "Back to Tutorials",
+      "nextTutorial": "Next Tutorial",
+      "prevTutorial": "Previous Tutorial",
+      "allTutorials": "All Tutorials",
+      "gettingStarted": {
+        "title": "Getting Started with AIDORag",
+        "description": "Learn how to set up your account and upload your first document in just a few minutes.",
+        "step1": {
+          "title": "Create Your Account",
+          "content": "Sign up for a free AIDORag account to get started. You'll have instant access to all basic features.",
+          "items": ["Visit the signup page", "Enter your email and password", "Verify your email address"]
+        },
+        "step2": {
+          "title": "Explore the Dashboard",
+          "content": "Once logged in, you'll see your dashboard with three main sections:",
+          "upload": { "title": "Upload", "desc": "Upload your documents" },
+          "search": { "title": "Search", "desc": "Query your knowledge base" },
+          "chat": { "title": "Chat", "desc": "Have conversations with your documents" }
+        },
+        "step3": {
+          "title": "Upload Your First Document",
+          "content": "Click the upload button to add your first document. We support PDF, DOCX, TXT, and many more formats. Your document will be automatically processed and indexed for searching."
+        }
+      },
+      "queryModes": {
+        "title": "Understanding Query Modes",
+        "description": "Learn about the 5 different query modes in AIDORag and when to use each one.",
+        "intro": {
+          "title": "What Are Query Modes?",
+          "content": "AIDORag offers 5 different query modes, each optimized for different types of questions and use cases. Choosing the right mode can significantly improve your results."
+        },
+        "bestFor": "Best for",
+        "modes": {
+          "naive": {
+            "title": "Naive Mode",
+            "description": "Simple keyword-based search that quickly finds exact matches in your documents.",
+            "bestFor": "Finding specific terms, names, or exact phrases"
+          },
+          "local": {
+            "title": "Local Mode",
+            "description": "Searches within specific document sections for detailed, context-aware answers.",
+            "bestFor": "Detailed questions about specific topics"
+          },
+          "global": {
+            "title": "Global Mode",
+            "description": "Searches across your entire knowledge base to find comprehensive answers.",
+            "bestFor": "Broad questions that span multiple documents"
+          },
+          "hybrid": {
+            "title": "Hybrid Mode",
+            "description": "Combines keyword and semantic search for the best of both worlds.",
+            "bestFor": "General-purpose queries with high accuracy"
+          },
+          "mix": {
+            "title": "Mix Mode",
+            "description": "Intelligently combines all modes to provide the most relevant results.",
+            "bestFor": "Complex queries that need multiple perspectives"
+          }
+        },
+        "tips": {
+          "title": "Pro Tips",
+          "content": "Start with Hybrid mode for most queries. Use Naive for exact matches, Global for broad research, and Mix when you need comprehensive results from multiple angles."
+        }
+      },
+      "knowledgeGraph": {
+        "title": "Building Knowledge Graphs",
+        "description": "Learn how to use the knowledge graph feature to visualize and explore entity relationships in your documents.",
+        "demo": "Interactive Knowledge Graph Demo",
+        "intro": {
+          "title": "What is a Knowledge Graph?",
+          "content": "A knowledge graph automatically extracts entities (people, organizations, concepts) and their relationships from your documents, creating a visual map of your knowledge base."
+        },
+        "features": {
+          "entityDetection": {
+            "title": "Entity Detection",
+            "description": "AI automatically identifies and categorizes entities like people, organizations, locations, and concepts."
+          },
+          "relationMapping": {
+            "title": "Relationship Mapping",
+            "description": "Discovers connections between entities across all your documents."
+          },
+          "visualization": {
+            "title": "Visual Exploration",
+            "description": "Interactive graph interface to explore your knowledge base visually."
+          },
+          "graphQuery": {
+            "title": "Graph Queries",
+            "description": "Ask complex questions about relationships and connections in your data."
+          }
+        },
+        "howToUse": {
+          "title": "How to Use",
+          "content": "Navigate to the Explorer page from your dashboard. Upload documents and wait for processing. The knowledge graph will be automatically generated and you can click on nodes to explore relationships."
+        }
+      },
+      "apiIntegration": {
+        "title": "API Integration Guide",
+        "description": "Learn how to integrate AIDORag into your applications using our comprehensive REST API.",
+        "codeExample": "Example Code",
+        "steps": {
+          "setup": {
+            "title": "Get Your API Key",
+            "content": "Navigate to Settings > API Keys in your dashboard. Click 'Create New Key' and give it a descriptive name. Copy the key and store it securely."
+          },
+          "authenticate": {
+            "title": "Authenticate Requests",
+            "content": "Include your API key in the Authorization header of every request: 'Authorization: Bearer YOUR_API_KEY'"
+          },
+          "query": {
+            "title": "Make Your First Query",
+            "content": "Use the /api/query endpoint to search your documents. Specify the query mode, limit, and your question in the request body."
+          },
+          "handle": {
+            "title": "Handle Responses",
+            "content": "Parse the JSON response to get your results. Each result includes the answer, source citations, and confidence scores."
+          }
+        },
+        "features": {
+          "rest": "RESTful API",
+          "restDesc": "Standard REST endpoints for all operations",
+          "auth": "Secure Auth",
+          "authDesc": "API key authentication with rate limiting",
+          "webhooks": "Webhooks",
+          "webhooksDesc": "Real-time event notifications"
+        }
+      },
+      "optimization": {
+        "title": "Optimization Tips",
+        "description": "Best practices for optimizing document processing and query performance in AIDORag.",
+        "intro": {
+          "title": "Why Optimize?",
+          "content": "Proper optimization can significantly improve query accuracy, reduce response times, and help you get the most out of your AIDORag subscription."
+        },
+        "tips": {
+          "chunking": {
+            "title": "Document Chunking",
+            "description": "How you prepare and upload documents affects search quality.",
+            "items": ["Split large documents into logical sections", "Use consistent formatting across documents", "Include clear headings and structure"]
+          },
+          "indexing": {
+            "title": "Indexing Strategy",
+            "description": "Organize your documents for better retrieval.",
+            "items": ["Group related documents in collections", "Use descriptive file names", "Add metadata tags when uploading"]
+          },
+          "querying": {
+            "title": "Query Optimization",
+            "description": "Write better queries for more accurate results.",
+            "items": ["Be specific in your questions", "Use the right query mode for your use case", "Include context when asking follow-up questions"]
+          },
+          "caching": {
+            "title": "Caching & Performance",
+            "description": "Leverage caching for faster responses.",
+            "items": ["Reuse chat sessions for related questions", "Use streaming for long responses", "Batch similar queries together"]
+          }
+        },
+        "bestPractices": {
+          "title": "Best Practices Summary",
+          "content": "Keep documents well-structured, choose appropriate query modes, and leverage caching for frequently asked questions. Monitor your usage analytics to identify optimization opportunities."
+        }
+      },
+      "slackSetup": {
+        "title": "Slack Integration Setup",
+        "description": "Connect AIDORag with Slack to query your documents directly from your team channels.",
+        "intro": {
+          "title": "Why Slack Integration?",
+          "content": "With Slack integration, your team can query AIDORag directly from any Slack channel, making knowledge access instant and collaborative."
+        },
+        "steps": {
+          "install": {
+            "title": "Install the App",
+            "content": "Go to Settings > Integrations in your AIDORag dashboard and click 'Add to Slack'. Authorize the app in your Slack workspace."
+          },
+          "authorize": {
+            "title": "Authorize Permissions",
+            "content": "Review and approve the required permissions. AIDORag needs access to read messages in channels where it's invited and send responses."
+          },
+          "configure": {
+            "title": "Configure Channels",
+            "content": "Choose which Slack channels AIDORag should be active in. You can also set up custom triggers and response formats."
+          },
+          "test": {
+            "title": "Test the Integration",
+            "content": "Invite @AIDORag to a channel and try a query like '@AIDORag what is our refund policy?' to test the integration."
+          }
+        },
+        "features": {
+          "channels": "Channel Support",
+          "channelsDesc": "Works in any public or private channel",
+          "security": "Secure Access",
+          "securityDesc": "Respects document permissions",
+          "instant": "Instant Responses",
+          "instantDesc": "Get answers in seconds"
+        },
+        "tips": {
+          "title": "Tips for Best Results",
+          "items": ["Start your query with @AIDORag mention", "Be specific in your questions for better accuracy", "Use thread replies for follow-up questions"]
+        }
+      }
+    }
+  },
+  "landing": {
+    "pricing": {
+      "badge": "Pricing",
+      "titleStart": "Simple, Transparent",
+      "titleHighlight": "Pricing",
+      "subtitle": "Choose the plan that fits your needs. All plans include a 14-day free trial.",
+      "monthly": "Monthly",
+      "yearly": "Yearly",
+      "save20": "Save 20%",
+      "year": "year",
+      "mo": "mo",
+      "billedAnnually": "when billed annually",
+      "popular": "Most Popular",
+      "bottomNote": "All plans include SSL encryption, 99.9% uptime SLA, and GDPR compliance.",
+      "plans": {
+        "free": {
+          "name": "Free",
+          "description": "Perfect for trying out AIDORag",
+          "features": ["5 documents", "100 queries/month", "Basic RAG search", "Community support"],
+          "cta": "Get Started"
+        },
+        "starter": {
+          "name": "Starter",
+          "description": "For individuals and small teams",
+          "features": ["50 documents", "1,000 queries/month", "All 5 query modes", "Knowledge graph", "Email support"],
+          "cta": "Register"
+        },
+        "pro": {
+          "name": "Pro",
+          "description": "For growing teams and businesses",
+          "features": ["500 documents", "10,000 queries/month", "All 5 query modes", "Advanced knowledge graph", "API access", "Priority support", "Custom integrations"],
+          "cta": "Register"
+        },
+        "business": {
+          "name": "Business",
+          "description": "For enterprises with custom needs",
+          "features": ["Unlimited documents", "Unlimited queries", "All Pro features", "SSO & SAML", "Dedicated support", "SLA guarantee", "Custom deployment", "Training & onboarding"],
+          "cta": "Register"
+        }
+      }
+    },
+    "testimonials": {
+      "badge": "Testimonials",
+      "titleStart": "Loved by Teams",
+      "titleHighlight": "Worldwide",
+      "subtitle": "See what our customers say about transforming their document workflows",
+      "at": "at",
+      "stats": {
+        "rating": "Average Rating",
+        "users": "Happy Users",
+        "clients": "Enterprise Clients",
+        "satisfaction": "Satisfaction Rate"
+      },
+      "items": [
+        {
+          "quote": "AIDORag transformed how we handle our legal documents. The knowledge graph feature is a game-changer for finding connections we never knew existed.",
+          "author": "Sarah Chen",
+          "role": "Legal Director",
+          "company": "TechCorp Inc."
+        },
+        {
+          "quote": "We've reduced our research time by 80% since implementing AIDORag. The citation accuracy is remarkable - exactly what we needed for academic work.",
+          "author": "Dr. Michael Roberts",
+          "role": "Research Lead",
+          "company": "Stanford University"
+        },
+        {
+          "quote": "The multi-modal support is incredible. We can upload PDFs, presentations, and images all in one place. The AI understands context across all formats.",
+          "author": "Emily Watson",
+          "role": "Product Manager",
+          "company": "Innovation Labs"
+        },
+        {
+          "quote": "Best RAG solution we've tested. The 5 query modes give us flexibility that other tools simply don't have. Highly recommended for enterprise use.",
+          "author": "James Liu",
+          "role": "CTO",
+          "company": "DataFlow Systems"
+        }
+      ]
+    },
+    "faq": {
+      "badge": "FAQ",
+      "titleStart": "Frequently Asked",
+      "titleHighlight": "Questions",
+      "subtitle": "Everything you need to know about AIDORag",
+      "stillHaveQuestions": "Still have questions?",
+      "contactSupport": "Contact our support team",
+      "items": [
+        {
+          "question": "What file formats does AIDORag support?",
+          "answer": "AIDORag supports a wide range of formats including PDF, DOCX, PPTX, XLSX, TXT, images (PNG, JPG, WebP), audio files (MP3, WAV), and video files (MP4). Our AI can extract and analyze content from all these formats."
+        },
+        {
+          "question": "How does the Knowledge Graph work?",
+          "answer": "Our AI automatically extracts entities (people, organizations, concepts, locations) and their relationships from your documents. This creates a connected graph that helps you discover hidden connections and get more comprehensive answers to your questions."
+        },
+        {
+          "question": "What are the 5 Query Modes?",
+          "answer": "The 5 query modes are: Naive (simple keyword search), Local (searches within specific documents), Global (searches across all documents), Hybrid (combines local and global), and Mix (our recommended mode that uses AI to choose the best approach for each query)."
+        },
+        {
+          "question": "Is my data secure?",
+          "answer": "Absolutely. We use enterprise-grade security including AES-256 encryption at rest, TLS 1.3 for data in transit, SOC2 Type II compliance, and GDPR compliance. Your data is never used to train our models, and you maintain full ownership."
+        },
+        {
+          "question": "Can I integrate AIDORag with my existing tools?",
+          "answer": "Yes! We offer a comprehensive REST API, webhooks, and native integrations with popular tools like Slack, Microsoft Teams, Notion, and Google Workspace. Enterprise plans also include custom integration support."
+        },
+        {
+          "question": "What happens if I exceed my plan limits?",
+          "answer": "We'll notify you when you're approaching your limits. You can upgrade your plan at any time, or purchase additional capacity. We never delete your data if you exceed limits - you just won't be able to add new documents until you upgrade."
+        },
+        {
+          "question": "Do you offer a free trial?",
+          "answer": "Yes! All paid plans include a 14-day free trial with full access to all features. No credit card required to start. You can also use our Free plan indefinitely with limited features."
+        },
+        {
+          "question": "How accurate are the citations?",
+          "answer": "Our citation system provides exact page numbers and section references for every answer. We use advanced retrieval techniques to ensure citations are accurate and verifiable. Enterprise users report 99%+ citation accuracy."
+        }
+      ]
+    },
+    "cta": {
+      "badge": "Start your free trial today",
+      "titleStart": "Ready to Transform Your",
+      "titleHighlight": "Document Workflow?",
+      "subtitle": "Join thousands of teams who are already using AIDORag to unlock insights from their documents. Get started in minutes with our free tier.",
+      "primaryButton": "Get Started Free",
+      "secondaryButton": "Watch Demo",
+      "noCard": "No credit card required",
+      "freeTrial": "14-day free trial",
+      "cancelAnytime": "Cancel anytime"
+    },
+    "footer": {
+      "description": "Transform your documents into intelligent, searchable knowledge with advanced RAG technology.",
+      "allRightsReserved": "All rights reserved.",
+      "systemsOperational": "All systems operational",
+      "sections": {
+        "product": "Product",
+        "company": "Company",
+        "resources": "Resources",
+        "legal": "Legal"
+      },
+      "product": {
+        "features": "Features",
+        "pricing": "Pricing",
+        "howItWorks": "How It Works",
+        "apiDocs": "API Docs",
+        "changelog": "Changelog"
+      },
+      "company": {
+        "about": "About",
+        "blog": "Blog",
+        "careers": "Careers",
+        "contact": "Contact",
+        "pressKit": "Press Kit"
+      },
+      "resources": {
+        "documentation": "Documentation",
+        "tutorials": "Tutorials",
+        "community": "Community",
+        "support": "Support",
+        "status": "Status"
+      },
+      "legal": {
+        "privacy": "Privacy Policy",
+        "terms": "Terms of Service",
+        "cookies": "Cookie Policy",
+        "gdpr": "GDPR",
+        "security": "Security"
+      }
+    }
+  },
+  "pricingPage": {
+    "badge": "Pricing",
+    "titleStart": "Simple, Transparent",
+    "titleHighlight": "Pricing",
+    "subtitle": "Choose the plan that fits your needs. All plans include a 14-day free trial.",
+    "monthly": "Monthly",
+    "yearly": "Yearly",
+    "save20": "Save 20%",
+    "year": "year",
+    "mo": "mo",
+    "oneTime": " forever",
+    "billedAnnually": "billed annually",
+    "popular": "Most Popular",
+    "contactSales": "Contact Sales",
+    "bottomNote": "All plans include SSL encryption, 99.9% uptime SLA, and GDPR compliance.",
+    "plans": {
+      "free": {
+        "name": "Free",
+        "description": "Perfect for trying out AIDORag",
+        "features": ["5 documents", "100 queries/month", "50 MB storage", "Basic RAG search", "Community support"],
+        "cta": "Get Started"
+      },
+      "starter": {
+        "name": "Starter",
+        "description": "For individuals and small teams",
+        "features": ["50 documents", "1,000 queries/month", "1 GB storage", "All 5 query modes", "Knowledge graph", "1 chatbot widget", "Email support"],
+        "cta": "Register"
+      },
+      "pro": {
+        "name": "Pro",
+        "description": "For growing teams and businesses",
+        "features": ["200 documents", "5,000 queries/month", "5 GB storage", "All 5 query modes", "Advanced knowledge graph", "5 chatbot widgets", "API access", "3 team members", "Priority support"],
+        "cta": "Register"
+      },
+      "business": {
+        "name": "Business",
+        "description": "For enterprises with custom needs",
+        "features": ["1,000 documents", "20,000 queries/month", "20 GB storage", "All Pro features", "100 chatbot widgets", "White-label branding", "10 team members", "Dedicated support", "SLA guarantee"],
+        "cta": "Register"
+      }
+    },
+    "comparison": {
+      "title": "Feature Comparison",
+      "feature": "Feature",
+      "features": {
+        "documents": "Documents",
+        "queries": "Queries/month",
+        "storage": "Storage",
+        "ragModes": "RAG Modes",
+        "knowledgeGraph": "Knowledge Graph",
+        "chatbotWidgets": "Chatbot Widgets",
+        "chatbotBranding": "Chatbot Branding",
+        "chatbotDomains": "Allowed Domains",
+        "chatbotAnalytics": "Widget Analytics",
+        "apiAccess": "API Access",
+        "teamMembers": "Team Members",
+        "support": "Support",
+        "customBranding": "Custom Branding",
+        "webhooks": "Webhooks",
+        "sla": "SLA"
+      },
+      "values": {
+        "free": {
+          "documents": "5",
+          "queries": "100",
+          "storage": "50 MB",
+          "ragModes": "Basic",
+          "knowledgeGraph": "false",
+          "apiAccess": "false",
+          "teamMembers": "-",
+          "support": "Community",
+          "customBranding": "false",
+          "webhooks": "false",
+          "sla": "false",
+          "chatbotWidgets": "-",
+          "chatbotBranding": "-",
+          "chatbotDomains": "-",
+          "chatbotAnalytics": "-"
+        },
+        "starter": {
+          "documents": "50",
+          "queries": "1,000",
+          "storage": "1 GB",
+          "ragModes": "All 5",
+          "knowledgeGraph": "true",
+          "apiAccess": "false",
+          "teamMembers": "-",
+          "support": "Email",
+          "customBranding": "false",
+          "webhooks": "false",
+          "sla": "false",
+          "chatbotWidgets": "1",
+          "chatbotBranding": "Powered by AIDORag",
+          "chatbotDomains": "1",
+          "chatbotAnalytics": "Basic"
+        },
+        "pro": {
+          "documents": "200",
+          "queries": "5,000",
+          "storage": "5 GB",
+          "ragModes": "All 5",
+          "knowledgeGraph": "true",
+          "apiAccess": "true",
+          "teamMembers": "3",
+          "support": "Priority",
+          "customBranding": "true",
+          "webhooks": "true",
+          "sla": "99.9%",
+          "chatbotWidgets": "5",
+          "chatbotBranding": "Custom logo",
+          "chatbotDomains": "5",
+          "chatbotAnalytics": "Full"
+        },
+        "business": {
+          "documents": "1,000",
+          "queries": "20,000",
+          "storage": "20 GB",
+          "ragModes": "All 5",
+          "knowledgeGraph": "true",
+          "apiAccess": "true",
+          "teamMembers": "10",
+          "support": "Dedicated",
+          "customBranding": "true",
+          "webhooks": "true",
+          "sla": "99.99%",
+          "chatbotWidgets": "100",
+          "chatbotBranding": "White-label",
+          "chatbotDomains": "100",
+          "chatbotAnalytics": "Full + Export"
+        }
+      }
+    },
+    "enterprise": {
+      "title": "Enterprise",
+      "description": "Need more? Get custom pricing, dedicated infrastructure, on-premise deployment, and enterprise features.",
+      "features": {
+        "unlimited": "Unlimited everything",
+        "infrastructure": "Dedicated infrastructure",
+        "onPremise": "On-premise deployment",
+        "customSla": "Custom SLA",
+        "support247": "24/7 support"
+      }
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "items": [
+        {
+          "question": "Can I change plans later?",
+          "answer": "Yes, you can upgrade or downgrade your plan at any time. Changes take effect immediately, and we'll prorate any charges."
+        },
+        {
+          "question": "What payment methods do you accept?",
+          "answer": "We accept all major credit cards (Visa, MasterCard, American Express) and PayPal. Enterprise customers can also pay via invoice."
+        },
+        {
+          "question": "Is there a free plan to try?",
+          "answer": "Yes! We offer a Free plan that lets you try AIDORag with no commitment. You get 5 documents and 100 queries per month - perfect for testing if AIDORag fits your needs before upgrading to a paid plan."
+        },
+        {
+          "question": "What happens when I exceed my limits?",
+          "answer": "You'll receive notifications as you approach your limits. You can upgrade anytime, or wait for the next billing cycle to reset your quota."
+        },
+        {
+          "question": "How do I get started?",
+          "answer": "Simply sign up for our Free plan to start exploring AIDORag immediately. You can upload documents, test queries, and experience the power of RAG technology. When you're ready for more, upgrade to a paid plan for additional features."
+        }
+      ]
+    },
+    "modal": {
+      "title": "Choose Payment Method",
+      "description": "Select how you'd like to pay for",
+      "secureNote": "Secure payment processing. Your payment info is never stored on our servers."
+    }
+  }
+}

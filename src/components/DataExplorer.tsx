@@ -28,6 +28,7 @@ import {
   CollapsibleTrigger,
 } from '@/components/ui/collapsible';
 import { cn } from '@/lib/utils';
+import { useTranslation } from '@/i18n';
 
 interface Document {
   id: string;
@@ -111,6 +112,7 @@ function formatDate(dateStr: string): string {
 }
 
 export function DataExplorer() {
+  const { t } = useTranslation();
   const [documents, setDocuments] = useState<Document[]>([]);
   const [selectedDocId, setSelectedDocId] = useState<string | null>(null);
   const [details, setDetails] = useState<DocumentDetails | null>(null);
@@ -221,7 +223,7 @@ export function DataExplorer() {
         <div className="p-3 border-b">
           <div className="flex items-center gap-2 text-sm font-medium">
             <Database className="h-4 w-4" />
-            <span>Indexed Documents</span>
+            <span>{String(t('explorer.indexedDocuments'))}</span>
             <Badge variant="secondary" className="ml-auto">
               {completedDocs.length}
             </Badge>
@@ -231,7 +233,7 @@ export function DataExplorer() {
               className="h-6 w-6"
               onClick={() => fetchDocuments(true)}
               disabled={isRefreshing}
-              title="Refresh"
+              title={String(t('explorer.refresh'))}
             >
               <RefreshCw className={`h-3 w-3 ${isRefreshing ? 'animate-spin' : ''}`} />
             </Button>
@@ -245,7 +247,7 @@ export function DataExplorer() {
               </div>
             ) : completedDocs.length === 0 ? (
               <div className="text-center p-4 text-sm text-muted-foreground">
-                No indexed documents yet
+                {String(t('explorer.noIndexedDocuments'))}
               </div>
             ) : (
               completedDocs.map((doc) => (
@@ -294,9 +296,9 @@ export function DataExplorer() {
           <div className="flex-1 flex items-center justify-center text-muted-foreground">
             <div className="text-center">
               <Search className="h-12 w-12 mx-auto mb-4 opacity-50" />
-              <p className="text-lg font-medium">Select a document to explore</p>
+              <p className="text-lg font-medium">{String(t('explorer.selectDocument'))}</p>
               <p className="text-sm mt-1">
-                View chunks, entities, and relationships
+                {String(t('explorer.viewChunks'))}
               </p>
             </div>
           </div>
@@ -316,19 +318,19 @@ export function DataExplorer() {
               <TabsList>
                 <TabsTrigger value="overview">
                   <Database className="h-4 w-4 mr-1" />
-                  Overview
+                  {String(t('explorer.overview'))}
                 </TabsTrigger>
                 <TabsTrigger value="chunks">
                   <Layers className="h-4 w-4 mr-1" />
-                  Chunks ({details.stats.totalChunks})
+                  {String(t('explorer.chunks'))} ({details.stats.totalChunks})
                 </TabsTrigger>
                 <TabsTrigger value="entities">
                   <Users className="h-4 w-4 mr-1" />
-                  Entities ({details.stats.totalEntities})
+                  {String(t('explorer.entities'))} ({details.stats.totalEntities})
                 </TabsTrigger>
                 <TabsTrigger value="relations">
                   <GitBranch className="h-4 w-4 mr-1" />
-                  Relations ({details.stats.totalRelations})
+                  {String(t('explorer.relations'))} ({details.stats.totalRelations})
                 </TabsTrigger>
               </TabsList>
             </div>
@@ -340,7 +342,7 @@ export function DataExplorer() {
                   <CardHeader className="pb-2">
                     <CardTitle className="text-sm font-medium flex items-center gap-2">
                       <Layers className="h-4 w-4" />
-                      Chunks
+                      {String(t('explorer.chunks'))}
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
@@ -348,7 +350,7 @@ export function DataExplorer() {
                       {details.stats.totalChunks}
                     </div>
                     <p className="text-xs text-muted-foreground">
-                      Avg {details.stats.avgChunkLength} chars
+                      {String(t('explorer.avgChars')).replace('{count}', String(details.stats.avgChunkLength))}
                     </p>
                   </CardContent>
                 </Card>
@@ -356,7 +358,7 @@ export function DataExplorer() {
                   <CardHeader className="pb-2">
                     <CardTitle className="text-sm font-medium flex items-center gap-2">
                       <Users className="h-4 w-4" />
-                      Entities
+                      {String(t('explorer.entities'))}
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
@@ -364,7 +366,7 @@ export function DataExplorer() {
                       {details.stats.totalEntities}
                     </div>
                     <p className="text-xs text-muted-foreground">
-                      {Object.keys(details.stats.entityTypes).length} types
+                      {String(t('explorer.types')).replace('{count}', String(Object.keys(details.stats.entityTypes).length))}
                     </p>
                   </CardContent>
                 </Card>
@@ -372,7 +374,7 @@ export function DataExplorer() {
                   <CardHeader className="pb-2">
                     <CardTitle className="text-sm font-medium flex items-center gap-2">
                       <GitBranch className="h-4 w-4" />
-                      Relations
+                      {String(t('explorer.relations'))}
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
@@ -380,7 +382,7 @@ export function DataExplorer() {
                       {details.stats.totalRelations}
                     </div>
                     <p className="text-xs text-muted-foreground">
-                      {Object.keys(details.stats.relationTypes).length} types
+                      {String(t('explorer.types')).replace('{count}', String(Object.keys(details.stats.relationTypes).length))}
                     </p>
                   </CardContent>
                 </Card>
@@ -388,7 +390,7 @@ export function DataExplorer() {
                   <CardHeader className="pb-2">
                     <CardTitle className="text-sm font-medium flex items-center gap-2">
                       <FileType className="h-4 w-4" />
-                      File Info
+                      {String(t('explorer.fileInfo'))}
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
@@ -406,7 +408,7 @@ export function DataExplorer() {
               {Object.keys(details.stats.entityTypes).length > 0 && (
                 <Card className="mb-4">
                   <CardHeader>
-                    <CardTitle className="text-sm">Entity Types</CardTitle>
+                    <CardTitle className="text-sm">{String(t('explorer.entityTypes'))}</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <div className="flex flex-wrap gap-2">
@@ -436,7 +438,7 @@ export function DataExplorer() {
               {Object.keys(details.stats.relationTypes).length > 0 && (
                 <Card>
                   <CardHeader>
-                    <CardTitle className="text-sm">Relation Types</CardTitle>
+                    <CardTitle className="text-sm">{String(t('explorer.relationTypes'))}</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <div className="flex flex-wrap gap-2">
@@ -455,7 +457,7 @@ export function DataExplorer() {
               {/* Document Metadata */}
               <Card className="mt-4">
                 <CardHeader>
-                  <CardTitle className="text-sm">Document Metadata</CardTitle>
+                  <CardTitle className="text-sm">{String(t('explorer.documentMetadata'))}</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="grid grid-cols-2 gap-2 text-sm">
@@ -466,7 +468,7 @@ export function DataExplorer() {
                       </code>
                     </div>
                     <div>
-                      <span className="text-muted-foreground">Created:</span>
+                      <span className="text-muted-foreground">{String(t('explorer.created'))}:</span>
                       <span className="ml-2">
                         {formatDate(details.document.created_at)}
                       </span>
@@ -503,10 +505,10 @@ export function DataExplorer() {
                                 )}
                                 <Badge variant="outline">
                                   <Hash className="h-3 w-3 mr-1" />
-                                  Chunk {chunk.chunk_index}
+                                  {String(t('explorer.chunk'))} {chunk.chunk_index}
                                 </Badge>
                                 <span className="text-sm text-muted-foreground">
-                                  {chunk.content.length} chars
+                                  {chunk.content.length} {String(t('explorer.chars'))}
                                 </span>
                               </div>
                               <code className="text-xs text-muted-foreground">
@@ -528,7 +530,7 @@ export function DataExplorer() {
                             {chunk.metadata && Object.keys(chunk.metadata).length > 0 && (
                               <div className="mt-3">
                                 <p className="text-xs font-medium text-muted-foreground mb-1">
-                                  Metadata:
+                                  {String(t('explorer.metadata'))}:
                                 </p>
                                 <pre className="p-2 bg-muted rounded text-xs overflow-auto">
                                   {JSON.stringify(chunk.metadata, null, 2)}
@@ -588,8 +590,7 @@ export function DataExplorer() {
                                     <div className="mt-2 flex items-center gap-1 text-xs text-muted-foreground">
                                       <Layers className="h-3 w-3" />
                                       <span>
-                                        Found in {entity.source_chunk_ids.length}{' '}
-                                        chunk(s)
+                                        {String(t('explorer.foundInChunks')).replace('{count}', String(entity.source_chunk_ids.length))}
                                       </span>
                                     </div>
                                   )}
@@ -603,7 +604,7 @@ export function DataExplorer() {
                   {details.entities.length === 0 && (
                     <div className="text-center py-8 text-muted-foreground">
                       <Users className="h-12 w-12 mx-auto mb-2 opacity-50" />
-                      <p>No entities extracted from this document</p>
+                      <p>{String(t('explorer.noEntitiesExtracted'))}</p>
                     </div>
                   )}
                 </div>
@@ -632,7 +633,7 @@ export function DataExplorer() {
                         </Badge>
                         {relation.weight && (
                           <span className="text-xs text-muted-foreground ml-auto">
-                            weight: {relation.weight.toFixed(2)}
+                            {String(t('explorer.weight'))}: {relation.weight.toFixed(2)}
                           </span>
                         )}
                       </div>
@@ -646,7 +647,7 @@ export function DataExplorer() {
                   {details.relations.length === 0 && (
                     <div className="text-center py-8 text-muted-foreground">
                       <GitBranch className="h-12 w-12 mx-auto mb-2 opacity-50" />
-                      <p>No relations extracted from this document</p>
+                      <p>{String(t('explorer.noRelationsExtracted'))}</p>
                     </div>
                   )}
                 </div>

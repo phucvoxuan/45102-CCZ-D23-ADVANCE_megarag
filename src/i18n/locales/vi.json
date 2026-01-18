@@ -1,0 +1,2866 @@
+{
+  "announcement": {
+    "message": "Đang trong giai đoạn Beta công khai - Dùng thử AIDORag miễn phí ngay hôm nay!",
+    "cta": "Bắt đầu"
+  },
+  "nav": {
+    "product": "Sản phẩm",
+    "product_items": {
+      "ragEngine": { "title": "RAG Engine", "desc": "Trí tuệ tài liệu mạnh mẽ" },
+      "knowledgeGraph": { "title": "Đồ thị tri thức", "desc": "Trực quan hóa mối quan hệ tài liệu" },
+      "api": { "title": "Truy cập API", "desc": "Tích hợp với ứng dụng của bạn" },
+      "integrations": { "title": "Tích hợp", "desc": "Kết nối các công cụ của bạn" }
+    },
+    "resources": "Tài nguyên",
+    "resources_items": {
+      "docs": { "title": "Tài liệu", "desc": "Tìm hiểu cách sử dụng AIDORag" },
+      "tutorials": { "title": "Hướng dẫn", "desc": "Hướng dẫn từng bước" },
+      "blog": { "title": "Blog", "desc": "Tin tức và cập nhật" },
+      "changelog": { "title": "Nhật ký thay đổi", "desc": "Có gì mới" }
+    },
+    "useCases": "Trường hợp sử dụng",
+    "useCases_items": {
+      "research": { "title": "Nghiên cứu", "desc": "Nghiên cứu học thuật và khoa học" },
+      "legal": { "title": "Pháp lý", "desc": "Phân tích và xem xét hợp đồng" },
+      "support": { "title": "Hỗ trợ", "desc": "Tự động hóa hỗ trợ khách hàng" },
+      "enterprise": { "title": "Doanh nghiệp", "desc": "Quản lý tài liệu quy mô lớn" }
+    },
+    "developers": "Nhà phát triển",
+    "developers_items": {
+      "apiDocs": { "title": "Tài liệu API", "desc": "Tham khảo API đầy đủ" },
+      "quickstart": { "title": "Bắt đầu nhanh", "desc": "Bắt đầu trong vài phút" },
+      "sdks": { "title": "SDKs", "desc": "Thư viện client" },
+      "community": { "title": "Cộng đồng", "desc": "Tham gia thảo luận" }
+    },
+    "pricing": "Bảng giá",
+    "signIn": "Đăng nhập",
+    "startFree": "Dùng thử miễn phí"
+  },
+  "hero": {
+    "badge": "Trí tuệ tài liệu được hỗ trợ bởi AI",
+    "titleStart": "Biến đổi tài liệu của bạn với",
+    "titleHighlight": "Trí tuệ AI",
+    "subtitle": "Tải lên tài liệu, đặt câu hỏi, nhận câu trả lời ngay lập tức với trích dẫn nguồn. Được hỗ trợ bởi công nghệ RAG tiên tiến.",
+    "cta": {
+      "primary": "Bắt đầu miễn phí",
+      "secondary": "Xem Demo"
+    },
+    "demo": {
+      "userMessage": "Những phát hiện chính từ bài nghiên cứu là gì?",
+      "aiResponse": "Dựa trên các tài liệu, những phát hiện chính là:",
+      "finding1": "1. Việc áp dụng AI tăng 45% trong môi trường doanh nghiệp",
+      "finding2": "2. Tiết kiệm chi phí trung bình 30% cho xử lý tài liệu",
+      "finding3": "3. Tỷ lệ hài lòng của người dùng cải thiện 60%",
+      "source": "Nguồn: Báo cáo Nghiên cứu 2024, Trang 15"
+    },
+    "features": {
+      "noCard": "Không cần thẻ tín dụng",
+      "instantSetup": "Cài đặt ngay lập tức",
+      "freePlan": "Có gói miễn phí"
+    },
+    "stats": {
+      "label": "Tài liệu đã xử lý",
+      "value": "1M+"
+    }
+  },
+  "features": {
+    "badge": "Tính năng",
+    "title": "Mọi thứ bạn cần cho Trí tuệ Tài liệu",
+    "subtitle": "Các tính năng mạnh mẽ để thay đổi cách bạn làm việc với tài liệu"
+  },
+  "howItWorks": {
+    "badge": "Cách hoạt động",
+    "title": "Quy trình 3 bước đơn giản",
+    "subtitle": "Bắt đầu trong vài phút với quy trình làm việc trực quan của chúng tôi",
+    "supportedTypes": "PDF, DOCX, TXT, và nhiều hơn nữa"
+  },
+  "testimonials": {
+    "badge": "Đánh giá",
+    "title": "Được yêu thích bởi các đội nhóm trên toàn thế giới",
+    "subtitle": "Xem người dùng của chúng tôi nói gì",
+    "stats": {
+      "users": { "value": "10K+", "label": "Người dùng hoạt động" },
+      "documents": { "value": "1M+", "label": "Tài liệu đã xử lý" },
+      "rating": { "value": "4.9", "label": "Đánh giá trung bình" },
+      "uptime": { "value": "99.9%", "label": "Thời gian hoạt động" }
+    }
+  },
+  "pricing": {
+    "badge": "Bảng giá",
+    "title": "Bảng giá đơn giản, minh bạch",
+    "subtitle": "Chọn gói phù hợp với nhu cầu của bạn",
+    "monthly": "Hàng tháng",
+    "yearly": "Hàng năm",
+    "forever": "Một lần",
+    "popular": "Phổ biến nhất",
+    "getStarted": "Bắt đầu",
+    "subscribe": "Đăng ký",
+    "contactSales": "Liên hệ bán hàng",
+    "comparePlans": "So sánh các gói",
+    "comparison": {
+      "title": "So sánh tính năng"
+    },
+    "faq": {
+      "title": "Câu hỏi thường gặp"
+    },
+    "rateLimits": {
+      "free": "Gói miễn phí",
+      "pro": "Gói Pro",
+      "business": "Gói Business"
+    }
+  },
+  "faq": {
+    "badge": "FAQ",
+    "title": "Câu hỏi thường gặp",
+    "subtitle": "Tìm câu trả lời cho các câu hỏi phổ biến",
+    "stillHaveQuestions": "Vẫn còn câu hỏi?",
+    "contactSupport": "Liên hệ hỗ trợ",
+    "items": [
+      { "question": "AIDORag là gì?", "answer": "AIDORag là nền tảng trí tuệ tài liệu được hỗ trợ bởi AI cho phép bạn tải lên tài liệu, đặt câu hỏi và nhận câu trả lời ngay lập tức với trích dẫn nguồn." },
+      { "question": "Những định dạng file nào được hỗ trợ?", "answer": "Chúng tôi hỗ trợ PDF, DOCX, TXT, Excel, PowerPoint và nhiều định dạng tài liệu khác." },
+      { "question": "Dữ liệu của tôi có an toàn không?", "answer": "Có, chúng tôi sử dụng mã hóa cấp doanh nghiệp và không bao giờ chia sẻ dữ liệu của bạn với bên thứ ba." },
+      { "question": "Tôi có thể sử dụng AIDORag miễn phí không?", "answer": "Có, chúng tôi cung cấp gói miễn phí với các tính năng giới hạn. Bạn có thể nâng cấp bất cứ lúc nào." },
+      { "question": "Câu trả lời chính xác đến mức nào?", "answer": "Công nghệ RAG của chúng tôi cung cấp câu trả lời có độ chính xác cao bằng cách trích dẫn các nguồn cụ thể từ tài liệu của bạn." },
+      { "question": "Bạn có cung cấp gói cho đội nhóm không?", "answer": "Có, các gói Pro và Business của chúng tôi bao gồm các tính năng cộng tác nhóm." },
+      { "question": "Tôi có thể tích hợp với các công cụ khác không?", "answer": "Có, chúng tôi cung cấp truy cập API và tích hợp với các công cụ phổ biến." },
+      { "question": "Có những tùy chọn hỗ trợ nào?", "answer": "Chúng tôi cung cấp hỗ trợ qua email cho tất cả các gói, hỗ trợ ưu tiên cho Pro và hỗ trợ chuyên dụng cho Business." }
+    ]
+  },
+  "cta": {
+    "badge": "Bắt đầu",
+    "title": "Sẵn sàng biến đổi tài liệu của bạn?",
+    "subtitle": "Tham gia hàng nghìn người dùng tin tưởng AIDORag cho trí tuệ tài liệu",
+    "footer": "Không cần thẻ tín dụng",
+    "primaryButton": "Bắt đầu dùng thử miễn phí",
+    "secondaryButton": "Liên hệ bán hàng"
+  },
+  "footer": {
+    "description": "Nền tảng trí tuệ tài liệu được hỗ trợ bởi AI giúp bạn trích xuất thông tin từ tài liệu của bạn.",
+    "tagline": "Được tạo bởi AI cho con người",
+    "sections": {
+      "product": "Sản phẩm",
+      "company": "Công ty",
+      "resources": "Tài nguyên",
+      "legal": "Pháp lý"
+    },
+    "product": {
+      "features": "Tính năng",
+      "pricing": "Bảng giá",
+      "apiDocs": "Tài liệu API",
+      "dashboard": "Bảng điều khiển"
+    },
+    "company": {
+      "about": "Về chúng tôi",
+      "blog": "Blog",
+      "careers": "Tuyển dụng",
+      "contact": "Liên hệ"
+    },
+    "resources": {
+      "documentation": "Tài liệu",
+      "helpCenter": "Trung tâm trợ giúp",
+      "community": "Cộng đồng",
+      "status": "Trạng thái"
+    },
+    "legal": {
+      "privacy": "Riêng tư",
+      "terms": "Điều khoản",
+      "cookies": "Cookies"
+    },
+    "copyright": "© {year} AIDORag. Bảo lưu mọi quyền."
+  },
+  "common": {
+    "admin": "Quản trị",
+    "chat": "Trò chuyện",
+    "chatbots": "Chatbots",
+    "dashboard": "Bảng điều khiển",
+    "explorer": "Khám phá",
+    "home": "Trang chủ",
+    "refresh": "Làm mới",
+    "viewAll": "Xem tất cả",
+    "delete": "Xóa",
+    "rename": "Đổi tên",
+    "save": "Lưu",
+    "cancel": "Hủy",
+    "getStarted": "Bắt đầu",
+    "getStartedFree": "Bắt đầu miễn phí",
+    "tryFree": "Dùng thử miễn phí",
+    "subscribe": "Đăng ký",
+    "contactUs": "Liên hệ chúng tôi",
+    "contactSupport": "Liên hệ hỗ trợ",
+    "contactSales": "Liên hệ bán hàng",
+    "viewDocs": "Xem tài liệu",
+    "viewPricing": "Xem bảng giá",
+    "joinCommunity": "Tham gia cộng đồng",
+    "learnMore": "Tìm hiểu thêm",
+    "requestDemo": "Yêu cầu Demo",
+    "signIn": "Đăng nhập",
+    "signUp": "Đăng ký",
+    "signOut": "Đăng xuất",
+    "settings": "Cài đặt",
+    "profile": "Hồ sơ",
+    "loading": "Đang tải...",
+    "error": "Lỗi",
+    "success": "Thành công"
+  },
+  "dashboard": {
+    "title": "Bảng điều khiển",
+    "uploadDocuments": "Tải lên tài liệu",
+    "dragAndDrop": "Kéo thả file hoặc nhấp để duyệt",
+    "documents": "Tài liệu",
+    "inYourLibrary": "trong thư viện của bạn",
+    "searchDocuments": "Tìm kiếm tài liệu...",
+    "all": "Tất cả",
+    "chunks": "chunks",
+    "noDocuments": "Chưa có tài liệu",
+    "uploadFirstDocument": "Tải lên tài liệu đầu tiên để bắt đầu",
+    "pending": "Đang chờ",
+    "processing": "Đang xử lý",
+    "ready": "Sẵn sàng",
+    "failed": "Thất bại",
+    "selectAll": "Chọn tất cả",
+    "deleteDocument": "Xóa tài liệu",
+    "deleteDocuments": "Xóa các tài liệu",
+    "undo": "Hoàn tác",
+    "statistics": "Thống kê",
+    "total": "Tổng",
+    "recentActivity": "Hoạt động gần đây",
+    "quickActions": "Hành động nhanh",
+    "startChat": "Bắt đầu trò chuyện",
+    "viewExplorer": "Xem Khám phá"
+  },
+  "upload": {
+    "dropFilesHere": "Thả file vào đây",
+    "dragDropHere": "Kéo và thả file vào đây",
+    "orClickToBrowse": "hoặc nhấp để duyệt",
+    "supports": "Hỗ trợ",
+    "maxSize": "Kích thước tối đa",
+    "validating": "Đang xác thực...",
+    "success": "Tải lên thành công",
+    "error": "Tải lên thất bại",
+    "clearCompleted": "Xóa đã hoàn thành",
+    "uploads": "Tải lên"
+  },
+  "chat": {
+    "title": "Trò chuyện",
+    "subtitle": "Đặt câu hỏi về tài liệu của bạn",
+    "searchMode": "Chế độ tìm kiếm",
+    "askAboutDocuments": "Hỏi về tài liệu",
+    "askAboutDocumentsDescription": "Nhận câu trả lời từ AI dựa trên cơ sở tri thức của bạn",
+    "aiModel": "Mô hình AI",
+    "systemPrompt": "System Prompt",
+    "settings": "Cài đặt",
+    "settingsTitle": "Cài đặt trò chuyện",
+    "settingsDescription": "Cấu hình trải nghiệm trò chuyện của bạn",
+    "searchModes": {
+      "title": "Chế độ tìm kiếm",
+      "description": "Chọn chế độ tìm kiếm phù hợp nhất với truy vấn của bạn",
+      "mix": { "title": "Mix", "name": "Mix", "desc": "Tìm kiếm cân bằng kết hợp tất cả phương pháp", "description": "Tìm kiếm cân bằng kết hợp tất cả phương pháp", "badge": "Khuyên dùng" },
+      "hybrid": { "title": "Hybrid", "name": "Hybrid", "desc": "Kết hợp tìm kiếm cục bộ và toàn cục", "description": "Kết hợp tìm kiếm cục bộ và toàn cục" },
+      "local": { "title": "Local", "name": "Local", "desc": "Tìm kiếm tập trung vào thực thể", "description": "Tìm kiếm tập trung vào thực thể" },
+      "global": { "title": "Global", "name": "Global", "desc": "Tìm kiếm tập trung vào quan hệ", "description": "Tìm kiếm tập trung vào quan hệ" },
+      "naive": { "title": "Naive", "name": "Naive", "desc": "Tìm kiếm vector đơn giản", "description": "Tìm kiếm vector đơn giản" }
+    },
+    "upgradeForMoreModes": "Nâng cấp để có thêm chế độ tìm kiếm",
+    "askPlaceholder": "Đặt câu hỏi về tài liệu của bạn...",
+    "enterToSend": "Nhấn Enter để gửi",
+    "history": "Lịch sử",
+    "newChat": "Trò chuyện mới",
+    "detailedSources": "Nguồn chi tiết",
+    "sourceCitations": "Trích dẫn nguồn",
+    "entities": "Thực thể",
+    "relationships": "Quan hệ",
+    "search": "Tìm kiếm",
+    "clearAllHistory": "Xóa tất cả lịch sử",
+    "clearAllConfirm": "Bạn có chắc muốn xóa tất cả lịch sử trò chuyện? Không thể hoàn tác.",
+    "clearing": "Đang xóa...",
+    "loadingChats": "Đang tải cuộc trò chuyện...",
+    "noChatHistory": "Chưa có lịch sử trò chuyện",
+    "startConversation": "Bắt đầu trò chuyện để xem tại đây",
+    "yesterday": "Hôm qua"
+  },
+  "explorer": {
+    "title": "Khám phá",
+    "subtitle": "Duyệt và khám phá tài liệu của bạn",
+    "viewChunks": "Xem chunks và thực thể được trích xuất từ tài liệu của bạn",
+    "indexedDocuments": "Tài liệu đã lập chỉ mục",
+    "noIndexedDocuments": "Chưa có tài liệu được lập chỉ mục",
+    "selectDocument": "Chọn một tài liệu để xem chi tiết",
+    "overview": "Tổng quan",
+    "chunks": "Chunks",
+    "entities": "Thực thể",
+    "relations": "Quan hệ",
+    "avgChars": "Ký tự trung bình",
+    "fileInfo": "Thông tin file",
+    "documentMetadata": "Metadata tài liệu",
+    "weight": "Trọng số"
+  },
+  "admin": {
+    "title": "Bảng điều khiển quản trị",
+    "overview": "Tổng quan hệ thống và thống kê",
+    "recentDocuments": "Tài liệu gần đây",
+    "latestUploads": "Tài liệu tải lên mới nhất",
+    "llmTokens": "LLM Tokens",
+    "inputOutput": "Tokens đầu vào/đầu ra đã sử dụng",
+    "totalConversations": "Tổng số cuộc trò chuyện",
+    "totalUsed": "Tổng dung lượng đã sử dụng",
+    "processed": "đã xử lý",
+    "upgradeToPro": "Nâng cấp lên Pro",
+    "topEntityTypes": "Các loại thực thể hàng đầu",
+    "knowledgeGraphConnections": "Kết nối đồ thị tri thức",
+    "profile": "Hồ sơ",
+    "apiDocs": "Tài liệu API",
+    "apiDocumentation": "Tài liệu API",
+    "apiKeys": "API Keys",
+    "apiRequests": "Yêu cầu API",
+    "thisMonth": "Tháng này",
+    "thisMonthBilling": "Kỳ thanh toán này",
+    "billingUsage": "Thanh toán & Sử dụng",
+    "chatSessions": "Phiên trò chuyện",
+    "chunks": "Chunks",
+    "documentChunks": "Chunks tài liệu",
+    "faqEmbeddings": "FAQ Embeddings",
+    "fromChatbotFaqs": "Từ chatbot FAQs",
+    "dashboard": "Bảng điều khiển",
+    "documents": "Tài liệu",
+    "entities": "Thực thể",
+    "relations": "Quan hệ",
+    "knowledgeGraph": "Đồ thị tri thức",
+    "settings": "Cài đặt",
+    "entityDistribution": "Phân bố thực thể",
+    "extractedFromDocuments": "Trích xuất từ tài liệu",
+    "indexedTextSegments": "Phân đoạn văn bản đã lập chỉ mục",
+    "quickActions": "Hành động nhanh",
+    "uploadAndOrganize": "Tải lên và tổ chức tài liệu của bạn",
+    "manageDocuments": "Quản lý tài liệu",
+    "viewKnowledgeGraph": "Xem đồ thị tri thức",
+    "manageApiKeys": "Quản lý API Keys",
+    "loadingDashboard": "Đang tải bảng điều khiển...",
+    "requestTimedOut": "Yêu cầu đã hết thời gian",
+    "errorLoadingDashboard": "Lỗi tải bảng điều khiển",
+    "setupRequired": "Cần thiết lập",
+    "databaseSetupDescription": "Các bảng cơ sở dữ liệu cần được khởi tạo",
+    "runSqlFiles": "Vui lòng chạy các file SQL theo thứ tự:",
+    "noEntitiesYet": "Chưa có thực thể nào được trích xuất",
+    "profile": "Hồ sơ",
+    "documentsPage": {
+      "title": "Tài liệu",
+      "subtitle": "Quản lý các tài liệu đã tải lên",
+      "searchPlaceholder": "Tìm kiếm tài liệu...",
+      "filterByStatus": "Lọc theo trạng thái",
+      "allStatuses": "Tất cả trạng thái",
+      "refresh": "Làm mới",
+      "allDocuments": "Tất cả tài liệu",
+      "documentsTotal": "tổng số tài liệu",
+      "noDocuments": "Không tìm thấy tài liệu",
+      "selectAll": "Chọn tất cả",
+      "deleteDocuments": "Xóa tài liệu",
+      "deleteConfirm": "Bạn có chắc muốn xóa",
+      "documentsSelected": "tài liệu đã chọn?",
+      "page": "Trang",
+      "of": "của",
+      "previous": "Trước",
+      "next": "Sau",
+      "document": "Tài liệu",
+      "type": "Loại",
+      "size": "Kích thước",
+      "status": "Trạng thái",
+      "completed": "Hoàn thành",
+      "allStatus": "Tất cả trạng thái",
+      "processing": "Đang xử lý",
+      "pending": "Đang chờ",
+      "failed": "Thất bại",
+      "created": "Ngày tạo",
+      "actions": "Thao tác"
+    },
+    "entitiesPage": {
+      "title": "Thực thể",
+      "subtitle": "Xem và quản lý các thực thể đã trích xuất",
+      "searchPlaceholder": "Tìm kiếm thực thể...",
+      "filterByType": "Lọc theo loại",
+      "allTypes": "Tất cả loại",
+      "refresh": "Làm mới",
+      "allEntities": "Tất cả thực thể",
+      "entitiesTotal": "tổng số thực thể",
+      "noEntities": "Không tìm thấy thực thể",
+      "name": "Tên",
+      "type": "Loại",
+      "description": "Mô tả",
+      "sources": "Nguồn",
+      "chunks": "chunks",
+      "created": "Đã tạo",
+      "deleteEntities": "Xóa thực thể",
+      "deleteConfirm": "Bạn có chắc muốn xóa",
+      "entitiesSelected": "thực thể đã chọn?",
+      "page": "Trang",
+      "of": "của",
+      "previous": "Trước",
+      "next": "Sau"
+    },
+    "relationsPage": {
+      "title": "Quan hệ",
+      "subtitle": "Xem và quản lý các mối quan hệ thực thể",
+      "searchPlaceholder": "Tìm kiếm quan hệ...",
+      "filterByType": "Lọc theo loại",
+      "allTypes": "Tất cả loại",
+      "refresh": "Làm mới",
+      "allRelations": "Tất cả quan hệ",
+      "relationsTotal": "tổng số quan hệ",
+      "noRelations": "Không tìm thấy quan hệ",
+      "selectAll": "Chọn tất cả",
+      "deleteRelations": "Xóa quan hệ",
+      "deleteConfirm": "Bạn có chắc muốn xóa",
+      "relationsSelected": "quan hệ đã chọn?",
+      "created": "Đã tạo",
+      "sourceChunks": "Chunks nguồn",
+      "page": "Trang",
+      "of": "của",
+      "previous": "Trước",
+      "next": "Sau"
+    },
+    "knowledgeGraphPage": {
+      "title": "Đồ thị tri thức",
+      "subtitle": "Trực quan hóa tri thức tài liệu của bạn",
+      "searchPlaceholder": "Tìm kiếm nodes...",
+      "filterByType": "Lọc theo loại",
+      "allTypes": "Tất cả loại",
+      "depth": "Độ sâu",
+      "depthLevel": "Mức",
+      "refresh": "Làm mới",
+      "noData": "Không có dữ liệu đồ thị tri thức",
+      "loading": "Đang tải đồ thị...",
+      "nodes": "Nodes",
+      "edges": "Edges",
+      "entities": "Thực thể",
+      "relations": "Quan hệ",
+      "zoomIn": "Phóng to",
+      "zoomOut": "Thu nhỏ",
+      "resetView": "Đặt lại view",
+      "fullscreen": "Toàn màn hình"
+    }
+  },
+  "billing": {
+    "title": "Thanh toán & Sử dụng",
+    "subtitle": "Quản lý gói đăng ký và sử dụng của bạn",
+    "subscriptionInfo": "Thông tin gói đăng ký của bạn",
+    "nextBillingDate": "Ngày thanh toán tiếp theo",
+    "usageThisPeriod": "Sử dụng trong kỳ",
+    "resetsOn": "Đặt lại vào",
+    "mediaProcessing": "Xử lý media",
+    "syncUsage": "Đồng bộ sử dụng",
+    "daysRemaining": "ngày còn lại",
+    "changePlan": "Đổi gói",
+    "currentPlan": "Gói hiện tại",
+    "upgradeNow": "Nâng cấp ngay",
+    "upgradePlan": "Nâng cấp gói",
+    "audio": "Audio",
+    "video": "Video",
+    "documents": "Tài liệu",
+    "pages": "Trang",
+    "queries": "Truy vấn",
+    "storage": "Lưu trữ",
+    "audioLimitReached": "Đã đạt giới hạn audio",
+    "videoLimitReached": "Đã đạt giới hạn video",
+    "runningLowOnResources": "Sắp hết tài nguyên",
+    "upgradeNowToContinue": "Nâng cấp ngay để tiếp tục sử dụng tất cả tính năng.",
+    "month": "tháng",
+    "year": "năm",
+    "thisMonth": "Tháng này",
+    "endOfMonth": "Cuối tháng",
+    "availableQueryModes": "Chế độ truy vấn khả dụng",
+    "ragQueryModesAvailable": "Các chế độ truy vấn RAG cho gói",
+    "upgradeToUnlockAdvancedModes": "Nâng cấp để mở khóa các chế độ truy vấn nâng cao như Local, Global, Hybrid, và Mix.",
+    "planFeatures": "Tính năng gói",
+    "whatsIncluded": "Những gì bao gồm trong gói",
+    "upgradeToUnlock": "Nâng cấp để mở khóa thêm tính năng",
+    "getMoreFeatures": "Nhận thêm tài liệu, trang, truy vấn và các tính năng nâng cao.",
+    "pleaseSignIn": "Vui lòng đăng nhập để xem thông tin thanh toán",
+    "syncing": "Đang đồng bộ...",
+    "ofAudioLimitUsed": "giới hạn audio đã dùng",
+    "ofVideoLimitUsed": "giới hạn video đã dùng"
+  },
+  "profile": {
+    "title": "Hồ sơ",
+    "profileInformation": "Thông tin hồ sơ",
+    "fullName": "Họ và tên",
+    "organization": "Tổ chức",
+    "enterOrganization": "Nhập tên tổ chức của bạn",
+    "jobTitle": "Chức danh",
+    "enterJobTitle": "Nhập chức danh của bạn",
+    "phone": "Điện thoại",
+    "enterPhone": "Nhập số điện thoại của bạn",
+    "billing": "Thanh toán",
+    "subscription": "Đăng ký",
+    "subscriptionDescription": "Gói đăng ký hiện tại của bạn",
+    "nextBillingDate": "Ngày thanh toán tiếp theo",
+    "manageBilling": "Quản lý thanh toán",
+    "changePassword": "Đổi mật khẩu",
+    "saveChanges": "Lưu thay đổi",
+    "updatePersonalInfo": "Cập nhật thông tin cá nhân"
+  },
+  "settings": {
+    "title": "Cài đặt",
+    "subtitle": "Quản lý cài đặt tài khoản của bạn",
+    "accountDetails": "Chi tiết tài khoản",
+    "currentPlanDetails": "Thông tin gói hiện tại của bạn",
+    "viewDetailedUsage": "Xem chi tiết sử dụng",
+    "active": "Đang hoạt động",
+    "accountInfo": "Thông tin tài khoản",
+    "subscription": "Đăng ký",
+    "apiConfiguration": "Cấu hình API",
+    "apiIntegrationStatus": "Trạng thái tích hợp API",
+    "apiDocumentation": "Tài liệu API",
+    "availableEndpoints": "Endpoints có sẵn",
+    "createChatSession": "Tạo phiên trò chuyện",
+    "listDocuments": "Liệt kê tài liệu",
+    "sendMessage": "Gửi tin nhắn",
+    "executeQuery": "Thực thi truy vấn",
+    "geminiConfigured": "Gemini API đã được cấu hình",
+    "geminiServerSide": "Gemini phía server",
+    "geminiStatusUnknown": "Trạng thái không xác định"
+  },
+  "pages": {
+    "community": {
+      "badge": "Cộng đồng",
+      "titlePrefix": "Tham gia",
+      "title": "Cộng đồng",
+      "subtitle": "Kết nối với các nhà phát triển, chia sẻ ý tưởng và nhận trợ giúp từ cộng đồng AIDORag",
+      "joinDiscord": "Tham gia Discord",
+      "channels": {
+        "discord": {
+          "name": "Discord",
+          "description": "Trò chuyện thời gian thực với cộng đồng và đội ngũ",
+          "members": "5,000+ thành viên",
+          "cta": "Tham gia Discord"
+        },
+        "github": {
+          "name": "GitHub",
+          "description": "Đóng góp vào các dự án mã nguồn mở và báo cáo vấn đề",
+          "members": "2,000+ sao",
+          "cta": "Xem GitHub"
+        },
+        "forum": {
+          "name": "Diễn đàn",
+          "description": "Thảo luận sâu và chia sẻ kiến thức",
+          "members": "10,000+ bài viết",
+          "cta": "Ghé thăm diễn đàn"
+        }
+      },
+      "stats": {
+        "users": { "value": "10K+", "label": "Người dùng" },
+        "countries": { "value": "50+", "label": "Quốc gia" },
+        "contributors": { "value": "500+", "label": "Người đóng góp" },
+        "active": { "value": "24/7", "label": "Hỗ trợ liên tục" }
+      },
+      "topContributors": "Người đóng góp hàng đầu",
+      "contributions": "đóng góp",
+      "members": "thành viên",
+      "cta": {
+        "title": "Sẵn sàng tham gia?",
+        "subtitle": "Trở thành một phần của cộng đồng đang phát triển của chúng tôi"
+      },
+      "starGithub": "Gắn sao trên GitHub"
+    },
+    "about": {
+      "badge": "Về chúng tôi",
+      "titlePrefix": "Về",
+      "title": "AIDORag",
+      "subtitle": "Chúng tôi có sứ mệnh làm cho trí tuệ tài liệu có thể tiếp cận với mọi người",
+      "mission": {
+        "title": "Sứ mệnh của chúng tôi",
+        "description": "Thay đổi cách mọi người làm việc với tài liệu bằng AI, làm cho kiến thức có thể tiếp cận và hành động được với mọi người."
+      },
+      "story": {
+        "title": "Câu chuyện của chúng tôi",
+        "paragraphs": [
+          "AIDORag được thành lập vào năm 2024 với tầm nhìn đơn giản: làm cho trí tuệ tài liệu có thể tiếp cận với mọi người.",
+          "Chúng tôi thấy cách các tổ chức gặp khó khăn trong việc trích xuất thông tin từ tài liệu và biết AI có thể giúp đỡ.",
+          "Ngày nay, chúng tôi phục vụ hàng nghìn người dùng trên toàn thế giới, từ các nhà nghiên cứu cá nhân đến các công ty Fortune 500."
+        ]
+      },
+      "values": {
+        "title": "Giá trị của chúng tôi",
+        "items": {
+          "userFirst": "Hợp tác",
+          "userFirstDesc": "Chúng tôi tin vào sức mạnh của hợp tác và làm việc nhóm trong mọi dự án và sáng kiến.",
+          "innovation": "Trách nhiệm",
+          "innovationDesc": "Chúng tôi luôn tuân thủ các tiêu chuẩn đạo đức cao nhất và chịu trách nhiệm hoàn toàn với cam kết.",
+          "transparency": "Đáng tin cậy",
+          "transparencyDesc": "Chất lượng và xuất sắc trong sản phẩm và dịch vụ luôn được ưu tiên hàng đầu.",
+          "community": "Xuất sắc",
+          "communityDesc": "Chúng tôi luôn phấn đấu đạt được sự xuất sắc trong mọi việc chúng tôi làm."
+        }
+      },
+      "team": {
+        "title": "Đội ngũ của chúng tôi",
+        "desc": "Gặp gỡ những nhà sáng lập đằng sau AIDORag",
+        "members": [
+          {
+            "name": "Bac Nguyen",
+            "role": "CTO",
+            "title": "MBA – Tư vấn AI & Fin-Sec",
+            "avatar": "BN",
+            "quote": "Chúng tôi không xây dựng AI để gây ấn tượng. Chúng tôi xây dựng AI hoạt động thực sự - AI thực tiễn, dễ hiểu và hoàn toàn thuộc sở hữu của khách hàng. Tại AIDORag, tác động thực tế luôn được đặt trước sự cường điệu."
+          },
+          {
+            "name": "Ha Nguyen",
+            "role": "COO",
+            "title": "Kỹ sư Hóa học",
+            "avatar": "HN",
+            "quote": "Mọi giải pháp tại AIDO đều được tạo ra với sự tận tâm - không chỉ là sản phẩm, mà là một hành trình trọn vẹn. Chúng tôi xây dựng các hệ thống sống, thích ứng và phát triển cùng khách hàng, bởi quan hệ đối tác thực sự nghĩa là cùng nhau đi trên con đường đó."
+          },
+          {
+            "name": "Phuc Vo",
+            "role": "CEO & CLXD",
+            "title": "Cử nhân Ngôn ngữ học",
+            "avatar": "PV",
+            "quote": "Tại AIDORag, chúng tôi không chỉ xây dựng công cụ - Chúng tôi thiết kế trải nghiệm học tập chuyển đổi, nơi con người, công nghệ và tư duy chiến lược cùng phát triển. Sứ mệnh của chúng tôi là giải phóng tiềm năng con người thông qua đổi mới kỹ thuật số bền vững."
+          }
+        ]
+      },
+      "cta": {
+        "title": "Tham gia hành trình của chúng tôi",
+        "subtitle": "Giúp chúng tôi định hình tương lai của trí tuệ tài liệu",
+        "viewPositions": "Xem vị trí tuyển dụng"
+      }
+    },
+    "api": {
+      "badge": "API",
+      "title": "Truy cập API",
+      "titleStart": "Truy cập",
+      "titleHighlight": "API Mạnh mẽ",
+      "subtitle": "Tích hợp AIDORag vào ứng dụng của bạn với REST API toàn diện",
+      "getApiKey": "Lấy API Key",
+      "example": "Code mẫu",
+      "copy": "Sao chép",
+      "features": {
+        "title": "Tính năng API",
+        "rest": "RESTful API",
+        "restDesc": "Endpoints REST tiêu chuẩn cho tất cả các hoạt động",
+        "keys": "API Keys",
+        "keysDesc": "Xác thực an toàn với API keys",
+        "webhooks": "Webhooks",
+        "webhooksDesc": "Thông báo sự kiện theo thời gian thực"
+      },
+      "endpoints": {
+        "title": "Endpoints có sẵn",
+        "upload": "Tải lên tài liệu",
+        "list": "Liệt kê tài liệu",
+        "get": "Lấy tài liệu",
+        "delete": "Xóa tài liệu",
+        "query": "Truy vấn tài liệu",
+        "stream": "Stream truy vấn",
+        "chat": "Bắt đầu chat",
+        "history": "Lịch sử chat",
+        "entities": "Liệt kê thực thể",
+        "relations": "Liệt kê quan hệ",
+        "graph": "Lấy đồ thị tri thức"
+      },
+      "cta": {
+        "title": "Sẵn sàng tích hợp?",
+        "subtitle": "Lấy API key của bạn và bắt đầu xây dựng"
+      }
+    },
+    "apiReference": {
+      "badge": "Tham khảo API",
+      "title": "Tham khảo API",
+      "subtitle": "Tài liệu API đầy đủ cho nhà phát triển",
+      "auth": {
+        "title": "Xác thực",
+        "desc": "Tất cả các yêu cầu API yêu cầu xác thực bằng API key của bạn"
+      },
+      "endpoints": "Endpoints",
+      "categories": {
+        "documents": "Tài liệu",
+        "query": "Truy vấn",
+        "chat": "Chat",
+        "knowledgeGraph": "Đồ thị tri thức"
+      },
+      "rateLimits": {
+        "title": "Giới hạn tốc độ",
+        "free": "Gói miễn phí",
+        "pro": "Gói Pro",
+        "business": "Gói Business"
+      },
+      "needHelp": {
+        "title": "Cần trợ giúp?",
+        "subtitle": "Đội ngũ của chúng tôi sẵn sàng giúp bạn tích hợp"
+      }
+    },
+    "ragEngine": {
+      "badge": "Công nghệ RAG",
+      "titleStart": "Trí tuệ tài liệu",
+      "titleHighlight": "Tiên tiến",
+      "subtitle": "Biến đổi tài liệu của bạn thành cơ sở tri thức thông minh, có thể truy vấn với công nghệ RAG tiên tiến",
+      "howItWorks": "Cách thức hoạt động",
+      "steps": {
+        "upload": "Tải lên",
+        "uploadDesc": "Tải lên tài liệu ở bất kỳ định dạng nào",
+        "process": "Xử lý",
+        "processDesc": "AI trích xuất và lập chỉ mục nội dung",
+        "index": "Lập chỉ mục",
+        "indexDesc": "Xây dựng cơ sở tri thức tìm kiếm được",
+        "query": "Truy vấn",
+        "queryDesc": "Đặt câu hỏi, nhận câu trả lời có trích dẫn"
+      },
+      "features": {
+        "title": "Tính năng chính",
+        "chunking": "Phân đoạn thông minh",
+        "chunkingDesc": "Phân chia tài liệu thành các phần tối ưu để tăng độ chính xác truy xuất",
+        "embeddings": "Vector Embeddings",
+        "embeddingsDesc": "Embeddings tiên tiến nắm bắt ý nghĩa ngữ nghĩa cho kết quả tìm kiếm chính xác",
+        "search": "Tìm kiếm kết hợp",
+        "searchDesc": "Kết hợp tìm kiếm từ khóa và ngữ nghĩa để đạt độ chính xác tốt nhất",
+        "retrieval": "Truy xuất nhanh",
+        "retrievalDesc": "Truy vấn siêu nhanh với thời gian phản hồi dưới một giây ở mọi quy mô"
+      },
+      "benefits": {
+        "title": "Tại sao chọn RAG Engine của chúng tôi?",
+        "items": {
+          "0": "Độ chính xác 99.5% trong truy xuất câu trả lời",
+          "1": "Hỗ trợ hơn 50 định dạng file",
+          "2": "Hỗ trợ tài liệu đa ngôn ngữ",
+          "3": "Trích dẫn nguồn cho mọi câu trả lời",
+          "4": "Cập nhật tài liệu theo thời gian thực",
+          "5": "Bảo mật cấp doanh nghiệp"
+        }
+      },
+      "cta": {
+        "title": "Sẵn sàng bắt đầu?",
+        "subtitle": "Bắt đầu xây dựng giải pháp tài liệu thông minh ngay hôm nay"
+      }
+    },
+    "knowledgeGraph": {
+      "badge": "Đồ thị tri thức",
+      "titleStart": "Bản đồ tri thức",
+      "titleHighlight": "Trực quan",
+      "subtitle": "Tự động trích xuất thực thể và mối quan hệ để xây dựng đồ thị tri thức toàn diện từ tài liệu của bạn",
+      "demo": "Demo đồ thị tri thức tương tác",
+      "demoSubtitle": "Xem cách thực thể và mối quan hệ được trực quan hóa",
+      "features": {
+        "title": "Tính năng chính",
+        "detection": "Phát hiện thực thể",
+        "detectionDesc": "AI tự động nhận dạng người, tổ chức, khái niệm và nhiều hơn từ tài liệu của bạn",
+        "mapping": "Ánh xạ mối quan hệ",
+        "mappingDesc": "Khám phá và ánh xạ các kết nối giữa các thực thể trong tất cả tài liệu của bạn",
+        "visual": "Khám phá trực quan",
+        "visualDesc": "Trực quan hóa đồ thị tương tác để khám phá cơ sở tri thức của bạn một cách trực quan",
+        "queries": "Truy vấn đồ thị",
+        "queriesDesc": "Đặt các câu hỏi phức tạp về mối quan hệ và kết nối trong dữ liệu của bạn"
+      },
+      "useCases": {
+        "title": "Trường hợp sử dụng",
+        "research": "Nghiên cứu",
+        "researchDesc": "Bản đồ bài nghiên cứu, trích dẫn và khám phá các kết nối ẩn",
+        "legal": "Pháp lý",
+        "legalDesc": "Phân tích hợp đồng, xác định các bên và theo dõi nghĩa vụ",
+        "enterprise": "Doanh nghiệp",
+        "enterpriseDesc": "Xây dựng cơ sở tri thức tổ chức và bản đồ chuyên môn"
+      },
+      "cta": {
+        "title": "Sẵn sàng khám phá?",
+        "subtitle": "Bắt đầu xây dựng đồ thị tri thức của bạn ngay hôm nay"
+      }
+    },
+    "integrations": {
+      "badge": "Tích hợp",
+      "titleStart": "Kết nối với",
+      "titleHighlight": "Công cụ yêu thích",
+      "subtitle": "Tích hợp AIDORag một cách liền mạch với quy trình làm việc và công cụ hiện tại của bạn",
+      "comingSoon": "Sắp ra mắt",
+      "setupGuide": "Hướng dẫn cài đặt",
+      "notifyMe": "Thông báo cho tôi",
+      "items": {
+        "slack": "Slack",
+        "slackDesc": "Truy vấn tài liệu của bạn trực tiếp từ kênh Slack",
+        "notion": "Notion",
+        "notionDesc": "Đồng bộ và tìm kiếm tài liệu trong workspace Notion của bạn",
+        "gdrive": "Google Drive",
+        "gdriveDesc": "Kết nối và lập chỉ mục các file Google Drive của bạn",
+        "zapier": "Zapier",
+        "zapierDesc": "Tự động hóa quy trình làm việc với hơn 5000 ứng dụng"
+      },
+      "request": {
+        "title": "Cần tích hợp khác?",
+        "subtitle": "Hãy cho chúng tôi biết bạn muốn kết nối với công cụ nào",
+        "cta": "Yêu cầu tích hợp"
+      },
+      "cta": {
+        "title": "Sẵn sàng kết nối?",
+        "subtitle": "Bắt đầu tích hợp AIDORag với công cụ của bạn ngay hôm nay"
+      }
+    },
+    "contact": {
+      "badge": "Liên hệ",
+      "titlePrefix": "Liên",
+      "title": "hệ",
+      "subtitle": "Chúng tôi rất muốn nghe từ bạn",
+      "form": {
+        "title": "Gửi tin nhắn cho chúng tôi",
+        "firstName": "Tên",
+        "lastName": "Họ",
+        "email": "Email",
+        "subject": "Chủ đề",
+        "subjects": {
+          "general": "Câu hỏi chung",
+          "salesEnterprise": "Bán hàng doanh nghiệp",
+          "technical": "Hỗ trợ kỹ thuật",
+          "partnership": "Đối tác",
+          "press": "Báo chí"
+        },
+        "message": "Tin nhắn",
+        "messagePlaceholder": "Chúng tôi có thể giúp gì cho bạn?",
+        "send": "Gửi tin nhắn"
+      },
+      "otherWays": "Các cách khác để liên hệ chúng tôi",
+      "methods": {
+        "email": {
+          "title": "Email",
+          "description": "Gửi email cho chúng tôi bất cứ lúc nào",
+          "value": "info@aidorag.ai"
+        },
+        "discord": {
+          "title": "Discord",
+          "description": "Tham gia cộng đồng của chúng tôi",
+          "value": "Tham gia Discord"
+        },
+        "sales": {
+          "title": "Bán hàng",
+          "description": "Nói chuyện với đội ngũ bán hàng của chúng tôi",
+          "value": "sales@aidorag.ai"
+        }
+      },
+      "office": {
+        "title": "Văn phòng của chúng tôi",
+        "address": "9011 Mira Mesa BLVD # 246\nSan Diego, CA. 92126\nHoa Kỳ"
+      },
+      "responseTime": {
+        "title": "Thời gian phản hồi",
+        "description": "Chúng tôi thường phản hồi trong vòng 24 giờ"
+      }
+    },
+    "docs": {
+      "badge": "Tài liệu",
+      "title": "AIDORag ",
+      "subtitle": "Mọi thứ bạn cần biết về AIDORag",
+      "search": "Tìm kiếm tài liệu...",
+      "sections": {
+        "quickstart": "Bắt đầu nhanh",
+        "quickstartDesc": "Bắt đầu trong vài phút",
+        "apiRef": "Tham khảo API",
+        "apiRefDesc": "Tài liệu API đầy đủ",
+        "guides": "Hướng dẫn",
+        "guidesDesc": "Hướng dẫn từng bước",
+        "changelog": "Nhật ký thay đổi",
+        "changelogDesc": "Có gì mới trong AIDORag"
+      },
+      "popularTopics": "Chủ đề phổ biến",
+      "topics": ["Tải lên tài liệu", "Chế độ truy vấn", "Đồ thị tri thức", "Xác thực API", "Webhooks", "Giới hạn tốc độ"],
+      "needHelp": {
+        "title": "Cần trợ giúp?",
+        "subtitle": "Không tìm thấy những gì bạn đang tìm kiếm?"
+      }
+    },
+    "support": {
+      "badge": "Hỗ trợ khách hàng",
+      "title": "Hỗ trợ",
+      "subtitle": "Tự động hóa hỗ trợ được hỗ trợ bởi AI cho đội ngũ của bạn",
+      "benefits": {
+        "knowledge": "Cơ sở kiến thức",
+        "knowledgeDesc": "Quản lý kiến thức tập trung",
+        "faster": "Giải quyết nhanh hơn",
+        "fasterDesc": "Giải quyết vấn đề trong vài giây",
+        "selfService": "Tự phục vụ",
+        "selfServiceDesc": "Trao quyền cho khách hàng tự giúp mình"
+      },
+      "stats": {
+        "resolution": { "value": "80%", "label": "Giải quyết nhanh hơn" },
+        "deflected": { "value": "60%", "label": "Tickets được chuyển hướng" },
+        "accuracy": { "value": "95%", "label": "Độ chính xác câu trả lời" }
+      },
+      "featuresTitle": "Tính năng chính",
+      "features": ["Câu trả lời ngay lập tức từ cơ sở kiến thức của bạn", "Hỗ trợ đa ngôn ngữ", "Tích hợp với các công cụ helpdesk", "Widget chatbot tùy chỉnh", "Phân tích và thông tin chi tiết", "Cộng tác nhóm"],
+      "testimonial": {
+        "quote": "AIDORag giảm 60% tickets hỗ trợ của chúng tôi và cải thiện sự hài lòng của khách hàng.",
+        "author": "Lisa Thompson",
+        "role": "Trưởng phòng hỗ trợ, TechCorp"
+      },
+      "cta": {
+        "title": "Sẵn sàng chuyển đổi hỗ trợ của bạn?",
+        "subtitle": "Bắt đầu dùng thử miễn phí ngay hôm nay"
+      }
+    },
+    "supportPage": {
+      "badge": "Trung tâm trợ giúp",
+      "titlePrefix": "Nhận",
+      "title": "trợ giúp",
+      "subtitle": "Chúng tôi ở đây để giúp bạn thành công",
+      "options": {
+        "docs": {
+          "title": "Tài liệu",
+          "description": "Duyệt các hướng dẫn toàn diện của chúng tôi",
+          "cta": "Xem tài liệu"
+        },
+        "community": {
+          "title": "Cộng đồng",
+          "description": "Nhận trợ giúp từ người dùng khác",
+          "cta": "Tham gia cộng đồng"
+        },
+        "email": {
+          "title": "Hỗ trợ qua Email",
+          "description": "Liên hệ đội ngũ hỗ trợ của chúng tôi",
+          "cta": "Gửi Email"
+        }
+      },
+      "responseTimes": {
+        "title": "Thời gian phản hồi",
+        "community": { "name": "Cộng đồng", "time": "24-48 giờ" },
+        "emailFree": { "name": "Email (Miễn phí)", "time": "48-72 giờ" },
+        "priority": { "name": "Ưu tiên (Pro)", "time": "24 giờ" },
+        "dedicated": { "name": "Chuyên dụng (Business)", "time": "4 giờ" }
+      },
+      "faq": {
+        "title": "Câu hỏi thường gặp",
+        "items": {
+          "password": { "question": "Làm thế nào để đặt lại mật khẩu?", "answer": "Nhấp vào 'Quên mật khẩu' trên trang đăng nhập." },
+          "processing": { "question": "Tại sao tài liệu của tôi bị kẹt khi xử lý?", "answer": "Tài liệu lớn có thể mất nhiều thời gian hơn. Thử làm mới trang." },
+          "upgrade": { "question": "Làm thế nào để nâng cấp gói của tôi?", "answer": "Vào Cài đặt > Thanh toán để thay đổi gói của bạn." },
+          "export": { "question": "Tôi có thể xuất dữ liệu của mình không?", "answer": "Có, bạn có thể xuất dữ liệu của mình từ bảng điều khiển." }
+        },
+        "viewAll": "Xem tất cả FAQs"
+      },
+      "systemStatus": {
+        "title": "Trạng thái hệ thống",
+        "operational": "Tất cả hệ thống hoạt động bình thường",
+        "description": "Tất cả các dịch vụ đang chạy bình thường",
+        "viewStatus": "Xem trang trạng thái"
+      },
+      "cta": {
+        "title": "Vẫn cần trợ giúp?",
+        "subtitle": "Đội ngũ của chúng tôi sẵn sàng hỗ trợ bạn"
+      }
+    },
+    "enterprise": {
+      "badge": "Doanh nghiệp",
+      "title": "Doanh nghiệp",
+      "subtitle": "Trí tuệ tài liệu quy mô lớn cho tổ chức của bạn",
+      "benefits": {
+        "scale": "Quy mô",
+        "scaleDesc": "Xử lý hàng triệu tài liệu",
+        "security": "Bảo mật",
+        "securityDesc": "Bảo mật cấp doanh nghiệp",
+        "team": "Đội nhóm",
+        "teamDesc": "Cộng tác với đội nhóm của bạn"
+      },
+      "securityTitle": "Bảo mật Doanh nghiệp",
+      "securityFeatures": {
+        "encryption": "Mã hóa đầu cuối",
+        "soc2": "Tuân thủ SOC 2",
+        "residency": "Tùy chọn lưu trữ dữ liệu",
+        "rbac": "Kiểm soát truy cập dựa trên vai trò"
+      },
+      "featuresTitle": "Tính năng Doanh nghiệp",
+      "features": ["Tài liệu không giới hạn", "Hỗ trợ chuyên dụng", "Tích hợp tùy chỉnh", "Đảm bảo SLA", "Phân tích nâng cao", "Đăng nhập một lần (SSO)"],
+      "trustedByTitle": "Được tin tưởng bởi các tổ chức hàng đầu",
+      "trustedBy": ["Công ty Fortune 500", "Ngân hàng toàn cầu", "Đại học hàng đầu", "Nhà cung cấp y tế"],
+      "cta": {
+        "title": "Sẵn sàng bắt đầu?",
+        "subtitle": "Liên hệ đội ngũ bán hàng của chúng tôi để có giải pháp tùy chỉnh"
+      }
+    },
+    "research": {
+      "badge": "Nghiên cứu",
+      "title": "Nghiên cứu",
+      "subtitle": "Tăng tốc nghiên cứu của bạn với phân tích tài liệu được hỗ trợ bởi AI",
+      "benefits": {
+        "literature": "Tổng quan tài liệu",
+        "literatureDesc": "Phân tích bài báo trong vài giây",
+        "analysis": "Phân tích dữ liệu",
+        "analysisDesc": "Trích xuất thông tin từ tài liệu",
+        "citation": "Quản lý trích dẫn",
+        "citationDesc": "Theo dõi nguồn tự động"
+      },
+      "whatYouCanDo": "Bạn có thể làm gì",
+      "features": ["Tìm kiếm qua hàng nghìn bài báo", "Trích xuất phát hiện chính tự động", "Tạo tóm tắt tài liệu", "Theo dõi trích dẫn và tham chiếu", "Cộng tác với đội nhóm của bạn", "Xuất sang định dạng ưa thích của bạn"],
+      "testimonial": {
+        "quote": "AIDORag giảm 70% thời gian tổng quan tài liệu của tôi. Đây là một bước đột phá cho nghiên cứu.",
+        "author": "TS. Sarah Chen",
+        "role": "Trưởng nhóm nghiên cứu, MIT"
+      },
+      "cta": {
+        "title": "Tăng tốc nghiên cứu của bạn",
+        "subtitle": "Bắt đầu dùng thử miễn phí ngay hôm nay"
+      }
+    },
+    "legal": {
+      "badge": "Pháp lý",
+      "title": "Pháp lý",
+      "subtitle": "Đơn giản hóa phân tích hợp đồng và xem xét tài liệu pháp lý",
+      "benefits": {
+        "contract": "Phân tích hợp đồng",
+        "contractDesc": "Xem xét hợp đồng trong vài phút",
+        "diligence": "Thẩm định",
+        "diligenceDesc": "Xem xét tài liệu kỹ lưỡng",
+        "time": "Tiết kiệm thời gian",
+        "timeDesc": "Giảm 80% thời gian xem xét"
+      },
+      "capabilities": "Khả năng chính",
+      "features": ["Trích xuất điều khoản hợp đồng", "Nhận dạng rủi ro", "Kiểm tra tuân thủ", "So sánh tài liệu", "Đường dẫn kiểm toán", "Cộng tác an toàn"],
+      "testimonial": {
+        "quote": "Chúng tôi giảm thời gian xem xét hợp đồng từ nhiều ngày xuống còn vài giờ với AIDORag.",
+        "author": "James Miller",
+        "role": "Cố vấn pháp lý, LegalTech Inc"
+      },
+      "security": {
+        "title": "Bảo mật Doanh nghiệp",
+        "desc": "Tài liệu của bạn được bảo vệ bằng mã hóa cấp ngân hàng"
+      },
+      "cta": {
+        "title": "Chuyển đổi quy trình pháp lý của bạn",
+        "subtitle": "Bắt đầu dùng thử miễn phí ngay hôm nay"
+      }
+    },
+    "blog": {
+      "badge": "Blog",
+      "titlePrefix": "AIDORag",
+      "title": "Blog",
+      "subtitle": "Thông tin chi tiết, hướng dẫn và cập nhật từ đội ngũ AIDORag",
+      "categories": {
+        "all": "Tất cả",
+        "product": "Sản phẩm",
+        "engineering": "Kỹ thuật",
+        "useCases": "Use Cases"
+      },
+      "featured": "Nổi bật",
+      "readMore": "Đọc thêm",
+      "minRead": "phút đọc",
+      "posts": {
+        "mixMode": {
+          "title": "Giới thiệu Mix Mode: Trải nghiệm truy vấn tối ưu",
+          "excerpt": "Tìm hiểu cách Mix Mode kết hợp tất cả các chế độ truy vấn để có kết quả tối ưu.",
+          "date": "15 tháng 1, 2026",
+          "readTime": "5",
+          "category": "Sản phẩm"
+        },
+        "knowledgeGraphs": {
+          "title": "Xây dựng đồ thị tri thức tốt hơn",
+          "excerpt": "Tìm hiểu sâu về cách chúng tôi trích xuất và kết nối các thực thể từ tài liệu của bạn.",
+          "date": "10 tháng 1, 2026",
+          "readTime": "8",
+          "category": "Nghiên cứu"
+        },
+        "legalCase": {
+          "title": "Nghiên cứu điển hình: Phân tích tài liệu pháp lý",
+          "excerpt": "Cách một công ty luật giảm 80% thời gian xem xét hợp đồng với AIDORag.",
+          "date": "5 tháng 1, 2026",
+          "readTime": "6",
+          "category": "Nghiên cứu điển hình"
+        },
+        "chunking": {
+          "title": "Nghệ thuật phân đoạn tài liệu",
+          "excerpt": "Hiểu cách phân đoạn tài liệu ảnh hưởng đến hiệu suất RAG.",
+          "date": "28 tháng 12, 2025",
+          "readTime": "10",
+          "category": "Hướng dẫn"
+        }
+      },
+      "newsletter": {
+        "title": "Đăng ký nhận bản tin",
+        "subtitle": "Nhận các cập nhật và thông tin chi tiết mới nhất đến hộp thư của bạn.",
+        "placeholder": "Nhập email của bạn",
+        "button": "Đăng ký"
+      }
+    },
+    "blogPost": {
+      "backToBlog": "Quay lại Blog",
+      "author": "Đội ngũ AIDORag",
+      "shareOn": "Chia sẻ trên",
+      "share": "Chia sẻ",
+      "shareArticle": "Chia sẻ bài viết",
+      "relatedPosts": "Bài viết liên quan",
+      "tableOfContents": "Mục lục",
+      "posts": {
+        "mixMode": {
+          "author": "Đội ngũ AIDORag",
+          "sections": {
+            "intro": {
+              "title": "Giới thiệu",
+              "content": "Mix Mode là chế độ truy vấn tiên tiến nhất của chúng tôi, kết hợp thông minh các điểm mạnh của tất cả các chế độ khác để cung cấp kết quả tốt nhất có thể. Đây là kết quả của nghiên cứu của chúng tôi về các chiến lược truy xuất tài liệu tối ưu."
+            },
+            "section1": {
+              "title": "Cách Mix Mode hoạt động",
+              "content": "Mix Mode phân tích truy vấn của bạn và tự động chọn sự kết hợp tối ưu của các chế độ Naive, Local, Global và Hybrid dựa trên bản chất của câu hỏi. AI đánh giá độ phức tạp, phạm vi và ý định của truy vấn để xác định phương pháp tốt nhất."
+            },
+            "section2": {
+              "title": "Lợi ích chính",
+              "content": "Mix Mode cung cấp độ chính xác tốt nhất của tất cả các chế độ bằng cách tự động chọn chế độ phù hợp cho từng truy vấn. Nó tối ưu cho mọi loại truy vấn, từ tìm kiếm từ khóa đơn giản đến các câu hỏi về mối quan hệ phức tạp, mang lại thời gian phản hồi nhanh hơn và kết quả phù hợp hơn."
+            },
+            "conclusion": {
+              "title": "Kết luận",
+              "content": "Bắt đầu sử dụng Mix Mode ngay hôm nay và trải nghiệm sự khác biệt trong các truy vấn tài liệu của bạn. Đây là mặc định được khuyến nghị cho hầu hết người dùng muốn có kết quả tốt nhất mà không cần suy nghĩ về chế độ nào sử dụng."
+            }
+          }
+        },
+        "knowledgeGraphs": {
+          "author": "Đội ngũ AIDORag",
+          "sections": {
+            "intro": {
+              "title": "Giới thiệu",
+              "content": "Đồ thị tri thức là cốt lõi để hiểu các mối quan hệ trong tài liệu của bạn. Đây là cách AIDORag tự động xây dựng đồ thị tri thức toàn diện, kết nối thông tin trên tất cả tài liệu của bạn."
+            },
+            "section1": {
+              "title": "Trích xuất thực thể",
+              "content": "AI của chúng tôi nhận dạng các thực thể chính bao gồm người, tổ chức, địa điểm, khái niệm và nhiều hơn từ tài liệu của bạn bằng các mô hình NLP tiên tiến. Mỗi thực thể được phân loại và liên kết với tài liệu nguồn."
+            },
+            "section2": {
+              "title": "Ánh xạ mối quan hệ",
+              "content": "Sau khi các thực thể được nhận dạng, chúng tôi ánh xạ các mối quan hệ giữa chúng, tạo ra một mạng lưới kết nối phong phú. Điều này cho phép bạn khám phá những thông tin chi tiết trải rộng nhiều tài liệu và hiểu cách các khái niệm khác nhau liên quan đến nhau."
+            },
+            "conclusion": {
+              "title": "Kết luận",
+              "content": "Đồ thị tri thức thay đổi cách bạn hiểu tài liệu, tiết lộ các kết nối và thông tin chi tiết ẩn. Khám phá đồ thị tri thức của bạn thông qua công cụ trực quan hóa tương tác và phát hiện các kết nối bạn có thể đã bỏ lỡ."
+            }
+          }
+        },
+        "legalCase": {
+          "author": "Đội ngũ AIDORag",
+          "sections": {
+            "intro": {
+              "title": "Giới thiệu",
+              "content": "Tìm hiểu cách Thompson & Associates, một công ty luật quy mô trung bình, đã chuyển đổi quy trình xem xét hợp đồng của họ bằng AIDORag. Nghiên cứu điển hình này thể hiện tác động thực tế của trí tuệ tài liệu được hỗ trợ bởi AI."
+            },
+            "section1": {
+              "title": "Thách thức",
+              "content": "Công ty đã dành trung bình 4 giờ mỗi hợp đồng để xem xét thẩm định, tạo ra tắc nghẽn trong quy trình làm việc. Với yêu cầu khách hàng tăng và khối lượng tài liệu ngày càng lớn, họ cần một giải pháp có thể mở rộng."
+            },
+            "section2": {
+              "title": "Giải pháp",
+              "content": "Bằng cách triển khai AIDORag, công ty đã tự động hóa việc trích xuất thực thể, nhận dạng điều khoản và đánh dấu rủi ro. Hệ thống học từ các hợp đồng hiện có và thích ứng với thuật ngữ pháp lý và yêu cầu cụ thể của họ."
+            },
+            "conclusion": {
+              "title": "Kết quả",
+              "content": "Công ty đã đạt được giảm 80% thời gian xem xét, 95% độ chính xác trong nhận dạng điều khoản và tiết kiệm 50% chi phí thẩm định. AIDORag đã trở thành công cụ thiết yếu cho thực hành pháp lý hiện đại."
+            }
+          }
+        },
+        "chunking": {
+          "author": "Đội ngũ AIDORag",
+          "sections": {
+            "intro": {
+              "title": "Giới thiệu",
+              "content": "Phân đoạn tài liệu là một bước quan trọng trong quy trình RAG. Cách bạn chia tài liệu ảnh hưởng trực tiếp đến chất lượng tìm kiếm và độ chính xác của câu trả lời. Hiểu về phân đoạn giúp bạn khai thác tối đa triển khai RAG của mình."
+            },
+            "section1": {
+              "title": "Phân đoạn là gì?",
+              "content": "Phân đoạn là quá trình chia tài liệu thành các phân đoạn nhỏ hơn, có ý nghĩa có thể được lập chỉ mục và truy xuất riêng lẻ. Mục tiêu là tạo ra các chunks đủ nhỏ để phù hợp nhưng đủ lớn để chứa ngữ cảnh có ý nghĩa."
+            },
+            "section2": {
+              "title": "Chiến lược phân đoạn",
+              "content": "Có một số phương pháp: chunks kích thước cố định đơn giản nhưng có thể phá vỡ ngữ cảnh; chunks ngữ nghĩa bảo toàn ý nghĩa nhưng tốn tính toán; phương pháp kết hợp của chúng tôi cung cấp tốt nhất của cả hai và là mặc định được khuyến nghị."
+            },
+            "conclusion": {
+              "title": "Phương pháp tốt nhất",
+              "content": "Để có kết quả tối ưu, đảm bảo tài liệu của bạn có cấu trúc rõ ràng, sử dụng định dạng nhất quán và để phân đoạn thông minh của AIDORag làm phần còn lại. Tin tưởng vào thuật toán phân đoạn thông minh của chúng tôi để có hiệu suất truy xuất tốt nhất."
+            }
+          }
+        }
+      }
+    },
+    "changelog": {
+      "badge": "Nhật ký thay đổi",
+      "title": "Nhật ký thay đổi",
+      "subtitle": "Cập nhật những cải tiến và tính năng mới nhất",
+      "latest": "Mới nhất",
+      "beta": "Beta",
+      "entries": [
+        {
+          "version": "v2.5.0",
+          "date": "15 tháng 1, 2026",
+          "title": "Mix Mode & Cải thiện hiệu suất",
+          "changes": ["Giới thiệu Mix Mode cho kết quả truy vấn tối ưu", "Xử lý tài liệu nhanh hơn 50%", "Cải thiện trực quan hóa đồ thị tri thức", "Sửa lỗi và cải thiện ổn định"]
+        },
+        {
+          "version": "v2.4.0",
+          "date": "1 tháng 1, 2026",
+          "title": "API & Webhooks nâng cao",
+          "changes": ["Sự kiện webhook mới cho xử lý tài liệu", "Cải thiện giới hạn tốc độ API", "Thêm endpoints xử lý hàng loạt", "Cải thiện thông báo lỗi"]
+        },
+        {
+          "version": "v2.3.0",
+          "date": "15 tháng 12, 2025",
+          "title": "Cải tiến đồ thị tri thức",
+          "changes": ["Phát hiện thực thể nâng cao", "Đánh giá độ mạnh mối quan hệ", "Xuất đồ thị tri thức sang JSON", "Cải thiện hiệu suất trực quan hóa đồ thị"]
+        }
+      ],
+      "subscribe": {
+        "title": "Luôn cập nhật",
+        "subtitle": "Nhận thông báo về tính năng mới và cập nhật",
+        "placeholder": "Nhập email của bạn",
+        "button": "Đăng ký"
+      }
+    },
+    "careers": {
+      "badge": "Tuyển dụng",
+      "titlePrefix": "Tham gia",
+      "title": "Đội ngũ của chúng tôi",
+      "subtitle": "Giúp chúng tôi xây dựng tương lai của trí tuệ tài liệu",
+      "culture": {
+        "title": "Văn hóa của chúng tôi",
+        "description": "Chúng tôi là đội ngũ ưu tiên làm việc từ xa, đam mê AI và xây dựng sản phẩm tuyệt vời. Chúng tôi coi trọng quyền sở hữu, sự tò mò và hợp tác."
+      },
+      "perks": {
+        "title": "Tại sao gia nhập chúng tôi?",
+        "items": {
+          "remote": "Ưu tiên từ xa",
+          "remoteDesc": "Làm việc từ bất cứ đâu trên thế giới",
+          "health": "Phúc lợi sức khỏe",
+          "healthDesc": "Bảo hiểm y tế, nha khoa và thị lực toàn diện",
+          "flexible": "Giờ linh hoạt",
+          "flexibleDesc": "Làm việc khi bạn hiệu quả nhất",
+          "equity": "Cổ phần",
+          "equityDesc": "Là chủ sở hữu, không chỉ là nhân viên"
+        }
+      },
+      "openings": {
+        "title": "Vị trí đang tuyển",
+        "jobs": {
+          "fullstack": {
+            "department": "Kỹ thuật",
+            "title": "Kỹ sư Full-Stack cao cấp",
+            "location": "Từ xa",
+            "type": "Toàn thời gian"
+          },
+          "ml": {
+            "department": "AI/ML",
+            "title": "Kỹ sư Machine Learning",
+            "location": "Từ xa",
+            "type": "Toàn thời gian"
+          },
+          "designer": {
+            "department": "Thiết kế",
+            "title": "Nhà thiết kế sản phẩm",
+            "location": "Từ xa",
+            "type": "Toàn thời gian"
+          },
+          "advocate": {
+            "department": "Quan hệ nhà phát triển",
+            "title": "Người ủng hộ nhà phát triển",
+            "location": "Từ xa",
+            "type": "Toàn thời gian"
+          }
+        }
+      },
+      "noFit": {
+        "title": "Không tìm thấy vị trí phù hợp?",
+        "subtitle": "Chúng tôi luôn tìm kiếm người tài năng. Gửi CV của bạn và chúng tôi sẽ nhớ đến bạn cho các cơ hội trong tương lai.",
+        "cta": "Gửi CV"
+      }
+    },
+    "jobDetail": {
+      "backToCareers": "Quay lại Tuyển dụng",
+      "applyNow": "Ứng tuyển ngay",
+      "aboutRole": "Về vị trí",
+      "responsibilities": "Trách nhiệm",
+      "requirements": "Yêu cầu",
+      "niceToHave": "Ưu tiên có",
+      "benefits": "Phúc lợi",
+      "readyToApply": "Sẵn sàng ứng tuyển?",
+      "applySubtitle": "Chúng tôi rất mong được nghe từ bạn. Gửi CV của bạn và chúng tôi sẽ liên hệ.",
+      "viewAllJobs": "Xem tất cả vị trí",
+      "jobs": {
+        "fullstack": {
+          "experience": "3-5 năm",
+          "description": "Chúng tôi đang tìm kiếm Kỹ sư Full-Stack cao cấp để giúp xây dựng và mở rộng nền tảng trí tuệ tài liệu của chúng tôi. Bạn sẽ làm việc trên mọi thứ từ frontend React đến backend Node.js và cơ sở dữ liệu PostgreSQL.",
+          "responsibilities": {
+            "item1": "Thiết kế và triển khai các tính năng mới trên toàn bộ stack",
+            "item2": "Tối ưu hóa hiệu suất và khả năng mở rộng ứng dụng",
+            "item3": "Viết code sạch, dễ bảo trì và được kiểm thử tốt",
+            "item4": "Hợp tác với các đội sản phẩm và thiết kế",
+            "item5": "Hướng dẫn các nhà phát triển junior và đóng góp vào các quyết định kỹ thuật"
+          },
+          "requirements": {
+            "item1": "3-5 năm kinh nghiệm phát triển full-stack",
+            "item2": "Thành thạo React, TypeScript và Node.js",
+            "item3": "Kinh nghiệm với PostgreSQL hoặc cơ sở dữ liệu tương tự",
+            "item4": "Hiểu biết về RESTful APIs và microservices",
+            "item5": "Kỹ năng giải quyết vấn đề và giao tiếp tốt"
+          },
+          "niceToHave": {
+            "item1": "Kinh nghiệm với các ứng dụng AI/ML",
+            "item2": "Kiến thức về vector databases và embeddings",
+            "item3": "Đóng góp vào các dự án mã nguồn mở"
+          }
+        },
+        "ml": {
+          "experience": "3-5 năm",
+          "description": "Gia nhập đội AI/ML của chúng tôi để xây dựng các hệ thống hiểu tài liệu tiên tiến. Bạn sẽ làm việc trên các pipeline RAG, đồ thị tri thức và trích xuất thực thể bằng các kỹ thuật NLP mới nhất.",
+          "responsibilities": {
+            "item1": "Phát triển và cải thiện các hệ thống RAG và đồ thị tri thức",
+            "item2": "Huấn luyện và tinh chỉnh các mô hình NLP cho hiểu tài liệu",
+            "item3": "Thiết kế các hệ thống embedding và truy xuất hiệu quả",
+            "item4": "Hợp tác với kỹ thuật để đưa các mô hình ML vào sản xuất",
+            "item5": "Cập nhật nghiên cứu mới nhất về NLP và LLMs"
+          },
+          "requirements": {
+            "item1": "3-5 năm kinh nghiệm trong machine learning",
+            "item2": "Nền tảng vững chắc về NLP và deep learning",
+            "item3": "Kinh nghiệm với PyTorch hoặc TensorFlow",
+            "item4": "Quen thuộc với LLMs, embeddings và vector search",
+            "item5": "MS hoặc PhD ngành Khoa học Máy tính, ML hoặc lĩnh vực liên quan"
+          },
+          "niceToHave": {
+            "item1": "Công bố tại các hội nghị NLP/ML hàng đầu",
+            "item2": "Kinh nghiệm với các hệ thống RAG và đồ thị tri thức",
+            "item3": "Kinh nghiệm với các hệ thống ML sản xuất quy mô lớn"
+          }
+        },
+        "designer": {
+          "experience": "3-5 năm",
+          "description": "Chúng tôi đang tìm kiếm Nhà thiết kế sản phẩm để tạo ra các trải nghiệm trực quan, đẹp mắt cho nền tảng trí tuệ tài liệu. Bạn sẽ sở hữu quy trình thiết kế từ nghiên cứu đến triển khai cuối cùng.",
+          "responsibilities": {
+            "item1": "Dẫn dắt thiết kế cho các tính năng mới từ ý tưởng đến ra mắt",
+            "item2": "Thực hiện nghiên cứu người dùng và kiểm tra khả năng sử dụng",
+            "item3": "Tạo wireframes, prototypes và thiết kế high-fidelity",
+            "item4": "Duy trì và phát triển hệ thống thiết kế của chúng tôi",
+            "item5": "Hợp tác chặt chẽ với các đội kỹ thuật và sản phẩm"
+          },
+          "requirements": {
+            "item1": "3-5 năm kinh nghiệm thiết kế sản phẩm",
+            "item2": "Portfolio mạnh thể hiện kỹ năng UX/UI",
+            "item3": "Thành thạo Figma và các công cụ prototyping",
+            "item4": "Kinh nghiệm với hệ thống thiết kế",
+            "item5": "Hiểu biết về tiêu chuẩn accessibility"
+          },
+          "niceToHave": {
+            "item1": "Kinh nghiệm thiết kế sản phẩm AI/ML",
+            "item2": "Hiểu biết cơ bản về phát triển frontend",
+            "item3": "Kinh nghiệm với trực quan hóa dữ liệu"
+          }
+        },
+        "advocate": {
+          "experience": "2-4 năm",
+          "description": "Gia nhập với vai trò Developer Advocate để giúp các nhà phát triển xây dựng những thứ tuyệt vời với AIDORag. Bạn sẽ tạo nội dung, xây dựng demos và tương tác với cộng đồng nhà phát triển.",
+          "responsibilities": {
+            "item1": "Tạo nội dung kỹ thuật, hướng dẫn và tài liệu",
+            "item2": "Xây dựng các ứng dụng mẫu và demos",
+            "item3": "Nói chuyện tại các hội nghị và tổ chức webinars",
+            "item4": "Tương tác với các nhà phát triển trên mạng xã hội và diễn đàn",
+            "item5": "Thu thập phản hồi để cải thiện trải nghiệm nhà phát triển"
+          },
+          "requirements": {
+            "item1": "2-4 năm kinh nghiệm phát triển phần mềm",
+            "item2": "Kỹ năng giao tiếp viết và nói xuất sắc",
+            "item3": "Kinh nghiệm tạo nội dung kỹ thuật",
+            "item4": "Hiện diện tích cực trong cộng đồng nhà phát triển",
+            "item5": "Đam mê giảng dạy và giúp đỡ các nhà phát triển"
+          },
+          "niceToHave": {
+            "item1": "Kinh nghiệm với RAG hoặc công nghệ AI/ML",
+            "item2": "Kinh nghiệm thuyết trình công khai",
+            "item3": "YouTube hoặc blog kỹ thuật có người theo dõi"
+          }
+        }
+      }
+    },
+    "quickstart": {
+      "badge": "Bắt đầu nhanh",
+      "title": "Bắt đầu với AIDORag",
+      "subtitle": "Làm theo các bước này để bắt đầu sử dụng AIDORag trong vài phút",
+      "createAccount": "Tạo tài khoản miễn phí để bắt đầu",
+      "steps": {
+        "signup": {
+          "title": "1. Tạo tài khoản",
+          "desc": "Đăng ký tài khoản AIDORag miễn phí",
+          "details": "Không cần thẻ tín dụng. Truy cập ngay lập tức."
+        },
+        "upload": {
+          "title": "2. Tải lên tài liệu",
+          "desc": "Tải lên tài liệu ở bất kỳ định dạng được hỗ trợ",
+          "details": "Chúng tôi hỗ trợ PDF, DOCX, TXT, XLSX và nhiều hơn."
+        },
+        "query": {
+          "title": "3. Bắt đầu truy vấn",
+          "desc": "Đặt câu hỏi về tài liệu của bạn",
+          "details": "Nhận câu trả lời ngay lập tức với trích dẫn nguồn."
+        }
+      },
+      "queryModes": {
+        "title": "Chế độ truy vấn",
+        "naive": "Naive",
+        "naiveDesc": "Tìm kiếm dựa trên từ khóa đơn giản",
+        "local": "Local",
+        "localDesc": "Tìm kiếm tập trung vào thực thể",
+        "global": "Global",
+        "globalDesc": "Tìm kiếm tập trung vào mối quan hệ",
+        "hybrid": "Hybrid",
+        "hybridDesc": "Kết hợp local và global",
+        "mix": "Mix",
+        "mixDesc": "Chế độ tối ưu được AI chọn"
+      },
+      "next": {
+        "title": "Tiếp theo là gì?",
+        "subtitle": "Khám phá thêm tính năng và khả năng",
+        "dashboard": "Đi đến Bảng điều khiển"
+      }
+    },
+    "docTopic": {
+      "backToDocs": "Quay lại Tài liệu",
+      "documentation": "Tài liệu",
+      "overview": "Tổng quan",
+      "keyFeatures": "Tính năng chính",
+      "example": "Ví dụ",
+      "bestPractices": "Phương pháp tốt nhất",
+      "relatedTopics": "Chủ đề liên quan",
+      "needMoreHelp": "Cần thêm trợ giúp?",
+      "needMoreHelpSubtitle": "Xem tham khảo API hoặc liên hệ hỗ trợ",
+      "viewApiRef": "Xem tham khảo API",
+      "topics": {
+        "upload": {
+          "title": "Tải lên tài liệu",
+          "subtitle": "Tìm hiểu cách tải lên và quản lý tài liệu trong AIDORag",
+          "overview": "AIDORag hỗ trợ nhiều định dạng tài liệu. Tải lên tài liệu qua bảng điều khiển hoặc API để bắt đầu xây dựng cơ sở tri thức.",
+          "features": {
+            "item1": "Hỗ trợ PDF, DOCX, TXT, XLSX, PPTX và nhiều hơn",
+            "item2": "Trích xuất và xử lý văn bản tự động",
+            "item3": "Giao diện tải lên kéo và thả",
+            "item4": "Tải lên hàng loạt qua API"
+          },
+          "codeExample": "curl -X POST https://api.aidorag.ai/v1/documents \\\n  -H \"Authorization: Bearer YOUR_API_KEY\" \\\n  -F \"file=@document.pdf\"",
+          "bestPractices": {
+            "item1": "Sử dụng tên file rõ ràng, mô tả",
+            "item2": "Đảm bảo tài liệu dựa trên văn bản (không phải hình ảnh quét)",
+            "item3": "Chia tài liệu rất lớn thành các phần logic"
+          }
+        },
+        "queryModes": {
+          "title": "Chế độ truy vấn",
+          "subtitle": "Hiểu 5 chế độ truy vấn khác nhau trong AIDORag",
+          "overview": "AIDORag cung cấp 5 chế độ truy vấn, mỗi chế độ được tối ưu cho các loại câu hỏi khác nhau. Chọn chế độ phù hợp cho trường hợp sử dụng của bạn.",
+          "features": {
+            "item1": "Naive: Tìm kiếm dựa trên từ khóa đơn giản",
+            "item2": "Local: Tìm kiếm tập trung vào thực thể, chi tiết",
+            "item3": "Global: Tìm kiếm tập trung vào mối quan hệ, rộng",
+            "item4": "Hybrid: Kết hợp Local và Global",
+            "item5": "Mix: Chế độ tối ưu được AI chọn"
+          },
+          "codeExample": "const response = await fetch('/api/query', {\n  method: 'POST',\n  body: JSON.stringify({\n    query: 'Những phát hiện chính là gì?',\n    mode: 'mix'\n  })\n});",
+          "bestPractices": {
+            "item1": "Bắt đầu với chế độ Mix cho các truy vấn chung",
+            "item2": "Sử dụng Naive để khớp cụm từ chính xác",
+            "item3": "Sử dụng Global cho câu hỏi trải rộng nhiều tài liệu"
+          }
+        },
+        "knowledgeGraph": {
+          "title": "Đồ thị tri thức",
+          "subtitle": "Trực quan hóa và khám phá mối quan hệ thực thể",
+          "overview": "Đồ thị tri thức tự động trích xuất thực thể và mối quan hệ từ tài liệu, tạo bản đồ trực quan của cơ sở tri thức.",
+          "features": {
+            "item1": "Trích xuất thực thể tự động (người, tổ chức, khái niệm)",
+            "item2": "Ánh xạ mối quan hệ giữa các tài liệu",
+            "item3": "Trực quan hóa tương tác",
+            "item4": "Xuất sang định dạng JSON"
+          },
+          "codeExample": "const graph = await fetch('/api/knowledge-graph');\nconst { nodes, edges } = await graph.json();",
+          "bestPractices": {
+            "item1": "Tải lên các tài liệu liên quan cùng nhau để có kết nối tốt hơn",
+            "item2": "Sử dụng truy vấn đồ thị cho câu hỏi mối quan hệ phức tạp",
+            "item3": "Xuất và phân tích đồ thị để có thông tin chi tiết sâu hơn"
+          }
+        },
+        "apiAuth": {
+          "title": "Xác thực API",
+          "subtitle": "Bảo mật các yêu cầu API với xác thực",
+          "overview": "Tất cả các yêu cầu API yêu cầu xác thực bằng API key. Tạo keys từ bảng điều khiển và bao gồm chúng trong header Authorization.",
+          "features": {
+            "item1": "Xác thực Bearer token",
+            "item2": "Nhiều API keys mỗi tài khoản",
+            "item3": "Hỗ trợ xoay key",
+            "item4": "Quyền chi tiết (sắp ra mắt)"
+          },
+          "codeExample": "fetch('https://api.aidorag.ai/v1/query', {\n  headers: {\n    'Authorization': 'Bearer YOUR_API_KEY',\n    'Content-Type': 'application/json'\n  }\n});",
+          "bestPractices": {
+            "item1": "Không bao giờ lộ API keys trong code phía client",
+            "item2": "Sử dụng biến môi trường để lưu trữ key",
+            "item3": "Xoay keys thường xuyên cho bảo mật"
+          }
+        },
+        "webhooks": {
+          "title": "Webhooks",
+          "subtitle": "Nhận thông báo thời gian thực về các sự kiện",
+          "overview": "Webhooks cho phép bạn nhận thông báo thời gian thực khi các sự kiện xảy ra trong tài khoản AIDORag, như hoàn thành xử lý tài liệu.",
+          "features": {
+            "item1": "Sự kiện xử lý tài liệu",
+            "item2": "Hoàn thành trích xuất thực thể",
+            "item3": "Thông báo lỗi",
+            "item4": "Endpoints webhook tùy chỉnh"
+          },
+          "codeExample": "// Ví dụ payload webhook\n{\n  \"event\": \"document.processed\",\n  \"document_id\": \"doc_123\",\n  \"status\": \"success\",\n  \"timestamp\": \"2026-01-15T10:30:00Z\"\n}",
+          "bestPractices": {
+            "item1": "Sử dụng endpoints HTTPS cho bảo mật",
+            "item2": "Xác minh chữ ký webhook",
+            "item3": "Xử lý retry một cách graceful"
+          }
+        },
+        "rateLimits": {
+          "title": "Giới hạn tốc độ",
+          "subtitle": "Hiểu giới hạn tốc độ API và quota",
+          "overview": "Giới hạn tốc độ API giúp đảm bảo sử dụng công bằng và ổn định hệ thống. Giới hạn thay đổi theo gói và có thể được theo dõi trong bảng điều khiển.",
+          "features": {
+            "item1": "Giới hạn yêu cầu mỗi phút",
+            "item2": "Quota truy vấn hàng tháng",
+            "item3": "Giới hạn tải lên tài liệu",
+            "item4": "Theo dõi sử dụng thời gian thực"
+          },
+          "codeExample": "// Headers giới hạn tốc độ trong response\nX-RateLimit-Limit: 100\nX-RateLimit-Remaining: 95\nX-RateLimit-Reset: 1642000000",
+          "bestPractices": {
+            "item1": "Triển khai exponential backoff cho retry",
+            "item2": "Cache responses khi có thể",
+            "item3": "Theo dõi sử dụng để tránh đạt giới hạn"
+          }
+        }
+      }
+    },
+    "sdks": {
+      "badge": "SDKs",
+      "title": "Thư viện Client",
+      "subtitle": "SDKs chính thức cho các ngôn ngữ lập trình yêu thích của bạn. Bắt đầu trong vài phút với thư viện an toàn kiểu, tài liệu đầy đủ.",
+      "installation": "Cài đặt",
+      "quickStart": "Bắt đầu nhanh",
+      "viewDocs": "Xem tài liệu",
+      "getStarted": "Bắt đầu",
+      "officialLibraries": "Thư viện chính thức",
+      "communityLibraries": "Thư viện cộng đồng",
+      "communityDesc": "Những SDK này được xây dựng và duy trì bởi cộng đồng. Chúng tuân theo các mẫu API giống như thư viện chính thức của chúng tôi.",
+      "viewOnGithub": "Xem trên GitHub",
+      "joinCommunity": "Tham gia cộng đồng",
+      "features": {
+        "title": "Tất cả SDKs bao gồm",
+        "typeSafe": "An toàn kiểu đầy đủ và tự động hoàn thành",
+        "autoRetry": "Tự động thử lại với exponential backoff",
+        "streaming": "Hỗ trợ streaming cho phản hồi thời gian thực",
+        "errorHandling": "Xử lý lỗi toàn diện"
+      },
+      "libraries": {
+        "javascript": {
+          "name": "JavaScript / TypeScript",
+          "description": "SDK chính thức cho môi trường Node.js và trình duyệt",
+          "install": "npm install @aidorag/sdk",
+          "example": "import { AIDORag } from '@aidorag/sdk';\n\nconst client = new AIDORag('YOUR_API_KEY');\nconst result = await client.query('Những phát hiện chính là gì?');"
+        },
+        "python": {
+          "name": "Python",
+          "description": "SDK Python chính thức với hỗ trợ async",
+          "install": "pip install aidorag",
+          "example": "from aidorag import AIDORag\n\nclient = AIDORag('YOUR_API_KEY')\nresult = client.query('Những phát hiện chính là gì?')"
+        },
+        "curl": {
+          "name": "REST API",
+          "description": "Truy cập API trực tiếp qua HTTP requests",
+          "install": "Không cần cài đặt",
+          "example": "curl -X POST https://api.aidorag.ai/v1/query \\\n  -H 'Authorization: Bearer YOUR_API_KEY' \\\n  -d '{\"query\": \"Những phát hiện chính là gì?\"}'"
+        }
+      },
+      "community": {
+        "title": "SDKs Cộng đồng",
+        "subtitle": "SDKs được xây dựng bởi cộng đồng",
+        "items": ["Go SDK (cộng đồng)", "Ruby SDK (cộng đồng)", "PHP SDK (cộng đồng)"]
+      },
+      "cta": {
+        "title": "Xây dựng điều tuyệt vời",
+        "subtitle": "Khám phá SDKs mã nguồn mở và đóng góp cho cộng đồng"
+      }
+    },
+    "sdkDetail": {
+      "backToSdks": "Quay lại SDKs",
+      "packageDocs": "Tài liệu gói",
+      "installation": "Cài đặt",
+      "packageName": "Tên gói",
+      "quickStart": "Bắt đầu nhanh",
+      "initializeClient": "Khởi tạo Client",
+      "uploadDocument": "Tải lên tài liệu",
+      "queryDocuments": "Truy vấn tài liệu",
+      "python": {
+        "description": "SDK Python chính thức cho AIDORag. Hỗ trợ Python 3.8+ với type hints đầy đủ và hỗ trợ async/await."
+      },
+      "javascript": {
+        "description": "SDK JavaScript/TypeScript chính thức cho AIDORag. Hoạt động với Node.js 16+ và trình duyệt hiện đại với hỗ trợ TypeScript đầy đủ."
+      },
+      "go": {
+        "description": "SDK Go chính thức cho AIDORag. Được xây dựng cho hiệu suất với các mẫu Go thông thường và hỗ trợ context đầy đủ."
+      },
+      "ruby": {
+        "description": "SDK Ruby chính thức cho AIDORag. Hỗ trợ Ruby 3.0+ với thiết kế API sạch và đúng phong cách."
+      },
+      "features": {
+        "title": "Tính năng SDK",
+        "typeSafe": {
+          "title": "An toàn kiểu",
+          "description": "Định nghĩa kiểu đầy đủ và tự động hoàn thành cho trải nghiệm lập trình tốt hơn."
+        },
+        "autoRetry": {
+          "title": "Tự động thử lại",
+          "description": "Tự động thử lại với exponential backoff cho các lỗi tạm thời."
+        },
+        "streaming": {
+          "title": "Hỗ trợ Streaming",
+          "description": "Stream phản hồi theo thời gian thực cho các truy vấn dài."
+        },
+        "errorHandling": {
+          "title": "Xử lý lỗi",
+          "description": "Các kiểu lỗi toàn diện với thông báo chi tiết để dễ dàng gỡ lỗi."
+        }
+      },
+      "queryModes": {
+        "title": "Các chế độ truy vấn hỗ trợ",
+        "naive": "Tìm kiếm tương tự vector đơn giản",
+        "local": "Ngữ cảnh cục bộ tập trung vào thực thể",
+        "global": "Ngữ cảnh toàn cầu trên toàn tài liệu",
+        "hybrid": "Kết hợp tìm kiếm vector + đồ thị",
+        "mix": "Chọn chế độ thích ứng"
+      },
+      "cta": {
+        "title": "Sẵn sàng xây dựng?",
+        "subtitle": "Xem tài liệu API của chúng tôi hoặc tham gia cộng đồng nhà phát triển để được hỗ trợ."
+      }
+    },
+    "privacy": {
+      "badge": "Bảo mật",
+      "title": "Chính sách Bảo mật",
+      "lastUpdated": "Cập nhật lần cuối: Tháng 1, 2026",
+      "toc": {
+        "title": "Mục lục"
+      },
+      "office": {
+        "title": "Văn phòng của chúng tôi"
+      },
+      "sections": {
+        "introduction": {
+          "title": "Giới thiệu",
+          "content": "Chính sách Bảo mật này mô tả cách AIDORag, Inc. (\"AIDORag,\" \"chúng tôi\") thu thập, sử dụng và chia sẻ thông tin cá nhân về những cá nhân sử dụng trang web của chúng tôi tại www.aidorag.ai (\"Trang web\") và nền tảng AIDORag cùng các dịch vụ liên quan (gọi chung là \"Dịch vụ\"). Chính sách này áp dụng cho thông tin cá nhân được chúng tôi xử lý, bao gồm trên Trang web và Dịch vụ của chúng tôi.\n\nBằng việc sử dụng Dịch vụ của chúng tôi, bạn đồng ý với các thực hành được mô tả trong Chính sách Bảo mật này. Nếu bạn không đồng ý với chính sách này, vui lòng không sử dụng Dịch vụ của chúng tôi."
+        },
+        "summaryKeyPoints": {
+          "title": "Tóm tắt các điểm chính",
+          "content": "Phần tóm tắt này cung cấp các điểm chính từ Chính sách Bảo mật của chúng tôi. Bạn có thể tìm thêm chi tiết về từng chủ đề này trong chính sách đầy đủ bên dưới.",
+          "items": [
+            "Chúng tôi thu thập thông tin cá nhân bạn cung cấp trực tiếp cho chúng tôi, như thông tin tài khoản và hồ sơ.",
+            "Chúng tôi tự động thu thập một số thông tin kỹ thuật khi bạn sử dụng Dịch vụ của chúng tôi.",
+            "Chúng tôi xử lý dữ liệu của bạn để cung cấp, cải thiện và quản lý Dịch vụ, để bảo mật và ngăn chặn gian lận, và để tuân thủ pháp luật.",
+            "Chúng tôi chỉ chia sẻ thông tin cá nhân trong các tình huống cụ thể và với các bên thứ ba cụ thể.",
+            "Chúng tôi sử dụng cookie và các công nghệ theo dõi tương tự.",
+            "Bạn có các quyền liên quan đến thông tin cá nhân của mình, tùy thuộc vào vị trí của bạn.",
+            "Chúng tôi triển khai các biện pháp bảo mật theo tiêu chuẩn ngành để bảo vệ dữ liệu của bạn."
+          ]
+        },
+        "infoCollect": {
+          "title": "Chúng tôi thu thập thông tin gì?",
+          "content": "Chúng tôi thu thập thông tin cá nhân mà bạn tự nguyện cung cấp cho chúng tôi khi đăng ký Dịch vụ, thể hiện sự quan tâm trong việc nhận thông tin, hoặc liên hệ với chúng tôi.\n\nThông tin cá nhân do bạn cung cấp: Thông tin cá nhân chúng tôi thu thập phụ thuộc vào ngữ cảnh tương tác của bạn với chúng tôi và các lựa chọn bạn thực hiện. Điều này có thể bao gồm:",
+          "items": [
+            "Thông tin liên hệ (tên, địa chỉ email, số điện thoại)",
+            "Thông tin đăng nhập tài khoản (tên người dùng, mật khẩu)",
+            "Thông tin thanh toán (chi tiết thẻ thanh toán, địa chỉ thanh toán)",
+            "Thông tin hồ sơ (ảnh đại diện, tùy chọn)",
+            "Liên lạc (tin nhắn, phản hồi, yêu cầu hỗ trợ)",
+            "Tài liệu và tệp bạn tải lên nền tảng của chúng tôi",
+            "Bất kỳ thông tin nào khác bạn chọn cung cấp"
+          ],
+          "subSections": {
+            "automaticData": {
+              "title": "Thông tin được thu thập tự động",
+              "content": "Chúng tôi tự động thu thập một số thông tin khi bạn truy cập, sử dụng hoặc điều hướng Dịch vụ của chúng tôi. Thông tin này không tiết lộ danh tính cụ thể của bạn nhưng có thể bao gồm:",
+              "items": [
+                "Thông tin thiết bị và trình duyệt (địa chỉ IP, loại trình duyệt, hệ điều hành)",
+                "Dữ liệu sử dụng (các trang đã xem, thời gian truy cập, nhấp chuột, URL giới thiệu)",
+                "Dữ liệu vị trí (quốc gia, thành phố dựa trên địa chỉ IP)",
+                "Dữ liệu cookie và công nghệ theo dõi"
+              ]
+            }
+          }
+        },
+        "howWeProcess": {
+          "title": "Chúng tôi xử lý thông tin của bạn như thế nào?",
+          "content": "Chúng tôi xử lý thông tin cá nhân của bạn cho nhiều mục đích khác nhau, tùy thuộc vào cách bạn tương tác với Dịch vụ của chúng tôi:",
+          "items": [
+            "Để cung cấp và duy trì Dịch vụ của chúng tôi, bao gồm xử lý tài liệu và phân tích được hỗ trợ bởi AI",
+            "Để tạo và quản lý tài khoản của bạn và xác thực danh tính của bạn",
+            "Để xử lý thanh toán và quản lý hóa đơn của bạn",
+            "Để trả lời các thắc mắc của bạn và cung cấp hỗ trợ khách hàng",
+            "Để gửi thông tin quản trị, như cập nhật, cảnh báo bảo mật và tin nhắn hỗ trợ",
+            "Để cải thiện và phát triển Dịch vụ của chúng tôi thông qua phân tích và nghiên cứu",
+            "Để bảo vệ Dịch vụ của chúng tôi, phát hiện gian lận và đảm bảo bảo mật",
+            "Để tuân thủ nghĩa vụ pháp lý và thực thi các điều khoản của chúng tôi",
+            "Để gửi thông tin tiếp thị (với sự đồng ý của bạn khi được yêu cầu)"
+          ]
+        },
+        "whenWeShare": {
+          "title": "Khi nào và với ai chúng tôi chia sẻ thông tin cá nhân của bạn?",
+          "content": "Chúng tôi có thể chia sẻ thông tin cá nhân của bạn trong các tình huống sau:",
+          "items": [
+            "Nhà cung cấp dịch vụ: Chúng tôi chia sẻ dữ liệu với các nhà cung cấp bên thứ ba thực hiện dịch vụ thay mặt chúng tôi (lưu trữ, xử lý thanh toán, phân tích, hỗ trợ khách hàng)",
+            "Chuyển nhượng kinh doanh: Trong trường hợp sáp nhập, mua lại hoặc bán tài sản, thông tin của bạn có thể được chuyển giao",
+            "Yêu cầu pháp lý: Chúng tôi có thể tiết lộ thông tin nếu pháp luật yêu cầu hoặc để đáp ứng các yêu cầu pháp lý hợp lệ",
+            "Bảo vệ quyền lợi: Để bảo vệ quyền, quyền riêng tư, an toàn hoặc tài sản của chúng tôi và của người dùng hoặc những người khác",
+            "Với sự đồng ý của bạn: Chúng tôi có thể chia sẻ thông tin của bạn với sự đồng ý rõ ràng của bạn cho các mục đích khác"
+          ]
+        },
+        "cookies": {
+          "title": "Chúng tôi có sử dụng cookie và các công nghệ theo dõi khác không?",
+          "content": "Có, chúng tôi sử dụng cookie và các công nghệ theo dõi tương tự để thu thập và lưu trữ thông tin. Cookie là các tệp dữ liệu nhỏ được đặt trên thiết bị của bạn giúp chúng tôi cải thiện trải nghiệm của bạn và Dịch vụ của chúng tôi.\n\nCác loại cookie chúng tôi sử dụng:",
+          "items": [
+            "Cookie thiết yếu: Cần thiết cho chức năng cơ bản và bảo mật",
+            "Cookie hiệu suất: Giúp chúng tôi hiểu cách khách truy cập tương tác với Dịch vụ của chúng tôi",
+            "Cookie chức năng: Ghi nhớ tùy chọn và cài đặt của bạn",
+            "Cookie nhắm mục tiêu: Có thể được sử dụng cho mục đích tiếp thị"
+          ],
+          "subSections": {
+            "manage": {
+              "title": "Quản lý Cookie",
+              "content": "Hầu hết các trình duyệt web được đặt để chấp nhận cookie theo mặc định. Bạn thường có thể sửa đổi cài đặt trình duyệt của mình để xóa hoặc từ chối cookie. Xin lưu ý rằng việc xóa hoặc từ chối cookie có thể ảnh hưởng đến tính khả dụng và chức năng của Dịch vụ của chúng tôi."
+            }
+          }
+        },
+        "socialLogins": {
+          "title": "Chúng tôi xử lý đăng nhập mạng xã hội của bạn như thế nào?",
+          "content": "Chúng tôi cung cấp khả năng đăng ký và đăng nhập bằng tài khoản mạng xã hội bên thứ ba của bạn (như Google). Nếu bạn chọn làm điều này, chúng tôi sẽ nhận một số thông tin hồ sơ từ nhà cung cấp mạng xã hội của bạn.\n\nThông tin hồ sơ chúng tôi nhận được có thể khác nhau nhưng thường bao gồm tên, địa chỉ email, ảnh đại diện và các thông tin khác bạn chọn công khai. Chúng tôi sẽ chỉ sử dụng thông tin nhận được cho các mục đích được mô tả trong Chính sách Bảo mật này."
+        },
+        "dataRetention": {
+          "title": "Chúng tôi lưu giữ thông tin của bạn trong bao lâu?",
+          "content": "Chúng tôi sẽ lưu giữ thông tin cá nhân của bạn trong thời gian cần thiết cho các mục đích được nêu trong Chính sách Bảo mật này, trừ khi pháp luật yêu cầu thời gian lưu giữ dài hơn.\n\nKhi chúng tôi không còn nhu cầu kinh doanh hợp pháp để xử lý thông tin cá nhân của bạn, chúng tôi sẽ xóa hoặc ẩn danh hóa thông tin đó. Nếu không thể xóa (ví dụ, vì thông tin của bạn được lưu trữ trong các bản sao lưu), chúng tôi sẽ lưu trữ an toàn thông tin của bạn và cô lập nó khỏi việc xử lý thêm cho đến khi có thể xóa.\n\nBạn có thể yêu cầu xóa dữ liệu của mình bất cứ lúc nào thông qua cài đặt tài khoản hoặc bằng cách liên hệ với chúng tôi."
+        },
+        "dataSecurity": {
+          "title": "Chúng tôi bảo vệ thông tin của bạn như thế nào?",
+          "content": "Chúng tôi đã triển khai các biện pháp bảo mật kỹ thuật và tổ chức phù hợp được thiết kế để bảo vệ thông tin cá nhân của bạn. Các biện pháp này bao gồm:",
+          "items": [
+            "Mã hóa dữ liệu trong quá trình truyền tải sử dụng TLS/SSL",
+            "Mã hóa dữ liệu khi lưu trữ",
+            "Đánh giá bảo mật và kiểm tra xâm nhập định kỳ",
+            "Kiểm soát truy cập và yêu cầu xác thực",
+            "Cơ sở hạ tầng lưu trữ dữ liệu an toàn",
+            "Đào tạo nhân viên về bảo vệ dữ liệu"
+          ],
+          "subSections": {
+            "limitations": {
+              "title": "Giới hạn bảo mật",
+              "content": "Mặc dù có các biện pháp bảo vệ và nỗ lực bảo mật thông tin của bạn, không có phương thức truyền điện tử qua Internet hoặc công nghệ lưu trữ thông tin nào có thể được đảm bảo là an toàn 100%. Chúng tôi không thể hứa hoặc đảm bảo rằng tin tặc, tội phạm mạng hoặc các bên không được ủy quyền khác sẽ không thể đánh bại bảo mật của chúng tôi và thu thập, truy cập, đánh cắp hoặc sửa đổi thông tin của bạn một cách không đúng đắn."
+            }
+          }
+        },
+        "minors": {
+          "title": "Chúng tôi có thu thập thông tin từ trẻ vị thành niên không?",
+          "content": "Chúng tôi không cố ý thu thập thông tin cá nhân từ trẻ em dưới 18 tuổi. Dịch vụ của chúng tôi không hướng đến các cá nhân dưới 18 tuổi. Nếu chúng tôi biết rằng chúng tôi đã thu thập thông tin cá nhân từ trẻ em dưới 18 tuổi, chúng tôi sẽ thực hiện các bước để xóa thông tin đó sớm nhất có thể.\n\nNếu bạn là cha mẹ hoặc người giám hộ và tin rằng chúng tôi đã thu thập thông tin từ con bạn, vui lòng liên hệ với chúng tôi tại info@aidorag.ai."
+        },
+        "yourRights": {
+          "title": "Quyền bảo mật của bạn là gì?",
+          "content": "Tùy thuộc vào vị trí của bạn, bạn có thể có một số quyền liên quan đến thông tin cá nhân của mình theo luật bảo vệ dữ liệu hiện hành. Những quyền này có thể bao gồm:",
+          "items": [
+            "Quyền truy cập: Yêu cầu truy cập và nhận bản sao thông tin cá nhân của bạn",
+            "Quyền chỉnh sửa: Yêu cầu chỉnh sửa thông tin cá nhân không chính xác hoặc không đầy đủ",
+            "Quyền xóa: Yêu cầu xóa thông tin cá nhân của bạn",
+            "Quyền hạn chế xử lý: Yêu cầu hạn chế xử lý thông tin cá nhân của bạn",
+            "Quyền chuyển dữ liệu: Yêu cầu chuyển thông tin cá nhân của bạn sang dịch vụ khác",
+            "Quyền phản đối: Phản đối việc xử lý thông tin cá nhân của bạn",
+            "Quyền rút lại sự đồng ý: Rút lại sự đồng ý khi việc xử lý dựa trên sự đồng ý"
+          ],
+          "subSections": {
+            "exercise": {
+              "title": "Thực hiện quyền của bạn",
+              "content": "Để thực hiện bất kỳ quyền nào trong số này, vui lòng liên hệ với chúng tôi tại info@aidorag.ai hoặc thông qua cài đặt tài khoản của bạn. Chúng tôi sẽ phản hồi yêu cầu của bạn theo quy định của pháp luật hiện hành."
+            }
+          }
+        },
+        "doNotTrack": {
+          "title": "Điều khiển cho tính năng Do-Not-Track",
+          "content": "Hầu hết các trình duyệt web và một số hệ điều hành di động bao gồm tính năng hoặc cài đặt Do-Not-Track (\"DNT\") mà bạn có thể kích hoạt để báo hiệu sở thích quyền riêng tư của bạn không muốn dữ liệu về hoạt động duyệt web trực tuyến của bạn bị theo dõi và thu thập.\n\nỞ giai đoạn này, chưa có tiêu chuẩn công nghệ thống nhất nào để nhận dạng và triển khai tín hiệu DNT được hoàn thiện. Do đó, chúng tôi hiện không phản hồi tín hiệu trình duyệt DNT hoặc bất kỳ cơ chế nào khác tự động truyền đạt sự lựa chọn của bạn không muốn bị theo dõi trực tuyến. Nếu một tiêu chuẩn cho theo dõi trực tuyến được thông qua mà chúng tôi phải tuân theo trong tương lai, chúng tôi sẽ thông báo cho bạn về thực hành đó trong phiên bản sửa đổi của Chính sách Bảo mật này."
+        },
+        "googleWorkspace": {
+          "title": "API Google Workspace",
+          "content": "Nếu bạn kết nối tài khoản Google Workspace của mình với Dịch vụ của chúng tôi, chúng tôi sẽ truy cập và xử lý dữ liệu từ Google Workspace của bạn theo Chính sách Dữ liệu Người dùng Dịch vụ API của Google.\n\nViệc sử dụng thông tin nhận được từ API Google của chúng tôi sẽ tuân thủ Chính sách Dữ liệu Người dùng Dịch vụ API của Google, bao gồm các yêu cầu Sử dụng Hạn chế. Cụ thể:",
+          "items": [
+            "Chúng tôi chỉ truy cập dữ liệu cần thiết để cung cấp và cải thiện Dịch vụ của mình",
+            "Chúng tôi không sử dụng dữ liệu Google Workspace cho mục đích quảng cáo",
+            "Chúng tôi không bán dữ liệu Google Workspace cho bên thứ ba",
+            "Chúng tôi không sử dụng dữ liệu Google Workspace để xây dựng hồ sơ người dùng cho quảng cáo",
+            "Quyền truy cập dữ liệu được giới hạn trong các tính năng được người dùng yêu cầu rõ ràng"
+          ]
+        },
+        "usResidents": {
+          "title": "Thông tin bảo mật cho cư dân Hoa Kỳ",
+          "content": "Nếu bạn là cư dân của California, Colorado, Connecticut, Delaware, Florida, Indiana, Iowa, Montana, New Hampshire, New Jersey, Oregon, Tennessee, Texas, Utah hoặc Virginia, bạn có các quyền bảo mật cụ thể theo luật tiểu bang hiện hành.\n\nNhững quyền này có thể bao gồm:",
+          "items": [
+            "Quyền biết thông tin cá nhân nào đang được thu thập",
+            "Quyền biết liệu thông tin cá nhân có được bán hoặc tiết lộ và cho ai",
+            "Quyền từ chối việc bán hoặc chia sẻ thông tin cá nhân",
+            "Quyền truy cập, chỉnh sửa và xóa thông tin cá nhân",
+            "Quyền không bị phân biệt đối xử khi thực hiện quyền bảo mật"
+          ],
+          "subSections": {
+            "california": {
+              "title": "Cư dân California",
+              "content": "Theo Đạo luật Quyền riêng tư Người tiêu dùng California (CCPA) được sửa đổi bởi Đạo luật Quyền Bảo mật California (CPRA), cư dân California có các quyền bổ sung bao gồm quyền hạn chế việc sử dụng thông tin cá nhân nhạy cảm và quyền từ chối ra quyết định tự động."
+            }
+          }
+        },
+        "hipaa": {
+          "title": "Tuân thủ HIPAA",
+          "content": "AIDORag có thể xử lý Thông tin Sức khỏe được Bảo vệ (PHI) thay mặt cho một số khách hàng là các thực thể được bảo vệ theo HIPAA hoặc các đối tác kinh doanh của họ. Trong những trường hợp như vậy, việc xử lý PHI của chúng tôi được điều chỉnh bởi Thỏa thuận Đối tác Kinh doanh (BAA) với khách hàng tương ứng.\n\nNếu bạn là nhà cung cấp dịch vụ chăm sóc sức khỏe hoặc thực thể được bảo vệ theo HIPAA khác quan tâm đến việc sử dụng Dịch vụ của chúng tôi, vui lòng liên hệ với chúng tôi tại info@aidorag.ai để thảo luận về chương trình tuân thủ HIPAA của chúng tôi và ký kết BAA."
+        },
+        "euUkResidents": {
+          "title": "Thông tin bảo mật cho cư dân EU/UK",
+          "content": "Nếu bạn ở Liên minh Châu Âu, Khu vực Kinh tế Châu Âu, Vương quốc Anh hoặc Thụy Sĩ, bạn có một số quyền theo Quy định Bảo vệ Dữ liệu Chung (GDPR) và GDPR của Vương quốc Anh.\n\nCơ sở pháp lý cho việc xử lý: Chúng tôi xử lý thông tin cá nhân của bạn dựa trên các cơ sở pháp lý sau:",
+          "items": [
+            "Thực hiện hợp đồng: Khi việc xử lý là cần thiết để cung cấp Dịch vụ của chúng tôi cho bạn",
+            "Lợi ích hợp pháp: Cho các lợi ích kinh doanh hợp pháp của chúng tôi, như ngăn chặn gian lận và bảo mật",
+            "Sự đồng ý: Khi bạn đã cung cấp sự đồng ý cho các hoạt động xử lý cụ thể",
+            "Nghĩa vụ pháp lý: Khi chúng tôi được pháp luật yêu cầu xử lý dữ liệu của bạn"
+          ],
+          "subSections": {
+            "transfers": {
+              "title": "Chuyển dữ liệu quốc tế",
+              "content": "Thông tin của bạn có thể được chuyển đến và xử lý tại các quốc gia khác ngoài quốc gia cư trú của bạn. Khi chúng tôi chuyển thông tin cá nhân ra ngoài EU/UK, chúng tôi đảm bảo các biện pháp bảo vệ thích hợp được thực hiện, như Điều khoản Hợp đồng Tiêu chuẩn được Ủy ban Châu Âu phê duyệt."
+            },
+            "dpo": {
+              "title": "Nhân viên Bảo vệ Dữ liệu",
+              "content": "Nếu bạn có câu hỏi hoặc thắc mắc về thực hành dữ liệu của chúng tôi, bạn có thể liên hệ với chúng tôi tại info@aidorag.ai. Bạn cũng có quyền nộp đơn khiếu nại với cơ quan bảo vệ dữ liệu địa phương của bạn."
+            }
+          }
+        },
+        "updates": {
+          "title": "Chúng tôi có cập nhật chính sách này không?",
+          "content": "Chúng tôi có thể cập nhật Chính sách Bảo mật này theo thời gian. Phiên bản cập nhật sẽ được chỉ ra bằng ngày \"Cập nhật lần cuối\" cập nhật ở đầu trang này.\n\nChúng tôi khuyến khích bạn xem xét Chính sách Bảo mật này định kỳ để được thông báo về cách chúng tôi bảo vệ thông tin của bạn. Việc tiếp tục sử dụng Dịch vụ của chúng tôi sau bất kỳ thay đổi nào cho thấy bạn chấp nhận Chính sách Bảo mật cập nhật.\n\nNếu chúng tôi thực hiện các thay đổi quan trọng đối với Chính sách Bảo mật này, chúng tôi có thể thông báo cho bạn qua email hoặc thông qua thông báo nổi bật trên Dịch vụ của chúng tôi trước khi thay đổi có hiệu lực."
+        },
+        "contactUs": {
+          "title": "Bạn có thể liên hệ với chúng tôi về chính sách này như thế nào?",
+          "content": "Nếu bạn có câu hỏi hoặc ý kiến về Chính sách Bảo mật này, hoặc nếu bạn muốn thực hiện quyền bảo mật của mình, bạn có thể liên hệ với chúng tôi:\n\nQua email: info@aidorag.ai\n\nQua thư:\nAIDORag, Inc.\n9011 Mira Mesa BLVD # 246\nSan Diego, CA 92126\nUnited States"
+        },
+        "reviewData": {
+          "title": "Bạn có thể xem xét, cập nhật hoặc xóa dữ liệu của mình như thế nào?",
+          "content": "Dựa trên luật pháp hiện hành tại quốc gia hoặc tiểu bang cư trú của bạn, bạn có thể có quyền yêu cầu truy cập, chỉnh sửa hoặc xóa thông tin cá nhân chúng tôi thu thập từ bạn.\n\nĐể yêu cầu xem xét, cập nhật hoặc xóa thông tin cá nhân của bạn, bạn có thể:\n\n• Truy cập cài đặt tài khoản để cập nhật thông tin hồ sơ của bạn\n• Gửi yêu cầu thông qua cổng hỗ trợ của chúng tôi\n• Liên hệ với chúng tôi tại info@aidorag.ai\n\nChúng tôi sẽ phản hồi yêu cầu của bạn trong khoảng thời gian hợp lý và theo quy định của pháp luật hiện hành."
+        }
+      }
+    },
+    "terms": {
+      "badge": "Điều khoản",
+      "title": "Điều khoản dịch vụ",
+      "lastUpdated": "Cập nhật lần cuối: Tháng 1, 2026",
+      "sections": {
+        "acceptance": {
+          "title": "Chấp nhận điều khoản",
+          "content": "Bằng cách truy cập hoặc sử dụng AIDORag, bạn đồng ý bị ràng buộc bởi các Điều khoản dịch vụ này. Nếu bạn không đồng ý với các điều khoản này, vui lòng không sử dụng dịch vụ của chúng tôi."
+        },
+        "description": {
+          "title": "Mô tả dịch vụ",
+          "content": "AIDORag là nền tảng trí tuệ tài liệu được hỗ trợ bởi AI cho phép bạn tải lên tài liệu, đặt câu hỏi và nhận câu trả lời với trích dẫn nguồn. Dịch vụ của chúng tôi bao gồm xử lý tài liệu, tạo đồ thị tri thức và khả năng tìm kiếm được hỗ trợ bởi AI."
+        },
+        "accounts": {
+          "title": "Tài khoản người dùng",
+          "content": "Để sử dụng một số tính năng của dịch vụ, bạn phải tạo tài khoản. Bạn chịu trách nhiệm về:",
+          "items": ["Duy trì tính bảo mật của thông tin đăng nhập tài khoản", "Tất cả hoạt động xảy ra dưới tài khoản của bạn", "Thông báo ngay lập tức cho chúng tôi về bất kỳ sử dụng trái phép nào"]
+        },
+        "acceptableUse": {
+          "title": "Sử dụng chấp nhận được",
+          "content": "Bạn đồng ý không sử dụng dịch vụ của chúng tôi để:",
+          "items": ["Tải lên nội dung bất hợp pháp, có hại hoặc xúc phạm", "Vi phạm bất kỳ luật hoặc quy định hiện hành nào", "Xâm phạm quyền sở hữu trí tuệ", "Cố gắng truy cập trái phép vào hệ thống của chúng tôi", "Can thiệp hoặc làm gián đoạn dịch vụ"]
+        },
+        "ip": {
+          "title": "Sở hữu trí tuệ",
+          "content": "Bạn giữ quyền sở hữu tất cả tài liệu bạn tải lên. Bằng cách sử dụng dịch vụ, bạn cấp cho chúng tôi giấy phép giới hạn để xử lý tài liệu của bạn chỉ nhằm mục đích cung cấp dịch vụ. Chúng tôi không sử dụng tài liệu của bạn để huấn luyện mô hình AI mà không có sự đồng ý rõ ràng."
+        },
+        "payment": {
+          "title": "Điều khoản thanh toán",
+          "content": "Các tính năng trả phí được thanh toán trước theo tháng hoặc năm. Hoàn tiền có sẵn trong vòng 14 ngày kể từ lần mua đầu tiên cho các gói hàng năm. Chúng tôi có quyền thay đổi giá cả với thông báo trước 30 ngày."
+        },
+        "liability": {
+          "title": "Giới hạn trách nhiệm",
+          "content": "Trong phạm vi tối đa được pháp luật cho phép, AIDORag không chịu trách nhiệm về bất kỳ thiệt hại gián tiếp, ngẫu nhiên, đặc biệt, hậu quả hoặc trừng phạt nào phát sinh từ việc bạn sử dụng hoặc không thể sử dụng dịch vụ."
+        },
+        "termination": {
+          "title": "Chấm dứt",
+          "content": "Chúng tôi có thể chấm dứt hoặc tạm ngưng tài khoản của bạn bất cứ lúc nào vì vi phạm các điều khoản này. Sau khi chấm dứt, quyền sử dụng dịch vụ của bạn sẽ chấm dứt ngay lập tức. Bạn có thể xuất dữ liệu trước khi đóng tài khoản."
+        },
+        "changes": {
+          "title": "Thay đổi điều khoản",
+          "content": "Chúng tôi có quyền sửa đổi các điều khoản này bất cứ lúc nào. Chúng tôi sẽ thông báo cho người dùng về những thay đổi đáng kể qua email hoặc thông qua dịch vụ. Việc tiếp tục sử dụng dịch vụ sau khi thay đổi đồng nghĩa với việc chấp nhận các điều khoản mới."
+        },
+        "contact": {
+          "title": "Thông tin liên hệ",
+          "content": "Nếu có câu hỏi về Điều khoản dịch vụ này, vui lòng liên hệ info@aidorag.ai."
+        }
+      }
+    },
+    "cookies": {
+      "badge": "Cookies",
+      "title": "Chính sách Cookie",
+      "lastUpdated": "Cập nhật lần cuối: Tháng 1, 2026",
+      "sections": {
+        "whatAre": {
+          "title": "Cookie là gì?",
+          "content": "Cookie là các tệp văn bản nhỏ được lưu trữ trên thiết bị của bạn khi bạn truy cập trang web của chúng tôi. Chúng giúp chúng tôi cung cấp trải nghiệm tốt hơn bằng cách ghi nhớ tùy chọn của bạn và hiểu cách bạn sử dụng dịch vụ."
+        },
+        "howWeUse": {
+          "title": "Cách chúng tôi sử dụng Cookie",
+          "intro": "Chúng tôi sử dụng các loại cookie khác nhau cho các mục đích khác nhau:",
+          "types": {
+            "essential": {
+              "title": "Cookie thiết yếu",
+              "description": "Cần thiết để trang web hoạt động đúng cách. Các cookie này kích hoạt chức năng cốt lõi như bảo mật, xác thực và quản lý phiên."
+            },
+            "preference": {
+              "title": "Cookie tùy chọn",
+              "description": "Cho phép chúng tôi ghi nhớ tùy chọn của bạn như ngôn ngữ, giao diện và cài đặt hiển thị để cung cấp trải nghiệm cá nhân hóa."
+            },
+            "analytics": {
+              "title": "Cookie phân tích",
+              "description": "Giúp chúng tôi hiểu cách khách truy cập tương tác với trang web bằng cách thu thập thông tin ẩn danh về lượt truy cập trang và hành vi người dùng."
+            },
+            "marketing": {
+              "title": "Cookie tiếp thị",
+              "description": "Được sử dụng để theo dõi khách truy cập trên các trang web để hiển thị quảng cáo phù hợp. Chúng tôi không bán dữ liệu của bạn cho bên thứ ba."
+            }
+          }
+        },
+        "table": {
+          "title": "Cookie chúng tôi sử dụng",
+          "headers": {
+            "cookie": "Tên Cookie",
+            "type": "Loại",
+            "purpose": "Mục đích"
+          },
+          "purposes": {
+            "auth": "Xác thực người dùng và quản lý phiên",
+            "theme": "Ghi nhớ tùy chọn giao diện (sáng/tối)",
+            "language": "Ghi nhớ tùy chọn ngôn ngữ"
+          }
+        },
+        "managing": {
+          "title": "Quản lý Cookie",
+          "content": "Bạn có thể kiểm soát cookie thông qua cài đặt trình duyệt. Hầu hết các trình duyệt cho phép bạn:",
+          "items": ["Xem và xóa cookie hiện có", "Chặn tất cả cookie hoặc chỉ cookie của bên thứ ba", "Đặt tùy chọn cho các trang web cụ thể"],
+          "note": "Xin lưu ý rằng việc vô hiệu hóa một số cookie có thể ảnh hưởng đến chức năng của dịch vụ."
+        },
+        "thirdParty": {
+          "title": "Cookie của bên thứ ba",
+          "content": "Một số trang của chúng tôi có thể chứa nội dung từ các dịch vụ bên thứ ba thiết lập cookie riêng của họ. Bao gồm:",
+          "items": ["Google Analytics để thống kê sử dụng", "Stripe để xử lý thanh toán", "Intercom để hỗ trợ khách hàng"]
+        },
+        "updates": {
+          "title": "Cập nhật chính sách này",
+          "content": "Chúng tôi có thể cập nhật Chính sách Cookie này theo thời gian. Chúng tôi sẽ thông báo cho bạn về bất kỳ thay đổi nào bằng cách đăng chính sách mới trên trang này và cập nhật ngày 'Cập nhật lần cuối'."
+        },
+        "contact": {
+          "title": "Liên hệ chúng tôi",
+          "content": "Nếu bạn có bất kỳ câu hỏi nào về việc sử dụng cookie của chúng tôi, vui lòng liên hệ info@aidorag.ai."
+        }
+      }
+    },
+    "status": {
+      "badge": "Trạng thái hệ thống",
+      "title": "Trạng thái hệ thống",
+      "subtitle": "Trạng thái thời gian thực của tất cả dịch vụ AIDORag",
+      "allOperational": "Tất cả hệ thống hoạt động bình thường",
+      "lastUpdated": "Cập nhật lần cuối",
+      "services": "Dịch vụ hiện tại",
+      "operational": "Hoạt động",
+      "uptime": "thời gian hoạt động",
+      "serviceList": {
+        "webApp": { "name": "Ứng dụng Web", "uptime": "99.99%" },
+        "api": { "name": "Dịch vụ API", "uptime": "99.98%" },
+        "docProcessing": { "name": "Xử lý tài liệu", "uptime": "99.95%" },
+        "knowledgeGraph": { "name": "Đồ thị tri thức", "uptime": "99.97%" },
+        "database": { "name": "Cơ sở dữ liệu", "uptime": "99.99%" },
+        "storage": { "name": "Lưu trữ file", "uptime": "99.99%" }
+      },
+      "uptimeChart": {
+        "title": "Lịch sử hoạt động 90 ngày",
+        "daysAgo": "90 ngày trước",
+        "today": "Hôm nay"
+      },
+      "incidents": {
+        "title": "Sự cố đã qua",
+        "resolved": "Đã giải quyết",
+        "items": {
+          "apiLatency": {
+            "title": "Độ trễ API tăng cao",
+            "description": "Một số người dùng gặp phải thời gian phản hồi chậm hơn trên các endpoint API. Sự cố đã được xác định và giải quyết trong 30 phút.",
+            "date": "10 tháng 1, 2026 - 14:30 UTC"
+          },
+          "docDelays": {
+            "title": "Chậm xử lý tài liệu",
+            "description": "Các tài liệu lớn được tải lên gặp phải chậm trễ trong xử lý do lưu lượng cao. Đã bổ sung thêm công suất để giải quyết vấn đề.",
+            "date": "5 tháng 1, 2026 - 09:15 UTC"
+          }
+        }
+      },
+      "subscribe": {
+        "title": "Cập nhật thông tin",
+        "subtitle": "Đăng ký để nhận thông báo thời gian thực về trạng thái hệ thống và bảo trì.",
+        "placeholder": "Nhập email của bạn"
+      }
+    },
+    "press": {
+      "badge": "Báo chí",
+      "titlePrefix": "Báo chí &",
+      "title": "Truyền thông",
+      "subtitle": "Tin tức, tài nguyên và thông tin truyền thông về AIDORag",
+      "contact": {
+        "title": "Liên hệ truyền thông",
+        "description": "Cho các yêu cầu báo chí, phỏng vấn và truyền thông",
+        "email": "info@aidorag.ai"
+      },
+      "releases": {
+        "title": "Thông cáo báo chí",
+        "items": {
+          "launch": {
+            "date": "Tháng 1, 2026",
+            "title": "AIDORag Ra mắt Nền tảng Trí tuệ Tài liệu Đột phá",
+            "excerpt": "AIDORag công bố ra mắt nền tảng trí tuệ tài liệu được hỗ trợ bởi AI, với công nghệ RAG tiên tiến và khả năng đồ thị tri thức."
+          },
+          "funding": {
+            "date": "Tháng 12, 2025",
+            "title": "AIDORag Nhận Vốn Hạt giống để Tăng tốc Phát triển",
+            "excerpt": "AIDORag huy động vốn hạt giống để mở rộng đội ngũ và đẩy nhanh phát triển sản phẩm cho khách hàng doanh nghiệp."
+          },
+          "enterprise": {
+            "date": "Tháng 11, 2025",
+            "title": "AIDORag Giới thiệu Gói Doanh nghiệp với Bảo mật Nâng cao",
+            "excerpt": "Gói doanh nghiệp mới bao gồm tuân thủ SOC2, tích hợp SSO và hỗ trợ chuyên dụng cho các tổ chức lớn."
+          }
+        }
+      },
+      "videos": {
+        "title": "Video nổi bật",
+        "subtitle": "Xem demo sản phẩm, bài pitch startup và các điểm nhấn sự kiện",
+        "items": {
+          "demo": {
+            "title": "Demo sản phẩm",
+            "description": "Xem AIDORag hoạt động với hướng dẫn đầy đủ về nền tảng trí tuệ tài liệu AI của chúng tôi.",
+            "date": "Tháng 1, 2026",
+            "duration": "5:30"
+          },
+          "pitch": {
+            "title": "Pitch Startup",
+            "description": "Câu chuyện sáng lập và tầm nhìn của chúng tôi về tương lai quản lý tài liệu doanh nghiệp.",
+            "date": "Tháng 12, 2025",
+            "duration": "3:45"
+          },
+          "event": {
+            "title": "Hội nghị Công nghệ 2025",
+            "description": "Điểm nhấn từ bài thuyết trình chính của chúng tôi tại Hội nghị AI & Công nghệ Doanh nghiệp thường niên.",
+            "date": "Tháng 11, 2025",
+            "duration": "12:20"
+          }
+        }
+      },
+      "mediaKit": {
+        "title": "Bộ công cụ truyền thông",
+        "download": "Tải xuống",
+        "items": {
+          "logos": {
+            "title": "Bộ Logo",
+            "description": "Logo độ phân giải cao ở nhiều định dạng"
+          },
+          "screenshots": {
+            "title": "Ảnh chụp màn hình",
+            "description": "Ảnh chụp màn hình sản phẩm và hình ảnh UI"
+          },
+          "factSheet": {
+            "title": "Tờ thông tin",
+            "description": "Thông tin công ty và các dữ liệu quan trọng"
+          }
+        }
+      },
+      "facts": {
+        "title": "Thông tin công ty",
+        "founded": "Thành lập",
+        "users": "Người dùng hoạt động",
+        "documents": "Tài liệu đã xử lý",
+        "countries": "Quốc gia"
+      },
+      "cta": {
+        "title": "Cần thêm thông tin?",
+        "subtitle": "Liên hệ đội ngũ báo chí của chúng tôi để có thêm tài nguyên và yêu cầu phỏng vấn"
+      }
+    },
+    "gdpr": {
+      "badge": "GDPR",
+      "titlePrefix": "Tuân thủ",
+      "title": "GDPR",
+      "subtitle": "Cách AIDORag bảo vệ dữ liệu của bạn theo Quy định Bảo vệ Dữ liệu Chung",
+      "lastUpdated": "Cập nhật lần cuối: Tháng 1, 2026",
+      "commitment": {
+        "title": "Cam kết bảo vệ dữ liệu của chúng tôi",
+        "description": "AIDORag cam kết bảo vệ dữ liệu cá nhân của bạn và tôn trọng quyền riêng tư của bạn theo Quy định Bảo vệ Dữ liệu Chung (GDPR). Chúng tôi xử lý dữ liệu của bạn một cách hợp pháp, công bằng và minh bạch."
+      },
+      "rights": {
+        "title": "Quyền của bạn theo GDPR",
+        "items": {
+          "access": {
+            "title": "Quyền truy cập",
+            "description": "Bạn có thể yêu cầu bản sao tất cả dữ liệu cá nhân chúng tôi nắm giữ về bạn bất cứ lúc nào."
+          },
+          "rectification": {
+            "title": "Quyền chỉnh sửa",
+            "description": "Bạn có thể yêu cầu chỉnh sửa bất kỳ dữ liệu cá nhân không chính xác hoặc không đầy đủ."
+          },
+          "erasure": {
+            "title": "Quyền xóa",
+            "description": "Bạn có thể yêu cầu xóa dữ liệu cá nhân trong một số trường hợp nhất định."
+          },
+          "restriction": {
+            "title": "Quyền hạn chế",
+            "description": "Bạn có thể yêu cầu chúng tôi hạn chế việc xử lý dữ liệu cá nhân của bạn."
+          },
+          "portability": {
+            "title": "Quyền chuyển đổi",
+            "description": "Bạn có thể yêu cầu dữ liệu của mình ở định dạng có cấu trúc, có thể đọc được bằng máy."
+          },
+          "objection": {
+            "title": "Quyền phản đối",
+            "description": "Bạn có thể phản đối việc xử lý dữ liệu cá nhân cho một số mục đích nhất định."
+          }
+        }
+      },
+      "principles": {
+        "title": "Nguyên tắc xử lý dữ liệu",
+        "items": {
+          "lawfulness": {
+            "title": "Tính hợp pháp, công bằng & minh bạch",
+            "description": "Chúng tôi xử lý dữ liệu một cách hợp pháp, công bằng và minh bạch."
+          },
+          "limitation": {
+            "title": "Giới hạn mục đích",
+            "description": "Chúng tôi chỉ thu thập dữ liệu cho các mục đích cụ thể, rõ ràng và hợp pháp."
+          },
+          "minimization": {
+            "title": "Tối thiểu hóa dữ liệu",
+            "description": "Chúng tôi chỉ thu thập dữ liệu đầy đủ, liên quan và giới hạn ở mức cần thiết."
+          },
+          "accuracy": {
+            "title": "Độ chính xác",
+            "description": "Chúng tôi giữ dữ liệu cá nhân chính xác và cập nhật."
+          },
+          "storage": {
+            "title": "Giới hạn lưu trữ",
+            "description": "Chúng tôi chỉ lưu giữ dữ liệu trong thời gian cần thiết cho mục đích dự định."
+          },
+          "security": {
+            "title": "Tính toàn vẹn & bảo mật",
+            "description": "Chúng tôi đảm bảo bảo mật phù hợp cho dữ liệu cá nhân thông qua các biện pháp kỹ thuật."
+          }
+        }
+      },
+      "transfer": {
+        "title": "Chuyển dữ liệu quốc tế",
+        "description": "Khi chúng tôi chuyển dữ liệu của bạn ra ngoài EEA, chúng tôi đảm bảo bảo vệ đầy đủ thông qua:",
+        "items": {
+          "scc": "Điều khoản hợp đồng tiêu chuẩn (SCCs)",
+          "adequacy": "Quyết định đầy đủ của Ủy ban châu Âu",
+          "encryption": "Các biện pháp mã hóa và bảo mật tiên tiến nhất"
+        }
+      },
+      "contact": {
+        "title": "Cán bộ bảo vệ dữ liệu",
+        "description": "Để biết bất kỳ câu hỏi liên quan đến GDPR hoặc thực hiện quyền của bạn, vui lòng liên hệ Cán bộ bảo vệ dữ liệu của chúng tôi.",
+        "emailDpo": "Liên hệ DPO",
+        "viewPrivacy": "Xem chính sách bảo mật"
+      }
+    },
+    "security": {
+      "badge": "Bảo mật",
+      "titlePrefix": "Bảo mật",
+      "title": "Doanh nghiệp",
+      "subtitle": "Bảo mật dữ liệu của bạn là ưu tiên hàng đầu. Tìm hiểu về các biện pháp bảo mật toàn diện của chúng tôi.",
+      "trust": {
+        "title": "Sự tin tưởng của bạn là ưu tiên của chúng tôi",
+        "description": "AIDORag triển khai các biện pháp bảo mật hàng đầu trong ngành để bảo vệ dữ liệu của bạn. Chúng tôi cam kết duy trì các tiêu chuẩn cao nhất về bảo vệ dữ liệu và quyền riêng tư với bảo mật cấp doanh nghiệp ở mọi lớp."
+      },
+      "features": {
+        "title": "Tính năng bảo mật",
+        "items": {
+          "encryption": {
+            "title": "Mã hóa đầu cuối",
+            "description": "Tất cả dữ liệu được mã hóa khi lưu trữ bằng AES-256 và khi truyền tải bằng TLS 1.3."
+          },
+          "authentication": {
+            "title": "Xác thực đa yếu tố",
+            "description": "Bảo mật tài khoản của bạn với MFA sử dụng ứng dụng xác thực hoặc khóa phần cứng."
+          },
+          "infrastructure": {
+            "title": "Cơ sở hạ tầng an toàn",
+            "description": "Được lưu trữ trên cơ sở hạ tầng đám mây cấp doanh nghiệp với SLA thời gian hoạt động 99.99%."
+          },
+          "monitoring": {
+            "title": "Giám sát 24/7",
+            "description": "Giám sát bảo mật và phát hiện mối đe dọa liên tục trên tất cả hệ thống."
+          },
+          "access": {
+            "title": "Kiểm soát truy cập",
+            "description": "Kiểm soát truy cập dựa trên vai trò (RBAC) với quản lý quyền chi tiết."
+          },
+          "compliance": {
+            "title": "Tiêu chuẩn tuân thủ",
+            "description": "Được chứng nhận SOC2 Type II với kiểm toán bảo mật định kỳ từ bên thứ ba."
+          }
+        }
+      },
+      "certifications": {
+        "title": "Chứng nhận & Tuân thủ",
+        "items": {
+          "soc2": {
+            "title": "SOC2 Type II",
+            "status": "Đã chứng nhận"
+          },
+          "gdpr": {
+            "title": "GDPR",
+            "status": "Tuân thủ"
+          },
+          "iso27001": {
+            "title": "ISO 27001",
+            "status": "Đã chứng nhận"
+          },
+          "hipaa": {
+            "title": "HIPAA",
+            "status": "Sẵn sàng"
+          }
+        }
+      },
+      "dataProtection": {
+        "title": "Bảo vệ dữ liệu",
+        "items": {
+          "atRest": {
+            "title": "Mã hóa khi lưu trữ",
+            "description": "Tất cả dữ liệu được lưu trữ được mã hóa bằng AES-256 với quản lý khóa an toàn."
+          },
+          "inTransit": {
+            "title": "Mã hóa khi truyền tải",
+            "description": "Tất cả truyền tải dữ liệu sử dụng TLS 1.3 để đảm bảo giao tiếp an toàn giữa các hệ thống."
+          },
+          "backup": {
+            "title": "Sao lưu an toàn",
+            "description": "Sao lưu mã hóa tự động với khả năng khôi phục theo thời điểm và dự phòng địa lý."
+          }
+        }
+      },
+      "vulnerability": {
+        "title": "Tiết lộ lỗ hổng",
+        "description": "Chúng tôi rất coi trọng các lỗ hổng bảo mật. Nếu bạn phát hiện vấn đề bảo mật, vui lòng báo cáo có trách nhiệm cho đội ngũ bảo mật của chúng tôi.",
+        "report": "Báo cáo lỗ hổng"
+      },
+      "cta": {
+        "title": "Có câu hỏi về bảo mật?",
+        "subtitle": "Đội ngũ bảo mật của chúng tôi sẵn sàng trả lời câu hỏi và cung cấp tài liệu bổ sung.",
+        "viewPrivacy": "Xem chính sách bảo mật"
+      }
+    },
+    "tutorials": {
+      "badge": "Hướng dẫn",
+      "titleStart": "Học cách sử dụng",
+      "titleHighlight": "AIDORag",
+      "subtitle": "Hướng dẫn từng bước để giúp bạn khai thác tối đa AIDORag",
+      "categories": {
+        "all": "Tất cả",
+        "gettingStarted": "Bắt đầu",
+        "advanced": "Nâng cao",
+        "integrations": "Tích hợp"
+      },
+      "items": {
+        "gettingStarted": {
+          "category": "Bắt đầu",
+          "level": "Cơ bản",
+          "levelKey": "beginner",
+          "title": "Bắt đầu với AIDORag",
+          "description": "Tìm hiểu cách tạo tài khoản và tải lên tài liệu đầu tiên của bạn.",
+          "duration": "5 phút"
+        },
+        "queryModes": {
+          "category": "Chế độ truy vấn",
+          "level": "Trung cấp",
+          "levelKey": "intermediate",
+          "title": "Hiểu về các chế độ truy vấn",
+          "description": "Tìm hiểu sâu về 5 chế độ truy vấn: Naive, Local, Global, Hybrid và Mix.",
+          "duration": "10 phút"
+        },
+        "knowledgeGraph": {
+          "category": "Đồ thị tri thức",
+          "level": "Trung cấp",
+          "levelKey": "intermediate",
+          "title": "Xây dựng đồ thị tri thức",
+          "description": "Tìm hiểu cách sử dụng tính năng đồ thị tri thức để trực quan hóa mối quan hệ thực thể.",
+          "duration": "15 phút"
+        },
+        "apiIntegration": {
+          "category": "API",
+          "level": "Nâng cao",
+          "levelKey": "advanced",
+          "title": "Hướng dẫn tích hợp API",
+          "description": "Tích hợp AIDORag vào ứng dụng của bạn bằng REST API.",
+          "duration": "20 phút"
+        },
+        "optimization": {
+          "category": "Hiệu suất",
+          "level": "Nâng cao",
+          "levelKey": "advanced",
+          "title": "Mẹo tối ưu hóa",
+          "description": "Các phương pháp tốt nhất để tối ưu hóa xử lý tài liệu và hiệu suất truy vấn.",
+          "duration": "12 phút"
+        },
+        "slackSetup": {
+          "category": "Tích hợp",
+          "level": "Cơ bản",
+          "levelKey": "beginner",
+          "title": "Thiết lập tích hợp Slack",
+          "description": "Kết nối AIDORag với Slack để cộng tác nhóm liền mạch.",
+          "duration": "8 phút"
+        }
+      },
+      "needHelp": {
+        "title": "Cần thêm trợ giúp?",
+        "subtitle": "Không tìm thấy những gì bạn cần? Xem tài liệu hoặc tham gia cộng đồng của chúng tôi."
+      }
+    },
+    "tutorialDetail": {
+      "backToTutorials": "Quay lại hướng dẫn",
+      "nextTutorial": "Hướng dẫn tiếp theo",
+      "prevTutorial": "Hướng dẫn trước",
+      "allTutorials": "Tất cả hướng dẫn",
+      "gettingStarted": {
+        "title": "Bắt đầu với AIDORag",
+        "description": "Tìm hiểu cách tạo tài khoản và tải lên tài liệu đầu tiên chỉ trong vài phút.",
+        "step1": {
+          "title": "Tạo tài khoản",
+          "content": "Đăng ký tài khoản AIDORag miễn phí để bắt đầu. Bạn sẽ có quyền truy cập ngay vào tất cả các tính năng cơ bản.",
+          "items": ["Truy cập trang đăng ký", "Nhập email và mật khẩu", "Xác minh địa chỉ email"]
+        },
+        "step2": {
+          "title": "Khám phá bảng điều khiển",
+          "content": "Sau khi đăng nhập, bạn sẽ thấy bảng điều khiển với ba phần chính:",
+          "upload": { "title": "Tải lên", "desc": "Tải lên tài liệu của bạn" },
+          "search": { "title": "Tìm kiếm", "desc": "Truy vấn cơ sở tri thức" },
+          "chat": { "title": "Trò chuyện", "desc": "Trò chuyện với tài liệu" }
+        },
+        "step3": {
+          "title": "Tải lên tài liệu đầu tiên",
+          "content": "Nhấp vào nút tải lên để thêm tài liệu đầu tiên. Chúng tôi hỗ trợ PDF, DOCX, TXT và nhiều định dạng khác. Tài liệu sẽ tự động được xử lý và lập chỉ mục để tìm kiếm."
+        }
+      },
+      "queryModes": {
+        "title": "Hiểu về các chế độ truy vấn",
+        "description": "Tìm hiểu về 5 chế độ truy vấn khác nhau trong AIDORag và khi nào nên sử dụng từng chế độ.",
+        "intro": {
+          "title": "Chế độ truy vấn là gì?",
+          "content": "AIDORag cung cấp 5 chế độ truy vấn khác nhau, mỗi chế độ được tối ưu cho các loại câu hỏi và trường hợp sử dụng khác nhau. Chọn đúng chế độ có thể cải thiện đáng kể kết quả."
+        },
+        "bestFor": "Tốt nhất cho",
+        "modes": {
+          "naive": {
+            "title": "Chế độ Naive",
+            "description": "Tìm kiếm dựa trên từ khóa đơn giản, nhanh chóng tìm ra các kết quả khớp chính xác.",
+            "bestFor": "Tìm kiếm các thuật ngữ, tên hoặc cụm từ chính xác"
+          },
+          "local": {
+            "title": "Chế độ Local",
+            "description": "Tìm kiếm trong các phần cụ thể của tài liệu để có câu trả lời chi tiết, nhận biết ngữ cảnh.",
+            "bestFor": "Câu hỏi chi tiết về các chủ đề cụ thể"
+          },
+          "global": {
+            "title": "Chế độ Global",
+            "description": "Tìm kiếm trên toàn bộ cơ sở tri thức để tìm câu trả lời toàn diện.",
+            "bestFor": "Câu hỏi rộng trải rộng nhiều tài liệu"
+          },
+          "hybrid": {
+            "title": "Chế độ Hybrid",
+            "description": "Kết hợp tìm kiếm từ khóa và ngữ nghĩa để có kết quả tốt nhất.",
+            "bestFor": "Truy vấn đa mục đích với độ chính xác cao"
+          },
+          "mix": {
+            "title": "Chế độ Mix",
+            "description": "Kết hợp thông minh tất cả các chế độ để cung cấp kết quả phù hợp nhất.",
+            "bestFor": "Truy vấn phức tạp cần nhiều góc nhìn"
+          }
+        },
+        "tips": {
+          "title": "Mẹo chuyên nghiệp",
+          "content": "Bắt đầu với chế độ Hybrid cho hầu hết các truy vấn. Sử dụng Naive cho khớp chính xác, Global cho nghiên cứu rộng, và Mix khi bạn cần kết quả toàn diện từ nhiều góc độ."
+        }
+      },
+      "knowledgeGraph": {
+        "title": "Xây dựng đồ thị tri thức",
+        "description": "Tìm hiểu cách sử dụng tính năng đồ thị tri thức để trực quan hóa và khám phá mối quan hệ thực thể trong tài liệu.",
+        "demo": "Demo đồ thị tri thức tương tác",
+        "intro": {
+          "title": "Đồ thị tri thức là gì?",
+          "content": "Đồ thị tri thức tự động trích xuất các thực thể (người, tổ chức, khái niệm) và mối quan hệ của chúng từ tài liệu, tạo ra một bản đồ trực quan của cơ sở tri thức."
+        },
+        "features": {
+          "entityDetection": {
+            "title": "Phát hiện thực thể",
+            "description": "AI tự động nhận dạng và phân loại các thực thể như người, tổ chức, địa điểm và khái niệm."
+          },
+          "relationMapping": {
+            "title": "Ánh xạ mối quan hệ",
+            "description": "Khám phá các kết nối giữa các thực thể trên tất cả tài liệu của bạn."
+          },
+          "visualization": {
+            "title": "Khám phá trực quan",
+            "description": "Giao diện đồ thị tương tác để khám phá cơ sở tri thức một cách trực quan."
+          },
+          "graphQuery": {
+            "title": "Truy vấn đồ thị",
+            "description": "Đặt câu hỏi phức tạp về mối quan hệ và kết nối trong dữ liệu."
+          }
+        },
+        "howToUse": {
+          "title": "Cách sử dụng",
+          "content": "Điều hướng đến trang Khám phá từ bảng điều khiển. Tải lên tài liệu và chờ xử lý. Đồ thị tri thức sẽ tự động được tạo và bạn có thể nhấp vào các nút để khám phá mối quan hệ."
+        }
+      },
+      "apiIntegration": {
+        "title": "Hướng dẫn tích hợp API",
+        "description": "Tìm hiểu cách tích hợp AIDORag vào ứng dụng của bạn bằng REST API toàn diện.",
+        "codeExample": "Mã ví dụ",
+        "steps": {
+          "setup": {
+            "title": "Lấy API Key",
+            "content": "Điều hướng đến Cài đặt > API Keys trong bảng điều khiển. Nhấp 'Tạo Key mới' và đặt tên mô tả. Sao chép key và lưu trữ an toàn."
+          },
+          "authenticate": {
+            "title": "Xác thực yêu cầu",
+            "content": "Bao gồm API key trong header Authorization của mỗi yêu cầu: 'Authorization: Bearer YOUR_API_KEY'"
+          },
+          "query": {
+            "title": "Thực hiện truy vấn đầu tiên",
+            "content": "Sử dụng endpoint /api/query để tìm kiếm tài liệu. Chỉ định chế độ truy vấn, giới hạn và câu hỏi trong body yêu cầu."
+          },
+          "handle": {
+            "title": "Xử lý phản hồi",
+            "content": "Phân tích phản hồi JSON để lấy kết quả. Mỗi kết quả bao gồm câu trả lời, trích dẫn nguồn và điểm tin cậy."
+          }
+        },
+        "features": {
+          "rest": "RESTful API",
+          "restDesc": "Các endpoint REST tiêu chuẩn cho tất cả hoạt động",
+          "auth": "Xác thực bảo mật",
+          "authDesc": "Xác thực API key với giới hạn tốc độ",
+          "webhooks": "Webhooks",
+          "webhooksDesc": "Thông báo sự kiện thời gian thực"
+        }
+      },
+      "optimization": {
+        "title": "Mẹo tối ưu hóa",
+        "description": "Các phương pháp tốt nhất để tối ưu hóa xử lý tài liệu và hiệu suất truy vấn trong AIDORag.",
+        "intro": {
+          "title": "Tại sao cần tối ưu?",
+          "content": "Tối ưu hóa đúng cách có thể cải thiện đáng kể độ chính xác truy vấn, giảm thời gian phản hồi và giúp bạn khai thác tối đa gói đăng ký AIDORag."
+        },
+        "tips": {
+          "chunking": {
+            "title": "Phân đoạn tài liệu",
+            "description": "Cách bạn chuẩn bị và tải lên tài liệu ảnh hưởng đến chất lượng tìm kiếm.",
+            "items": ["Chia tài liệu lớn thành các phần logic", "Sử dụng định dạng nhất quán", "Bao gồm tiêu đề và cấu trúc rõ ràng"]
+          },
+          "indexing": {
+            "title": "Chiến lược lập chỉ mục",
+            "description": "Tổ chức tài liệu để truy xuất tốt hơn.",
+            "items": ["Nhóm tài liệu liên quan vào bộ sưu tập", "Sử dụng tên file mô tả", "Thêm tag metadata khi tải lên"]
+          },
+          "querying": {
+            "title": "Tối ưu truy vấn",
+            "description": "Viết truy vấn tốt hơn để có kết quả chính xác hơn.",
+            "items": ["Cụ thể trong câu hỏi", "Sử dụng chế độ truy vấn phù hợp", "Bao gồm ngữ cảnh cho câu hỏi tiếp theo"]
+          },
+          "caching": {
+            "title": "Caching & Hiệu suất",
+            "description": "Tận dụng caching để phản hồi nhanh hơn.",
+            "items": ["Tái sử dụng phiên chat cho câu hỏi liên quan", "Sử dụng streaming cho phản hồi dài", "Gộp các truy vấn tương tự"]
+          }
+        },
+        "bestPractices": {
+          "title": "Tổng kết các phương pháp tốt nhất",
+          "content": "Giữ tài liệu có cấu trúc tốt, chọn chế độ truy vấn phù hợp và tận dụng caching cho các câu hỏi thường gặp. Theo dõi phân tích sử dụng để xác định cơ hội tối ưu."
+        }
+      },
+      "slackSetup": {
+        "title": "Thiết lập tích hợp Slack",
+        "description": "Kết nối AIDORag với Slack để truy vấn tài liệu trực tiếp từ các kênh nhóm.",
+        "intro": {
+          "title": "Tại sao tích hợp Slack?",
+          "content": "Với tích hợp Slack, nhóm của bạn có thể truy vấn AIDORag trực tiếp từ bất kỳ kênh Slack nào, giúp truy cập tri thức tức thì và cộng tác."
+        },
+        "steps": {
+          "install": {
+            "title": "Cài đặt ứng dụng",
+            "content": "Đi đến Cài đặt > Tích hợp trong bảng điều khiển AIDORag và nhấp 'Thêm vào Slack'. Cho phép ứng dụng trong workspace Slack."
+          },
+          "authorize": {
+            "title": "Cấp quyền",
+            "content": "Xem xét và phê duyệt các quyền cần thiết. AIDORag cần quyền đọc tin nhắn trong các kênh được mời và gửi phản hồi."
+          },
+          "configure": {
+            "title": "Cấu hình kênh",
+            "content": "Chọn kênh Slack nào AIDORag sẽ hoạt động. Bạn cũng có thể thiết lập triggers và định dạng phản hồi tùy chỉnh."
+          },
+          "test": {
+            "title": "Kiểm tra tích hợp",
+            "content": "Mời @AIDORag vào kênh và thử truy vấn như '@AIDORag chính sách hoàn tiền của chúng tôi là gì?' để kiểm tra."
+          }
+        },
+        "features": {
+          "channels": "Hỗ trợ kênh",
+          "channelsDesc": "Hoạt động trong bất kỳ kênh công khai hoặc riêng tư",
+          "security": "Truy cập bảo mật",
+          "securityDesc": "Tôn trọng quyền truy cập tài liệu",
+          "instant": "Phản hồi tức thì",
+          "instantDesc": "Nhận câu trả lời trong vài giây"
+        },
+        "tips": {
+          "title": "Mẹo để có kết quả tốt nhất",
+          "items": ["Bắt đầu truy vấn với @AIDORag", "Cụ thể trong câu hỏi để có độ chính xác cao hơn", "Sử dụng trả lời theo thread cho câu hỏi tiếp theo"]
+        }
+      }
+    }
+  },
+  "landing": {
+    "pricing": {
+      "badge": "Bảng giá",
+      "titleStart": "Đơn giản, Minh bạch",
+      "titleHighlight": "Bảng giá",
+      "subtitle": "Chọn gói phù hợp với nhu cầu của bạn. Tất cả các gói đều bao gồm 14 ngày dùng thử miễn phí.",
+      "monthly": "Hàng tháng",
+      "yearly": "Hàng năm",
+      "save20": "Tiết kiệm 20%",
+      "year": "năm",
+      "mo": "tháng",
+      "billedAnnually": "khi thanh toán hàng năm",
+      "popular": "Phổ biến nhất",
+      "bottomNote": "Tất cả các gói đều bao gồm mã hóa SSL, SLA thời gian hoạt động 99.9% và tuân thủ GDPR.",
+      "plans": {
+        "free": {
+          "name": "Miễn phí",
+          "description": "Hoàn hảo để dùng thử AIDORag",
+          "features": ["5 tài liệu", "100 truy vấn/tháng", "Tìm kiếm RAG cơ bản", "Hỗ trợ cộng đồng"],
+          "cta": "Bắt đầu"
+        },
+        "starter": {
+          "name": "Starter",
+          "description": "Cho cá nhân và đội nhóm nhỏ",
+          "features": ["50 tài liệu", "1.000 truy vấn/tháng", "Tất cả 5 chế độ truy vấn", "Đồ thị tri thức", "Hỗ trợ qua email"],
+          "cta": "Đăng ký"
+        },
+        "pro": {
+          "name": "Pro",
+          "description": "Cho đội nhóm và doanh nghiệp đang phát triển",
+          "features": ["500 tài liệu", "10.000 truy vấn/tháng", "Tất cả 5 chế độ truy vấn", "Đồ thị tri thức nâng cao", "Truy cập API", "Hỗ trợ ưu tiên", "Tích hợp tùy chỉnh"],
+          "cta": "Đăng ký"
+        },
+        "business": {
+          "name": "Business",
+          "description": "Cho doanh nghiệp có nhu cầu tùy chỉnh",
+          "features": ["Không giới hạn tài liệu", "Không giới hạn truy vấn", "Tất cả tính năng Pro", "SSO & SAML", "Hỗ trợ chuyên dụng", "Đảm bảo SLA", "Triển khai tùy chỉnh", "Đào tạo & hướng dẫn"],
+          "cta": "Đăng ký"
+        }
+      }
+    },
+    "testimonials": {
+      "badge": "Đánh giá",
+      "titleStart": "Được yêu thích bởi",
+      "titleHighlight": "các đội nhóm toàn cầu",
+      "subtitle": "Xem khách hàng của chúng tôi nói gì về việc chuyển đổi quy trình làm việc tài liệu của họ",
+      "at": "tại",
+      "stats": {
+        "rating": "Đánh giá trung bình",
+        "users": "Người dùng hài lòng",
+        "clients": "Khách hàng doanh nghiệp",
+        "satisfaction": "Tỷ lệ hài lòng"
+      },
+      "items": [
+        {
+          "quote": "AIDORag đã thay đổi cách chúng tôi xử lý tài liệu pháp lý. Tính năng đồ thị tri thức là bước đột phá để tìm ra những kết nối mà chúng tôi chưa bao giờ biết tồn tại.",
+          "author": "Sarah Chen",
+          "role": "Giám đốc Pháp lý",
+          "company": "TechCorp Inc."
+        },
+        {
+          "quote": "Chúng tôi đã giảm 80% thời gian nghiên cứu kể từ khi triển khai AIDORag. Độ chính xác trích dẫn thật đáng kinh ngạc - chính xác những gì chúng tôi cần cho công việc học thuật.",
+          "author": "TS. Michael Roberts",
+          "role": "Trưởng nhóm Nghiên cứu",
+          "company": "Stanford University"
+        },
+        {
+          "quote": "Hỗ trợ đa phương tiện thật tuyệt vời. Chúng tôi có thể tải lên PDF, bài thuyết trình và hình ảnh tất cả trong một nơi. AI hiểu ngữ cảnh qua tất cả các định dạng.",
+          "author": "Emily Watson",
+          "role": "Quản lý Sản phẩm",
+          "company": "Innovation Labs"
+        },
+        {
+          "quote": "Giải pháp RAG tốt nhất mà chúng tôi đã thử nghiệm. 5 chế độ truy vấn mang lại sự linh hoạt mà các công cụ khác đơn giản là không có. Rất khuyến nghị cho doanh nghiệp.",
+          "author": "James Liu",
+          "role": "CTO",
+          "company": "DataFlow Systems"
+        }
+      ]
+    },
+    "faq": {
+      "badge": "FAQ",
+      "titleStart": "Câu hỏi",
+      "titleHighlight": "thường gặp",
+      "subtitle": "Mọi thứ bạn cần biết về AIDORag",
+      "stillHaveQuestions": "Vẫn còn câu hỏi?",
+      "contactSupport": "Liên hệ đội ngũ hỗ trợ của chúng tôi",
+      "items": [
+        {
+          "question": "AIDORag hỗ trợ những định dạng file nào?",
+          "answer": "AIDORag hỗ trợ nhiều định dạng bao gồm PDF, DOCX, PPTX, XLSX, TXT, hình ảnh (PNG, JPG, WebP), file âm thanh (MP3, WAV) và file video (MP4). AI của chúng tôi có thể trích xuất và phân tích nội dung từ tất cả các định dạng này."
+        },
+        {
+          "question": "Đồ thị Tri thức hoạt động như thế nào?",
+          "answer": "AI của chúng tôi tự động trích xuất các thực thể (người, tổ chức, khái niệm, địa điểm) và mối quan hệ của chúng từ tài liệu của bạn. Điều này tạo ra một đồ thị kết nối giúp bạn khám phá các kết nối ẩn và nhận được câu trả lời toàn diện hơn cho các câu hỏi của bạn."
+        },
+        {
+          "question": "5 Chế độ Truy vấn là gì?",
+          "answer": "5 chế độ truy vấn là: Naive (tìm kiếm từ khóa đơn giản), Local (tìm kiếm trong các tài liệu cụ thể), Global (tìm kiếm trên tất cả tài liệu), Hybrid (kết hợp local và global), và Mix (chế độ được khuyến nghị sử dụng AI để chọn phương pháp tốt nhất cho mỗi truy vấn)."
+        },
+        {
+          "question": "Dữ liệu của tôi có an toàn không?",
+          "answer": "Hoàn toàn. Chúng tôi sử dụng bảo mật cấp doanh nghiệp bao gồm mã hóa AES-256 khi lưu trữ, TLS 1.3 cho dữ liệu đang truyền, tuân thủ SOC2 Type II và tuân thủ GDPR. Dữ liệu của bạn không bao giờ được sử dụng để đào tạo mô hình của chúng tôi, và bạn vẫn giữ toàn quyền sở hữu."
+        },
+        {
+          "question": "Tôi có thể tích hợp AIDORag với các công cụ hiện tại không?",
+          "answer": "Có! Chúng tôi cung cấp REST API toàn diện, webhooks và tích hợp native với các công cụ phổ biến như Slack, Microsoft Teams, Notion và Google Workspace. Các gói Enterprise cũng bao gồm hỗ trợ tích hợp tùy chỉnh."
+        },
+        {
+          "question": "Điều gì xảy ra nếu tôi vượt quá giới hạn gói?",
+          "answer": "Chúng tôi sẽ thông báo cho bạn khi bạn sắp đạt đến giới hạn. Bạn có thể nâng cấp gói của mình bất cứ lúc nào hoặc mua thêm dung lượng. Chúng tôi không bao giờ xóa dữ liệu của bạn nếu bạn vượt quá giới hạn - bạn chỉ không thể thêm tài liệu mới cho đến khi nâng cấp."
+        },
+        {
+          "question": "Bạn có cung cấp bản dùng thử miễn phí không?",
+          "answer": "Có! Tất cả các gói trả phí đều bao gồm 14 ngày dùng thử miễn phí với quyền truy cập đầy đủ vào tất cả các tính năng. Không cần thẻ tín dụng để bắt đầu. Bạn cũng có thể sử dụng gói Miễn phí của chúng tôi vô thời hạn với các tính năng giới hạn."
+        },
+        {
+          "question": "Độ chính xác của trích dẫn như thế nào?",
+          "answer": "Hệ thống trích dẫn của chúng tôi cung cấp số trang và tham chiếu phần chính xác cho mỗi câu trả lời. Chúng tôi sử dụng các kỹ thuật truy xuất tiên tiến để đảm bảo trích dẫn chính xác và có thể xác minh. Người dùng Enterprise báo cáo độ chính xác trích dẫn hơn 99%."
+        }
+      ]
+    },
+    "cta": {
+      "badge": "Bắt đầu dùng thử miễn phí ngay hôm nay",
+      "titleStart": "Sẵn sàng Biến đổi",
+      "titleHighlight": "Quy trình Tài liệu của bạn?",
+      "subtitle": "Tham gia hàng nghìn đội nhóm đang sử dụng AIDORag để khám phá thông tin từ tài liệu của họ. Bắt đầu trong vài phút với gói miễn phí của chúng tôi.",
+      "primaryButton": "Bắt đầu miễn phí",
+      "secondaryButton": "Xem Demo",
+      "noCard": "Không cần thẻ tín dụng",
+      "freeTrial": "14 ngày dùng thử miễn phí",
+      "cancelAnytime": "Hủy bất cứ lúc nào"
+    },
+    "footer": {
+      "description": "Biến đổi tài liệu của bạn thành tri thức có thể tìm kiếm, thông minh với công nghệ RAG tiên tiến.",
+      "allRightsReserved": "Bảo lưu mọi quyền.",
+      "systemsOperational": "Tất cả hệ thống hoạt động bình thường",
+      "sections": {
+        "product": "Sản phẩm",
+        "company": "Công ty",
+        "resources": "Tài nguyên",
+        "legal": "Pháp lý"
+      },
+      "product": {
+        "features": "Tính năng",
+        "pricing": "Bảng giá",
+        "howItWorks": "Cách hoạt động",
+        "apiDocs": "Tài liệu API",
+        "changelog": "Nhật ký thay đổi"
+      },
+      "company": {
+        "about": "Về chúng tôi",
+        "blog": "Blog",
+        "careers": "Tuyển dụng",
+        "contact": "Liên hệ",
+        "pressKit": "Bộ báo chí"
+      },
+      "resources": {
+        "documentation": "Tài liệu",
+        "tutorials": "Hướng dẫn",
+        "community": "Cộng đồng",
+        "support": "Hỗ trợ",
+        "status": "Trạng thái"
+      },
+      "legal": {
+        "privacy": "Chính sách bảo mật",
+        "terms": "Điều khoản dịch vụ",
+        "cookies": "Chính sách Cookie",
+        "gdpr": "GDPR",
+        "security": "Bảo mật"
+      }
+    }
+  },
+  "pricingPage": {
+    "badge": "Bảng giá",
+    "titleStart": "Đơn giản, Minh bạch",
+    "titleHighlight": "Bảng giá",
+    "subtitle": "Chọn gói phù hợp với nhu cầu của bạn. Tất cả các gói đều bao gồm 14 ngày dùng thử miễn phí.",
+    "monthly": "Hàng tháng",
+    "yearly": "Hàng năm",
+    "save20": "Tiết kiệm 20%",
+    "year": "năm",
+    "mo": "tháng",
+    "oneTime": " mãi mãi",
+    "billedAnnually": "thanh toán hàng năm",
+    "popular": "Phổ biến nhất",
+    "contactSales": "Liên hệ bán hàng",
+    "bottomNote": "Tất cả các gói đều bao gồm mã hóa SSL, SLA thời gian hoạt động 99.9% và tuân thủ GDPR.",
+    "plans": {
+      "free": {
+        "name": "Miễn phí",
+        "description": "Hoàn hảo để dùng thử AIDORag",
+        "features": ["5 tài liệu", "100 truy vấn/tháng", "50 MB lưu trữ", "Tìm kiếm RAG cơ bản", "Hỗ trợ cộng đồng"],
+        "cta": "Bắt đầu"
+      },
+      "starter": {
+        "name": "Starter",
+        "description": "Cho cá nhân và đội nhóm nhỏ",
+        "features": ["50 tài liệu", "1.000 truy vấn/tháng", "1 GB lưu trữ", "Tất cả 5 chế độ truy vấn", "Đồ thị tri thức", "1 chatbot widget", "Hỗ trợ qua email"],
+        "cta": "Đăng ký"
+      },
+      "pro": {
+        "name": "Pro",
+        "description": "Cho đội nhóm và doanh nghiệp đang phát triển",
+        "features": ["200 tài liệu", "5.000 truy vấn/tháng", "5 GB lưu trữ", "Tất cả 5 chế độ truy vấn", "Đồ thị tri thức nâng cao", "5 chatbot widgets", "Truy cập API", "3 thành viên nhóm", "Hỗ trợ ưu tiên"],
+        "cta": "Đăng ký"
+      },
+      "business": {
+        "name": "Business",
+        "description": "Cho doanh nghiệp có nhu cầu tùy chỉnh",
+        "features": ["1.000 tài liệu", "20.000 truy vấn/tháng", "20 GB lưu trữ", "Tất cả tính năng Pro", "100 chatbot widgets", "Thương hiệu riêng (White-label)", "10 thành viên nhóm", "Hỗ trợ chuyên dụng", "Đảm bảo SLA"],
+        "cta": "Đăng ký"
+      }
+    },
+    "comparison": {
+      "title": "So sánh tính năng",
+      "feature": "Tính năng",
+      "features": {
+        "documents": "Tài liệu",
+        "queries": "Truy vấn/tháng",
+        "storage": "Dung lượng",
+        "ragModes": "Chế độ RAG",
+        "knowledgeGraph": "Đồ thị tri thức",
+        "chatbotWidgets": "Chatbot Widgets",
+        "chatbotBranding": "Thương hiệu Chatbot",
+        "chatbotDomains": "Tên miền cho phép",
+        "chatbotAnalytics": "Phân tích Widget",
+        "apiAccess": "Truy cập API",
+        "teamMembers": "Thành viên nhóm",
+        "support": "Hỗ trợ",
+        "customBranding": "Thương hiệu tùy chỉnh",
+        "webhooks": "Webhooks",
+        "sla": "SLA"
+      },
+      "values": {
+        "free": {
+          "documents": "5",
+          "queries": "100",
+          "storage": "50 MB",
+          "ragModes": "Cơ bản",
+          "knowledgeGraph": "false",
+          "apiAccess": "false",
+          "teamMembers": "-",
+          "support": "Cộng đồng",
+          "customBranding": "false",
+          "webhooks": "false",
+          "sla": "false",
+          "chatbotWidgets": "-",
+          "chatbotBranding": "-",
+          "chatbotDomains": "-",
+          "chatbotAnalytics": "-"
+        },
+        "starter": {
+          "documents": "50",
+          "queries": "1.000",
+          "storage": "1 GB",
+          "ragModes": "Tất cả 5",
+          "knowledgeGraph": "true",
+          "apiAccess": "false",
+          "teamMembers": "-",
+          "support": "Email",
+          "customBranding": "false",
+          "webhooks": "false",
+          "sla": "false",
+          "chatbotWidgets": "1",
+          "chatbotBranding": "Powered by AIDORag",
+          "chatbotDomains": "1",
+          "chatbotAnalytics": "Cơ bản"
+        },
+        "pro": {
+          "documents": "200",
+          "queries": "5.000",
+          "storage": "5 GB",
+          "ragModes": "Tất cả 5",
+          "knowledgeGraph": "true",
+          "apiAccess": "true",
+          "teamMembers": "3",
+          "support": "Ưu tiên",
+          "customBranding": "true",
+          "webhooks": "true",
+          "sla": "99.9%",
+          "chatbotWidgets": "5",
+          "chatbotBranding": "Logo tùy chỉnh",
+          "chatbotDomains": "5",
+          "chatbotAnalytics": "Đầy đủ"
+        },
+        "business": {
+          "documents": "1.000",
+          "queries": "20.000",
+          "storage": "20 GB",
+          "ragModes": "Tất cả 5",
+          "knowledgeGraph": "true",
+          "apiAccess": "true",
+          "teamMembers": "10",
+          "support": "Chuyên dụng",
+          "customBranding": "true",
+          "webhooks": "true",
+          "sla": "99.99%",
+          "chatbotWidgets": "100",
+          "chatbotBranding": "White-label",
+          "chatbotDomains": "100",
+          "chatbotAnalytics": "Đầy đủ + Xuất dữ liệu"
+        }
+      }
+    },
+    "enterprise": {
+      "title": "Enterprise",
+      "description": "Cần thêm? Nhận báo giá tùy chỉnh, hạ tầng chuyên dụng, triển khai tại chỗ và các tính năng doanh nghiệp.",
+      "features": {
+        "unlimited": "Không giới hạn tất cả",
+        "infrastructure": "Hạ tầng chuyên dụng",
+        "onPremise": "Triển khai tại chỗ",
+        "customSla": "SLA tùy chỉnh",
+        "support247": "Hỗ trợ 24/7"
+      }
+    },
+    "faq": {
+      "title": "Câu hỏi thường gặp",
+      "items": [
+        {
+          "question": "Tôi có thể thay đổi gói sau không?",
+          "answer": "Có, bạn có thể nâng cấp hoặc hạ cấp gói của mình bất cứ lúc nào. Thay đổi có hiệu lực ngay lập tức và chúng tôi sẽ tính toán lại các khoản phí theo tỷ lệ."
+        },
+        {
+          "question": "Bạn chấp nhận những phương thức thanh toán nào?",
+          "answer": "Chúng tôi chấp nhận tất cả các loại thẻ tín dụng chính (Visa, MasterCard, American Express) và PayPal. Khách hàng doanh nghiệp cũng có thể thanh toán qua hóa đơn."
+        },
+        {
+          "question": "Có gói miễn phí để dùng thử không?",
+          "answer": "Có! Chúng tôi cung cấp gói Miễn phí cho phép bạn dùng thử AIDORag mà không cần cam kết. Bạn được 5 tài liệu và 100 truy vấn mỗi tháng - hoàn hảo để kiểm tra xem AIDORag có phù hợp với nhu cầu của bạn không trước khi nâng cấp lên gói trả phí."
+        },
+        {
+          "question": "Điều gì xảy ra khi tôi vượt quá giới hạn?",
+          "answer": "Bạn sẽ nhận được thông báo khi bạn sắp đạt đến giới hạn. Bạn có thể nâng cấp bất cứ lúc nào hoặc đợi chu kỳ thanh toán tiếp theo để đặt lại hạn ngạch của bạn."
+        },
+        {
+          "question": "Làm thế nào để bắt đầu?",
+          "answer": "Chỉ cần đăng ký gói Miễn phí để bắt đầu khám phá AIDORag ngay lập tức. Bạn có thể tải lên tài liệu, thử nghiệm truy vấn và trải nghiệm sức mạnh của công nghệ RAG. Khi bạn sẵn sàng, hãy nâng cấp lên gói trả phí để có thêm tính năng."
+        }
+      ]
+    },
+    "modal": {
+      "title": "Chọn phương thức thanh toán",
+      "description": "Chọn cách bạn muốn thanh toán cho",
+      "secureNote": "Xử lý thanh toán an toàn. Thông tin thanh toán của bạn không bao giờ được lưu trữ trên máy chủ của chúng tôi."
+    }
+  }
+}

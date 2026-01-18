@@ -30,6 +30,7 @@ import {
 } from '@/components/ui/select';
 import { Badge } from '@/components/ui/badge';
 import { Slider } from '@/components/ui/slider';
+import { useTranslation } from '@/i18n';
 
 interface GraphNode {
   id: string;
@@ -75,6 +76,7 @@ const entityTypeColors: Record<string, { fill: string; stroke: string }> = {
 const defaultColor = { fill: '#6b7280', stroke: '#4b5563' };
 
 export default function AdminKnowledgeGraphPage() {
+  const { t } = useTranslation();
   const [graphData, setGraphData] = useState<GraphData | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [typeFilter, setTypeFilter] = useState<string>('all');
@@ -377,14 +379,14 @@ export default function AdminKnowledgeGraphPage() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold">Knowledge Graph</h1>
+          <h1 className="text-3xl font-bold">{String(t('admin.knowledgeGraphPage.title'))}</h1>
           <p className="text-muted-foreground">
-            Visualize entities and their relationships
+            {String(t('admin.knowledgeGraphPage.subtitle'))}
           </p>
         </div>
         <Button onClick={fetchGraph} variant="outline" size="sm">
           <RefreshCw className="h-4 w-4 mr-2" />
-          Refresh
+          {String(t('admin.knowledgeGraphPage.refresh'))}
         </Button>
       </div>
 
@@ -394,10 +396,10 @@ export default function AdminKnowledgeGraphPage() {
             <Select value={typeFilter} onValueChange={setTypeFilter}>
               <SelectTrigger className="w-[200px]">
                 <Filter className="h-4 w-4 mr-2" />
-                <SelectValue placeholder="Filter by type" />
+                <SelectValue placeholder={String(t('admin.knowledgeGraphPage.filterByType'))} />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="all">All Entity Types</SelectItem>
+                <SelectItem value="all">{String(t('admin.knowledgeGraphPage.allEntityTypes'))}</SelectItem>
                 {graphData?.available_entity_types.map((type) => (
                   <SelectItem key={type} value={type}>
                     {type}
@@ -407,7 +409,7 @@ export default function AdminKnowledgeGraphPage() {
             </Select>
 
             <div className="flex items-center gap-2">
-              <span className="text-sm text-muted-foreground">Nodes:</span>
+              <span className="text-sm text-muted-foreground">{String(t('admin.knowledgeGraphPage.nodes'))}:</span>
               <Slider
                 value={[nodeLimit]}
                 onValueChange={([v]) => setNodeLimit(v)}
@@ -438,11 +440,11 @@ export default function AdminKnowledgeGraphPage() {
         <Card>
           <CardHeader className="pb-2">
             <CardTitle className="flex items-center justify-between">
-              <span>Graph View</span>
+              <span>{String(t('admin.knowledgeGraphPage.graphView'))}</span>
               {graphData && (
                 <div className="flex gap-2 text-sm font-normal">
-                  <Badge variant="outline">{graphData.meta.node_count} nodes</Badge>
-                  <Badge variant="outline">{graphData.meta.edge_count} edges</Badge>
+                  <Badge variant="outline">{graphData.meta.node_count} {String(t('admin.knowledgeGraphPage.nodes')).toLowerCase()}</Badge>
+                  <Badge variant="outline">{graphData.meta.edge_count} {String(t('admin.knowledgeGraphPage.edges'))}</Badge>
                 </div>
               )}
             </CardTitle>
@@ -455,8 +457,8 @@ export default function AdminKnowledgeGraphPage() {
             ) : !graphData || graphData.nodes.length === 0 ? (
               <div className="flex flex-col items-center justify-center h-[600px] text-muted-foreground bg-muted/20 rounded-lg">
                 <Network className="h-16 w-16 mb-4 opacity-50" />
-                <p className="text-lg font-medium">No graph data available</p>
-                <p className="text-sm">Upload documents to build the knowledge graph</p>
+                <p className="text-lg font-medium">{String(t('admin.knowledgeGraphPage.noData'))}</p>
+                <p className="text-sm">{String(t('admin.knowledgeGraphPage.uploadDocuments'))}</p>
               </div>
             ) : (
               <div
@@ -650,7 +652,7 @@ export default function AdminKnowledgeGraphPage() {
           {/* Legend */}
           <Card>
             <CardHeader className="pb-3">
-              <CardTitle className="text-lg">Legend</CardTitle>
+              <CardTitle className="text-lg">{String(t('admin.knowledgeGraphPage.legend'))}</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="grid grid-cols-2 gap-2">
@@ -673,16 +675,16 @@ export default function AdminKnowledgeGraphPage() {
               <CardHeader className="pb-3">
                 <CardTitle className="text-lg flex items-center gap-2">
                   <Info className="h-4 w-4" />
-                  Node Details
+                  {String(t('admin.knowledgeGraphPage.nodeDetails'))}
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div>
-                  <p className="text-xs text-muted-foreground uppercase tracking-wider">Name</p>
+                  <p className="text-xs text-muted-foreground uppercase tracking-wider">{String(t('admin.knowledgeGraphPage.name'))}</p>
                   <p className="font-medium mt-1">{selectedNode.name}</p>
                 </div>
                 <div>
-                  <p className="text-xs text-muted-foreground uppercase tracking-wider">Type</p>
+                  <p className="text-xs text-muted-foreground uppercase tracking-wider">{String(t('admin.knowledgeGraphPage.type'))}</p>
                   <Badge
                     className="mt-1"
                     style={{
@@ -695,12 +697,12 @@ export default function AdminKnowledgeGraphPage() {
                 </div>
                 {selectedNode.description && (
                   <div>
-                    <p className="text-xs text-muted-foreground uppercase tracking-wider">Description</p>
+                    <p className="text-xs text-muted-foreground uppercase tracking-wider">{String(t('admin.knowledgeGraphPage.description'))}</p>
                     <p className="text-sm mt-1 text-muted-foreground">{selectedNode.description}</p>
                   </div>
                 )}
                 <div>
-                  <p className="text-xs text-muted-foreground uppercase tracking-wider">Connections</p>
+                  <p className="text-xs text-muted-foreground uppercase tracking-wider">{String(t('admin.knowledgeGraphPage.connections'))}</p>
                   <div className="mt-2 space-y-1 max-h-[150px] overflow-y-auto">
                     {getNodeConnections(selectedNode.id).map((edge) => {
                       const otherNodeId = edge.source === selectedNode.id ? edge.target : edge.source;
@@ -730,7 +732,7 @@ export default function AdminKnowledgeGraphPage() {
                       );
                     })}
                     {getNodeConnections(selectedNode.id).length === 0 && (
-                      <p className="text-sm text-muted-foreground">No connections</p>
+                      <p className="text-sm text-muted-foreground">{String(t('admin.knowledgeGraphPage.noConnections'))}</p>
                     )}
                   </div>
                 </div>
@@ -741,24 +743,24 @@ export default function AdminKnowledgeGraphPage() {
           {/* Tips */}
           <Card>
             <CardHeader className="pb-3">
-              <CardTitle className="text-lg">Controls</CardTitle>
+              <CardTitle className="text-lg">{String(t('admin.knowledgeGraphPage.controls'))}</CardTitle>
             </CardHeader>
             <CardContent className="text-sm text-muted-foreground space-y-2">
               <div className="flex items-center gap-2">
                 <Move className="h-4 w-4" />
-                <span>Drag background to pan</span>
+                <span>{String(t('admin.knowledgeGraphPage.dragBackground'))}</span>
               </div>
               <div className="flex items-center gap-2">
                 <MousePointer className="h-4 w-4" />
-                <span>Drag nodes to reposition</span>
+                <span>{String(t('admin.knowledgeGraphPage.dragNodes'))}</span>
               </div>
               <div className="flex items-center gap-2">
                 <ZoomIn className="h-4 w-4" />
-                <span>Use controls to zoom</span>
+                <span>{String(t('admin.knowledgeGraphPage.useControls'))}</span>
               </div>
               <div className="flex items-center gap-2">
                 <Info className="h-4 w-4" />
-                <span>Click nodes for details</span>
+                <span>{String(t('admin.knowledgeGraphPage.clickNodes'))}</span>
               </div>
             </CardContent>
           </Card>

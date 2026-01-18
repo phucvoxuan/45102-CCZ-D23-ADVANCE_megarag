@@ -5,6 +5,7 @@ import { MessageSquare, Trash2, Clock, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { cn } from '@/lib/utils';
+import { useTranslation } from '@/i18n';
 
 interface ChatSession {
   id: string;
@@ -28,6 +29,7 @@ export function ChatHistory({
   onClearAll,
   refreshTrigger,
 }: ChatHistoryProps) {
+  const { t } = useTranslation();
   const [sessions, setSessions] = useState<ChatSession[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isClearing, setIsClearing] = useState(false);
@@ -68,7 +70,7 @@ export function ChatHistory({
   };
 
   const handleClearAll = async () => {
-    if (!confirm('Are you sure you want to delete ALL chat history? This cannot be undone.')) {
+    if (!confirm(String(t('chat.clearAllConfirm')))) {
       return;
     }
 
@@ -98,7 +100,7 @@ export function ChatHistory({
     if (diffDays === 0) {
       return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
     } else if (diffDays === 1) {
-      return 'Yesterday';
+      return String(t('chat.yesterday'));
     } else if (diffDays < 7) {
       return date.toLocaleDateString([], { weekday: 'short' });
     } else {
@@ -109,7 +111,7 @@ export function ChatHistory({
   if (isLoading) {
     return (
       <div className="p-4 text-center text-sm text-muted-foreground">
-        Loading chats...
+        {String(t('chat.loadingChats'))}
       </div>
     );
   }
@@ -118,9 +120,9 @@ export function ChatHistory({
     return (
       <div className="p-4 text-center">
         <MessageSquare className="h-8 w-8 mx-auto text-muted-foreground mb-2" />
-        <p className="text-sm text-muted-foreground">No chat history yet</p>
+        <p className="text-sm text-muted-foreground">{String(t('chat.noChatHistory'))}</p>
         <p className="text-xs text-muted-foreground mt-1">
-          Start a conversation to see it here
+          {String(t('chat.startConversation'))}
         </p>
       </div>
     );
@@ -134,19 +136,19 @@ export function ChatHistory({
             <Button
               variant="outline"
               size="sm"
-              className="w-full text-destructive hover:text-destructive hover:bg-destructive/10"
+              className="w-full justify-center text-destructive hover:text-destructive hover:bg-destructive/10"
               onClick={handleClearAll}
               disabled={isClearing}
             >
               {isClearing ? (
                 <>
                   <Loader2 className="h-3 w-3 mr-2 animate-spin" />
-                  Clearing...
+                  {String(t('chat.clearing'))}
                 </>
               ) : (
                 <>
                   <Trash2 className="h-3 w-3 mr-2" />
-                  Clear All History
+                  {String(t('chat.clearAllHistory'))}
                 </>
               )}
             </Button>

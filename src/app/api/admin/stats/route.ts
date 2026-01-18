@@ -59,6 +59,8 @@ export async function GET(_request: NextRequest) {
       recentDocsResult,
       entityTypesResult,
       apiRequestsResult,
+      // Chatbot widget stats
+      widgetStatsResult,
     ] = await Promise.all([
       // Documents with status and file_size
       supabaseAdmin
@@ -129,6 +131,43 @@ export async function GET(_request: NextRequest) {
           return 0;
         }
       })(),
+
+      // Chatbot widget stats (conversations, messages, FAQs with embeddings)
+      (async () => {
+        try {
+          // Get all widgets for this user
+          const { data: widgets } = await supabaseAdmin
+            .from('chatbot_widgets')
+            .select('id, total_messages, total_conversations')
+            .eq('user_id', userId);
+
+          if (!widgets || widgets.length === 0) {
+            return { conversations: 0, messages: 0, faqsWithEmbeddings: 0 };
+          }
+
+          const widgetIds = widgets.map(w => w.id);
+
+          // Total conversations and messages from widgets
+          const totalConversations = widgets.reduce((sum, w) => sum + (w.total_conversations || 0), 0);
+          const totalMessages = widgets.reduce((sum, w) => sum + (w.total_messages || 0), 0);
+
+          // Count FAQs with embeddings (these are like "chunks" for vector search)
+          const { count: faqsWithEmbeddings } = await supabaseAdmin
+            .from('widget_faqs')
+            .select('*', { count: 'exact', head: true })
+            .in('widget_id', widgetIds)
+            .not('question_embedding', 'is', null);
+
+          return {
+            conversations: totalConversations,
+            messages: totalMessages,
+            faqsWithEmbeddings: faqsWithEmbeddings || 0,
+          };
+        } catch (err) {
+          console.error('[Stats API] Error fetching widget stats:', err);
+          return { conversations: 0, messages: 0, faqsWithEmbeddings: 0 };
+        }
+      })(),
     ]);
 
     // Check if tables exist
@@ -167,7 +206,7 @@ export async function GET(_request: NextRequest) {
     // ========================================
     // PHASE 2: Get dependent data in parallel
     // ========================================
-    const [tokenUsage, messageCount] = await Promise.all([
+    const [tokenUsage, messageCount, usageRecord] = await Promise.all([
       // Token usage
       usageService.getTokenUsage(userId).catch(() => ({ input: 0, output: 0, total: 0 })),
 
@@ -180,7 +219,24 @@ export async function GET(_request: NextRequest) {
           .in('session_id', sessionIds);
         return count || 0;
       })(),
+
+      // Get usage record for billing queries count
+      usageService.getOrCreateUsageRecord(userId).catch(() => ({
+        documentsCount: 0,
+        pagesCount: 0,
+        queriesCount: 0,
+        storageBytes: 0,
+        periodStart: new Date(),
+        periodEnd: new Date(),
+      })),
     ]);
+
+    // Include widget stats in totals
+    const totalChunks = (chunksResult.count || 0) + widgetStatsResult.faqsWithEmbeddings;
+    const totalChatSessions = sessionsCount + widgetStatsResult.conversations;
+    const totalChatMessages = messageCount + widgetStatsResult.messages;
+    // Billing queries count from usage_records (this is what counts against plan limits)
+    const billingQueriesCount = usageRecord.queriesCount;
 
     const elapsed = Date.now() - startTime;
     console.log(`[Stats API] Completed in ${elapsed}ms for user ${userId}`);
@@ -189,17 +245,20 @@ export async function GET(_request: NextRequest) {
       success: true,
       data: {
         documents: docStats,
-        chunks: chunksResult.count || 0,
+        chunks: totalChunks,
         entities: entitiesResult.count || 0,
         relations: relationsResult.count || 0,
-        chat_sessions: sessionsCount,
+        chat_sessions: totalChatSessions,
         api_keys: apiKeysResult.count || 0,
         usage: {
           total_api_requests: apiRequestsResult,
-          total_chat_queries: messageCount,
+          total_chat_messages: totalChatMessages,
+          // Billing queries - this is what counts against plan limits
+          // 1 query = 1 user question (from dashboard chat OR widget chatbot)
+          billing_queries: billingQueriesCount,
           total_llm_input_tokens: tokenUsage.input,
           total_llm_output_tokens: tokenUsage.output,
-          total_embedding_requests: chunksResult.count || 0,
+          total_embedding_requests: totalChunks,
           total_storage_bytes: totalStorageBytes,
         },
         recent_documents: recentDocsResult.data || [],
@@ -207,6 +266,12 @@ export async function GET(_request: NextRequest) {
           .map(([type, count]) => ({ type, count }))
           .sort((a, b) => b.count - a.count)
           .slice(0, 10),
+        // Widget-specific breakdown (optional, for transparency)
+        widget_stats: {
+          conversations: widgetStatsResult.conversations,
+          messages: widgetStatsResult.messages,
+          faq_embeddings: widgetStatsResult.faqsWithEmbeddings,
+        },
       },
     });
   } catch (error) {

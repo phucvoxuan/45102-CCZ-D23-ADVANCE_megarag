@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AIDORag Widget Test</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .container {
+      background: white;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      text-align: center;
+      max-width: 600px;
+    }
+    h1 {
+      color: #1f2937;
+      margin-bottom: 16px;
+    }
+    p {
+      color: #6b7280;
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+    .instructions {
+      background: #f3f4f6;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: left;
+      margin-bottom: 24px;
+    }
+    .instructions h3 {
+      color: #374151;
+      margin-bottom: 12px;
+    }
+    .instructions ol {
+      padding-left: 20px;
+      color: #4b5563;
+    }
+    .instructions li {
+      margin-bottom: 8px;
+    }
+    code {
+      background: #1f2937;
+      color: #10b981;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 13px;
+    }
+    .code-block {
+      background: #1f2937;
+      color: #e5e7eb;
+      padding: 16px;
+      border-radius: 8px;
+      text-align: left;
+      font-family: monospace;
+      font-size: 12px;
+      overflow-x: auto;
+      margin-top: 16px;
+    }
+    .note {
+      background: #fef3c7;
+      border: 1px solid #f59e0b;
+      padding: 12px;
+      border-radius: 8px;
+      color: #92400e;
+      font-size: 14px;
+      margin-top: 16px;
+    }
+    .btn {
+      display: inline-block;
+      background: #3b82f6;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 500;
+      margin-top: 16px;
+    }
+    .btn:hover {
+      background: #2563eb;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>AIDORag Widget Test Page</h1>
+    <p>
+      This is a test page for the AIDORag embeddable chat widget.
+      Look at the bottom-right corner for the chat button.
+    </p>
+
+    <div class="instructions">
+      <h3>How to Test:</h3>
+      <ol>
+        <li>Create a widget in the <a href="/admin/widgets">Admin Panel</a></li>
+        <li>Copy the widget key (e.g., <code>wgt_abc123...</code>)</li>
+        <li>Replace <code>YOUR_WIDGET_KEY</code> below with your key</li>
+        <li>Click the chat button to start a conversation</li>
+      </ol>
+    </div>
+
+    <div class="code-block">
+&lt;script
+  src="http://localhost:3000/widget/aidorag-widget.js"
+  data-widget-key="YOUR_WIDGET_KEY"&gt;
+&lt;/script&gt;
+    </div>
+
+    <div class="note">
+      <strong>Note:</strong> Replace the widget key in this file or pass it via URL parameter:
+      <br>
+      <code>test.html?key=wgt_xxx</code>
+    </div>
+
+    <a href="/admin/widgets" class="btn">Go to Widget Admin</a>
+  </div>
+
+  <script>
+    // Get widget key from URL or use placeholder
+    const urlParams = new URLSearchParams(window.location.search);
+    const widgetKey = urlParams.get('key') || 'YOUR_WIDGET_KEY';
+
+    if (widgetKey && widgetKey !== 'YOUR_WIDGET_KEY') {
+      // Load widget dynamically
+      const script = document.createElement('script');
+      script.src = '/widget/aidorag-widget.js';
+      script.setAttribute('data-widget-key', widgetKey);
+      document.body.appendChild(script);
+    } else {
+      console.log('[Test Page] No widget key provided. Add ?key=wgt_xxx to the URL.');
+    }
+  </script>
+</body>
+</html>

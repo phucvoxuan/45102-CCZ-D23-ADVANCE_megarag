@@ -11,6 +11,7 @@ import {
   Users,
   GitBranch,
   MessageSquare,
+  MessageCircleQuestion,
   Key,
   ArrowRight,
   CheckCircle,
@@ -27,6 +28,7 @@ import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { useAuth } from '@/contexts/AuthContext';
+import { useTranslation } from '@/i18n';
 
 interface Stats {
   documents: {
@@ -43,6 +45,8 @@ interface Stats {
   api_keys: number;
   usage: {
     total_api_requests: number;
+    total_chat_messages: number;
+    billing_queries: number; // Queries that count against plan limits
     total_llm_input_tokens: number;
     total_llm_output_tokens: number;
     total_embedding_requests: number;
@@ -59,6 +63,11 @@ interface Stats {
     type: string;
     count: number;
   }>;
+  widget_stats?: {
+    conversations: number;
+    messages: number;
+    faq_embeddings: number;
+  };
 }
 
 const entityTypeColors: Record<string, string> = {
@@ -74,6 +83,7 @@ const entityTypeColors: Record<string, string> = {
 
 export default function AdminDashboardPage() {
   const { subscription } = useAuth();
+  const { t } = useTranslation();
   const [stats, setStats] = useState<Stats | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -112,7 +122,7 @@ export default function AdminDashboardPage() {
     } catch (err) {
       if (err instanceof Error) {
         if (err.name === 'AbortError') {
-          setError('Request timed out. Please check your database connection.');
+          setError(String(t('admin.requestTimedOut')));
         } else {
           setError(err.message);
         }
@@ -160,7 +170,7 @@ export default function AdminDashboardPage() {
     return (
       <div className="flex items-center justify-center h-64">
         <Loader2 className="h-8 w-8 animate-spin text-muted-foreground" />
-        <span className="ml-2 text-muted-foreground">Loading statistics...</span>
+        <span className="ml-2 text-muted-foreground">{String(t('admin.loadingDashboard'))}</span>
       </div>
     );
   }
@@ -169,15 +179,15 @@ export default function AdminDashboardPage() {
     return (
       <div className="space-y-8">
         <div>
-          <h1 className="text-3xl font-bold">Dashboard</h1>
+          <h1 className="text-3xl font-bold">{String(t('admin.dashboard'))}</h1>
           <p className="text-muted-foreground">
-            Overview of your knowledge base and API usage
+            {String(t('admin.overview'))}
           </p>
         </div>
 
         <Alert variant="destructive">
           <AlertTriangle className="h-4 w-4" />
-          <AlertTitle>Error Loading Dashboard</AlertTitle>
+          <AlertTitle>{String(t('admin.errorLoadingDashboard'))}</AlertTitle>
           <AlertDescription className="mt-2">
             <p>{error}</p>
             <Button
@@ -187,21 +197,21 @@ export default function AdminDashboardPage() {
               className="mt-4"
             >
               <RefreshCw className="h-4 w-4 mr-2" />
-              Try Again
+              {String(t('common.retry'))}
             </Button>
           </AlertDescription>
         </Alert>
 
         <Card>
           <CardHeader>
-            <CardTitle>Database Setup Required</CardTitle>
+            <CardTitle>{String(t('admin.setupRequired'))}</CardTitle>
             <CardDescription>
-              If this is a new installation, you need to run the database migrations.
+              {String(t('admin.databaseSetupDescription'))}
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
             <p className="text-sm text-muted-foreground">
-              Run the following SQL files in your Supabase SQL Editor (in order):
+              {String(t('admin.runSqlFiles'))}
             </p>
             <ol className="list-decimal list-inside space-y-2 text-sm">
               <li><code className="bg-muted px-1 rounded">supabase/core_schema.sql</code></li>
@@ -222,9 +232,9 @@ export default function AdminDashboardPage() {
   return (
     <div className="space-y-8">
       <div>
-        <h1 className="text-3xl font-bold">Dashboard</h1>
+        <h1 className="text-3xl font-bold">{String(t('admin.dashboard'))}</h1>
         <p className="text-muted-foreground">
-          Overview of your knowledge base and API usage
+          {String(t('admin.overview'))}
         </p>
       </div>
 
@@ -232,7 +242,7 @@ export default function AdminDashboardPage() {
       {warning && (
         <Alert>
           <AlertTriangle className="h-4 w-4" />
-          <AlertTitle>Setup Required</AlertTitle>
+          <AlertTitle>{String(t('admin.setupRequired'))}</AlertTitle>
           <AlertDescription>
             {warning}
           </AlertDescription>
@@ -243,7 +253,7 @@ export default function AdminDashboardPage() {
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Documents</CardTitle>
+            <CardTitle className="text-sm font-medium">{String(t('admin.documents'))}</CardTitle>
             <FileText className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
@@ -253,33 +263,33 @@ export default function AdminDashboardPage() {
               <span className="text-xs text-muted-foreground">{docCompletionRate}%</span>
             </div>
             <p className="text-xs text-muted-foreground mt-1">
-              {stats?.documents.completed || 0} processed
+              {stats?.documents.completed || 0} {String(t('admin.processed'))}
             </p>
           </CardContent>
         </Card>
 
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Entities</CardTitle>
+            <CardTitle className="text-sm font-medium">{String(t('admin.entities'))}</CardTitle>
             <Users className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{formatNumber(stats?.entities || 0)}</div>
             <p className="text-xs text-muted-foreground">
-              Extracted from documents
+              {String(t('admin.extractedFromDocuments'))}
             </p>
           </CardContent>
         </Card>
 
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Relations</CardTitle>
+            <CardTitle className="text-sm font-medium">{String(t('admin.relations'))}</CardTitle>
             <GitBranch className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{formatNumber(stats?.relations || 0)}</div>
             <p className="text-xs text-muted-foreground">
-              Knowledge graph connections
+              {String(t('admin.knowledgeGraphConnections'))}
             </p>
           </CardContent>
         </Card>
@@ -287,27 +297,27 @@ export default function AdminDashboardPage() {
         {hasApiAccess ? (
           <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">API Requests</CardTitle>
+              <CardTitle className="text-sm font-medium">{String(t('admin.apiRequests'))}</CardTitle>
               <TrendingUp className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold">
                 {formatNumber(stats?.usage?.total_api_requests || 0)}
               </div>
-              <p className="text-xs text-muted-foreground">This month</p>
+              <p className="text-xs text-muted-foreground">{String(t('admin.thisMonth'))}</p>
             </CardContent>
           </Card>
         ) : (
           <Card className="opacity-75">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">API Requests</CardTitle>
+              <CardTitle className="text-sm font-medium">{String(t('admin.apiRequests'))}</CardTitle>
               <Lock className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold text-muted-foreground">--</div>
               <p className="text-xs text-muted-foreground">
                 <Link href="/pricing" className="text-primary hover:underline">
-                  Upgrade to Pro
+                  {String(t('admin.upgradeToPro'))}
                 </Link>
               </p>
             </CardContent>
@@ -316,21 +326,34 @@ export default function AdminDashboardPage() {
       </div>
 
       {/* Secondary Stats */}
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-5">
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Chunks</CardTitle>
+            <CardTitle className="text-sm font-medium">{String(t('admin.documentChunks'))}</CardTitle>
             <Database className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">{formatNumber(stats?.chunks || 0)}</div>
-            <p className="text-xs text-muted-foreground">Indexed text segments</p>
+            <div className="text-2xl font-bold">
+              {formatNumber((stats?.chunks || 0) - (stats?.widget_stats?.faq_embeddings || 0))}
+            </div>
+            <p className="text-xs text-muted-foreground">{String(t('admin.indexedTextSegments'))}</p>
           </CardContent>
         </Card>
 
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">LLM Tokens</CardTitle>
+            <CardTitle className="text-sm font-medium">{String(t('admin.faqEmbeddings'))}</CardTitle>
+            <MessageCircleQuestion className="h-4 w-4 text-muted-foreground" />
+          </CardHeader>
+          <CardContent>
+            <div className="text-2xl font-bold">{formatNumber(stats?.widget_stats?.faq_embeddings || 0)}</div>
+            <p className="text-xs text-muted-foreground">{String(t('admin.fromChatbotFaqs'))}</p>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium">{String(t('admin.llmTokens'))}</CardTitle>
             <Zap className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
@@ -340,31 +363,42 @@ export default function AdminDashboardPage() {
                   (stats?.usage?.total_llm_output_tokens || 0)
               )}
             </div>
-            <p className="text-xs text-muted-foreground">Input + Output</p>
+            <p className="text-xs text-muted-foreground">{String(t('admin.inputOutput'))}</p>
           </CardContent>
         </Card>
 
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Chat Sessions</CardTitle>
+            <CardTitle className="text-sm font-medium">{String(t('admin.chatSessions'))}</CardTitle>
             <MessageSquare className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{stats?.chat_sessions || 0}</div>
-            <p className="text-xs text-muted-foreground">Total conversations</p>
+            <p className="text-xs text-muted-foreground">{String(t('admin.totalConversations'))}</p>
           </CardContent>
         </Card>
 
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Storage</CardTitle>
+            <CardTitle className="text-sm font-medium">{String(t('billing.queries'))}</CardTitle>
+            <TrendingUp className="h-4 w-4 text-muted-foreground" />
+          </CardHeader>
+          <CardContent>
+            <div className="text-2xl font-bold">{formatNumber(stats?.usage?.billing_queries || 0)}</div>
+            <p className="text-xs text-muted-foreground">{String(t('admin.thisMonthBilling'))}</p>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium">{String(t('billing.storage'))}</CardTitle>
             <Database className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">
               {formatBytes(stats?.usage?.total_storage_bytes || 0)}
             </div>
-            <p className="text-xs text-muted-foreground">Total used</p>
+            <p className="text-xs text-muted-foreground">{String(t('admin.totalUsed'))}</p>
           </CardContent>
         </Card>
       </div>
@@ -374,12 +408,12 @@ export default function AdminDashboardPage() {
         <Card>
           <CardHeader className="flex flex-row items-center justify-between">
             <div>
-              <CardTitle>Recent Documents</CardTitle>
-              <CardDescription>Latest uploads to your knowledge base</CardDescription>
+              <CardTitle>{String(t('admin.recentDocuments'))}</CardTitle>
+              <CardDescription>{String(t('admin.latestUploads'))}</CardDescription>
             </div>
             <Button variant="ghost" size="sm" asChild>
               <Link href="/admin/documents">
-                View all <ArrowRight className="h-4 w-4 ml-1" />
+                {String(t('common.viewAll'))} <ArrowRight className="h-4 w-4 ml-1" />
               </Link>
             </Button>
           </CardHeader>
@@ -408,7 +442,7 @@ export default function AdminDashboardPage() {
             ) : (
               <div className="flex flex-col items-center justify-center h-32 text-muted-foreground">
                 <FileText className="h-8 w-8 mb-2" />
-                <p className="text-sm">No documents yet</p>
+                <p className="text-sm">{String(t('dashboard.noDocumentsYet'))}</p>
               </div>
             )}
           </CardContent>
@@ -418,12 +452,12 @@ export default function AdminDashboardPage() {
         <Card>
           <CardHeader className="flex flex-row items-center justify-between">
             <div>
-              <CardTitle>Entity Distribution</CardTitle>
-              <CardDescription>Types of entities in your knowledge graph</CardDescription>
+              <CardTitle>{String(t('admin.entityDistribution'))}</CardTitle>
+              <CardDescription>{String(t('admin.topEntityTypes'))}</CardDescription>
             </div>
             <Button variant="ghost" size="sm" asChild>
               <Link href="/admin/entities">
-                View all <ArrowRight className="h-4 w-4 ml-1" />
+                {String(t('common.viewAll'))} <ArrowRight className="h-4 w-4 ml-1" />
               </Link>
             </Button>
           </CardHeader>
@@ -457,7 +491,7 @@ export default function AdminDashboardPage() {
             ) : (
               <div className="flex flex-col items-center justify-center h-32 text-muted-foreground">
                 <Users className="h-8 w-8 mb-2" />
-                <p className="text-sm">No entities extracted yet</p>
+                <p className="text-sm">{String(t('admin.noEntitiesYet'))}</p>
               </div>
             )}
           </CardContent>
@@ -467,33 +501,33 @@ export default function AdminDashboardPage() {
       {/* Quick Actions */}
       <Card>
         <CardHeader>
-          <CardTitle>Quick Actions</CardTitle>
-          <CardDescription>Common tasks and navigation</CardDescription>
+          <CardTitle>{String(t('admin.quickActions'))}</CardTitle>
+          <CardDescription>{String(t('admin.uploadAndOrganize'))}</CardDescription>
         </CardHeader>
         <CardContent>
           <div className="grid gap-4 md:grid-cols-4">
             <Button variant="outline" className="h-auto py-4 flex-col gap-2" asChild>
               <Link href="/admin/documents">
                 <FileText className="h-5 w-5" />
-                <span>Manage Documents</span>
+                <span>{String(t('admin.manageDocuments'))}</span>
               </Link>
             </Button>
             <Button variant="outline" className="h-auto py-4 flex-col gap-2" asChild>
               <Link href="/admin/knowledge-graph">
                 <GitBranch className="h-5 w-5" />
-                <span>View Knowledge Graph</span>
+                <span>{String(t('admin.viewKnowledgeGraph'))}</span>
               </Link>
             </Button>
             <Button variant="outline" className="h-auto py-4 flex-col gap-2" asChild>
               <Link href="/admin/api-keys">
                 <Key className="h-5 w-5" />
-                <span>API Keys</span>
+                <span>{String(t('admin.manageApiKeys'))}</span>
               </Link>
             </Button>
             <Button variant="outline" className="h-auto py-4 flex-col gap-2" asChild>
               <Link href="/admin/api-docs">
                 <BarChart3 className="h-5 w-5" />
-                <span>API Documentation</span>
+                <span>{String(t('admin.apiDocumentation'))}</span>
               </Link>
             </Button>
           </div>

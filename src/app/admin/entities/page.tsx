@@ -53,6 +53,7 @@ import {
 } from '@/components/ui/alert-dialog';
 import { Badge } from '@/components/ui/badge';
 import { Checkbox } from '@/components/ui/checkbox';
+import { useTranslation } from '@/i18n';
 
 interface Entity {
   id: string;
@@ -93,6 +94,7 @@ const entityTypeColors: Record<string, string> = {
 };
 
 export default function AdminEntitiesPage() {
+  const { t } = useTranslation();
   const [entities, setEntities] = useState<Entity[]>([]);
   const [availableTypes, setAvailableTypes] = useState<string[]>([]);
   const [pagination, setPagination] = useState<Pagination | null>(null);
@@ -192,9 +194,9 @@ export default function AdminEntitiesPage() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold">Entities</h1>
+          <h1 className="text-3xl font-bold">{String(t('admin.entitiesPage.title'))}</h1>
           <p className="text-muted-foreground">
-            View and manage extracted entities from your documents
+            {String(t('admin.entitiesPage.subtitle'))}
           </p>
         </div>
         <div className="flex gap-2">
@@ -207,24 +209,23 @@ export default function AdminEntitiesPage() {
                   ) : (
                     <Trash2 className="h-4 w-4 mr-2" />
                   )}
-                  Delete ({selectedIds.size})
+                  {String(t('common.delete'))} ({selectedIds.size})
                 </Button>
               </AlertDialogTrigger>
               <AlertDialogContent>
                 <AlertDialogHeader>
-                  <AlertDialogTitle>Delete Entities</AlertDialogTitle>
+                  <AlertDialogTitle>{String(t('admin.entitiesPage.deleteEntities'))}</AlertDialogTitle>
                   <AlertDialogDescription>
-                    Are you sure you want to delete {selectedIds.size} entities? This action cannot
-                    be undone.
+                    {String(t('admin.entitiesPage.deleteConfirm'))} {selectedIds.size} {String(t('admin.entitiesPage.entitiesSelected'))}
                   </AlertDialogDescription>
                 </AlertDialogHeader>
                 <AlertDialogFooter>
-                  <AlertDialogCancel>Cancel</AlertDialogCancel>
+                  <AlertDialogCancel>{String(t('common.cancel'))}</AlertDialogCancel>
                   <AlertDialogAction
                     onClick={handleBulkDelete}
                     className="bg-destructive text-destructive-foreground"
                   >
-                    Delete
+                    {String(t('common.delete'))}
                   </AlertDialogAction>
                 </AlertDialogFooter>
               </AlertDialogContent>
@@ -232,7 +233,7 @@ export default function AdminEntitiesPage() {
           )}
           <Button onClick={fetchEntities} variant="outline" size="sm">
             <RefreshCw className="h-4 w-4 mr-2" />
-            Refresh
+            {String(t('admin.entitiesPage.refresh'))}
           </Button>
         </div>
       </div>
@@ -245,7 +246,7 @@ export default function AdminEntitiesPage() {
               <div className="relative">
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                 <Input
-                  placeholder="Search entities..."
+                  placeholder={String(t('admin.entitiesPage.searchPlaceholder'))}
                   value={search}
                   onChange={(e) => {
                     setSearch(e.target.value);
@@ -264,10 +265,10 @@ export default function AdminEntitiesPage() {
             >
               <SelectTrigger className="w-[200px]">
                 <Filter className="h-4 w-4 mr-2" />
-                <SelectValue placeholder="Filter by type" />
+                <SelectValue placeholder={String(t('admin.entitiesPage.filterByType'))} />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="all">All Types</SelectItem>
+                <SelectItem value="all">{String(t('admin.entitiesPage.allTypes'))}</SelectItem>
                 {availableTypes.map((type) => (
                   <SelectItem key={type} value={type}>
                     {type}
@@ -282,8 +283,8 @@ export default function AdminEntitiesPage() {
       {/* Entities Table */}
       <Card>
         <CardHeader>
-          <CardTitle>All Entities</CardTitle>
-          <CardDescription>{pagination?.total || 0} entities total</CardDescription>
+          <CardTitle>{String(t('admin.entitiesPage.allEntities'))}</CardTitle>
+          <CardDescription>{pagination?.total || 0} {String(t('admin.entitiesPage.entitiesTotal'))}</CardDescription>
         </CardHeader>
         <CardContent>
           {isLoading ? (
@@ -293,7 +294,7 @@ export default function AdminEntitiesPage() {
           ) : entities.length === 0 ? (
             <div className="flex flex-col items-center justify-center h-32 text-muted-foreground">
               <Users className="h-12 w-12 mb-2" />
-              <p>No entities found</p>
+              <p>{String(t('admin.entitiesPage.noEntities'))}</p>
             </div>
           ) : (
             <Table>
@@ -305,11 +306,11 @@ export default function AdminEntitiesPage() {
                       onCheckedChange={handleSelectAll}
                     />
                   </TableHead>
-                  <TableHead>Name</TableHead>
-                  <TableHead>Type</TableHead>
-                  <TableHead>Description</TableHead>
-                  <TableHead>Sources</TableHead>
-                  <TableHead>Created</TableHead>
+                  <TableHead>{String(t('admin.entitiesPage.name'))}</TableHead>
+                  <TableHead>{String(t('admin.entitiesPage.type'))}</TableHead>
+                  <TableHead>{String(t('admin.entitiesPage.description'))}</TableHead>
+                  <TableHead>{String(t('admin.entitiesPage.sources'))}</TableHead>
+                  <TableHead>{String(t('admin.entitiesPage.created'))}</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -327,7 +328,7 @@ export default function AdminEntitiesPage() {
                       {entity.description || '-'}
                     </TableCell>
                     <TableCell>
-                      <Badge variant="outline">{entity.source_chunk_ids?.length || 0} chunks</Badge>
+                      <Badge variant="outline">{entity.source_chunk_ids?.length || 0} {String(t('admin.entitiesPage.chunks'))}</Badge>
                     </TableCell>
                     <TableCell className="text-muted-foreground">
                       {new Date(entity.created_at).toLocaleDateString()}
@@ -342,7 +343,7 @@ export default function AdminEntitiesPage() {
           {pagination && pagination.total_pages > 1 && (
             <div className="flex items-center justify-between mt-4 pt-4 border-t">
               <p className="text-sm text-muted-foreground">
-                Page {pagination.page} of {pagination.total_pages}
+                {String(t('admin.entitiesPage.page'))} {pagination.page} {String(t('admin.entitiesPage.of'))} {pagination.total_pages}
               </p>
               <div className="flex gap-2">
                 <Button
@@ -351,7 +352,7 @@ export default function AdminEntitiesPage() {
                   onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
                   disabled={currentPage === 1}
                 >
-                  Previous
+                  {String(t('admin.entitiesPage.previous'))}
                 </Button>
                 <Button
                   variant="outline"
@@ -359,7 +360,7 @@ export default function AdminEntitiesPage() {
                   onClick={() => setCurrentPage((p) => Math.min(pagination.total_pages, p + 1))}
                   disabled={currentPage === pagination.total_pages}
                 >
-                  Next
+                  {String(t('admin.entitiesPage.next'))}
                 </Button>
               </div>
             </div>

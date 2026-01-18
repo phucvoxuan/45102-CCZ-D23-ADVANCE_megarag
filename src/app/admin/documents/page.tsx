@@ -48,6 +48,7 @@ import {
   AlertDialogTrigger,
 } from '@/components/ui/alert-dialog';
 import { Badge } from '@/components/ui/badge';
+import { useTranslation } from '@/i18n';
 
 interface Document {
   id: string;
@@ -67,6 +68,7 @@ interface Pagination {
 }
 
 export default function AdminDocumentsPage() {
+  const { t } = useTranslation();
   const [documents, setDocuments] = useState<Document[]>([]);
   const [pagination, setPagination] = useState<Pagination | null>(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -141,25 +143,25 @@ export default function AdminDocumentsPage() {
       case 'processed':
         return (
           <Badge variant="default" className="bg-green-500">
-            <CheckCircle className="h-3 w-3 mr-1" /> Completed
+            <CheckCircle className="h-3 w-3 mr-1" /> {String(t('admin.documentsPage.completed'))}
           </Badge>
         );
       case 'processing':
         return (
           <Badge variant="default" className="bg-blue-500">
-            <Loader2 className="h-3 w-3 mr-1 animate-spin" /> Processing
+            <Loader2 className="h-3 w-3 mr-1 animate-spin" /> {String(t('admin.documentsPage.processing'))}
           </Badge>
         );
       case 'pending':
         return (
           <Badge variant="secondary">
-            <Clock className="h-3 w-3 mr-1" /> Pending
+            <Clock className="h-3 w-3 mr-1" /> {String(t('admin.documentsPage.pending'))}
           </Badge>
         );
       case 'failed':
         return (
           <Badge variant="destructive">
-            <XCircle className="h-3 w-3 mr-1" /> Failed
+            <XCircle className="h-3 w-3 mr-1" /> {String(t('admin.documentsPage.failed'))}
           </Badge>
         );
       default:
@@ -182,14 +184,14 @@ export default function AdminDocumentsPage() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold">Documents</h1>
+          <h1 className="text-3xl font-bold">{String(t('admin.documentsPage.title'))}</h1>
           <p className="text-muted-foreground">
-            Manage uploaded documents and their processing status
+            {String(t('admin.documentsPage.subtitle'))}
           </p>
         </div>
         <Button onClick={fetchDocuments} variant="outline" size="sm">
           <RefreshCw className="h-4 w-4 mr-2" />
-          Refresh
+          {String(t('admin.documentsPage.refresh'))}
         </Button>
       </div>
 
@@ -201,7 +203,7 @@ export default function AdminDocumentsPage() {
               <div className="relative">
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                 <Input
-                  placeholder="Search documents..."
+                  placeholder={String(t('admin.documentsPage.searchPlaceholder'))}
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
                   className="pl-10"
@@ -211,14 +213,14 @@ export default function AdminDocumentsPage() {
             <Select value={statusFilter} onValueChange={setStatusFilter}>
               <SelectTrigger className="w-[180px]">
                 <Filter className="h-4 w-4 mr-2" />
-                <SelectValue placeholder="Filter by status" />
+                <SelectValue placeholder={String(t('admin.documentsPage.filterByStatus'))} />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="all">All Status</SelectItem>
-                <SelectItem value="completed">Completed</SelectItem>
-                <SelectItem value="processing">Processing</SelectItem>
-                <SelectItem value="pending">Pending</SelectItem>
-                <SelectItem value="failed">Failed</SelectItem>
+                <SelectItem value="all">{String(t('admin.documentsPage.allStatus'))}</SelectItem>
+                <SelectItem value="completed">{String(t('admin.documentsPage.completed'))}</SelectItem>
+                <SelectItem value="processing">{String(t('admin.documentsPage.processing'))}</SelectItem>
+                <SelectItem value="pending">{String(t('admin.documentsPage.pending'))}</SelectItem>
+                <SelectItem value="failed">{String(t('admin.documentsPage.failed'))}</SelectItem>
               </SelectContent>
             </Select>
           </div>
@@ -228,9 +230,9 @@ export default function AdminDocumentsPage() {
       {/* Documents Table */}
       <Card>
         <CardHeader>
-          <CardTitle>All Documents</CardTitle>
+          <CardTitle>{String(t('admin.documentsPage.allDocuments'))}</CardTitle>
           <CardDescription>
-            {documents.length} documents total
+            {documents.length} {String(t('admin.documentsPage.documentsTotal'))}
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -241,18 +243,18 @@ export default function AdminDocumentsPage() {
           ) : documents.length === 0 ? (
             <div className="flex flex-col items-center justify-center h-32 text-muted-foreground">
               <FileText className="h-12 w-12 mb-2" />
-              <p>No documents found</p>
+              <p>{String(t('admin.documentsPage.noDocuments'))}</p>
             </div>
           ) : (
             <Table>
               <TableHeader>
                 <TableRow>
-                  <TableHead>Document</TableHead>
-                  <TableHead>Type</TableHead>
-                  <TableHead>Size</TableHead>
-                  <TableHead>Status</TableHead>
-                  <TableHead>Created</TableHead>
-                  <TableHead className="text-right">Actions</TableHead>
+                  <TableHead>{String(t('admin.documentsPage.document'))}</TableHead>
+                  <TableHead>{String(t('admin.documentsPage.type'))}</TableHead>
+                  <TableHead>{String(t('admin.documentsPage.size'))}</TableHead>
+                  <TableHead>{String(t('admin.documentsPage.status'))}</TableHead>
+                  <TableHead>{String(t('admin.documentsPage.created'))}</TableHead>
+                  <TableHead className="text-right">{String(t('admin.documentsPage.actions'))}</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -294,19 +296,18 @@ export default function AdminDocumentsPage() {
                         </AlertDialogTrigger>
                         <AlertDialogContent>
                           <AlertDialogHeader>
-                            <AlertDialogTitle>Delete Document</AlertDialogTitle>
+                            <AlertDialogTitle>{String(t('admin.documentsPage.deleteDocument'))}</AlertDialogTitle>
                             <AlertDialogDescription>
-                              Are you sure you want to delete &quot;{doc.file_name}&quot;? This will also
-                              delete all associated chunks, entities, and relations.
+                              {String(t('admin.documentsPage.deleteConfirm'))} &quot;{doc.file_name}&quot;? {String(t('admin.documentsPage.deleteWarning'))}
                             </AlertDialogDescription>
                           </AlertDialogHeader>
                           <AlertDialogFooter>
-                            <AlertDialogCancel>Cancel</AlertDialogCancel>
+                            <AlertDialogCancel>{String(t('common.cancel'))}</AlertDialogCancel>
                             <AlertDialogAction
                               onClick={() => handleDelete(doc.id)}
                               className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
                             >
-                              Delete
+                              {String(t('common.delete'))}
                             </AlertDialogAction>
                           </AlertDialogFooter>
                         </AlertDialogContent>
@@ -322,7 +323,7 @@ export default function AdminDocumentsPage() {
           {pagination && pagination.total_pages > 1 && (
             <div className="flex items-center justify-between mt-4 pt-4 border-t">
               <p className="text-sm text-muted-foreground">
-                Page {pagination.page} of {pagination.total_pages}
+                {String(t('admin.documentsPage.page'))} {pagination.page} {String(t('admin.documentsPage.of'))} {pagination.total_pages}
               </p>
               <div className="flex gap-2">
                 <Button
@@ -331,7 +332,7 @@ export default function AdminDocumentsPage() {
                   onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
                   disabled={currentPage === 1}
                 >
-                  Previous
+                  {String(t('admin.documentsPage.previous'))}
                 </Button>
                 <Button
                   variant="outline"
@@ -339,7 +340,7 @@ export default function AdminDocumentsPage() {
                   onClick={() => setCurrentPage((p) => Math.min(pagination.total_pages, p + 1))}
                   disabled={currentPage === pagination.total_pages}
                 >
-                  Next
+                  {String(t('admin.documentsPage.next'))}
                 </Button>
               </div>
             </div>

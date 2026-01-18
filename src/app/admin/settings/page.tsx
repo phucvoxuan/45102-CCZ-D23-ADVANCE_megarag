@@ -4,11 +4,13 @@ import { useEffect, useState } from 'react';
 import { Loader2, Check, AlertTriangle, User, CreditCard, Shield } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { useAuth } from '@/contexts/AuthContext';
+import { useTranslation } from '@/i18n';
 
 export default function SettingsPage() {
   const { user, subscription, isLoading: authLoading } = useAuth();
   const [isLoading, setIsLoading] = useState(true);
   const [hasGeminiKey, setHasGeminiKey] = useState(false);
+  const { t } = useTranslation();
 
   useEffect(() => {
     // Wait for auth to load
@@ -46,7 +48,7 @@ export default function SettingsPage() {
   if (!user) {
     return (
       <div className="flex items-center justify-center h-64">
-        <p className="text-muted-foreground">Please sign in to view settings</p>
+        <p className="text-muted-foreground">{String(t('settings.pleaseSignIn'))}</p>
       </div>
     );
   }
@@ -54,9 +56,9 @@ export default function SettingsPage() {
   return (
     <div className="space-y-8">
       <div>
-        <h1 className="text-3xl font-bold">Settings</h1>
+        <h1 className="text-3xl font-bold">{String(t('settings.title'))}</h1>
         <p className="text-muted-foreground">
-          View your account settings and subscription details
+          {String(t('settings.subtitle'))}
         </p>
       </div>
 
@@ -65,10 +67,10 @@ export default function SettingsPage() {
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
             <User className="h-5 w-5" />
-            Account Details
+            {String(t('settings.accountDetails'))}
           </CardTitle>
           <CardDescription>
-            Your account information
+            {String(t('settings.accountInfo'))}
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
@@ -90,10 +92,10 @@ export default function SettingsPage() {
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
             <CreditCard className="h-5 w-5" />
-            Subscription
+            {String(t('settings.subscription'))}
           </CardTitle>
           <CardDescription>
-            Your current plan details
+            {String(t('settings.currentPlanDetails'))}
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
@@ -104,12 +106,12 @@ export default function SettingsPage() {
             </span>
             {subscription?.status === 'active' && (
               <span className="ml-auto text-sm text-green-600 dark:text-green-400">
-                Active
+                {String(t('settings.active'))}
               </span>
             )}
           </div>
           <p className="text-sm text-muted-foreground">
-            View detailed usage statistics on the Dashboard page.
+            {String(t('settings.viewDetailedUsage'))}
           </p>
         </CardContent>
       </Card>
@@ -117,26 +119,25 @@ export default function SettingsPage() {
       {/* Gemini API Status */}
       <Card>
         <CardHeader>
-          <CardTitle>API Configuration</CardTitle>
+          <CardTitle>{String(t('settings.apiConfiguration'))}</CardTitle>
           <CardDescription>
-            Status of API integrations
+            {String(t('settings.apiIntegrationStatus'))}
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
           {hasGeminiKey ? (
             <div className="flex items-center gap-2 p-3 bg-green-50 dark:bg-green-950/20 text-green-700 dark:text-green-400 rounded-lg">
               <Check className="h-5 w-5" />
-              <span>Gemini API key is configured (server-side)</span>
+              <span>{String(t('settings.geminiConfigured'))}</span>
             </div>
           ) : (
             <div className="flex items-center gap-2 p-3 bg-yellow-50 dark:bg-yellow-950/20 text-yellow-700 dark:text-yellow-400 rounded-lg">
               <AlertTriangle className="h-5 w-5" />
-              <span>Gemini API key status unknown. Contact admin if queries fail.</span>
+              <span>{String(t('settings.geminiStatusUnknown'))}</span>
             </div>
           )}
           <p className="text-sm text-muted-foreground">
-            The Gemini API key is configured server-side by the administrator.
-            If you experience issues with document processing or queries, please contact support.
+            {String(t('settings.geminiServerSide'))}
           </p>
         </CardContent>
       </Card>
@@ -144,9 +145,9 @@ export default function SettingsPage() {
       {/* API Documentation */}
       <Card>
         <CardHeader>
-          <CardTitle>API Documentation</CardTitle>
+          <CardTitle>{String(t('settings.apiDocumentation'))}</CardTitle>
           <CardDescription>
-            Quick reference for using the API
+            {String(t('settings.quickReference'))}
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
@@ -158,22 +159,22 @@ export default function SettingsPage() {
           </div>
 
           <div>
-            <h4 className="font-medium mb-2">Available Endpoints</h4>
+            <h4 className="font-medium mb-2">{String(t('settings.availableEndpoints'))}</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <code className="bg-muted px-1 rounded">POST /documents</code> - Upload a document
+                <code className="bg-muted px-1 rounded">POST /documents</code> - {String(t('settings.uploadDocument'))}
               </li>
               <li>
-                <code className="bg-muted px-1 rounded">GET /documents</code> - List documents
+                <code className="bg-muted px-1 rounded">GET /documents</code> - {String(t('settings.listDocuments'))}
               </li>
               <li>
-                <code className="bg-muted px-1 rounded">POST /query</code> - Execute a RAG query
+                <code className="bg-muted px-1 rounded">POST /query</code> - {String(t('settings.executeQuery'))}
               </li>
               <li>
-                <code className="bg-muted px-1 rounded">POST /chat</code> - Create a chat session
+                <code className="bg-muted px-1 rounded">POST /chat</code> - {String(t('settings.createChatSession'))}
               </li>
               <li>
-                <code className="bg-muted px-1 rounded">POST /chat/:id/messages</code> - Send a message
+                <code className="bg-muted px-1 rounded">POST /chat/:id/messages</code> - {String(t('settings.sendMessage'))}
               </li>
             </ul>
           </div>

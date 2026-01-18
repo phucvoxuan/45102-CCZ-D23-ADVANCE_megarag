@@ -148,7 +148,7 @@ export default function ApiKeysPage() {
             </div>
             <h2 className="text-xl font-semibold mb-2">API Access Required</h2>
             <p className="text-muted-foreground text-center max-w-md mb-6">
-              Upgrade to Pro or Business plan to access the MegaRAG API.
+              Upgrade to Pro or Business plan to access the AIDORag API.
               Integrate your knowledge base with chatbots, websites, n8n, Zapier, and more.
             </p>
             <div className="flex gap-4">

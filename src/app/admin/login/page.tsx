@@ -51,7 +51,7 @@ export default function AdminLoginPage() {
           </div>
           <CardTitle className="text-2xl">Admin Login</CardTitle>
           <CardDescription>
-            Sign in to manage your MegaRAG organization
+            Sign in to manage your AIDORag organization
           </CardDescription>
         </CardHeader>
         <form onSubmit={handleSubmit}>

@@ -1,0 +1,12 @@
+export { GeneralInfo } from './GeneralInfo';
+export { BotSettings } from './BotSettings';
+export { LaunchBot } from './LaunchBot';
+export { Analytics } from './Analytics';
+export { FAQsManager } from './FAQsManager';
+export { KnowledgeBase } from './KnowledgeBase';
+export { PromptSettings } from './PromptSettings';
+export { DomainSettings } from './DomainSettings';
+export { WebhookSettings } from './WebhookSettings';
+export { AppearanceSettings } from './AppearanceSettings';
+export { AllowedDomains } from './AllowedDomains';
+export { UnansweredQuestions } from './UnansweredQuestions';

@@ -502,3 +502,80 @@ export interface InvoiceInsert {
   period_end?: string;
   paid_at?: string;
 }
+
+// ============================================
+// Promo Code Types
+// ============================================
+
+export type DiscountType = 'percent' | 'amount';
+
+export interface PromoCode {
+  id: string;
+  code: string;
+  description: string | null;
+  discount_type: DiscountType;
+  discount_value: number;
+  payhip_coupon_id: string | null;
+  stripe_coupon_id: string | null;
+  stripe_promo_code_id: string | null;
+  max_redemptions: number | null;
+  times_redeemed: number;
+  valid_from: string;
+  valid_until: string | null;
+  applies_to_plans: string[] | null;
+  minimum_amount: number | null;
+  first_time_only: boolean;
+  campaign_name: string | null;
+  campaign_notes: string | null;
+  is_active: boolean;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface PromoCodeInsert {
+  id?: string;
+  code: string;
+  description?: string;
+  discount_type?: DiscountType;
+  discount_value: number;
+  payhip_coupon_id?: string;
+  stripe_coupon_id?: string;
+  stripe_promo_code_id?: string;
+  max_redemptions?: number;
+  valid_until?: string;
+  applies_to_plans?: string[];
+  minimum_amount?: number;
+  first_time_only?: boolean;
+  campaign_name?: string;
+  campaign_notes?: string;
+  is_active?: boolean;
+}
+
+export interface PromoCodeRedemption {
+  id: string;
+  promo_code_id: string;
+  user_id: string | null;
+  payhip_sale_id: string | null;
+  stripe_invoice_id: string | null;
+  stripe_checkout_session_id: string | null;
+  discount_amount: number;
+  original_amount: number;
+  final_amount: number;
+  currency: string;
+  plan_name: string | null;
+  redeemed_at: string;
+}
+
+export interface PromoCodeRedemptionInsert {
+  id?: string;
+  promo_code_id: string;
+  user_id?: string;
+  payhip_sale_id?: string;
+  stripe_invoice_id?: string;
+  stripe_checkout_session_id?: string;
+  discount_amount: number;
+  original_amount: number;
+  final_amount: number;
+  currency?: string;
+  plan_name?: string;
+}

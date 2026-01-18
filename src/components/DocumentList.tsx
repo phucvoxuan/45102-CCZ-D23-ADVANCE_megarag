@@ -16,6 +16,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from '@/components/ui/dialog';
+import { useTranslation } from '@/i18n';
 import type { Document } from '@/types';
 
 interface DocumentListProps {
@@ -53,16 +54,16 @@ function getStatusIcon(status: Document['status']) {
   }
 }
 
-function getStatusText(status: Document['status']) {
+function getStatusText(status: Document['status'], t: (key: string) => unknown) {
   switch (status) {
     case 'pending':
-      return 'Pending';
+      return String(t('dashboard.pending'));
     case 'processing':
-      return 'Processing...';
+      return String(t('dashboard.processing')) + '...';
     case 'processed':
-      return 'Ready';
+      return String(t('dashboard.ready'));
     case 'failed':
-      return 'Failed';
+      return String(t('dashboard.failed'));
     default:
       return status;
   }
@@ -91,6 +92,7 @@ function formatDate(dateString: string): string {
 type StatusFilter = 'all' | 'processed' | 'processing' | 'pending' | 'failed';
 
 export function DocumentList({ documents, onDelete, onDeleteMultiple, onRename, isLoading }: DocumentListProps) {
+  const { t } = useTranslation();
   const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
   const [documentToDelete, setDocumentToDelete] = useState<Document | null>(null);
 
@@ -254,7 +256,7 @@ export function DocumentList({ documents, onDelete, onDeleteMultiple, onRename, 
       idsToRestore.forEach(id => next.delete(id));
       return next;
     });
-    toast.success(`Restored ${idsToRestore.length === 1 ? 'document' : `${idsToRestore.length} documents`}`);
+    toast.success(`${String(t('dashboard.restored'))} ${idsToRestore.length} ${idsToRestore.length === 1 ? String(t('dashboard.document')) : String(t('dashboard.documents'))}`);
   };
 
   // Schedule deletion with undo option
@@ -271,11 +273,11 @@ export function DocumentList({ documents, onDelete, onDeleteMultiple, onRename, 
 
     // Show toast with undo button
     const toastId = toast(
-      `${idsToDelete.length === 1 ? 'Document' : `${idsToDelete.length} documents`} will be deleted`,
+      `${idsToDelete.length} ${idsToDelete.length === 1 ? String(t('dashboard.document')) : String(t('dashboard.documents'))} ${String(t('dashboard.willBeDeleted'))}`,
       {
         duration: UNDO_DELAY,
         action: {
-          label: 'Undo',
+          label: String(t('dashboard.undo')),
           onClick: () => undoDelete(idsToDelete),
         },
         icon: <Undo2 className="h-4 w-4" />,
@@ -320,9 +322,9 @@ export function DocumentList({ documents, onDelete, onDeleteMultiple, onRename, 
     return (
       <div className="text-center py-12">
         <File className="mx-auto h-12 w-12 text-muted-foreground mb-4" />
-        <h3 className="text-lg font-medium mb-1">No documents yet</h3>
+        <h3 className="text-lg font-medium mb-1">{String(t('dashboard.noDocuments'))}</h3>
         <p className="text-sm text-muted-foreground">
-          Upload your first document to get started
+          {String(t('dashboard.uploadFirstDocument'))}
         </p>
       </div>
     );
@@ -337,7 +339,7 @@ export function DocumentList({ documents, onDelete, onDeleteMultiple, onRename, 
           <div className="relative">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
             <Input
-              placeholder="Search documents..."
+              placeholder={String(t('dashboard.searchDocuments'))}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="pl-9 pr-9"
@@ -361,7 +363,7 @@ export function DocumentList({ documents, onDelete, onDeleteMultiple, onRename, 
               onClick={() => setStatusFilter('all')}
               className="h-7"
             >
-              All
+              {String(t('dashboard.all'))}
               <Badge variant="secondary" className="ml-1.5 h-5 px-1.5">
                 {statusCounts.all}
               </Badge>
@@ -373,7 +375,7 @@ export function DocumentList({ documents, onDelete, onDeleteMultiple, onRename, 
               className="h-7"
             >
               <CheckCircle className="h-3 w-3 mr-1 text-green-500" />
-              Ready
+              {String(t('dashboard.ready'))}
               <Badge variant="secondary" className="ml-1.5 h-5 px-1.5">
                 {statusCounts.processed}
               </Badge>
@@ -385,7 +387,7 @@ export function DocumentList({ documents, onDelete, onDeleteMultiple, onRename, 
               className="h-7"
             >
               <Loader2 className="h-3 w-3 mr-1 text-blue-500" />
-              Processing
+              {String(t('dashboard.processing'))}
               <Badge variant="secondary" className="ml-1.5 h-5 px-1.5">
                 {statusCounts.processing}
               </Badge>
@@ -398,7 +400,7 @@ export function DocumentList({ documents, onDelete, onDeleteMultiple, onRename, 
                 className="h-7"
               >
                 <AlertCircle className="h-3 w-3 mr-1 text-red-500" />
-                Failed
+                {String(t('dashboard.failed'))}
                 <Badge variant="secondary" className="ml-1.5 h-5 px-1.5">
                   {statusCounts.failed}
                 </Badge>
@@ -407,7 +409,7 @@ export function DocumentList({ documents, onDelete, onDeleteMultiple, onRename, 
             {(searchQuery || statusFilter !== 'all') && (
               <Button variant="ghost" size="sm" onClick={clearFilters} className="h-7">
                 <X className="h-3 w-3 mr-1" />
-                Clear
+                {String(t('dashboard.clearFilters'))}
               </Button>
             )}
           </div>
@@ -421,12 +423,12 @@ export function DocumentList({ documents, onDelete, onDeleteMultiple, onRename, 
             <Checkbox
               checked={selectedIds.size === filteredDocuments.length && filteredDocuments.length > 0}
               onCheckedChange={selectAll}
-              aria-label="Select all"
+              aria-label={String(t('dashboard.selectAll'))}
             />
             <span className="text-sm text-muted-foreground">
               {selectedIds.size > 0
-                ? `${selectedIds.size} selected`
-                : `Select all (${filteredDocuments.length})`}
+                ? `${selectedIds.size} ${String(t('dashboard.selected'))}`
+                : `${String(t('dashboard.selectAll'))} (${filteredDocuments.length})`}
             </span>
           </div>
           {selectedIds.size > 0 && (
@@ -436,7 +438,7 @@ export function DocumentList({ documents, onDelete, onDeleteMultiple, onRename, 
               onClick={() => setBulkDeleteDialogOpen(true)}
             >
               <Trash2 className="h-4 w-4 mr-2" />
-              Delete {selectedIds.size} {selectedIds.size === 1 ? 'file' : 'files'}
+              {String(t('common.delete'))} {selectedIds.size} {selectedIds.size === 1 ? String(t('dashboard.file')) : String(t('dashboard.files'))}
             </Button>
           )}
         </div>
@@ -446,12 +448,12 @@ export function DocumentList({ documents, onDelete, onDeleteMultiple, onRename, 
       {filteredDocuments.length === 0 && documents.length > 0 && pendingDeleteIds.size === 0 && (
         <div className="text-center py-8">
           <Search className="mx-auto h-12 w-12 text-muted-foreground mb-4" />
-          <h3 className="text-lg font-medium mb-1">No documents found</h3>
+          <h3 className="text-lg font-medium mb-1">{String(t('dashboard.noDocumentsFound'))}</h3>
           <p className="text-sm text-muted-foreground mb-4">
-            Try adjusting your search or filters
+            {String(t('dashboard.tryAdjusting'))}
           </p>
           <Button variant="outline" onClick={clearFilters}>
-            Clear filters
+            {String(t('dashboard.clearFilters'))}
           </Button>
         </div>
       )}
@@ -487,7 +489,7 @@ export function DocumentList({ documents, onDelete, onDeleteMultiple, onRename, 
                     <span>{formatFileSize(doc.file_size)}</span>
                     <span>{formatDate(doc.created_at)}</span>
                     {doc.chunks_count > 0 && (
-                      <span>{doc.chunks_count} chunks</span>
+                      <span>{doc.chunks_count} {String(t('dashboard.chunks'))}</span>
                     )}
                   </div>
 
@@ -501,7 +503,7 @@ export function DocumentList({ documents, onDelete, onDeleteMultiple, onRename, 
                 <div className="flex items-center gap-2 flex-shrink-0">
                   <div className="flex items-center gap-1.5 mr-2">
                     {getStatusIcon(doc.status)}
-                    <span className="text-sm">{getStatusText(doc.status)}</span>
+                    <span className="text-sm">{getStatusText(doc.status, t)}</span>
                   </div>
 
                   <Button
@@ -509,7 +511,7 @@ export function DocumentList({ documents, onDelete, onDeleteMultiple, onRename, 
                     size="icon"
                     className="h-8 w-8 text-muted-foreground hover:text-foreground"
                     onClick={() => handleRenameClick(doc)}
-                    title="Rename"
+                    title={String(t('common.rename'))}
                   >
                     <Pencil className="h-4 w-4" />
                   </Button>
@@ -519,7 +521,7 @@ export function DocumentList({ documents, onDelete, onDeleteMultiple, onRename, 
                     size="icon"
                     className="h-8 w-8 text-muted-foreground hover:text-destructive"
                     onClick={() => handleDeleteClick(doc)}
-                    title="Delete"
+                    title={String(t('common.delete'))}
                   >
                     <Trash2 className="h-4 w-4" />
                   </Button>
@@ -534,15 +536,15 @@ export function DocumentList({ documents, onDelete, onDeleteMultiple, onRename, 
       <Dialog open={renameDialogOpen} onOpenChange={setRenameDialogOpen}>
         <DialogContent>
           <DialogHeader>
-            <DialogTitle>Rename Document</DialogTitle>
+            <DialogTitle>{String(t('dashboard.renameDocument'))}</DialogTitle>
             <DialogDescription>
-              Enter a new name for this document.
+              {String(t('dashboard.renameDescription'))}
             </DialogDescription>
           </DialogHeader>
           <Input
             value={newFileName}
             onChange={(e) => setNewFileName(e.target.value)}
-            placeholder="Document name"
+            placeholder={String(t('dashboard.documentName'))}
             onKeyDown={(e) => e.key === 'Enter' && handleConfirmRename()}
             autoFocus
           />
@@ -552,7 +554,7 @@ export function DocumentList({ documents, onDelete, onDeleteMultiple, onRename, 
               onClick={() => setRenameDialogOpen(false)}
               disabled={isRenaming}
             >
-              Cancel
+              {String(t('common.cancel'))}
             </Button>
             <Button
               onClick={handleConfirmRename}
@@ -561,10 +563,10 @@ export function DocumentList({ documents, onDelete, onDeleteMultiple, onRename, 
               {isRenaming ? (
                 <>
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                  Saving...
+                  {String(t('dashboard.saving'))}
                 </>
               ) : (
-                'Save'
+                String(t('common.save'))
               )}
             </Button>
           </DialogFooter>
@@ -575,17 +577,17 @@ export function DocumentList({ documents, onDelete, onDeleteMultiple, onRename, 
       <Dialog open={deleteDialogOpen} onOpenChange={setDeleteDialogOpen}>
         <DialogContent>
           <DialogHeader>
-            <DialogTitle>Delete Document</DialogTitle>
+            <DialogTitle>{String(t('dashboard.deleteDocument'))}</DialogTitle>
             <DialogDescription>
-              Are you sure you want to delete &quot;{documentToDelete?.file_name}&quot;? You&apos;ll have 5 seconds to undo this action.
+              {String(t('dashboard.deleteDocumentConfirm'))} &quot;{documentToDelete?.file_name}&quot;? {String(t('dashboard.undoMessage'))}
             </DialogDescription>
           </DialogHeader>
           <DialogFooter>
             <Button variant="outline" onClick={() => setDeleteDialogOpen(false)}>
-              Cancel
+              {String(t('common.cancel'))}
             </Button>
             <Button variant="destructive" onClick={handleConfirmDelete}>
-              Delete
+              {String(t('common.delete'))}
             </Button>
           </DialogFooter>
         </DialogContent>
@@ -595,17 +597,17 @@ export function DocumentList({ documents, onDelete, onDeleteMultiple, onRename, 
       <Dialog open={bulkDeleteDialogOpen} onOpenChange={setBulkDeleteDialogOpen}>
         <DialogContent>
           <DialogHeader>
-            <DialogTitle>Delete {selectedIds.size} Documents</DialogTitle>
+            <DialogTitle>{String(t('dashboard.deleteDocuments'))} ({selectedIds.size})</DialogTitle>
             <DialogDescription>
-              Are you sure you want to delete {selectedIds.size} {selectedIds.size === 1 ? 'document' : 'documents'}? You&apos;ll have 5 seconds to undo this action.
+              {String(t('dashboard.deleteDocumentsConfirm'))} {selectedIds.size} {selectedIds.size === 1 ? String(t('dashboard.document')) : String(t('dashboard.documents'))}? {String(t('dashboard.undoMessage'))}
             </DialogDescription>
           </DialogHeader>
           <DialogFooter>
             <Button variant="outline" onClick={() => setBulkDeleteDialogOpen(false)}>
-              Cancel
+              {String(t('common.cancel'))}
             </Button>
             <Button variant="destructive" onClick={handleBulkDelete}>
-              Delete {selectedIds.size} {selectedIds.size === 1 ? 'file' : 'files'}
+              {String(t('common.delete'))} {selectedIds.size} {selectedIds.size === 1 ? String(t('dashboard.file')) : String(t('dashboard.files'))}
             </Button>
           </DialogFooter>
         </DialogContent>

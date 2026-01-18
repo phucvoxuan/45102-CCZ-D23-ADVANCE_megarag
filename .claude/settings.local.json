@@ -1,0 +1,40 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dir:*)",
+      "Bash(findstr:*)",
+      "Bash(netstat:*)",
+      "Bash(npm run build:*)",
+      "Bash(npm install:*)",
+      "Bash(node scripts/test-supabase.js:*)",
+      "Bash(curl:*)",
+      "Bash(mkdir:*)",
+      "Bash(npx tsc:*)",
+      "Bash(cat:*)",
+      "Bash(tasklist:*)",
+      "Bash(taskkill:*)",
+      "Bash(node scripts/fix-user-id-columns.js:*)",
+      "Bash(node scripts/check-entities-db.js:*)",
+      "Bash(node scripts/fix-entity-user-ids.js:*)",
+      "Bash(powershell -Command \"Remove-Item -Path ''.next'' -Recurse -Force -ErrorAction SilentlyContinue; Test-Path ''.next''\")",
+      "Bash(powershell -Command:*)",
+      "Bash(node scripts/check-entities-schema.js:*)",
+      "Bash(node -e:*)",
+      "Bash(git checkout:*)",
+      "Bash(for prefix in admin announcement billing chat common cta dashboard explorer faq features footer hero howItWorks nav pages pricing profile settings testimonials upload)",
+      "Bash(do echo \"=== $prefix ===\")",
+      "Bash(done)",
+      "Bash(git ls-tree:*)",
+      "Bash(copy:*)",
+      "Bash(cmd /c copy:*)",
+      "Bash(cmd /c \"copy \"\"c:\\\\Users\\\\louis\\\\Documents\\\\projects\\\\45102-CCZ-D23-ADVANCE_megarag\\\\docs\\\\logo AIDO.png\"\" \"\"c:\\\\Users\\\\louis\\\\Documents\\\\projects\\\\45102-CCZ-D23-ADVANCE_megarag\\\\public\\\\logo.png\"\"\")",
+      "Bash(ls:*)",
+      "Bash(npx supabase:*)",
+      "Bash(echo:*)",
+      "Bash(\"c:/Users/louis/Documents/projects/45102-CCZ-D23-ADVANCE_megarag/src/app/api/careers/[slug]/route.ts\")",
+      "Bash(npm run db:migrate:*)",
+      "Bash(find:*)",
+      "Bash(git add:*)"
+    ]
+  }
+}

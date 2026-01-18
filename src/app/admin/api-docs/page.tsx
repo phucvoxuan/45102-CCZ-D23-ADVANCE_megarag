@@ -254,7 +254,7 @@ export default function AdminApiDocsPage() {
           API Documentation
         </h1>
         <p className="text-muted-foreground mt-1">
-          Complete reference for integrating MegaRAG into your applications
+          Complete reference for integrating AIDORag into your applications
         </p>
       </div>
 
@@ -262,7 +262,7 @@ export default function AdminApiDocsPage() {
       <Card>
         <CardHeader>
           <CardTitle>Quick Start</CardTitle>
-          <CardDescription>Get started with the MegaRAG API in minutes</CardDescription>
+          <CardDescription>Get started with the AIDORag API in minutes</CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="grid gap-4 md:grid-cols-3">
