@@ -1,5 +1,6 @@
 import type { NextConfig } from "next";
 
+// Build timestamp: 2026-01-19T12:00:00Z - Force clean Vercel build
 const nextConfig: NextConfig = {
   // Enable large file uploads (max 1GB for BUSINESS plan)
   experimental: {
