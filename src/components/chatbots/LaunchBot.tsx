@@ -43,10 +43,10 @@ export function LaunchBot({ chatbot, onUpdate }: LaunchBotProps) {
   const [hasChanges, setHasChanges] = useState(false);
   const [copiedCode, setCopiedCode] = useState<string | null>(null);
 
-  const baseUrl = typeof window !== 'undefined' ? window.location.origin : '';
+  const baseUrl = typeof window !== 'undefined' ? window.location.origin : 'https://www.aidorag.com';
 
-  // Generate embed code
-  const embedScript = `<script src="${baseUrl}/widget.js" data-widget-key="${chatbot.widget_key}"></script>`;
+  // Generate embed code - use /widget/aidorag-widget.js path
+  const embedScript = `<script src="${baseUrl}/widget/aidorag-widget.js" data-widget-key="${chatbot.widget_key}"></script>`;
 
   const embedIframe = `<iframe
   src="${baseUrl}/widget/embed/${chatbot.widget_key}"

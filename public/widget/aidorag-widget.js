@@ -1,7 +1,7 @@
 /**
  * AIDORag Embeddable Chat Widget
  * Version: 1.0.0
- * Usage: <script src="https://aidorag.com/widget/aidorag-widget.js" data-widget-key="wgt_xxx"></script>
+ * Usage: <script src="https://www.aidorag.com/widget/aidorag-widget.js" data-widget-key="wgt_xxx"></script>
  */
 (function() {
   'use strict';
@@ -11,7 +11,7 @@
   const API_BASE = window.AIDORAG_API_URL || (
     window.location.hostname === 'localhost'
       ? 'http://localhost:3000'
-      : 'https://aidorag.com'
+      : 'https://www.aidorag.com'
   );
 
   // Get widget key
@@ -369,7 +369,7 @@
 
         ${config.showPoweredBy !== false ? `
           <div class="aidorag-powered">
-            Powered by <a href="https://aidorag.com" target="_blank" rel="noopener">AIDORag</a>
+            Powered by <a href="https://www.aidorag.com" target="_blank" rel="noopener">AIDORag</a>
           </div>
         ` : ''}
       </div>

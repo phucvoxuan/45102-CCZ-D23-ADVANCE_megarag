@@ -298,7 +298,7 @@ export default function WidgetsPage() {
   };
 
   const getEmbedCode = (widget: Widget) => {
-    const baseUrl = typeof window !== 'undefined' ? window.location.origin : 'https://aidorag.com';
+    const baseUrl = typeof window !== 'undefined' ? window.location.origin : 'https://www.aidorag.com';
     return `<script src="${baseUrl}/widget/aidorag-widget.js" data-widget-key="${widget.widget_key}"></script>`;
   };
 
